@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>有弹性效果的SVG元素 - 进击的程序媛，Laker&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="BxWqqPVkmU3CTQmmIjCp27ZjmcXuB_YTf8Xa7lp_G-w" />
+  <meta name="description" content="今天分享一下带有弹性元素的灵感。这个想法是整合SVG元素成为带有弹性动画的组件。使用SVG能使菜单、按钮和其他元素变得更有趣，让交互也更加自然友好。但是不能过度使用弹性效果，只要有微小的变化即可。  演示 | 代码下载">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有弹性效果的SVG元素">
+<meta property="og:url" content="http://laker.me/blog/2015/02/06/15_0206_svg/index.html">
+<meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
+<meta property="og:description" content="今天分享一下带有弹性元素的灵感。这个想法是整合SVG元素成为带有弹性动画的组件。使用SVG能使菜单、按钮和其他元素变得更有趣，让交互也更加自然友好。但是不能过度使用弹性效果，只要有微小的变化即可。  演示 | 代码下载">
+<meta property="og:updated_time" content="2017-04-26T15:15:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="有弹性效果的SVG元素">
+<meta name="twitter:description" content="今天分享一下带有弹性元素的灵感。这个想法是整合SVG元素成为带有弹性动画的组件。使用SVG能使菜单、按钮和其他元素变得更有趣，让交互也更加自然友好。但是不能过度使用弹性效果，只要有微小的变化即可。  演示 | 代码下载">
+  
+    <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
+  
+  
+    <!--link rel="icon" href="/favicon.png"-->
+    <link href="/blog/favicon.ico" rel="icon" type="image/x-ico">
+  
+  <!-- <link href="/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css"> -->
+  <link href="/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c84935c1bc2fcf0a3f6a741737cccf7d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <!-- <a id="logo" class="logo" href="/blog/"></a> -->
+      <a id="logo" class="logo" href="http://laker.me"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/projects">Projects</a>
+        
+          <a class="main-nav-link" href="/blog/about">About</a>
+        
+          <a class="main-nav-link" href="/blog/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/blog/blogrolls">Blogrolls</a>
+        
+          <a class="main-nav-link" href="/blog/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://laker.me/blog"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-15_0206_svg" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      有弹性效果的SVG元素
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/blog/2015/02/06/15_0206_svg/" class="article-date">
+  <time datetime="2015-02-06T00:24:00.000Z" itemprop="datePublished">2015-02-06</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/翻译/">翻译</a><span>></span><a class="article-category-link" href="/blog/categories/翻译/SVG/">SVG</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天分享一下带有弹性元素的灵感。这个想法是整合SVG元素成为带有弹性动画的组件。使用SVG能使菜单、按钮和其他元素变得更有趣，让交互也更加自然友好。但是不能过度使用弹性效果，只要有微小的变化即可。</p>
+<blockquote>
+<p><a href="http://tympanus.net/Development/ElasticSVGElements/" target="_blank" rel="external">演示</a> | <a href="http://tympanus.net/Development/ElasticSVGElements/ElasticSVGElements.zip" target="_blank" rel="external">代码下载</a></p>
+</blockquote>
+<a id="more"></a>
+<p>为了实现 SVG 动画，我们可以使用 <a href="http://snapsvg.io/" target="_blank" rel="external">Snap.svg</a>，这是一个很棒的 JavaScript SVG 库，适合主流现代浏览器。</p>
+<p>在一些演示中使用的图标是由大卫·甘迪设计的 <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank" rel="external">Font Awesome</a>。</p>
+<p><a href="http://tympanus.net/Development/ElasticSVGElements/drag.html" target="_blank" rel="external">draggable &amp; droppable element</a>的演示用到 David DeSandro 的 <a href="http://draggabilly.desandro.com/" target="_blank" rel="external">Dragabilly</a>。</p>
+<blockquote>
+<p>请注意，这些演示只在新版本的现代浏览器中正常运行。</p>
+</blockquote>
+<p>下面的代码将演示如何使用 SVG 的组件做工具条的动画：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">id</span>=<span class="string">"menu"</span> <span class="attr">class</span>=<span class="string">"menu"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"menu__handle"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>Menu<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"menu__inner"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-fw fa-home"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>Home<span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-fw fa-heart"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>Favs<span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-fw fa-folder"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>Files<span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-fw fa-tachometer"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>Stats<span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"morph-shape"</span> <span class="attr">data-morph-open</span>=<span class="string">"M300-10c0,0,295,164,295,410c0,232-295,410-295,410"</span> <span class="attr">data-morph-close</span>=<span class="string">"M300-10C300-10,5,154,5,400c0,232,295,410,295,410"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 600 800"</span> <span class="attr">preserveAspectRatio</span>=<span class="string">"none"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">path</span> <span class="attr">fill</span>=<span class="string">"none"</span> <span class="attr">d</span>=<span class="string">"M300-10c0,0,0,164,0,410c0,232,0,410,0,410"</span>/&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>SVG插入到菜单到后面，我们用两个 data 属性来存储路径，动画将会使用这个默认的路径。</p>
+<p>SVG 在菜单里为绝对位置，并且保证两侧有足够的空间以免弹性动画时元素被截断。SVG设置高宽为100%，而不是按比例，就可以做成自适应的。这对保持特定的形状很重要。包裹SVG的<code>.morph-shape</code>要设置固定的宽度：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.morph-shape</span> &#123;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">width</span>: <span class="number">240px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">	<span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">right</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.morph-shape</span> <span class="selector-tag">svg</span> <span class="selector-tag">path</span> &#123;</div><div class="line">	<span class="attribute">stroke</span>: <span class="number">#5f656f</span>;</div><div class="line">	<span class="attribute">stroke-width</span>: <span class="number">5px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过 Snap.svg，我们可以很容易的做到变形动画：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">(function() &#123;</div><div class="line"></div><div class="line">	function SVGMenu( el, options ) &#123;</div><div class="line">		<span class="keyword">this</span>.el = el;</div><div class="line">		<span class="keyword">this</span>.init();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	SVGMenu.prototype.init = function() &#123;</div><div class="line">		<span class="keyword">this</span>.trigger = <span class="keyword">this</span>.el.querySelector( <span class="string">'button.menu__handle'</span> );</div><div class="line">		<span class="keyword">this</span>.shapeEl = <span class="keyword">this</span>.el.querySelector( <span class="string">'div.morph-shape'</span> );</div><div class="line"></div><div class="line">		<span class="keyword">var</span> s = Snap( <span class="keyword">this</span>.shapeEl.querySelector( <span class="string">'svg'</span> ) );</div><div class="line">		<span class="keyword">this</span>.pathEl = s.select( <span class="string">'path'</span> );</div><div class="line">		<span class="keyword">this</span>.paths = &#123;</div><div class="line">			reset : <span class="keyword">this</span>.pathEl.attr( <span class="string">'d'</span> ),</div><div class="line">			<span class="keyword">open</span> : <span class="keyword">this</span>.shapeEl.getAttribute( <span class="string">'data-morph-open'</span> ),</div><div class="line">			close : <span class="keyword">this</span>.shapeEl.getAttribute( <span class="string">'data-morph-close'</span> )</div><div class="line">		&#125;;</div><div class="line"></div><div class="line">		<span class="keyword">this</span>.isOpen = <span class="literal">false</span>;</div><div class="line"></div><div class="line">		<span class="keyword">this</span>.initEvents();</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	SVGMenu.prototype.initEvents = function() &#123;</div><div class="line">		<span class="keyword">this</span>.trigger.addEventListener( <span class="string">'click'</span>, <span class="keyword">this</span>.toggle.bind(<span class="keyword">this</span>) );</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	SVGMenu.prototype.toggle = function() &#123;</div><div class="line">		<span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">		<span class="keyword">if</span>( <span class="keyword">this</span>.isOpen ) &#123;</div><div class="line">			classie.remove( self.el, <span class="string">'menu--anim'</span> );</div><div class="line">			setTimeout( function() &#123; classie.remove( self.el, <span class="string">'menu--open'</span> );	&#125;, <span class="number">250</span> );</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span> &#123;</div><div class="line">			classie.add( self.el, <span class="string">'menu--anim'</span> );</div><div class="line">			setTimeout( function() &#123; classie.add( self.el, <span class="string">'menu--open'</span> );	&#125;, <span class="number">250</span> );</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">this</span>.pathEl.stop().animate( &#123; <span class="string">'path'</span> : <span class="keyword">this</span>.isOpen ? <span class="keyword">this</span>.paths.close : <span class="keyword">this</span>.paths.<span class="keyword">open</span> &#125;, <span class="number">350</span>, mina.easeout, function() &#123;</div><div class="line">			self.pathEl.stop().animate( &#123; <span class="string">'path'</span> : self.paths.reset &#125;, <span class="number">800</span>, mina.elastic );</div><div class="line">		&#125; );</div><div class="line">		</div><div class="line">		<span class="keyword">this</span>.isOpen = !<span class="keyword">this</span>.isOpen;</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	new SVGMenu( document.getElementById( <span class="string">'menu'</span> ) );</div><div class="line"></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>通过正确的函数和合适的时间设置，一个略有弹性、有组织的运动效果做好了。但是选项多种多样，并依赖于特定上下文的整体感觉，所以可能性是无穷无尽的:)</p>
+<p>希望你喜欢这些小的特效，并做出更多有意思的效果！</p>
+<blockquote>
+<p><a href="http://tympanus.net/Development/ElasticSVGElements/" target="_blank" rel="external">演示</a> | <a href="http://tympanus.net/Development/ElasticSVGElements/ElasticSVGElements.zip" target="_blank" rel="external">代码下载</a></p>
+<p>英文原文：<a href="http://tympanus.net/codrops/2014/12/15/elastic-svg-elements/" target="_blank" rel="external">Elastic SVG Elements</a></p>
+<p>本文是我为 <a href="http://segmentfault.com/blog/news/1190000002541075" target="_blank" rel="external">SegmentFault</a> 所译</p>
+</blockquote>
+
+        <hr>
+        <div class="copyrightss">
+          <a href="http://laker.me/blog/2015/02/06/15_0206_svg/">有弹性效果的SVG元素</a>
+          <!--%- partial('post/title', {class_name: 'archive-article-title'}) %-->
+          <p>本文原创自<a href="http://laker.me/blog">Laker's Blog</a>，转载请注明出处，欢迎交换友链</p>
+          <p>如果本文对您有帮助，微信扫一扫，请我喝杯咖啡吧</p>
+          <p><img src="http://77g54f.com1.z0.glb.clouddn.com/weixinpay.jpg"></p>
+        </div>
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+    </footer>
+  
+  <p class="hint-text hidden">阅读量<span id="busuanzi_value_page_pv"></span>次</p>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/02/10/15_0210_cto/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          一个公司的 CTO 究竟要做什么？
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/02/05/15_0205_html5_speech/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTML5 Web Speech API，让网站更有趣&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+<section id="comment">
+  <h1 class="title">comment</h1>
+  <div id="disqus_thread">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1672779"></script>
+    <!-- UY END -->
+  </div>
+</section>
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <!--div id="footer-info" class="inner">
+      &copy; 2017 Laker Huang&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div-->
+    <div id="footer-info" class="inner">
+      &copy; 2014 - 2017 Laker Huang&nbsp; <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    </div>
+    <p class="hint-text">自2015/11/04，本站共被抚摸 <span id="busuanzi_value_site_pv"></span> 次</p>
+    <p class="hint-text">您是第 <span id="busuanzi_value_site_uv"></span> 位小伙伴</p>
+  </div>
+</footer>
+    
+
+<!--script src="/blog/js/jquery.min.js"></script-->
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+<!-- <script src="https://cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script> -->
+
+
+
+<script src="/blog/js/script.js"></script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:50px;cursor: pointer;">
+	<a title="返回顶部"><img src="/blog/img/scrollup.png"/></a>
+</div>
+<script src="/blog/js/totop.js"></script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+
+  <!-- Fork me on github -->
+  <!-- <a href="https://github.com/younglaker" target="_blank" title="Fork me on GitHub"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
+
+  <!-- Fork me on Github, Github Logo -->
+  <a href="https://github.com/younglaker" class="github-corner" target="_blank" title="Fork me on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#333;color:#fff;position:absolute;top:0;border:0;right:0"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+</body>
+</html>

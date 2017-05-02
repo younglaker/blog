@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>巧用CSS3 text-shadow ，做出PS效果的文字 - 进击的程序媛，Laker&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="BxWqqPVkmU3CTQmmIjCp27ZjmcXuB_YTf8Xa7lp_G-w" />
+  <meta name="description" content="CSS3 Shadows浏览器支持情况text-shadow 和 box-shadow 这两个属性在主流现代浏览器上得到了很好的支持( &amp;gt; Chrome 4.0, &amp;gt; Firefox 3.5, &amp;gt; Safari 4.0, &amp;gt; Opera 9.6, &amp;gt; IE10)。 text-shadow 和 box-shadow 的不同之处：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="巧用CSS3 text-shadow ，做出PS效果的文字">
+<meta property="og:url" content="http://laker.me/blog/2015/01/12/15_0112_css3_text_shadow/index.html">
+<meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
+<meta property="og:description" content="CSS3 Shadows浏览器支持情况text-shadow 和 box-shadow 这两个属性在主流现代浏览器上得到了很好的支持( &amp;gt; Chrome 4.0, &amp;gt; Firefox 3.5, &amp;gt; Safari 4.0, &amp;gt; Opera 9.6, &amp;gt; IE10)。 text-shadow 和 box-shadow 的不同之处：">
+<meta property="og:image" content="http://segmentfault.com/img/bVkzqv">
+<meta property="og:image" content="http://segmentfault.com/img/bVkzqI">
+<meta property="og:image" content="http://segmentfault.com/img/bVkzqT">
+<meta property="og:image" content="http://segmentfault.com/img/bVkzqU">
+<meta property="og:image" content="http://segmentfault.com/img/bVkzrc">
+<meta property="og:image" content="http://segmentfault.com/img/bVkzrk">
+<meta property="og:image" content="http://segmentfault.com/img/bVkztL">
+<meta property="og:image" content="http://segmentfault.com/img/bVkzt8">
+<meta property="og:image" content="http://segmentfault.com/img/bVkzue">
+<meta property="og:image" content="http://segmentfault.com/img/bVkzuj">
+<meta property="og:image" content="http://segmentfault.com/img/bVkzur">
+<meta property="og:image" content="http://segmentfault.com/img/bVkzuw">
+<meta property="og:image" content="http://segmentfault.com/img/bVkzuy">
+<meta property="og:image" content="http://segmentfault.com/img/bVkzuG">
+<meta property="og:updated_time" content="2017-04-26T15:15:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="巧用CSS3 text-shadow ，做出PS效果的文字">
+<meta name="twitter:description" content="CSS3 Shadows浏览器支持情况text-shadow 和 box-shadow 这两个属性在主流现代浏览器上得到了很好的支持( &amp;gt; Chrome 4.0, &amp;gt; Firefox 3.5, &amp;gt; Safari 4.0, &amp;gt; Opera 9.6, &amp;gt; IE10)。 text-shadow 和 box-shadow 的不同之处：">
+<meta name="twitter:image" content="http://segmentfault.com/img/bVkzqv">
+  
+    <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
+  
+  
+    <!--link rel="icon" href="/favicon.png"-->
+    <link href="/blog/favicon.ico" rel="icon" type="image/x-ico">
+  
+  <!-- <link href="/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css"> -->
+  <link href="/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c84935c1bc2fcf0a3f6a741737cccf7d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <!-- <a id="logo" class="logo" href="/blog/"></a> -->
+      <a id="logo" class="logo" href="http://laker.me"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/projects">Projects</a>
+        
+          <a class="main-nav-link" href="/blog/about">About</a>
+        
+          <a class="main-nav-link" href="/blog/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/blog/blogrolls">Blogrolls</a>
+        
+          <a class="main-nav-link" href="/blog/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://laker.me/blog"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-15_0112_css3_text_shadow" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      巧用CSS3 text-shadow ，做出PS效果的文字
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/blog/2015/01/12/15_0112_css3_text_shadow/" class="article-date">
+  <time datetime="2015-01-12T00:24:00.000Z" itemprop="datePublished">2015-01-12</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/翻译/">翻译</a><span>></span><a class="article-category-link" href="/blog/categories/翻译/CSS3/">CSS3</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="CSS3-Shadows浏览器支持情况"><a href="#CSS3-Shadows浏览器支持情况" class="headerlink" title="CSS3 Shadows浏览器支持情况"></a>CSS3 Shadows浏览器支持情况</h2><p>text-shadow 和 box-shadow 这两个属性在主流现代浏览器上得到了很好的支持( &gt; Chrome 4.0, &gt; Firefox 3.5, &gt; Safari 4.0, &gt; Opera 9.6, &gt; IE10)。</p>
+<h2 id="text-shadow-和-box-shadow-的不同之处："><a href="#text-shadow-和-box-shadow-的不同之处：" class="headerlink" title="text-shadow 和 box-shadow 的不同之处："></a>text-shadow 和 box-shadow 的不同之处：</h2><p><img src="http://segmentfault.com/img/bVkzqv" alt="clipboard.png"></p>
+<a id="more"></a>
+<p>box-shadow语法：</p>
+<pre><code>box-shadow: none|h-shadow v-shadow blur spread color |inset|initial|inherit;
+</code></pre><p>text-shadow语法：</p>
+<pre><code>text-shadow: h-shadow v-shadow blur color|none|initial|inherit;
+</code></pre><p>这里只有几个不同点：</p>
+<ul>
+<li>不能为文本创建一个内阴影</li>
+<li>有文字阴影没有扩散距离</li>
+</ul>
+<p>但是可以创建多个阴影（显示在彼此的顶部）。</p>
+<h2 id="text-shadow学习"><a href="#text-shadow学习" class="headerlink" title="text-shadow学习"></a>text-shadow学习</h2><h3 id="color-和-offsets"><a href="#color-和-offsets" class="headerlink" title="color 和 offsets"></a>color 和 offsets</h3><p>在下面的例子中，我们定义了水平和垂直偏移和自定义颜色</p>
+<p><img src="http://segmentfault.com/img/bVkzqI" alt="clipboard.png"></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">text-shadow</span>:<span class="number">10px</span> <span class="number">10px</span>;</div><div class="line"></div><div class="line"><span class="attribute">text-shadow</span>:-<span class="number">5px</span> -<span class="number">5px</span>; <span class="attribute">color</span>:blue;</div><div class="line"></div><div class="line"><span class="attribute">text-shadow</span>:-<span class="number">1px</span> -<span class="number">1px</span> white; <span class="attribute">color</span>:blue; <span class="attribute">background</span>:<span class="number">#888</span>;</div><div class="line"></div><div class="line"><span class="attribute">text-shadow</span>:<span class="number">1px</span> <span class="number">1px</span> rgba(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>, <span class="number">0.5</span>); <span class="attribute">color</span>:blue; <span class="attribute">background</span>:<span class="number">#eee</span>;</div></pre></td></tr></table></figure>
+<p>注意，正值使阴影往右/下移动，负值往左/上移动</p>
+<p>阴影的颜色是可选的，如果颜色没填，就使用从父级继承的颜色。然而，在不同的浏览器下可能会有所不同，所以我建议定义颜色项（RGB或RGBA和HSLA等）。</p>
+<h3 id="blur"><a href="#blur" class="headerlink" title="blur"></a>blur</h3><p>在下面的例子中，我们定义了各种模糊：</p>
+<p><img src="http://segmentfault.com/img/bVkzqT" alt="clipboard.png"></p>
+<p>模糊是可选的参数，它定义了距离模糊。它应该是一个正数（因为0意味着没有模糊）。下面的图片，说明它是如何工作的：</p>
+<p><img src="http://segmentfault.com/img/bVkzqU" alt="clipboard.png"><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">element</span> &#123;</div><div class="line">  <span class="attribute">text-shadow</span>:<span class="number">5px</span> <span class="number">5px</span> <span class="number">3px</span> darkred; <span class="attribute">color</span>:red;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">element</span> &#123;</div><div class="line">  <span class="attribute">text-shadow</span>:<span class="number">4px</span> -<span class="number">4px</span> <span class="number">10px</span> red; </div><div class="line">  <span class="attribute">color</span>:azure;</div><div class="line">  <span class="attribute">background</span>:<span class="number">#333</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">element</span> &#123;</div><div class="line">  <span class="attribute">text-shadow</span>:<span class="number">0px</span> <span class="number">0px</span> <span class="number">4px</span> ;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">parent</span> &#123;</div><div class="line">  <span class="attribute">color</span>:red;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">element</span> &#123;</div><div class="line">  <span class="attribute">text-shadow</span>:<span class="number">0px</span> <span class="number">0px</span> <span class="number">4px</span> ;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">parent</span> &#123;</div><div class="line">  <span class="attribute">color</span>:lightgray; </div><div class="line"><span class="attribute">background</span>:<span class="number">#333</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>第一个例子使用不同的模糊距离，最后两个例子我们不设置颜色，但采用不同的颜色和背景色的父级。</p>
+<p>##Expansion 和 contraction</p>
+<p>与box-shadow类似，spread 属性将要在css4中要添加。目前，它得到了ie10（可能是更现代的浏览器）的支持。这是text-shadow的第四个参数。你可以使用这个参数的扩大、缩小阴影。</p>
+<p><img src="http://segmentfault.com/img/bVkzrc" alt="clipboard.png"><br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">text-shadow</span>:<span class="number">5px</span> <span class="number">5px</span> <span class="number">0px</span> <span class="number">3px</span> lightgreen; <span class="attribute">color</span>:green;</div><div class="line"></div><div class="line"><span class="attribute">text-shadow</span>:<span class="number">8px</span> <span class="number">8px</span> <span class="number">2px</span> -<span class="number">3px</span> darkgreen; <span class="attribute">color</span>:green; <span class="attribute">font-weight</span>:<span class="number">900</span>;</div><div class="line"></div><div class="line"><span class="attribute">text-shadow</span>:<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">3px</span> rgba(<span class="number">128</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">0.75</span>); <span class="attribute">color</span>:green;  <span class="attribute">background</span>:<span class="number">#333</span>;</div></pre></td></tr></table></figure></p>
+<p>正值扩大阴影，负值缩小阴影。零的值可用于给文本加边（第三例）。</p>
+<h3 id="多阴影"><a href="#多阴影" class="headerlink" title="多阴影"></a>多阴影</h3><p>正如我们之前说的，你可以给文字加多个阴影：</p>
+<p><img src="http://segmentfault.com/img/bVkzrk" alt="clipboard.png"></p>
+<p>简单的加边例子：<br><figure class="highlight tap"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">text-shadow:<span class="number"> 0 </span>0<span class="number"> 0 </span>3px white,<span class="number"> 0 </span>0<span class="number"> 0 </span>4px gray; color:magenta; /* example 1: basic outlining */</div><div class="line"></div><div class="line">text-shadow: 3px 3px 4px 2px rgba(255,255,255,0.35),   /* example<span class="number"> 2 </span>*/</div><div class="line">             6px -6px 4px 2px rgba(255,255,255,0.25),  </div><div class="line">             -3px -3px 4px 6px rgba(255,0,255,0.15);</div><div class="line"></div><div class="line">text-shadow:<span class="number"> 0 </span>0<span class="number"> 0 </span>3px white,   /* example 3: neon -<span class="number"> 1 </span>*/</div><div class="line">            <span class="number"> 0 </span>0 2px 6px magenta, </div><div class="line">            <span class="number"> 0 </span>0 1px 9px white, </div><div class="line">            <span class="number"> 0 </span>0 6px 12px magenta;</div><div class="line">color:magenta;</div><div class="line"></div><div class="line">text-shadow:<span class="number"> 0 </span>0 2px <span class="comment">#fff,    /* example 4: neon 2 */</span></div><div class="line">            <span class="number"> 0 </span>0 4px 2px rgba(255,255,255,0.5), </div><div class="line">            <span class="number"> 0 </span>0 6px 6px <span class="comment">#f0f, </span></div><div class="line">            <span class="number"> 0 </span>0 4px 7px <span class="comment">#fff, </span></div><div class="line">            <span class="number"> 0 </span>0 3px 15px <span class="comment">#222, </span></div><div class="line">             -4px<span class="number"> 0 </span>2px 9px <span class="comment">#f0f, </span></div><div class="line">             4px<span class="number"> 0 </span>2px 9px <span class="comment">#f0f, </span></div><div class="line">            <span class="number"> 0 </span>-4px 2px 9px <span class="comment">#f0f, </span></div><div class="line">            <span class="number"> 0 </span>4px 2px 9px <span class="comment">#f0f;</span></div><div class="line">color:white;</div><div class="line"></div><div class="line">text-shadow:<span class="number"> 0 </span>-3px 3px 15px white,<span class="number"> 0 </span>1px 2px 9px; /* example 5: text underlining */</div><div class="line">color:magenta;</div></pre></td></tr></table></figure></p>
+<p>运行效果：</p>
+<p><img src="http://segmentfault.com/img/bVkztL" alt="clipboard.png"></p>
+<p>已经说过“spread”是css4的属性），但是你仍然用CSS3模拟：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">text-shadow</span>: 0px 0px 0px 4px magenta;</div><div class="line"></div><div class="line"><span class="css"><span class="comment">/* is similar to: */</span></span></div><div class="line"></div><div class="line"><span class="selector-tag">text-shadow</span>: <span class="selector-tag">magenta</span> 0<span class="selector-tag">px</span> 2<span class="selector-tag">px</span>,  </div><div class="line">             <span class="selector-tag">magenta</span> 2<span class="selector-tag">px</span> 0<span class="selector-tag">px</span>,  </div><div class="line">             <span class="selector-tag">magenta</span> <span class="selector-tag">-2px</span> 0<span class="selector-tag">px</span>,  </div><div class="line">             <span class="selector-tag">magenta</span> 0<span class="selector-tag">px</span> <span class="selector-tag">-2px</span>,  </div><div class="line">             <span class="selector-tag">magenta</span> <span class="selector-tag">-1</span><span class="selector-class">.4px</span> <span class="selector-tag">-1</span><span class="selector-class">.4px</span>,  </div><div class="line">             <span class="selector-tag">magenta</span> 1<span class="selector-class">.4px</span> 1<span class="selector-class">.4px</span>,  </div><div class="line">             <span class="selector-tag">magenta</span> 1<span class="selector-class">.4px</span> <span class="selector-tag">-1</span><span class="selector-class">.4px</span>,  </div><div class="line">             <span class="selector-tag">magenta</span> <span class="selector-tag">-1</span><span class="selector-class">.4px</span> 1<span class="selector-class">.4px</span>;</div></pre></td></tr></table></figure>
+<h2 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h2><p>##Twin shadow</p>
+<p><img src="http://segmentfault.com/img/bVkzt8" alt="clipboard.png"><br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">text-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">2px</span> <span class="number">2px</span> white, </div><div class="line">             <span class="number">2px</span> <span class="number">0</span> <span class="number">2px</span> <span class="number">5px</span> <span class="number">#222</span>, </div><div class="line">             <span class="number">3px</span> <span class="number">0</span> <span class="number">3px</span> <span class="number">6px</span> <span class="number">#933</span>, </div><div class="line">             <span class="number">5px</span> <span class="number">0</span> <span class="number">2px</span> <span class="number">14px</span> <span class="number">#222</span>, </div><div class="line">             <span class="number">6px</span> <span class="number">0</span> <span class="number">5px</span> <span class="number">16px</span> <span class="number">#533</span>;</div><div class="line"><span class="attribute">background-color</span>:<span class="number">#222</span>;</div><div class="line"><span class="attribute">color</span>:white;</div></pre></td></tr></table></figure></p>
+<p>##Letter-press</p>
+<p><img src="http://segmentfault.com/img/bVkzue" alt="clipboard.png"><br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">text-shadow</span>: <span class="number">0px</span> <span class="number">2px</span> <span class="number">3px</span> <span class="number">#555</span>;</div><div class="line"><span class="attribute">background-color</span>:<span class="number">#333</span>;</div></pre></td></tr></table></figure></p>
+<p>##Rainbow</p>
+<p><img src="http://segmentfault.com/img/bVkzuj" alt="clipboard.png"><br><figure class="highlight tap"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">text-shadow:<span class="number"> 0 </span>0 2px 3px yellow, </div><div class="line">            <span class="number"> 0 </span>0 2px 6px orange, </div><div class="line">            <span class="number"> 0 </span>0 2px 9px red, </div><div class="line">            <span class="number"> 0 </span>0 2px 12px lime, </div><div class="line">            <span class="number"> 0 </span>0 2px 15px blue, </div><div class="line">            <span class="number"> 0 </span>0 2px 18px violet;</div></pre></td></tr></table></figure></p>
+<p>##3D</p>
+<p><img src="http://segmentfault.com/img/bVkzur" alt="clipboard.png"><br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">text-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">1px</span> <span class="number">#999</span>, </div><div class="line">             <span class="number">1px</span> <span class="number">1px</span> <span class="number">1px</span> <span class="number">#888</span>, </div><div class="line">             <span class="number">2px</span> <span class="number">2px</span> <span class="number">1px</span> <span class="number">#777</span>, </div><div class="line">             <span class="number">3px</span> <span class="number">3px</span> <span class="number">1px</span> <span class="number">#666</span>, </div><div class="line">             <span class="number">4px</span> <span class="number">4px</span> <span class="number">1px</span> <span class="number">#555</span>, </div><div class="line">             <span class="number">5px</span> <span class="number">5px</span> <span class="number">1px</span> <span class="number">#444</span>;</div><div class="line"><span class="attribute">background-color</span>:<span class="number">#333</span>;</div><div class="line"><span class="attribute">color</span>:white;</div></pre></td></tr></table></figure></p>
+<p>##Retro / Vintage </p>
+<p><img src="http://segmentfault.com/img/bVkzuw" alt="clipboard.png"><br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">text-shadow</span>: <span class="number">2px</span> <span class="number">2px</span> <span class="number">#fff</span>, </div><div class="line">             <span class="number">3px</span> <span class="number">3px</span> <span class="number">#666</span>;</div></pre></td></tr></table></figure></p>
+<p>##First-letter-only shadow</p>
+<p><img src="http://segmentfault.com/img/bVkzuy" alt="clipboard.png"><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.text</span> &#123; </div><div class="line">    <span class="attribute">text-shadow</span>:<span class="number">0</span> <span class="number">0</span> <span class="number">5px</span>; </div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="selector-class">.text</span><span class="selector-pseudo">::first-letter</span> &#123; </div><div class="line">    <span class="attribute">color</span>:azure; </div><div class="line">    <span class="attribute">text-shadow</span>:<span class="number">0</span> <span class="number">0</span> <span class="number">5px</span>, <span class="number">0</span> <span class="number">0px</span> <span class="number">6px</span> <span class="number">3px</span> blue, <span class="number">0</span> -<span class="number">2px</span> <span class="number">6px</span> <span class="number">6px</span> cyan, <span class="number">0</span> -<span class="number">4px</span> <span class="number">9px</span> <span class="number">9px</span> lightblue ; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>#作业</p>
+<p>一起试试，要怎样才能完成下面的效果吧~</p>
+<p><img src="http://segmentfault.com/img/bVkzuG" alt="clipboard.png"></p>
+<hr>
+<blockquote>
+<p><a href="http://www.script-tutorials.com/practice-with-text-shadows/" target="_blank" rel="external">英文原文</a></p>
+<p>本文是我为 <a href="http://segmentfault.com/a/1190000002480757/" target="_blank" rel="external">SegmentFault</a> 所译</p>
+</blockquote>
+
+        <hr>
+        <div class="copyrightss">
+          <a href="http://laker.me/blog/2015/01/12/15_0112_css3_text_shadow/">巧用CSS3 text-shadow ，做出PS效果的文字</a>
+          <!--%- partial('post/title', {class_name: 'archive-article-title'}) %-->
+          <p>本文原创自<a href="http://laker.me/blog">Laker's Blog</a>，转载请注明出处，欢迎交换友链</p>
+          <p>如果本文对您有帮助，微信扫一扫，请我喝杯咖啡吧</p>
+          <p><img src="http://77g54f.com1.z0.glb.clouddn.com/weixinpay.jpg"></p>
+        </div>
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+    </footer>
+  
+  <p class="hint-text hidden">阅读量<span id="busuanzi_value_page_pv"></span>次</p>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/01/13/15_0113_three.js_WebGL_2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          《一起来学three.js构建WebGL应用》第二课
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/01/08/15_0108_input/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">小小标签，强大功能——深藏不露的 input&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+<section id="comment">
+  <h1 class="title">comment</h1>
+  <div id="disqus_thread">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1672779"></script>
+    <!-- UY END -->
+  </div>
+</section>
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <!--div id="footer-info" class="inner">
+      &copy; 2017 Laker Huang&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div-->
+    <div id="footer-info" class="inner">
+      &copy; 2014 - 2017 Laker Huang&nbsp; <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    </div>
+    <p class="hint-text">自2015/11/04，本站共被抚摸 <span id="busuanzi_value_site_pv"></span> 次</p>
+    <p class="hint-text">您是第 <span id="busuanzi_value_site_uv"></span> 位小伙伴</p>
+  </div>
+</footer>
+    
+
+<!--script src="/blog/js/jquery.min.js"></script-->
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+<!-- <script src="https://cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script> -->
+
+
+
+<script src="/blog/js/script.js"></script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:50px;cursor: pointer;">
+	<a title="返回顶部"><img src="/blog/img/scrollup.png"/></a>
+</div>
+<script src="/blog/js/totop.js"></script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+
+  <!-- Fork me on github -->
+  <!-- <a href="https://github.com/younglaker" target="_blank" title="Fork me on GitHub"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
+
+  <!-- Fork me on Github, Github Logo -->
+  <a href="https://github.com/younglaker" class="github-corner" target="_blank" title="Fork me on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#333;color:#fff;position:absolute;top:0;border:0;right:0"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Chome插件+JavaScript实现自动抢红包 - 进击的程序媛，Laker&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="BxWqqPVkmU3CTQmmIjCp27ZjmcXuB_YTf8Xa7lp_G-w" />
+  <meta name="description" content="双十一红包没在意，听朋友说抢到上百的红包，双十二弹出广告随便点了一下，心血来潮想写了个脚本。">
+<meta name="keywords" content="JavaScript,自动抢红包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chome插件+JavaScript实现自动抢红包">
+<meta property="og:url" content="http://laker.me/blog/2015/12/10/15_12010_auto_red_packet/index.html">
+<meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
+<meta property="og:description" content="双十一红包没在意，听朋友说抢到上百的红包，双十二弹出广告随便点了一下，心血来潮想写了个脚本。">
+<meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/QQ20151210162024.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjIucG5n/dissolve/100/gravity/South/dy/5">
+<meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/QQ20151210162236.png">
+<meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/QQ20151210162319.png">
+<meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/QQ20151210170453.png">
+<meta property="og:updated_time" content="2017-04-26T15:15:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chome插件+JavaScript实现自动抢红包">
+<meta name="twitter:description" content="双十一红包没在意，听朋友说抢到上百的红包，双十二弹出广告随便点了一下，心血来潮想写了个脚本。">
+<meta name="twitter:image" content="http://77g54f.com1.z0.glb.clouddn.com/QQ20151210162024.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjIucG5n/dissolve/100/gravity/South/dy/5">
+  
+    <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
+  
+  
+    <!--link rel="icon" href="/favicon.png"-->
+    <link href="/blog/favicon.ico" rel="icon" type="image/x-ico">
+  
+  <!-- <link href="/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css"> -->
+  <link href="/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c84935c1bc2fcf0a3f6a741737cccf7d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <!-- <a id="logo" class="logo" href="/blog/"></a> -->
+      <a id="logo" class="logo" href="http://laker.me"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/projects">Projects</a>
+        
+          <a class="main-nav-link" href="/blog/about">About</a>
+        
+          <a class="main-nav-link" href="/blog/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/blog/blogrolls">Blogrolls</a>
+        
+          <a class="main-nav-link" href="/blog/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://laker.me/blog"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-15_12010_auto_red_packet" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Chome插件+JavaScript实现自动抢红包
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/blog/2015/12/10/15_12010_auto_red_packet/" class="article-date">
+  <time datetime="2015-12-10T00:24:00.000Z" itemprop="datePublished">2015-12-10</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/JavaScript/">JavaScript</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>双十一红包没在意，听朋友说抢到上百的红包，双十二弹出广告随便点了一下，心血来潮想写了个脚本。</p>
+<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20151210162024.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjIucG5n/dissolve/100/gravity/South/dy/5" alt="双十二红包"></p>
+<a id="more"></a>
+<p>道理都一样，这里以页面  <a href="http://market.m.taobao.com/markets/20151212/home/main-wf?mode=wow&amp;refpid=mm_24258358_2367760_29508556&amp;eh=9MANEb1txpZNUyfOh2k%2BHnlAZJ8kDjl4H2AndNdwGaudqXxjHuKwGLMXXejB4P7LX9iCfKlIJzkveuFnQMBXxMkbLKg8nWNj&amp;ali_trackid=2:mm_24258358_2367760_29508556:1449540117_270_505160058" target="_blank" rel="external">http://market.m.taobao.com/markets/20151212/home/main-wf?mode=wow&amp;refpid=mm_24258358_2367760_29508556&amp;eh=9MANEb1txpZNUyfOh2k%2BHnlAZJ8kDjl4H2AndNdwGaudqXxjHuKwGLMXXejB4P7LX9iCfKlIJzkveuFnQMBXxMkbLKg8nWNj&amp;ali_trackid=2:mm_24258358_2367760_29508556:1449540117_270_505160058</a>  为例，使用Chrome插件的方法（还有很多其他实现方式，我这里想尝试Chrome插件的编写）。只是做了模拟点击。</p>
+<h2 id="配置Chrome插件"><a href="#配置Chrome插件" class="headerlink" title="配置Chrome插件"></a>配置Chrome插件</h2><p>本地新建一个目录 click ，新建文件manifest.json，里面定义了插件的配置。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123; </div><div class="line">  <span class="attr">"name"</span>: <span class="string">"click"</span>,</div><div class="line">  <span class="attr">"version"</span>: <span class="string">"1.0"</span>,</div><div class="line">  <span class="attr">"manifest_version"</span>:<span class="number">2</span>,</div><div class="line">  <span class="attr">"description"</span>: <span class="string">"Red packet"</span>,</div><div class="line">  <span class="attr">"permissions"</span>: [<span class="string">"http://*/*"</span>],</div><div class="line">  <span class="attr">"content_scripts"</span>:[</div><div class="line">  &#123;</div><div class="line">      <span class="attr">"matches"</span>:[<span class="string">"https://www.taobao.com/markets/20151212/home/main-wf?mode=wow&amp;refpid=mm_14428609_3290185_40982810&amp;eh=fPCHhJ44zFBNUyfOh2k%2BHiZfdLHx8kQ31QInGOP2KCpZ4u2OgYu3W%2FmbDHCJJEP7X9iCfKlIJzkveuFnQMBXxMkbLKg8nWNj&amp;ali_trackid=2:mm_14428609_3290185_40982810:1449725091_258_1788766137"</span>],</div><div class="line">      <span class="attr">"js"</span>:[<span class="string">"jquery-2.1.4.min.js"</span>,<span class="string">"main.js"</span>]</div><div class="line">  &#125;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>name： 插件名</li>
+<li>manifest_version： 固定值2</li>
+<li>content_scripts： 匹配的网站</li>
+<li>js： 需要加载的脚本，目前manifest.json、jquery-2.1.4.min.js、main.js都放在同一目录下。</li>
+<li>其他配置如ico之类都省略了，有需要请自行查找资料</li>
+</ul>
+<h2 id="写脚本"><a href="#写脚本" class="headerlink" title="写脚本"></a>写脚本</h2><p>先找到抢红包的按钮。这里是这个图片，没有id、class等任何方便查询的标记，所以采用XPath：</p>
+<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20151210162236.png" alt="抢红包的按钮"></p>
+<p>同理找到再次抢红包的按钮的XPath：</p>
+<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20151210162319.png" alt="再次抢红包的按钮"></p>
+<p>把以下代码粘贴到 main.js:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">var</span> a = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">"开始"</span>);</div><div class="line">      </div><div class="line">      <span class="comment">// 点击抢红包</span></div><div class="line">        $(<span class="built_in">document</span>).xpathEvaluate(<span class="string">'/html/body/div[11]/div[2]/img'</span>).click();</div><div class="line">        </div><div class="line">        <span class="comment">// 点击再来一次</span></div><div class="line">        <span class="keyword">var</span> b = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">          $(<span class="built_in">document</span>).xpathEvaluate(<span class="string">'/html/body/div[11]/div[4]/div[2]/div[1]'</span>).click();</div><div class="line">      &#125;, <span class="number">2000</span>);</div><div class="line">    &#125;, <span class="number">2000</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 处理XPath</span></div><div class="line">$.fn.xpathEvaluate = <span class="function"><span class="keyword">function</span> (<span class="params">xpathExpression</span>) </span>&#123;</div><div class="line">   $<span class="keyword">this</span> = <span class="keyword">this</span>.first(); </div><div class="line"></div><div class="line">   xpathResult = <span class="keyword">this</span>[<span class="number">0</span>].evaluate(xpathExpression, <span class="keyword">this</span>[<span class="number">0</span>], <span class="literal">null</span>, XPathResult.ORDERED_NODE_ITERATOR_TYPE, <span class="literal">null</span>);</div><div class="line"></div><div class="line">   result = [];</div><div class="line">   <span class="keyword">while</span> (elem = xpathResult.iterateNext()) &#123;</div><div class="line">      result.push(elem);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   $result = jQuery([]).pushStack( result );</div><div class="line">   <span class="keyword">return</span> $result;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面的代码已经可以正常运行了，但是淘宝有反作弊机制，我的脚本刷了几百下就被封了。为了降低被封的风险，应改进代码把间隔时间设为随机数，此处我就不再写出具体代码了。</p>
+<h2 id="添加插件"><a href="#添加插件" class="headerlink" title="添加插件"></a>添加插件</h2><p>Chrome开启开发者模式，加载自己建的插件目录即可</p>
+<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20151210170453.png" alt="添加插件"></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>现在到抢红包的页面刷新后就可以看到效果了，建议不要刷太频繁，我的已经被封了。</p>
+<p>反正我刷了几百下也没有出一个红包，就当做练习了~</p>
+
+        <hr>
+        <div class="copyrightss">
+          <a href="http://laker.me/blog/2015/12/10/15_12010_auto_red_packet/">Chome插件+JavaScript实现自动抢红包</a>
+          <!--%- partial('post/title', {class_name: 'archive-article-title'}) %-->
+          <p>本文原创自<a href="http://laker.me/blog">Laker's Blog</a>，转载请注明出处，欢迎交换友链</p>
+          <p>如果本文对您有帮助，微信扫一扫，请我喝杯咖啡吧</p>
+          <p><img src="http://77g54f.com1.z0.glb.clouddn.com/weixinpay.jpg"></p>
+        </div>
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/自动抢红包/">自动抢红包</a></li></ul>
+
+    </footer>
+  
+  <p class="hint-text hidden">阅读量<span id="busuanzi_value_page_pv"></span>次</p>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/12/18/15_1218_css3_transition/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          花式使用CSS3 transition
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/12/07/15_1207_gulp_coffeescript/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Gulp：编译CoffeeScript&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+<section id="comment">
+  <h1 class="title">comment</h1>
+  <div id="disqus_thread">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1672779"></script>
+    <!-- UY END -->
+  </div>
+</section>
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <!--div id="footer-info" class="inner">
+      &copy; 2017 Laker Huang&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div-->
+    <div id="footer-info" class="inner">
+      &copy; 2014 - 2017 Laker Huang&nbsp; <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    </div>
+    <p class="hint-text">自2015/11/04，本站共被抚摸 <span id="busuanzi_value_site_pv"></span> 次</p>
+    <p class="hint-text">您是第 <span id="busuanzi_value_site_uv"></span> 位小伙伴</p>
+  </div>
+</footer>
+    
+
+<!--script src="/blog/js/jquery.min.js"></script-->
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+<!-- <script src="https://cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script> -->
+
+
+
+<script src="/blog/js/script.js"></script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:50px;cursor: pointer;">
+	<a title="返回顶部"><img src="/blog/img/scrollup.png"/></a>
+</div>
+<script src="/blog/js/totop.js"></script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+
+  <!-- Fork me on github -->
+  <!-- <a href="https://github.com/younglaker" target="_blank" title="Fork me on GitHub"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
+
+  <!-- Fork me on Github, Github Logo -->
+  <a href="https://github.com/younglaker" class="github-corner" target="_blank" title="Fork me on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#333;color:#fff;position:absolute;top:0;border:0;right:0"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+</body>
+</html>

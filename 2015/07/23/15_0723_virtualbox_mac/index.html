@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>在windows(VirtualBox)里安装MacOS - 进击的程序媛，Laker&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="BxWqqPVkmU3CTQmmIjCp27ZjmcXuB_YTf8Xa7lp_G-w" />
+  <meta name="description" content="我使用的设备、软件的参数：  win7 64bit (Ubuntu下的安装方式和需要的东西一毛一样) virtualbox 5.0  从 链接: http://pan.baidu.com/s/1mix2EpU PWD: haxj 下载以下文件  HackBoot_Mav.iso OSXMavericks2.iso  (解压 OSXMavericks2.part1.rar, OSXMavericks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在windows(VirtualBox)里安装MacOS">
+<meta property="og:url" content="http://laker.me/blog/2015/07/23/15_0723_virtualbox_mac/index.html">
+<meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
+<meta property="og:description" content="我使用的设备、软件的参数：  win7 64bit (Ubuntu下的安装方式和需要的东西一毛一样) virtualbox 5.0  从 链接: http://pan.baidu.com/s/1mix2EpU PWD: haxj 下载以下文件  HackBoot_Mav.iso OSXMavericks2.iso  (解压 OSXMavericks2.part1.rar, OSXMavericks">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNKs">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNKv">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNKz">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNKB">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNKD">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNKG">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNKK">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNKU">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNK0">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNK2">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNK3">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNK4">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNkA">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNkE">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNkP">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNkT">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNkO">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNlc">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNlt">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNK2">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNLi">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNK2">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNLA">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNEd">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNEk">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNEu">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNEB">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNEP">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNE8">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNHw">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNHm">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNHE">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNIK">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNIN">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNJt">
+<meta property="og:image" content="http://segmentfault.com/img/bVmNLE">
+<meta property="og:updated_time" content="2017-04-26T15:15:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在windows(VirtualBox)里安装MacOS">
+<meta name="twitter:description" content="我使用的设备、软件的参数：  win7 64bit (Ubuntu下的安装方式和需要的东西一毛一样) virtualbox 5.0  从 链接: http://pan.baidu.com/s/1mix2EpU PWD: haxj 下载以下文件  HackBoot_Mav.iso OSXMavericks2.iso  (解压 OSXMavericks2.part1.rar, OSXMavericks">
+<meta name="twitter:image" content="http://segmentfault.com/img/bVmNKs">
+  
+    <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
+  
+  
+    <!--link rel="icon" href="/favicon.png"-->
+    <link href="/blog/favicon.ico" rel="icon" type="image/x-ico">
+  
+  <!-- <link href="/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css"> -->
+  <link href="/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c84935c1bc2fcf0a3f6a741737cccf7d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <!-- <a id="logo" class="logo" href="/blog/"></a> -->
+      <a id="logo" class="logo" href="http://laker.me"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/projects">Projects</a>
+        
+          <a class="main-nav-link" href="/blog/about">About</a>
+        
+          <a class="main-nav-link" href="/blog/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/blog/blogrolls">Blogrolls</a>
+        
+          <a class="main-nav-link" href="/blog/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://laker.me/blog"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-15_0723_virtualbox_mac" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      在windows(VirtualBox)里安装MacOS
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/blog/2015/07/23/15_0723_virtualbox_mac/" class="article-date">
+  <time datetime="2015-07-23T00:24:00.000Z" itemprop="datePublished">2015-07-23</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Mac/">Mac</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我使用的设备、软件的参数：</p>
+<ul>
+<li>win7 64bit (Ubuntu下的安装方式和需要的东西一毛一样)</li>
+<li>virtualbox 5.0</li>
+</ul>
+<p>从 链接: <a href="http://pan.baidu.com/s/1mix2EpU" target="_blank" rel="external">http://pan.baidu.com/s/1mix2EpU</a> PWD: haxj 下载以下文件</p>
+<ul>
+<li>HackBoot_Mav.iso</li>
+<li>OSXMavericks2.iso  (解压 OSXMavericks2.part1.rar, OSXMavericks2.part2.rar, OSXMavericks2.part3.rar)</li>
+</ul>
+<a id="more"></a>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="配置虚机"><a href="#配置虚机" class="headerlink" title="配置虚机"></a>配置虚机</h3><p><img src="http://segmentfault.com/img/bVmNKs" alt="clipboard.png"></p>
+<p>至少2048M</p>
+<p><img src="http://segmentfault.com/img/bVmNKv" alt="clipboard.png"></p>
+<p>创建虚拟硬盘</p>
+<p><img src="http://segmentfault.com/img/bVmNKz" alt="clipboard.png"></p>
+<p><img src="http://segmentfault.com/img/bVmNKB" alt="clipboard.png"></p>
+<p><img src="http://segmentfault.com/img/bVmNKD" alt="clipboard.png"></p>
+<p>我分配了30G，建议20G以上<br><img src="http://segmentfault.com/img/bVmNKG" alt="clipboard.png"></p>
+<p>设置虚机取消<code>启用EFI</code></p>
+<p><img src="http://segmentfault.com/img/bVmNKK" alt="clipboard.png"></p>
+<p>我分配了2个CPU，大家根据自己情况设置;</p>
+<p><img src="http://segmentfault.com/img/bVmNKU" alt="clipboard.png"></p>
+<p>显存128，开启3d渲染</p>
+<p><img src="http://segmentfault.com/img/bVmNK0" alt="clipboard.png"></p>
+<p>添加<code>HackBoot_Mav.iso</code></p>
+<p><img src="http://segmentfault.com/img/bVmNK2" alt="clipboard.png"></p>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><p>开启虚机</p>
+<p><img src="http://segmentfault.com/img/bVmNK3" alt="clipboard.png"></p>
+<p>选择菜单中的设备——分配光驱——OSXMavericks2.iso（没有就选择打开文件寻找），按 F5 </p>
+<p><img src="http://segmentfault.com/img/bVmNK4" alt="clipboard.png"></p>
+<p>按 Enter 开始安装，可能停在这里一段时间</p>
+<p><img src="http://segmentfault.com/img/bVmNkA" alt="clipboard.png"></p>
+<p>选择系统语言</p>
+<p><img src="http://segmentfault.com/img/bVmNkE" alt="clipboard.png"></p>
+<p>看到这个界面</p>
+<p><img src="http://segmentfault.com/img/bVmNkP" alt="clipboard.png"></p>
+<p>选择实用工具——磁盘工具</p>
+<p><img src="http://segmentfault.com/img/bVmNkT" alt="clipboard.png"></p>
+<p>名称处输入“Mavericks”，点击“抹掉”</p>
+<p><img src="http://segmentfault.com/img/bVmNkO" alt="clipboard.png"></p>
+<p>回到这个界面，选择磁盘后安装</p>
+<p><img src="http://segmentfault.com/img/bVmNlc" alt="clipboard.png"></p>
+<p>静候佳音</p>
+<p><img src="http://segmentfault.com/img/bVmNlt" alt="clipboard.png"></p>
+<p>安装成功后，强制关闭虚机，再把<code>OSXMavericks2.iso</code>删了，添加<code>HackBoot_Mav.iso</code></p>
+<p><img src="http://segmentfault.com/img/bVmNK2" alt="clipboard.png"></p>
+<p>重新启动，选择菜单中的设备——分配光驱——OSXMavericks2.iso（没有就选择打开文件寻找），按 F5 </p>
+<p><img src="http://segmentfault.com/img/bVmNLi" alt="clipboard.png"></p>
+<p>再次进入安装系统，这次选实用工具——终端，输入以下命令：</p>
+<pre><code>umount /Volumes/Mavericks
+hdiutil attach /dev/disk0s2 -mountpoint /Volumes/mnt
+cp -rp /Backup/Kexts/ElliottForceLegacyRTC.kext /Volumes/mnt/System/Library/Extensions
+cp -rp /Backup/Kexts/FakeSMC.kext /Volumes/mnt/System/Library/Extensions
+cp -rp /Backup/Kexts/NullCPUPowerManagement.kext /Volumes/mnt/System/Library/Extensions
+chmod -R 0755 /Volumes/mnt/System/Library/Extensions/ElliottForceLegacyRTC.kext
+chmod -R 0755 /Volumes/mnt/System/Library/Extensions/FakeSMC.kext 
+chmod -R 0755 /Volumes/mnt/System/Library/Extensions/NullCPUPowerManagement.kext
+chown -R root:wheel /Volumes/mnt/System/Library/Extensions/ElliottForceLegacyRTC.kext
+chown -R root:wheel /Volumes/mnt/System/Library/Extensions/FakeSMC.kext 
+chown -R root:wheel /Volumes/mnt/System/Library/Extensions/NullCPUPowerManagement.kext
+hdiutil detach /Volumes/mnt
+</code></pre><p>安装内核扩展后, 退出终端后，关机，关虚机。再把<code>OSXMavericks2.iso</code>删了，添加<code>HackBoot_Mav.iso</code></p>
+<p><img src="http://segmentfault.com/img/bVmNK2" alt="clipboard.png"></p>
+<p>重新启动，不用再换光驱了，方向键选择 Mavericks，回车</p>
+<p><img src="http://segmentfault.com/img/bVmNLA" alt="clipboard.png"></p>
+<p>选择国家<br><img src="http://segmentfault.com/img/bVmNEd" alt="clipboard.png"></p>
+<p>选择你想要的方式：</p>
+<p><img src="http://segmentfault.com/img/bVmNEk" alt="clipboard.png"></p>
+<p>登录Apple ID或者跳过：</p>
+<p><img src="http://segmentfault.com/img/bVmNEu" alt="clipboard.png"></p>
+<p>各种设置：</p>
+<p><img src="http://segmentfault.com/img/bVmNEB" alt="clipboard.png"></p>
+<p>想想就有点小激动~</p>
+<p><img src="http://segmentfault.com/img/bVmNEP" alt="clipboard.png"></p>
+<p>登登登登~</p>
+<p><img src="http://segmentfault.com/img/bVmNE8" alt="clipboard.png"></p>
+<p>##一些必要设置</p>
+<h3 id="设置输入法中英文切换"><a href="#设置输入法中英文切换" class="headerlink" title="设置输入法中英文切换"></a>设置输入法中英文切换</h3><p>我的习惯是把设为<code>ctrl+space</code>。由于冲突，所以先把spotlight设为<code>ctrl+f</code>：</p>
+<p><img src="http://segmentfault.com/img/bVmNHw" alt="clipboard.png"></p>
+<p>再把切换输入法设为<code>ctrl+space</code>，和Windows一样：</p>
+<p><img src="http://segmentfault.com/img/bVmNHm" alt="clipboard.png"></p>
+<h3 id="设置可安装非App-Store"><a href="#设置可安装非App-Store" class="headerlink" title="设置可安装非App Store"></a>设置可安装非App Store</h3><p>设置-&gt;安全与隐私</p>
+<p><img src="http://segmentfault.com/img/bVmNHE" alt="clipboard.png"></p>
+<h2 id="免除从-HackBoot-Mav-iso启动"><a href="#免除从-HackBoot-Mav-iso启动" class="headerlink" title="免除从 HackBoot_Mav.iso启动"></a>免除从 HackBoot_Mav.iso启动</h2><p>用safati下载 <a href="http://pan.baidu.com/s/1hqixcZq" target="_blank" rel="external">http://pan.baidu.com/s/1hqixcZq</a> 安装：</p>
+<p><img src="http://segmentfault.com/img/bVmNIK" alt="clipboard.png"></p>
+<p><img src="http://segmentfault.com/img/bVmNIN" alt="clipboard.png"></p>
+<p>安装成功后关掉mac os和虚拟机</p>
+<p><img src="http://segmentfault.com/img/bVmNJt" alt="clipboard.png"></p>
+<p>现在打开设置，原来的<code>HackBoot_Mav.iso</code>，如果它还在，可以手动删除，下次开机就可以直接打开mac os了。</p>
+<p>如果不行，就把这个勾上：</p>
+<p><img src="http://segmentfault.com/img/bVmNLE" alt="clipboard.png"></p>
+<blockquote>
+<p>据说由于虚拟机不支持 Apple Quartz Extreme/Core Image, 需要 Quartz Extreme 的应用软件例如 iBooks Author，Pixelmator，SketchBook 等不能在虚拟机下使用 </p>
+</blockquote>
+<p>参考：<a href="http://bbs.feng.com/read-htm-tid-7625465.html" target="_blank" rel="external">在 Win 7 下使用 VirtualBOX 虚拟机安装 OS X 10.9 Mavericks 及 Xcode 5</a></p>
+
+        <hr>
+        <div class="copyrightss">
+          <a href="http://laker.me/blog/2015/07/23/15_0723_virtualbox_mac/">在windows(VirtualBox)里安装MacOS</a>
+          <!--%- partial('post/title', {class_name: 'archive-article-title'}) %-->
+          <p>本文原创自<a href="http://laker.me/blog">Laker's Blog</a>，转载请注明出处，欢迎交换友链</p>
+          <p>如果本文对您有帮助，微信扫一扫，请我喝杯咖啡吧</p>
+          <p><img src="http://77g54f.com1.z0.glb.clouddn.com/weixinpay.jpg"></p>
+        </div>
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+    </footer>
+  
+  <p class="hint-text hidden">阅读量<span id="busuanzi_value_page_pv"></span>次</p>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/07/28/15_0728_BeX5_1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          BeX5快速建站工具（一）建模过程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/07/21/15_0421_new_blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">新博客开张&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+<section id="comment">
+  <h1 class="title">comment</h1>
+  <div id="disqus_thread">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1672779"></script>
+    <!-- UY END -->
+  </div>
+</section>
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <!--div id="footer-info" class="inner">
+      &copy; 2017 Laker Huang&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div-->
+    <div id="footer-info" class="inner">
+      &copy; 2014 - 2017 Laker Huang&nbsp; <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    </div>
+    <p class="hint-text">自2015/11/04，本站共被抚摸 <span id="busuanzi_value_site_pv"></span> 次</p>
+    <p class="hint-text">您是第 <span id="busuanzi_value_site_uv"></span> 位小伙伴</p>
+  </div>
+</footer>
+    
+
+<!--script src="/blog/js/jquery.min.js"></script-->
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+<!-- <script src="https://cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script> -->
+
+
+
+<script src="/blog/js/script.js"></script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:50px;cursor: pointer;">
+	<a title="返回顶部"><img src="/blog/img/scrollup.png"/></a>
+</div>
+<script src="/blog/js/totop.js"></script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+
+  <!-- Fork me on github -->
+  <!-- <a href="https://github.com/younglaker" target="_blank" title="Fork me on GitHub"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
+
+  <!-- Fork me on Github, Github Logo -->
+  <a href="https://github.com/younglaker" class="github-corner" target="_blank" title="Fork me on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#333;color:#fff;position:absolute;top:0;border:0;right:0"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+</body>
+</html>

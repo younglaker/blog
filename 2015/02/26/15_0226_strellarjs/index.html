@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>用 Stellar.js 制作视差滚动效果 - 进击的程序媛，Laker&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="BxWqqPVkmU3CTQmmIjCp27ZjmcXuB_YTf8Xa7lp_G-w" />
+  <meta name="description" content="近些年讨论得很热烈的设计趋势是视觉差滚动效果。不管你喜不喜欢，很多网站都在用它。在本教程中，我会介绍视觉差滚动和用jQuery插件Stellar.js来制作视觉差滚动效果。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Stellar.js 制作视差滚动效果">
+<meta property="og:url" content="http://laker.me/blog/2015/02/26/15_0226_strellarjs/index.html">
+<meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
+<meta property="og:description" content="近些年讨论得很热烈的设计趋势是视觉差滚动效果。不管你喜不喜欢，很多网站都在用它。在本教程中，我会介绍视觉差滚动和用jQuery插件Stellar.js来制作视觉差滚动效果。">
+<meta property="og:updated_time" content="2017-04-26T15:15:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用 Stellar.js 制作视差滚动效果">
+<meta name="twitter:description" content="近些年讨论得很热烈的设计趋势是视觉差滚动效果。不管你喜不喜欢，很多网站都在用它。在本教程中，我会介绍视觉差滚动和用jQuery插件Stellar.js来制作视觉差滚动效果。">
+  
+    <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
+  
+  
+    <!--link rel="icon" href="/favicon.png"-->
+    <link href="/blog/favicon.ico" rel="icon" type="image/x-ico">
+  
+  <!-- <link href="/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css"> -->
+  <link href="/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c84935c1bc2fcf0a3f6a741737cccf7d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <!-- <a id="logo" class="logo" href="/blog/"></a> -->
+      <a id="logo" class="logo" href="http://laker.me"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/projects">Projects</a>
+        
+          <a class="main-nav-link" href="/blog/about">About</a>
+        
+          <a class="main-nav-link" href="/blog/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/blog/blogrolls">Blogrolls</a>
+        
+          <a class="main-nav-link" href="/blog/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://laker.me/blog"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-15_0226_strellarjs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      用 Stellar.js 制作视差滚动效果
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/blog/2015/02/26/15_0226_strellarjs/" class="article-date">
+  <time datetime="2015-02-26T00:24:00.000Z" itemprop="datePublished">2015-02-26</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/翻译/">翻译</a><span>></span><a class="article-category-link" href="/blog/categories/翻译/JavaScript/">JavaScript</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>近些年讨论得很热烈的设计趋势是视觉差滚动效果。不管你喜不喜欢，很多网站都在用它。在本教程中，我会介绍视觉差滚动和用jQuery插件Stellar.js来制作视觉差滚动效果。</p>
+<a id="more"></a>
+<h2 id="视差滚动（Parallax-Scrolling）是什么？"><a href="#视差滚动（Parallax-Scrolling）是什么？" class="headerlink" title="视差滚动（Parallax Scrolling）是什么？"></a>视差滚动（Parallax Scrolling）是什么？</h2><p>视差滚动是当用户滚动页面时，前景和背景以不同的速度移动，从而创造出3D效果。 这种效果可以给网站一个很好的补充，但如果滥用，就会很烦人。 有些完全由这种效果驱动的网站会让人觉得不优雅。 因为这种效果通常使用大图像做背景，网站资源大量增加，导致加载非常缓慢。</p>
+<p>有些这样滥用的例子，比如介绍<a href="http://community.saucony.com/kinvara3/" target="_blank" rel="external">Kinvara saukoni 3的网站</a>， 和大小有20MB（以前是50MB的！）的 <a href="http://moto.oakley.com/" target="_blank" rel="external">Oakley – I am invincible</a> 。</p>
+<p>现在有了对这个效果的认识，让我们看看如何使用stellar.js来创造它。</p>
+<h2 id="Stellar-js是什么？"><a href="#Stellar-js是什么？" class="headerlink" title="Stellar.js是什么？"></a>Stellar.js是什么？</h2><p><a href="https://github.com/markdalgleish/stellar.js/" target="_blank" rel="external">stellar.js</a> 是一个 jQuery插件，能很容易地给网站添加视差滚动效果。 尽管已经停止了维护，但它非常稳定，与最新版本的jQuery兼容，很多开发者也在使用它。 这个插件在<a href="http://plugins.jquery.com/" target="_blank" rel="external">jQuery插件库</a>里很流行，你可能早已听说过了。</p>
+<p>现在，让我们看看如何使用它。</p>
+<h2 id="Stellar-js入门"><a href="#Stellar-js入门" class="headerlink" title="Stellar.js入门"></a>Stellar.js入门</h2><p>Stellar.js很容易上手。 第一步是下载插件并将它链接到你的页面。 可以通过Bower访问<a href="https://github.com/markdalgleish/stellar.js/" target="_blank" rel="external">Stellar.js的GitHub 仓库</a>。 如果你想使用Bower，可以通过以下命令：<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">bower </span><span class="keyword">install </span><span class="keyword">jquery.stellar</span></div></pre></td></tr></table></figure></p>
+<p>下载好后，在页面中引用：</p>
+<pre><code>&lt;script src=&quot;path/to/jquery/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;path/to/jquery.stellar.min.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>完成后，开始给页面添加视觉差滚动效果。 这个插件允许将效果添加到任何滚动的元素，例如<code>window</code>对象，或者其他元素。 要使用jQuery的选择器选中所需要的元素，在绑定<code>stellar()</code>方法即可。</p>
+<pre><code>$(&apos;#someElement&apos;).stellar();
+</code></pre><p>对于<code>window</code>对象可以用下面的方法：</p>
+<pre><code>$.stellar();
+</code></pre><p>这样，Stellar.js库就会在元素滚动时搜索parallax背景或元素，并重新定位。<br>在一个页面运用stellar.js创建一个视差滚动效果的<a href="http://markdalgleish.com/projects/stellar.js/demos/backgrounds.html" target="_blank" rel="external">示例</a>。</p>
+<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><p>stellar.js像其他插件一样有一定的灵活性。 可以设置很多参数来满足需求。 stellar.js允许定义普通选项，会应用到每个元素。 设置普通配置必须通过<code>stellar()</code>方法，而对应的元素要设置<code>data-*</code>属性。 我不一一介绍每个配置的用法，具体可以看<a href="https://github.com/markdalgleish/stellar.js#configuring-everything" target="_blank" rel="external">这里</a>。</p>
+<p>第一个普通选项是设置效果的方向。 经典的滚动效果是从上到下，或者反过来。也可以指定一个从左到右的效果，或者反过来。 通过设置<code>horizontalScrolling</code> 和<code>verticalScrolling</code>的bool值完成。 其默认值是<code>true</code>。</p>
+<p>另一个有趣的选项是<code>responsive</code>。 它是用来指定<code>load</code>或<code>resize</code>事件触发时，是否刷新页面。 默认是<code>false</code>。</p>
+<p>最后介绍一下<code>hideDistantElements</code>选项。 指定是否要隐藏移出视线的元素。 如果不想隐藏，就设置为<code>false</code>。</p>
+<p>单个元素选项中<code>data-stellar-background-ratio</code>比较常用。 接受一个正整数的值，可以改变它被应用到元素的影响速度。 例如，<code>data-stellar-background-ratio=&quot;0.5&quot;</code>意味着改变速度为自然滚动速度的一半。 如果想使这个属性值低于1，建议在样式表里设置<code>background-attachment: fixed;</code>。</p>
+<p>现在你知道这个插件，你可以配置它，它的时间去看比赛。</p>
+<h2 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h2><p>利用上面介绍的属性做一个例子。 首先，我们需要设置标记。 在下面的代码中将创建6个包含一些文本<code>div</code>：</p>
+<pre><code>&lt;div class=&quot;content&quot; id=&quot;content1&quot;&gt;
+    &lt;p&gt;TEXT HERE&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;content&quot; id=&quot;content2&quot;&gt;
+    &lt;p&gt;TEXT HERE&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;content&quot; id=&quot;content3&quot; data-stellar-background-ratio=&quot;0.5&quot;&gt;
+    &lt;p&gt;TEXT HERE&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;content&quot; id=&quot;content4&quot; data-stellar-background-ratio=&quot;0.5&quot;&gt;
+    &lt;p&gt;TEXT HERE&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;content&quot; id=&quot;content5&quot; data-stellar-background-ratio=&quot;0.5&quot;&gt;
+    &lt;p&gt;TEXT HERE&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;content&quot; id=&quot;content6&quot; data-stellar-background-ratio=&quot;0.5&quot;&gt;
+    &lt;p&gt;TEXT HERE&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><p>添加一些CSS： 在演示中将使用三个图像，每个重复两次。 因为要给最后桑元素添加<code>data-stellar-background-ratio</code>属性，所以还要设置<code>background-attachment: fixed;</code>。<br>CSS代码如下所示：</p>
+<pre><code>body {
+    font-size: 20px;
+    color: white;
+    text-shadow: 0 1px 0 black, 0 0 5px black;
+}
+p {
+    padding: 0 0.5em;
+    margin: 0;
+}
+.content {
+    background-attachment: fixed;
+    height: 400px;
+}
+#content1 {
+    background-image: url(&quot;http://www.tamperlock.com/blog/wp-content/uploads/2014/08/london-england.jpg&quot;);
+}
+#content2 {
+    background-image: url(&quot;http://ocdn.eu/images/pulscms/ZjU7MDQsMCwzMiwzODQsMWZhOzA2LDMyMCwxYzI_/1eb29a70dabd0994cdefaad01ca3c884.jpg&quot;);
+}
+#content3 {
+    background-image: url(&quot;http://www.zeus.aegee.org/magazine/wp-content/uploads/napoli-golfo-vesuvio.jpg&quot;);
+}
+#content4 {
+    background-image: url(&quot;http://www.tamperlock.com/blog/wp-content/uploads/2014/08/london-england.jpg&quot;);
+}
+#content5 {
+    background-image: url(&quot;http://ocdn.eu/images/pulscms/ZjU7MDQsMCwzMiwzODQsMWZhOzA2LDMyMCwxYzI_/1eb29a70dabd0994cdefaad01ca3c884.jpg&quot;);
+}
+#content6 {
+    background-image: url(&quot;http://www.zeus.aegee.org/magazine/wp-content/uploads/napoli-golfo-vesuvio.jpg&quot;);
+}
+</code></pre><p>最后，我们需要踢的invokingstellar()启动效应。在这个演示中我们也会设置一些常用选项：</p>
+<pre><code>$.stellar({
+    horizontalScrolling: false,
+    responsive: true
+});
+</code></pre><p>##效果：</p>
+<p><a href="https://jsfiddle.net/fb301gve/embedded/result/" target="_blank" rel="external">https://jsfiddle.net/fb301gve/embedded/result/</a></p>
+<blockquote>
+<p>英文原文：<a href="http://www.sitepoint.com/introduction-parallax-scrolling-using-stellar-js/" target="_blank" rel="external">An Introduction to Parallax Scrolling Using Stellar.js</a></p>
+<p>本文是我为 <a href="http://segmentfault.com/blog/news/1190000002566463" target="_blank" rel="external">SegmentFault</a> 所译</p>
+</blockquote>
+
+        <hr>
+        <div class="copyrightss">
+          <a href="http://laker.me/blog/2015/02/26/15_0226_strellarjs/">用 Stellar.js 制作视差滚动效果</a>
+          <!--%- partial('post/title', {class_name: 'archive-article-title'}) %-->
+          <p>本文原创自<a href="http://laker.me/blog">Laker's Blog</a>，转载请注明出处，欢迎交换友链</p>
+          <p>如果本文对您有帮助，微信扫一扫，请我喝杯咖啡吧</p>
+          <p><img src="http://77g54f.com1.z0.glb.clouddn.com/weixinpay.jpg"></p>
+        </div>
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+    </footer>
+  
+  <p class="hint-text hidden">阅读量<span id="busuanzi_value_page_pv"></span>次</p>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/02/28/15_0228_google_coder_learning/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          谷歌推荐的大学生技术学习指南
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/02/12/15_0212_svg_css3_border_animation/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">利用 SVG 和 CSS3 实现有趣的边框动画&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+<section id="comment">
+  <h1 class="title">comment</h1>
+  <div id="disqus_thread">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1672779"></script>
+    <!-- UY END -->
+  </div>
+</section>
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <!--div id="footer-info" class="inner">
+      &copy; 2017 Laker Huang&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div-->
+    <div id="footer-info" class="inner">
+      &copy; 2014 - 2017 Laker Huang&nbsp; <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    </div>
+    <p class="hint-text">自2015/11/04，本站共被抚摸 <span id="busuanzi_value_site_pv"></span> 次</p>
+    <p class="hint-text">您是第 <span id="busuanzi_value_site_uv"></span> 位小伙伴</p>
+  </div>
+</footer>
+    
+
+<!--script src="/blog/js/jquery.min.js"></script-->
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+<!-- <script src="https://cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script> -->
+
+
+
+<script src="/blog/js/script.js"></script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:50px;cursor: pointer;">
+	<a title="返回顶部"><img src="/blog/img/scrollup.png"/></a>
+</div>
+<script src="/blog/js/totop.js"></script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+
+  <!-- Fork me on github -->
+  <!-- <a href="https://github.com/younglaker" target="_blank" title="Fork me on GitHub"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
+
+  <!-- Fork me on Github, Github Logo -->
+  <a href="https://github.com/younglaker" class="github-corner" target="_blank" title="Fork me on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#333;color:#fff;position:absolute;top:0;border:0;right:0"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+</body>
+</html>

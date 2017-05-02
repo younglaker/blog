@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ajax上传多文件 - 进击的程序媛，Laker&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="BxWqqPVkmU3CTQmmIjCp27ZjmcXuB_YTf8Xa7lp_G-w" />
+  <meta name="description" content="AJAX的采用标志着的Web历史上的一个巨大飞跃。与Web服务器通信而不需要重新加载页面的能力已改变了Web应用程序构建。动态网站的概念形成以后，AJAX(XMLHttpRequests) 技术发展迅速。 近年来XMLHttpRequests增加了一个很好的功能来处理文件上传。传统上，许多开发者用其他技术如Flash上传文件到服务器。这种方法的问题是，用户需要安装第三方浏览器插件的。 在这篇文章中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax上传多文件">
+<meta property="og:url" content="http://laker.me/blog/2014/12/16/14_1215_ajax_upload_multiply_files/index.html">
+<meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
+<meta property="og:description" content="AJAX的采用标志着的Web历史上的一个巨大飞跃。与Web服务器通信而不需要重新加载页面的能力已改变了Web应用程序构建。动态网站的概念形成以后，AJAX(XMLHttpRequests) 技术发展迅速。 近年来XMLHttpRequests增加了一个很好的功能来处理文件上传。传统上，许多开发者用其他技术如Flash上传文件到服务器。这种方法的问题是，用户需要安装第三方浏览器插件的。 在这篇文章中">
+<meta property="og:updated_time" content="2017-04-26T15:15:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ajax上传多文件">
+<meta name="twitter:description" content="AJAX的采用标志着的Web历史上的一个巨大飞跃。与Web服务器通信而不需要重新加载页面的能力已改变了Web应用程序构建。动态网站的概念形成以后，AJAX(XMLHttpRequests) 技术发展迅速。 近年来XMLHttpRequests增加了一个很好的功能来处理文件上传。传统上，许多开发者用其他技术如Flash上传文件到服务器。这种方法的问题是，用户需要安装第三方浏览器插件的。 在这篇文章中">
+  
+    <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
+  
+  
+    <!--link rel="icon" href="/favicon.png"-->
+    <link href="/blog/favicon.ico" rel="icon" type="image/x-ico">
+  
+  <!-- <link href="/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css"> -->
+  <link href="/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c84935c1bc2fcf0a3f6a741737cccf7d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <!-- <a id="logo" class="logo" href="/blog/"></a> -->
+      <a id="logo" class="logo" href="http://laker.me"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/projects">Projects</a>
+        
+          <a class="main-nav-link" href="/blog/about">About</a>
+        
+          <a class="main-nav-link" href="/blog/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/blog/blogrolls">Blogrolls</a>
+        
+          <a class="main-nav-link" href="/blog/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://laker.me/blog"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-14_1215_ajax_upload_multiply_files" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ajax上传多文件
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/blog/2014/12/16/14_1215_ajax_upload_multiply_files/" class="article-date">
+  <time datetime="2014-12-16T00:24:00.000Z" itemprop="datePublished">2014-12-16</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/翻译/">翻译</a><span>></span><a class="article-category-link" href="/blog/categories/翻译/Ajax/">Ajax</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>AJAX的采用标志着的Web历史上的一个巨大飞跃。与Web服务器通信而不需要重新加载页面的能力已改变了Web应用程序构建。动态网站的概念形成以后，AJAX(XMLHttpRequests) 技术发展迅速。</p>
+<p>近年来XMLHttpRequests增加了一个很好的功能来处理文件上传。传统上，许多开发者用其他技术如Flash上传文件到服务器。这种方法的问题是，用户需要安装第三方浏览器插件的。</p>
+<p>在这篇文章中你会学到如何用JavaScript技术将文件上传到服务器。我们将教你一个请求上传多文件的例子。然而，你可以用同样的办法上传单个文件。<br>让我们开始吧！</p>
+<a id="more"></a>
+<h2 id="选择要上传的文件"><a href="#选择要上传的文件" class="headerlink" title="选择要上传的文件"></a>选择要上传的文件</h2><p>你需要做的第一件事就是建立你的HTML表单让用户选择文件。让事情简单，我们用标准的<code>&lt;input&gt;</code>元素并设为<code>file</code>类型。</p>
+<pre><code>&lt;form id=&quot;file-form&quot; action=&quot;handler.php&quot; method=&quot;POST&quot;&gt;
+  &lt;input type=&quot;file&quot; id=&quot;file-select&quot; name=&quot;photos[]&quot; multiple/&gt;
+  &lt;button type=&quot;submit&quot; id=&quot;upload-button&quot;&gt;Upload&lt;/button&gt;
+&lt;/form&gt;
+</code></pre><p>请注意，<code>&lt;input&gt;</code>元素有个<code>multiple</code>属性。这将允许用户通过浏览器文件选择器选择多个文件。如果你不指定此属性的用户只能选择一个文件。<br>现在你的HTML表格建好了，我们再看看处理文件上传的JavaScript代码。</p>
+<h2 id="上传文件到服务器"><a href="#上传文件到服务器" class="headerlink" title="上传文件到服务器"></a>上传文件到服务器</h2><p>首先你需要创建三个变量来获取HTML里的<code>&lt;form&gt;</code>，<code>&lt;input&gt;</code>，<code>&lt;button&gt;</code>元素。</p>
+<pre><code>var form = document.getElementById(&apos;file-form&apos;);
+var fileSelect = document.getElementById(&apos;file-select&apos;);
+var uploadButton = document.getElementById(&apos;upload-button&apos;);
+</code></pre><p>下一步你需要绑定一个事件监听器到表单的<code>onsubmit</code>事件。</p>
+<pre><code>form.onsubmit = function(event) {
+  event.preventDefault();
+
+  // 更新按钮里的文字
+  uploadButton.innerHTML = &apos;Uploading...&apos;;
+
+  // 其余的代码将在这里...
+}
+</code></pre><p>在事件监听器里，首先调用<code>event</code>对象的<code>preventDefault()</code>。这将阻止浏览器提交的表单，使我们能够继续处理Ajax文件上传。<br>下一步，更新的<code>uploadButton</code>的<code>innerHTML</code>属性为<code>Uploading...</code>，这告诉用户文件上传中。<br>接下来，从<code>&lt;input&gt;</code>元素中获取<code>[FileList](https://developer.mozilla.org/en-US/docs/Web/API/FileList)</code>内容并存储到变量里。你可以通过访问<code>files</code>属性来做到这点。</p>
+<pre><code>// 获取选择的文件
+var files = fileSelect.files;
+</code></pre><p>然后创建一个新的<code>[FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData)</code>对象。这是用来接收Ajax请求获取的键/值对数据。</p>
+<pre><code>// 创建一个FormData对象
+var formData = new FormData();
+</code></pre><p>然后，通过循环获取<code>files</code>数组的每一个文件内容，并将它们添加到你刚才创建的<code>formData</code>对象里。你也许还想检查用户选的文件是否是你规定的文件类型。</p>
+<pre><code>// 对每个文件进行循环处理
+for (var i = 0; i &lt; files.length; i++) {
+  var file = files[i];
+
+  // 检查文件类型
+  if (!file.type.match(&apos;image.*&apos;)) {
+    continue;
+  }
+
+  // 添加文件到formData
+  formData.append(&apos;photos[]&apos;, file, file.name);
+}
+</code></pre><p>在这里，你先读取当<code>files</code>数组里的所有文件，然后检查以确保它是图像。该文件的<code>type</code>属性将返回一个字符串的文件类型。你可以使用JavaScript的 <code>match()</code>方法来确保这个字符串匹配所需的类型。如果文件类型不匹配，通过调用<code>continue</code>跳过后面的语句结束本轮循环。<br>然后使用<code>append()</code>方法把文件添加到<code>formData</code>对象里。</p>
+<hr>
+<p>注：</p>
+<p><code>FormData.append()</code>方法用于处理<a href="https://developer.mozilla.org/en-US/docs/Web/API/File" target="_blank" rel="external"><code>Files</code></a>，<a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob" target="_blank" rel="external"><code>Blobs</code></a>，或<code>Strings</code>。</p>
+<pre><code>// Files
+formData.append(name, file, filename);
+
+// Blobs
+formData.append(name, blob, filename);
+
+// Strings
+formData.append(name, value);    
+</code></pre><p>第一个参数指定数据项的<code>name</code>。这将形成数据的<code>key</code>。第二个参数指定一个<code>File</code>、 <code>Blob</code>或者 <code>String</code>作为数据数据的<code>value</code>。当添加一个<code>File</code>或 <code>Blob</code>，可以指定一个<code>filename</code>文件名，但这不是必需的。</p>
+<hr>
+<p>下一步你需要设置<code>XMLHttpRequest</code>与服务器通信。你首先需要创建一个新的<code>XMLHttpRequest</code>对象。</p>
+<pre><code>// 设置请求。
+var xhr = new XMLHttpRequest();
+</code></pre><p>现在您需要创建一个新连接到服务器。你使用<code>open</code>方法。该方法带三个参数。HTTP的请求方式、url和一个布尔值(确定是否应处理异步请求)。</p>
+<pre><code>// 打开连接。
+xhr.open(&apos;POST&apos;, &apos;handler.php&apos;, true);
+</code></pre><p>下一步你需要建立一个事件侦听器，<code>onLoad</code>事件完成后就会触发时。<code>xhr</code>对象的<code>status</code>属性会告诉你请求是否成功完成。</p>
+<pre><code>// 请求完成时建立一个处理程序。
+xhr.onload = function () {
+  if (xhr.status === 200) {
+    // File(s) uploaded.
+    uploadButton.innerHTML = &apos;Upload&apos;;
+  } else {
+    alert(&apos;An error occurred!&apos;);
+  }
+};
+</code></pre><p>剩下要做的是发送请求。用<code>xhr</code>的<code>send</code>方法发送<code>formData</code>。</p>
+<pre><code>// 发送数据。
+xhr.send(formData);
+</code></pre><p>这就是开始使用Ajax文件上传的内容。您的服务器端代码需要提取文件并处理。</p>
+<h2 id="浏览器的支持"><a href="#浏览器的支持" class="headerlink" title="浏览器的支持"></a>浏览器的支持</h2><p>浏览器支持总体上是好的。Internet Explorer是唯一的例外。IE 10及以上的版本支持，但早期版本的IE不支持本文提到的一些XMLHttpRequest功能。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">IE</th>
+<th style="text-align:right">FIREFOX</th>
+<th style="text-align:right">CHROME</th>
+<th style="text-align:right">SAFARI</th>
+<th style="text-align:center">OPERA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">10.0+</td>
+<td style="text-align:right">4.0+</td>
+<td style="text-align:right">7.0+</td>
+<td style="text-align:right">5+</td>
+<td style="text-align:center">12+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在这篇文章中你学到了如何上传文件使用本地JavaScript技术，Web服务器。在功能方面的进步，消除XMLHttpRequests供开发者使用第三方浏览器插件来处理文件上传的需要。这是很好的为本地的浏览器功能往往是更快和更比一个插件提供的安全。<br>你计划在你的项目中使用Ajax上传的文件？请在下面的评论中分享你的想法。</p>
+<hr>
+<blockquote>
+<p><a href="http://blog.teamtreehouse.com/uploading-files-ajax#" target="_blank" rel="external">英文原文</a></p>
+</blockquote>
+
+        <hr>
+        <div class="copyrightss">
+          <a href="http://laker.me/blog/2014/12/16/14_1215_ajax_upload_multiply_files/">Ajax上传多文件</a>
+          <!--%- partial('post/title', {class_name: 'archive-article-title'}) %-->
+          <p>本文原创自<a href="http://laker.me/blog">Laker's Blog</a>，转载请注明出处，欢迎交换友链</p>
+          <p>如果本文对您有帮助，微信扫一扫，请我喝杯咖啡吧</p>
+          <p><img src="http://77g54f.com1.z0.glb.clouddn.com/weixinpay.jpg"></p>
+        </div>
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+    </footer>
+  
+  <p class="hint-text hidden">阅读量<span id="busuanzi_value_page_pv"></span>次</p>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/01/08/15_0108_input/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          小小标签，强大功能——深藏不露的 input
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2014/05/31/14_0513_macbook_CD/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Macbook 光盘卡住的处理办法&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+<section id="comment">
+  <h1 class="title">comment</h1>
+  <div id="disqus_thread">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1672779"></script>
+    <!-- UY END -->
+  </div>
+</section>
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <!--div id="footer-info" class="inner">
+      &copy; 2017 Laker Huang&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div-->
+    <div id="footer-info" class="inner">
+      &copy; 2014 - 2017 Laker Huang&nbsp; <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    </div>
+    <p class="hint-text">自2015/11/04，本站共被抚摸 <span id="busuanzi_value_site_pv"></span> 次</p>
+    <p class="hint-text">您是第 <span id="busuanzi_value_site_uv"></span> 位小伙伴</p>
+  </div>
+</footer>
+    
+
+<!--script src="/blog/js/jquery.min.js"></script-->
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+<!-- <script src="https://cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script> -->
+
+
+
+<script src="/blog/js/script.js"></script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:50px;cursor: pointer;">
+	<a title="返回顶部"><img src="/blog/img/scrollup.png"/></a>
+</div>
+<script src="/blog/js/totop.js"></script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+
+  <!-- Fork me on github -->
+  <!-- <a href="https://github.com/younglaker" target="_blank" title="Fork me on GitHub"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
+
+  <!-- Fork me on Github, Github Logo -->
+  <a href="https://github.com/younglaker" class="github-corner" target="_blank" title="Fork me on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#333;color:#fff;position:absolute;top:0;border:0;right:0"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+</body>
+</html>

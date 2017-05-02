@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>征服命令行 - 进击的程序媛，Laker&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="BxWqqPVkmU3CTQmmIjCp27ZjmcXuB_YTf8Xa7lp_G-w" />
+  <meta name="description" content="命令行（command line），也称为 CLI, Terminal, bash, shell……我们中有很多人很怕使用它，但其实只要你知道一些基本的命令和概念，就没什么好怕的了。（文中接下来的内容，命令行统一用 CLI 称呼）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="征服命令行">
+<meta property="og:url" content="http://laker.me/blog/2015/01/22/15_0122_terminal/index.html">
+<meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
+<meta property="og:description" content="命令行（command line），也称为 CLI, Terminal, bash, shell……我们中有很多人很怕使用它，但其实只要你知道一些基本的命令和概念，就没什么好怕的了。（文中接下来的内容，命令行统一用 CLI 称呼）">
+<meta property="og:image" content="http://segmentfault.com/img/bVkFgM">
+<meta property="og:image" content="http://segmentfault.com/img/bVkAYc">
+<meta property="og:image" content="http://segmentfault.com/img/bVkAYg">
+<meta property="og:image" content="http://segmentfault.com/img/bVkBpB">
+<meta property="og:image" content="http://segmentfault.com/img/bVkBpW">
+<meta property="og:image" content="http://segmentfault.com/img/bVkBpY">
+<meta property="og:image" content="http://segmentfault.com/img/bVkBqo">
+<meta property="og:image" content="http://segmentfault.com/img/bVkBsy">
+<meta property="og:image" content="http://segmentfault.com/img/bVkBuy">
+<meta property="og:image" content="http://segmentfault.com/img/bVkBuU">
+<meta property="og:updated_time" content="2017-04-26T15:15:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="征服命令行">
+<meta name="twitter:description" content="命令行（command line），也称为 CLI, Terminal, bash, shell……我们中有很多人很怕使用它，但其实只要你知道一些基本的命令和概念，就没什么好怕的了。（文中接下来的内容，命令行统一用 CLI 称呼）">
+<meta name="twitter:image" content="http://segmentfault.com/img/bVkFgM">
+  
+    <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
+  
+  
+    <!--link rel="icon" href="/favicon.png"-->
+    <link href="/blog/favicon.ico" rel="icon" type="image/x-ico">
+  
+  <!-- <link href="/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css"> -->
+  <link href="/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c84935c1bc2fcf0a3f6a741737cccf7d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <!-- <a id="logo" class="logo" href="/blog/"></a> -->
+      <a id="logo" class="logo" href="http://laker.me"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/projects">Projects</a>
+        
+          <a class="main-nav-link" href="/blog/about">About</a>
+        
+          <a class="main-nav-link" href="/blog/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/blog/blogrolls">Blogrolls</a>
+        
+          <a class="main-nav-link" href="/blog/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://laker.me/blog"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-15_0122_terminal" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      征服命令行
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/blog/2015/01/22/15_0122_terminal/" class="article-date">
+  <time datetime="2015-01-22T00:24:00.000Z" itemprop="datePublished">2015-01-22</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/翻译/">翻译</a><span>></span><a class="article-category-link" href="/blog/categories/翻译/Terminal/">Terminal</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://segmentfault.com/img/bVkFgM" alt="help.png"></p>
+<p>命令行（command line），也称为 CLI, Terminal, bash, shell……我们中有很多人很怕使用它，但其实只要你知道一些基本的命令和概念，就没什么好怕的了。（文中接下来的内容，命令行统一用 CLI 称呼）</p>
+<a id="more"></a>
+<h2 id="什么时候需要用到-CLI？"><a href="#什么时候需要用到-CLI？" class="headerlink" title="什么时候需要用到 CLI？"></a>什么时候需要用到 CLI？</h2><p>80 年代那种只能用命令行来控制电脑运行的时代早已成为历史，现在的操作系统基本都已图形界面化，虽然有些地方还是不可避免的要用到它。那我们今天就来看一下，有哪些地方需要用到命令行呢？</p>
+<ul>
+<li>远程服务（不止于 FTP 文件上传下载）</li>
+<li>现代编程框架（如 Ruby on Rails）</li>
+<li>像 Git/Subversion 一类的版本控制系统（在没有一个优秀的 GUI 解决方案的情况下）</li>
+</ul>
+<p>这些是最常用到的。不过今天的重点是初步学习。</p>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>Mac 下可以使用 <code>Terminal.app</code></p>
+<p><img src="http://segmentfault.com/img/bVkAYc" alt="clipboard.png"></p>
+<p>Windows 下可以按 <kbd>win</kbd> + <kbd>R</kbd>，输入 cmd 打开命令行工具，或者使用 Git Bash</p>
+<p><img src="http://segmentfault.com/img/bVkAYg" alt="clipboard.png"></p>
+<h2 id="基本的认知"><a href="#基本的认知" class="headerlink" title="基本的认知"></a>基本的认知</h2><p>CLI 无非几个步骤：</p>
+<ol>
+<li>输入一个命令</li>
+<li>添加一些参数</li>
+<li>按回车键确认</li>
+</ol>
+<p>大多数命令只对你当前的目录（location）有效，因此，第一个要知道的命令就是帮助我们找到“现在在哪里”：</p>
+<p><img src="http://segmentfault.com/img/bVkBpB" alt="clipboard.png"></p>
+<p><code>pwd</code> 代表 <code>__p__rint __w__orking __d__irectory</code>：返回结果为“显示当前正在进行工作的目录”。</p>
+<p><code>cd</code> 代表 <code>__c__hange __d__irectory</code>：返回结果为“改变当前工作目录”。下图是进入当前目录下的一个子目录：</p>
+<p><img src="http://segmentfault.com/img/bVkBpW" alt="clipboard.png"></p>
+<p><code>..</code>：返回上一级目录（当前目录的父目录）</p>
+<p><img src="http://segmentfault.com/img/bVkBpY" alt="clipboard.png"></p>
+<p><code>~</code> 是一种特殊的路径符号，代表着当前用户的“home”文件夹，故此有两种方法可以到你的 home 文件夹：</p>
+<ol>
+<li>提供完整的路径：</li>
+</ol>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">cd</span> <span class="string">/Users/</span>&lt;your-username&gt;<span class="string">/projects/</span></div></pre></td></tr></table></figure>
+<p>或用：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/projects/</span></div></pre></td></tr></table></figure>
+<ol>
+<li>另一个重要的命令 <code>ls</code>，用于列出当前目录或指定目录的内容：</li>
+</ol>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ls path/<span class="built_in">to</span>/<span class="built_in">folder</span></div></pre></td></tr></table></figure>
+<p>这个命令的两个重要的可选参数：</p>
+<ul>
+<li><code>-l</code>：输出一个附加信息的列表。</li>
+<li><code>-a</code> 标志：把隐藏的文件（夹）也显示出来，这个在如使用版本控制等很多情况下都很有用。</li>
+</ul>
+<p>结合一下，你可以在当前目录下这样使用：</p>
+<p><img src="http://segmentfault.com/img/bVkBqo" alt="clipboard.png"></p>
+<p>或者在别的路径下调用：</p>
+<pre><code>$ ls -la path/to/folder
+</code></pre><h2 id="文件（夹）相关的命令"><a href="#文件（夹）相关的命令" class="headerlink" title="文件（夹）相关的命令"></a>文件（夹）相关的命令</h2><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>删除文件：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rm path/<span class="keyword">to</span>/<span class="built_in">file</span>.ext</div></pre></td></tr></table></figure>
+<p>删除文件夹要加上<code>-r</code>（recursive），这样就会把目录里的所有内容都删除：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rm -r path/<span class="built_in">to</span>/<span class="built_in">folder</span></div></pre></td></tr></table></figure>
+<h3 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h3><p>例子：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mv path<span class="regexp">/to/</span><span class="keyword">file</span>.ext different<span class="regexp">/path/</span><span class="keyword">file</span>.ext</div></pre></td></tr></table></figure>
+<p>这个命令也能用来给文件重命名：</p>
+<figure class="highlight cos"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">mv</span> old-filename.ext <span class="keyword">new</span>-filename.ext</div></pre></td></tr></table></figure>
+<h3 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h3><p>使用 <code>cp</code> 命令，用法同 <code>mv</code></p>
+<h3 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h3><p>使用 <code>mkdir</code>（make directory）：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">mkdir</span> <span class="keyword">new</span>-folder</div></pre></td></tr></table></figure>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>命令行还可以用来显示文件的内容。虽然使用编辑器来执行这一任务会更优雅，但有在有些情况下使用命令行反倒会方便一些。比如，当你只是想快速浏览一下，或因为是远程服务（这样图形界面操作的方式行不通），使用命令行就会变得很便捷：</p>
+<p>使用 <code>cat</code> 命令会输出一个完整的文件内容</p>
+<p><img src="http://segmentfault.com/img/bVkBsy" alt="clipboard.png"></p>
+<p><code>head</code> 和 <code>tail</code> 命令非常相似，分别是只显示前 10 行、后 10 行内容。</p>
+<p>需要注意的是，<code>less</code> 命令有所不同：它虽然也用于显示输出，但它可以控制页面流程本身，也就是它只显示一个页面的内容，然后只能等待下一步指示。屏幕的最后一行显示的是当前文件名或只是一个等待接收命令的冒号 <code>:</code>，这时候按空格键将向前翻一页，按 <kbd>b</kbd> 键将后退一页，按 <kbd>q</kbd> 将退出 <code>less</code> 命令。</p>
+<h2 id="CTRL-键的使用"><a href="#CTRL-键的使用" class="headerlink" title="CTRL 键的使用"></a><kbd>CTRL</kbd> 键的使用</h2><ul>
+<li><kbd>CTRL</kbd> + <kbd>A</kbd>：光标移到行首</li>
+<li><kbd>CTRL</kbd> + <kbd>E</kbd>：光标移到行末</li>
+<li><kbd>CTRL</kbd> + <kbd>C</kbd>：终止当前运行的命令</li>
+</ul>
+<h2 id="用-TAB-键完成内容自动补充"><a href="#用-TAB-键完成内容自动补充" class="headerlink" title="用 TAB 键完成内容自动补充"></a>用 <kbd>TAB</kbd> 键完成内容自动补充</h2><p>输入文件名和路径的时候很容易出错，这时候就需要 <kbd>TAB</kbd> 键来帮你自动完成所写的内容。</p>
+<p>例如当你想切换到一个别的目录，你可以手动输入每一个部分的路径：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/design/favorite-customer/mockups/</span></div></pre></td></tr></table></figure>
+<p>或者使用 <kbd>TAB</kbd> 键快速完成：</p>
+<p><img src="http://segmentfault.com/img/bVkBuy" alt="clipboard.png"></p>
+<p>你输入的字符不是每次都是明确的——因为“de”也可以是文件夹中“development”或“dentist”，在这种情况下 TAB 键不能自动补充你的输入，但它会有一个可能选项的列表，然后自动补全一些文字让你输入地更明确些。</p>
+<h2 id="用方向键查看历史命令"><a href="#用方向键查看历史命令" class="headerlink" title="用方向键查看历史命令"></a>用方向键查看历史命令</h2><p>CLI 会像浏览器一样记录你最近的命令历史，所以：</p>
+<ul>
+<li>向上键 <kbd>↑</kbd> 翻向更早的记录</li>
+<li>向下键 <kbd>↓</kbd> 翻向更近期的记录</li>
+</ul>
+<p><img src="http://segmentfault.com/img/bVkBuU" alt="clipboard.png"></p>
+<h2 id="CLI-的替代品"><a href="#CLI-的替代品" class="headerlink" title="CLI 的替代品"></a>CLI 的替代品</h2><p>现在有很多图形界面工具可以让你脱离 CLI，如 FTP 的客户端 <a href="http://panic.com/transmit/" target="_blank" rel="external">Transmit</a> ，版本控制器客户端 <a href="http://www.git-tower.com/" target="_blank" rel="external">Tower</a>。但不可否认，CLI 在某些情况下仍然是最好的选择。</p>
+<blockquote>
+<p>原文 <a href="http://designmodo.com/command-line/#" target="_blank" rel="external">Lose Fear of the Command Line</a></p>
+<p>本文是我为 <a href="http://segmentfault.com/blog/news/1190000002505102" target="_blank" rel="external">SegmentFault</a> 所译</p>
+</blockquote>
+
+        <hr>
+        <div class="copyrightss">
+          <a href="http://laker.me/blog/2015/01/22/15_0122_terminal/">征服命令行</a>
+          <!--%- partial('post/title', {class_name: 'archive-article-title'}) %-->
+          <p>本文原创自<a href="http://laker.me/blog">Laker's Blog</a>，转载请注明出处，欢迎交换友链</p>
+          <p>如果本文对您有帮助，微信扫一扫，请我喝杯咖啡吧</p>
+          <p><img src="http://77g54f.com1.z0.glb.clouddn.com/weixinpay.jpg"></p>
+        </div>
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+    </footer>
+  
+  <p class="hint-text hidden">阅读量<span id="busuanzi_value_page_pv"></span>次</p>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/01/26/15_0126_front_end_interview/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          世界各地程序员共同总结的前端面试题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/01/21/15_0121_Thuts_top_50_article/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">推荐——Tuts+ 2014年前50的技术文章&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+<section id="comment">
+  <h1 class="title">comment</h1>
+  <div id="disqus_thread">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1672779"></script>
+    <!-- UY END -->
+  </div>
+</section>
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <!--div id="footer-info" class="inner">
+      &copy; 2017 Laker Huang&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div-->
+    <div id="footer-info" class="inner">
+      &copy; 2014 - 2017 Laker Huang&nbsp; <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    </div>
+    <p class="hint-text">自2015/11/04，本站共被抚摸 <span id="busuanzi_value_site_pv"></span> 次</p>
+    <p class="hint-text">您是第 <span id="busuanzi_value_site_uv"></span> 位小伙伴</p>
+  </div>
+</footer>
+    
+
+<!--script src="/blog/js/jquery.min.js"></script-->
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+<!-- <script src="https://cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script> -->
+
+
+
+<script src="/blog/js/script.js"></script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:50px;cursor: pointer;">
+	<a title="返回顶部"><img src="/blog/img/scrollup.png"/></a>
+</div>
+<script src="/blog/js/totop.js"></script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+
+  <!-- Fork me on github -->
+  <!-- <a href="https://github.com/younglaker" target="_blank" title="Fork me on GitHub"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
+
+  <!-- Fork me on Github, Github Logo -->
+  <a href="https://github.com/younglaker" class="github-corner" target="_blank" title="Fork me on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#333;color:#fff;position:absolute;top:0;border:0;right:0"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+</body>
+</html>
