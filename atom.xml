@@ -490,7 +490,7 @@ bower install bootstrap#3.3.7 --save
     <link href="http://laker.me/blog/2016/05/05/16_0505_the_dreams/"/>
     <id>http://laker.me/blog/2016/05/05/16_0505_the_dreams/</id>
     <published>2016-05-05T00:24:00.000Z</published>
-    <updated>2017-04-26T15:15:10.000Z</updated>
+    <updated>2017-07-18T02:24:12.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/essay508286.jpg" alt="那时候的梦想，你还在坚持吗？"></p>
 <a id="more"></a>
@@ -526,11 +526,12 @@ bower install bootstrap#3.3.7 --save
 <p><strong>《请回答1997》</strong></p>
 <p><img src="http://77g54f.com1.z0.glb.clouddn.com/essaytrim.jpg" alt="请回答1997"></p>
 <blockquote>
-<p>   讲述6个好友，从1997年到2012年共同经历着友情、亲情和爱情的成长与蜕变。鲜有的不靠颜值取胜的韩剧，看弹幕的时候会看到一边吐槽颜值、一边说剧情好看、最后爱上所有演员的言论。<br>   该剧有着复古小清新调调，轻松诙谐，能让人笑出言论，又不禁让人回忆思考。<br>   本剧大部分讲述1997年的故事，虽然大背景的韩国，但是绝对能和你所经历的青春产生共鸣。那时候我们年轻，我们追星，我们看球，我们看漫画，我们谈论着隔壁的班花、球场的校草，我们……<br>   该剧采用倒叙、插叙的手法，看第一集的时候会比较晕，但请相信满屏的弹幕，看下去，你一定会感叹编剧的铺垫手法，还有大量的暗示线索可以供亲推测剧情~</p>
+<p>   讲述6个好友，从1997年到2012年共同经历着友情、亲情和爱情的成长与蜕变。鲜有的不靠颜值取胜的韩剧，看弹幕的时候会看到一边吐槽颜值、一边说剧情好看、最后爱上所有演员的言论。<br>   该剧有着复古小清新调调，轻松诙谐，能让人笑出言论，又不禁让人回忆思考。<br>   本剧大部分讲述1997年的故事，虽然大背景是韩国，但是绝对能和你所经历的青春产生共鸣。那时候我们年轻，我们追星，我们看球，我们看漫画，我们谈论着隔壁的班花、球场的校草，我们……<br>   该剧采用倒叙、插叙的手法，看第一集的时候会比较晕，但请相信满屏的弹幕，看下去，你一定会感叹编剧的铺垫手法，还有大量的暗示线索可以供亲推测剧情~</p>
 </blockquote>
-<p><strong>【图饭】是我倾心维护的微信公众号，选取有深度的影片片段，结合生活，串接成有味道的文章。</strong><br><strong>图饭 —— 用长图说故事</strong><br><strong>我有故事，你有酒吗？</strong></p>
-<p><img src="http://77g54f.com1.z0.glb.clouddn.com/tufan1056418.png" alt="图饭"></p>
-]]></content>
+<!-- **【图饭】是我倾心维护的 微信公众号，选取有深度的影片片段，结合生活，串接成有味道的文章。**
+**图饭 —— 用长图说故事**
+**我有故事，你有酒吗？** -->
+<!-- ![图饭](http://77g54f.com1.z0.glb.clouddn.com/tufan1056418.png) -->]]></content>
     
     <summary type="html">
     
@@ -542,50 +543,6 @@ bower install bootstrap#3.3.7 --save
     
     
       <category term="图饭" scheme="http://laker.me/blog/tags/%E5%9B%BE%E9%A5%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML5+Ajax上传文件</title>
-    <link href="http://laker.me/blog/2016/03/04/16_0304_ajax_file_upload/"/>
-    <id>http://laker.me/blog/2016/03/04/16_0304_ajax_file_upload/</id>
-    <published>2016-03-04T00:24:00.000Z</published>
-    <updated>2017-04-26T15:15:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-523586.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjIucG5n/dissolve/100/gravity/South/dy/5" alt="HTML5+Ajax上传文件"></p>
-<a id="more"></a>
-<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><p><code>input</code>类型设为<code>file</code>：</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">label</span> <span class="keyword">for</span>=<span class="string">"img_input"</span>&gt;&lt;/<span class="keyword">label</span>&gt;</div><div class="line">&lt;<span class="keyword">input</span> id=<span class="string">"img_input"</span> <span class="keyword">type</span>=<span class="string">"file"</span>/&gt;</div></pre></td></tr></table></figure>
-<p>如果想上传多文件，可添加<code>multiple</code></p>
-<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"file"</span> name=<span class="string">"img"</span> multiple=<span class="string">"multiple"</span> /&gt;</div></pre></td></tr></table></figure>
-<p>用<code>accept=&quot;MIME_type&quot;</code>限制提交的文件类型，用逗号隔开的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input" target="_blank" rel="external">MIME 类型</a>列表（服务器端也要最好类型检测双保险），如：</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="keyword">type</span>=<span class="string">"file"</span> <span class="keyword">accept</span>=<span class="string">"image/gif, image/jpeg"</span> /&gt;</div><div class="line">&lt;input <span class="keyword">type</span>=<span class="string">"file"</span> <span class="keyword">accept</span>=<span class="string">"image/*"</span>/&gt;</div></pre></td></tr></table></figure>
-<h2 id="获取文件内容"><a href="#获取文件内容" class="headerlink" title="获取文件内容"></a>获取文件内容</h2><p>JavaScript：</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> file = <span class="built_in">document</span>.getElementById(<span class="string">'fileToUpload'</span>).files[<span class="number">0</span>];</div></pre></td></tr></table></figure>
-<p>jQuery：</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">file</span> = $(<span class="string">"#img_input"</span>).<span class="keyword">prop</span>(<span class="string">"files"</span>)[0];</div></pre></td></tr></table></figure>
-<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>XMLHttpRequest Level 2添加了一个新的接口<code>FormData</code>。利用FormData对象，我们可以通过JavaScript用一些键值对来模拟一系列表单控件。比起普通的Ajax，使用FormData的最大优点就是我们可以异步上传一个二进制文件。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 创建</span></div><div class="line"><span class="keyword">var</span> form_data = <span class="keyword">new</span> FormData();</div><div class="line"></div><div class="line"><span class="comment">// 获取文件</span></div><div class="line"><span class="keyword">var</span> file_data = $(<span class="string">"#img_input"</span>).prop(<span class="string">"files"</span>)[<span class="number">0</span>];</div><div class="line"></div><div class="line"><span class="comment">// 把所以表单信息</span></div><div class="line">form_data.append(<span class="string">"id"</span>, <span class="string">"001"</span>);</div><div class="line">form_data.append(<span class="string">"name"</span>, <span class="string">"test"</span>);</div><div class="line">form_data.append(<span class="string">"img"</span>, file_data);</div><div class="line"></div><div class="line">$.ajax(&#123;</div><div class="line">    <span class="attr">type</span>: <span class="string">"POST"</span>,</div><div class="line">    <span class="attr">url</span>: <span class="string">"...."</span>,</div><div class="line">    <span class="attr">dataType</span> : <span class="string">"json"</span>,</div><div class="line">    <span class="attr">processData</span>: <span class="literal">false</span>,  <span class="comment">// 注意：让jQuery不要处理数据</span></div><div class="line">    contentType: <span class="literal">false</span>,  <span class="comment">// 注意：让jQuery不要设置contentType</span></div><div class="line">    data: form_data</div><div class="line">&#125;).success(<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(msg);</div><div class="line">&#125;).fail(<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(msg);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h2 id="多文件上传"><a href="#多文件上传" class="headerlink" title="多文件上传"></a>多文件上传</h2><p><strong>方法一 ：一次性上传多个文件</strong></p>
-<p>如果后台接口允许多文件上传，就把文件存到一个变量后上传。</p>
-<p><strong>方法二 ：一次性上传多个文件</strong></p>
-<p>如果后台接口要求单个文件，就循环获取文件信息提交，Ajax使用同步上传<code>async: false</code>。</p>
-<h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2><p>JSONP是使用GET方法，无法发送文件。可以让后台开启CORS，Ajax也使用跨域<code>crossDomain: true</code>即可。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">    <span class="attr">type</span>: <span class="string">"POST"</span>,</div><div class="line">    <span class="attr">url</span>: <span class="string">"...."</span>,</div><div class="line">    <span class="attr">dataType</span> : <span class="string">"json"</span>,</div><div class="line">    <span class="attr">crossDomain</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">processData</span>: <span class="literal">false</span>,  <span class="comment">// 注意：让jQuery不要处理数据</span></div><div class="line">    contentType: <span class="literal">false</span>,  <span class="comment">// 注意：让jQuery不要设置contentType</span></div><div class="line">    data: form_data</div><div class="line">&#125;).success(<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(msg);</div><div class="line">&#125;).fail(<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(msg);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-523586.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjIucG5n/dissolve/100/gravity/South/dy/5&quot; alt=&quot;HTML5+Ajax上传文件&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Ajax" scheme="http://laker.me/blog/categories/Ajax/"/>
-    
-    
-      <category term="HTML5" scheme="http://laker.me/blog/tags/HTML5/"/>
-    
-      <category term="Ajax" scheme="http://laker.me/blog/tags/Ajax/"/>
     
   </entry>
   
@@ -636,6 +593,50 @@ bower install bootstrap#3.3.7 --save
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-718552.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjIucG5n/dissolve/100/gravity/South/dy/5&quot; alt=&quot;HTML5上传图片文件&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ajax" scheme="http://laker.me/blog/categories/Ajax/"/>
+    
+    
+      <category term="HTML5" scheme="http://laker.me/blog/tags/HTML5/"/>
+    
+      <category term="Ajax" scheme="http://laker.me/blog/tags/Ajax/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML5+Ajax上传文件</title>
+    <link href="http://laker.me/blog/2016/03/04/16_0304_ajax_file_upload/"/>
+    <id>http://laker.me/blog/2016/03/04/16_0304_ajax_file_upload/</id>
+    <published>2016-03-04T00:24:00.000Z</published>
+    <updated>2017-04-26T15:15:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-523586.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjIucG5n/dissolve/100/gravity/South/dy/5" alt="HTML5+Ajax上传文件"></p>
+<a id="more"></a>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><p><code>input</code>类型设为<code>file</code>：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">label</span> <span class="keyword">for</span>=<span class="string">"img_input"</span>&gt;&lt;/<span class="keyword">label</span>&gt;</div><div class="line">&lt;<span class="keyword">input</span> id=<span class="string">"img_input"</span> <span class="keyword">type</span>=<span class="string">"file"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>如果想上传多文件，可添加<code>multiple</code></p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"file"</span> name=<span class="string">"img"</span> multiple=<span class="string">"multiple"</span> /&gt;</div></pre></td></tr></table></figure>
+<p>用<code>accept=&quot;MIME_type&quot;</code>限制提交的文件类型，用逗号隔开的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input" target="_blank" rel="external">MIME 类型</a>列表（服务器端也要最好类型检测双保险），如：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="keyword">type</span>=<span class="string">"file"</span> <span class="keyword">accept</span>=<span class="string">"image/gif, image/jpeg"</span> /&gt;</div><div class="line">&lt;input <span class="keyword">type</span>=<span class="string">"file"</span> <span class="keyword">accept</span>=<span class="string">"image/*"</span>/&gt;</div></pre></td></tr></table></figure>
+<h2 id="获取文件内容"><a href="#获取文件内容" class="headerlink" title="获取文件内容"></a>获取文件内容</h2><p>JavaScript：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> file = <span class="built_in">document</span>.getElementById(<span class="string">'fileToUpload'</span>).files[<span class="number">0</span>];</div></pre></td></tr></table></figure>
+<p>jQuery：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">file</span> = $(<span class="string">"#img_input"</span>).<span class="keyword">prop</span>(<span class="string">"files"</span>)[0];</div></pre></td></tr></table></figure>
+<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>XMLHttpRequest Level 2添加了一个新的接口<code>FormData</code>。利用FormData对象，我们可以通过JavaScript用一些键值对来模拟一系列表单控件。比起普通的Ajax，使用FormData的最大优点就是我们可以异步上传一个二进制文件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 创建</span></div><div class="line"><span class="keyword">var</span> form_data = <span class="keyword">new</span> FormData();</div><div class="line"></div><div class="line"><span class="comment">// 获取文件</span></div><div class="line"><span class="keyword">var</span> file_data = $(<span class="string">"#img_input"</span>).prop(<span class="string">"files"</span>)[<span class="number">0</span>];</div><div class="line"></div><div class="line"><span class="comment">// 把所以表单信息</span></div><div class="line">form_data.append(<span class="string">"id"</span>, <span class="string">"001"</span>);</div><div class="line">form_data.append(<span class="string">"name"</span>, <span class="string">"test"</span>);</div><div class="line">form_data.append(<span class="string">"img"</span>, file_data);</div><div class="line"></div><div class="line">$.ajax(&#123;</div><div class="line">    <span class="attr">type</span>: <span class="string">"POST"</span>,</div><div class="line">    <span class="attr">url</span>: <span class="string">"...."</span>,</div><div class="line">    <span class="attr">dataType</span> : <span class="string">"json"</span>,</div><div class="line">    <span class="attr">processData</span>: <span class="literal">false</span>,  <span class="comment">// 注意：让jQuery不要处理数据</span></div><div class="line">    contentType: <span class="literal">false</span>,  <span class="comment">// 注意：让jQuery不要设置contentType</span></div><div class="line">    data: form_data</div><div class="line">&#125;).success(<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(msg);</div><div class="line">&#125;).fail(<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(msg);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="多文件上传"><a href="#多文件上传" class="headerlink" title="多文件上传"></a>多文件上传</h2><p><strong>方法一 ：一次性上传多个文件</strong></p>
+<p>如果后台接口允许多文件上传，就把文件存到一个变量后上传。</p>
+<p><strong>方法二 ：一次性上传多个文件</strong></p>
+<p>如果后台接口要求单个文件，就循环获取文件信息提交，Ajax使用同步上传<code>async: false</code>。</p>
+<h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2><p>JSONP是使用GET方法，无法发送文件。可以让后台开启CORS，Ajax也使用跨域<code>crossDomain: true</code>即可。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">    <span class="attr">type</span>: <span class="string">"POST"</span>,</div><div class="line">    <span class="attr">url</span>: <span class="string">"...."</span>,</div><div class="line">    <span class="attr">dataType</span> : <span class="string">"json"</span>,</div><div class="line">    <span class="attr">crossDomain</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">processData</span>: <span class="literal">false</span>,  <span class="comment">// 注意：让jQuery不要处理数据</span></div><div class="line">    contentType: <span class="literal">false</span>,  <span class="comment">// 注意：让jQuery不要设置contentType</span></div><div class="line">    data: form_data</div><div class="line">&#125;).success(<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(msg);</div><div class="line">&#125;).fail(<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(msg);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-523586.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjIucG5n/dissolve/100/gravity/South/dy/5&quot; alt=&quot;HTML5+Ajax上传文件&quot;&gt;&lt;/p&gt;
     
     </summary>
     
