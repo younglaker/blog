@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Vue.js 2 高仿饿了么开发及解注一：基础准备 - 进击的程序媛，Laker&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="BxWqqPVkmU3CTQmmIjCp27ZjmcXuB_YTf8Xa7lp_G-w" />
+  <meta name="keywords" content="HTML5,JavaScript,Vue.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue.js 2 高仿饿了么开发及解注一：基础准备">
+<meta property="og:url" content="http://laker.me/blog/2017/06/20/17_0620_vuejs_eleme_1/index.html">
+<meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
+<meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170620.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
+<meta property="og:updated_time" content="2017-07-18T02:39:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue.js 2 高仿饿了么开发及解注一：基础准备">
+<meta name="twitter:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170620.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
+  
+    <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
+  
+  
+    <!--link rel="icon" href="/favicon.png"-->
+    <link href="/blog/favicon.ico" rel="icon" type="image/x-ico">
+  
+  <!-- <link href="/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css"> -->
+  <link href="/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css">
+  <!--% if (theme.google_analytics){ %-->
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+// ga('create', 'null', 'auto');
+ga('create', 'UA-43961506-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+<!--% } %-->
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c84935c1bc2fcf0a3f6a741737cccf7d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <!-- <a id="logo" class="logo" href="/blog/"></a> -->
+      <a id="logo" class="logo" href="http://laker.me"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/projects">Projects</a>
+        
+          <a class="main-nav-link" href="/blog/about">About</a>
+        
+          <a class="main-nav-link" href="/blog/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/blog/blogrolls">Blogrolls</a>
+        
+          <a class="main-nav-link" href="/blog/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://laker.me/blog"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!-- Fork me on github -->
+  <!-- <a href="https://github.com/younglaker" target="_blank" title="Fork me on GitHub"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
+
+  <!-- Fork me on Github, Github Logo -->
+  <a href="https://github.com/younglaker" class="github-corner" target="_blank" title="Fork me on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#333;color:#fff;position:absolute;top:0;border:0;right:0"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+</header>
+    <section id="main" class="outer"><article id="post-17_0620_vuejs_eleme_1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue.js 2 高仿饿了么开发及解注一：基础准备
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/blog/2017/06/20/17_0620_vuejs_eleme_1/" class="article-date">
+  <time datetime="2017-06-20T00:24:00.000Z" itemprop="datePublished">2017-06-20</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Vue-js/">Vue.js</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170620.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="Vue.js 2 高仿饿了么开发及解注一"></p>
+<a id="more"></a>
+<blockquote>
+<p>欢迎交换友链： <a href="http://laker.me/blog">Laker’s Blog–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
+</blockquote>
+<p>慕课网早期出了《Vue.js 1 高仿饿了么APP》的课程，本系列文章根据课程，使用 Vue.js 2 版本进行开发，并进行了一步步开发流程记录和详细的代码注解。</p>
+<p><a href="https://github.com/ustbhuangyi/vue-sell" target="_blank" rel="external">原作者的代码</a></p>
+<p><a href="https://github.com/younglaker/CometLab/tree/vue-eleme" target="_blank" rel="external">我做的含有详细代码注解的版本</a></p>
+<h2 id="安装-Vue-模板"><a href="#安装-Vue-模板" class="headerlink" title="安装 Vue 模板"></a>安装 Vue 模板</h2><p>安装好vue-cli后执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> vue init webpack AppName  <span class="comment">#建立一个webpack打包的应用，默认使用最新版vue</span></span></div></pre></td></tr></table></figure>
+<p>然后按照提示填写信息：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="string">?</span> <span class="string">Project</span> <span class="string">name</span> <span class="string">sell</span></div><div class="line"><span class="string">?</span> <span class="string">Project</span> <span class="string">description</span> <span class="string">sell</span></div><div class="line"><span class="string">?</span> <span class="string">Author</span> <span class="string">younglaker</span> <span class="string">&lt;younglaker8@gmail.com&gt;</span></div><div class="line"><span class="string">?</span> <span class="string">Vue</span> <span class="string">build</span> <span class="string">standalone</span></div><div class="line"><span class="string">?</span> <span class="string">Install</span> <span class="string">vue-router?</span> <span class="literal">Yes</span></div><div class="line"><span class="string">?</span> <span class="string">Use</span> <span class="string">ESLint</span> <span class="string">to</span> <span class="string">lint</span> <span class="string">your</span> <span class="string">code?</span> <span class="literal">Yes</span></div><div class="line"><span class="string">?</span> <span class="string">Pick</span> <span class="string">an</span> <span class="string">ESLint</span> <span class="string">preset</span> <span class="string">Standard</span>  <span class="comment">#</span></div><div class="line"><span class="string">?</span> <span class="string">Setup</span> <span class="string">unit</span> <span class="string">tests</span> <span class="string">with</span> <span class="string">Karma</span> <span class="string">+</span> <span class="string">Mocha?</span> <span class="literal">No</span>  <span class="comment">#单元测试</span></div><div class="line"><span class="string">?</span> <span class="string">Setup</span> <span class="string">e2e</span> <span class="string">tests</span> <span class="string">with</span> <span class="string">Nightwatch?</span> <span class="literal">No</span></div><div class="line"></div><div class="line">   <span class="string">vue-cli</span> <span class="string">·</span> <span class="string">Generated</span> <span class="string">"sell"</span><span class="string">.</span></div><div class="line"></div><div class="line">   <span class="string">To</span> <span class="string">get</span> <span class="attr">started:</span></div><div class="line"></div><div class="line">     <span class="string">cd</span> <span class="string">sell</span></div><div class="line">     <span class="string">npm</span> <span class="string">install</span></div><div class="line">     <span class="string">npm</span> <span class="string">run</span> <span class="string">dev</span></div></pre></td></tr></table></figure>
+<h2 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h2><p>– build ： webpack配置相关<br>– config ： webpack配置相关<br>– node_modules ： 依赖<br>– src ： 开发目录<br>– static ： 第三方静态资源<br>| – .gitkeep ： 使得如果文件为空也提交到git仓库<br>– babelrc ： babel 配置<br>– .editorconfig ： 编辑器配置。sublime要安装插件EditorConfig<br>– .eslintignore ： 设置忽略语法检查的文件<br>– .eslintrc.js ： eslint 配置。<br>– index.html ： 项目入口<br>– pakage.json ： 配置。<code>script</code>设置执行的命令，<code>npm run dev/start/build</code>即执行相应的脚本。<code>dependencies</code>生产需要的依赖， <code>devDependencies</code>编译过程的依赖，版本号前面有个 <code>^</code> 表示最低版本</p>
+<h2 id="EsLint-配置"><a href="#EsLint-配置" class="headerlink" title="EsLint 配置"></a>EsLint 配置</h2><p><code>extends: &#39;standard&#39;</code> 是初始化文件时候选的，可以在<code>&#39;rules&#39;</code>里添加自己的规则（条件名：0 即为不检测此条件）。</p>
+<ul>
+<li>默认js不能输入分号，想要分号则添加<code>&#39;semi&#39;: [&#39;error&#39;, &#39;always&#39;]</code></li>
+<li>忽略缩进报错<code>&#39;indent&#39;： 0</code></li>
+<li>不检测 new 实例，在 vue 代码前添加注释 <code>/* eslint-disable no-new */</code></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* eslint-disable no-new */</span></div><div class="line"><span class="selector-tag">new</span> <span class="selector-tag">Vue</span>(&#123;</div><div class="line">  <span class="attribute">el</span>: <span class="string">'#app'</span>,</div><div class="line">  router,</div><div class="line">  render: h =&gt; <span class="built_in">h</span>(App)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><p>查看示例组件<code>App.vue</code>，每个组件包括：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span>...<span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined">...</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined">...</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="新增目录"><a href="#新增目录" class="headerlink" title="新增目录"></a>新增目录</h2><p><a href="https://github.com/ustbhuangyi/vue-sell/tree/1.0/src/common" target="_blank" rel="external">https://github.com/ustbhuangyi/vue-sell/tree/1.0/src/common</a></p>
+<p>把图标SVG上传到 <a href="https://icomoon.io/app/#/select" target="_blank" rel="external">https://icomoon.io/app/#/select</a> 制作 ico fonts 并下载</p>
+<ul>
+<li>在 src 文件夹下新建文件夹 common， js</li>
+<li>common 下新建 fonts, js, stylus</li>
+<li>fonts 下把 ico fonts 字体文件放到这</li>
+<li>stylus 下把  ico fonts 的 style.css 改成 ico.styl 放到这，把文字路径的 <code>fonts/</code> 改为 <code>../fonts/</code></li>
+<li>在 static 文件加入 css/reset.css，并在 index.html 里引用<code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;static/css/reset.css&quot; /&gt;</code></li>
+</ul>
+<p>安装 stylys：</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install stylus stylus-loader –-<span class="built_in">save</span>-<span class="built_in">dev</span></div></pre></td></tr></table></figure>
+<h2 id="模拟数据"><a href="#模拟数据" class="headerlink" title="模拟数据"></a>模拟数据</h2><p>添加 <code>data.json</code> 到根目录：</p>
+<p><a href="https://github.com/ustbhuangyi/vue-sell/blob/1.0/data.json" target="_blank" rel="external">https://github.com/ustbhuangyi/vue-sell/blob/1.0/data.json</a></p>
+<p>在<code>var app = express()</code> 后面添加（因为用到 express，所以要在起定义后）：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// import data.json</span></div><div class="line"><span class="keyword">var</span> appData = <span class="keyword">require</span>(<span class="string">'../data.json'</span>)</div><div class="line"><span class="keyword">var</span> seller = appData.seller</div><div class="line"><span class="keyword">var</span> goods = appData.goods</div><div class="line"><span class="keyword">var</span> ratings = appData.ratings</div><div class="line"></div><div class="line"><span class="keyword">var</span> apiRoutes = express.Router()</div><div class="line"></div><div class="line">apiRoutes.get(<span class="string">'/seller'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> </span>&#123;</div><div class="line">  res.json(&#123;</div><div class="line">    status: <span class="number">1</span>, <span class="comment">// 定义状态码</span></div><div class="line">    data: seller</div><div class="line">  &#125;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">apiRoutes.get(<span class="string">'/goods'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> </span>&#123;</div><div class="line">  res.json(&#123;</div><div class="line">    status: <span class="number">1</span>,</div><div class="line">    data: goods</div><div class="line">  &#125;)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">apiRoutes.get(<span class="string">'/ratings'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> </span>&#123;</div><div class="line">  res.json(&#123;</div><div class="line">    status: <span class="number">1</span>,</div><div class="line">    data: ratings</div><div class="line">  &#125;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.<span class="keyword">use</span>(<span class="string">'/api'</span>, apiRoutes)</div></pre></td></tr></table></figure>
+<h2 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h2><p><strong>index.html</strong></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;meta <span class="built_in">name</span>=<span class="string">"viewport"</span></div><div class="line">    content=<span class="string">"width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"</span>&gt;</div></pre></td></tr></table></figure>
+<p><strong>router/index.js</strong></p>
+<p>把 Hello 的引入删掉，删除 components: Hello。 header 已经在 App.vue 里引入，这里不用再引入。</p>
+<p><strong>App.vue:</strong></p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;v-header&gt;&lt;/v-header&gt;</div><div class="line"></div><div class="line"><span class="keyword">import</span> header <span class="keyword">from</span> <span class="string">'./components/header/header.vue'</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  name: <span class="string">'app'</span>,</div><div class="line">  components: &#123;</div><div class="line">    <span class="string">'v-header'</span>: header</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;style lang=<span class="string">"stylus"</span>&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p><strong>components/header/header.vue</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span>header</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">"stylus"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="tebs-路由"><a href="#tebs-路由" class="headerlink" title="tebs 路由"></a>tebs 路由</h2><p><strong>App.vue:</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">v-header</span>&gt;</span><span class="tag">&lt;/<span class="name">v-header</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tab border-1px"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tab-item"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/goods"</span>&gt;</span>商品<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tab-item"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/ratings"</span>&gt;</span>评论<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tab-item"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/seller"</span>&gt;</span>商家<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><strong>build/webpack.base.conf.js</strong> 新增路径别称</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">resolve</span>: &#123;</div><div class="line">  ......</div><div class="line">  alia<span class="variable">s:</span> &#123;</div><div class="line">    <span class="string">'@'</span>: <span class="built_in">resolve</span>(<span class="string">'src'</span>)</div><div class="line">    // 就能用 @/ 表示 src/</div><div class="line">    // 或改为 <span class="string">'src'</span>: path.<span class="built_in">resolve</span>(__dirname, <span class="string">'../src'</span>),</div><div class="line">    <span class="string">'common'</span>: path.<span class="built_in">resolve</span>(__dirname, <span class="string">'../src/common'</span>),</div><div class="line">    <span class="string">'components'</span>: path.<span class="built_in">resolve</span>(__dirname, <span class="string">'../src/components'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>router/index.js</strong> 修改路由配置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 如果没有上一步配置路径别称，就要用 @/components</span></div><div class="line"><span class="keyword">import</span> goods <span class="keyword">from</span> <span class="string">'components/goods/goods'</span></div><div class="line"><span class="keyword">import</span> ratings <span class="keyword">from</span> <span class="string">'components/ratings/ratings'</span></div><div class="line"><span class="keyword">import</span> seller <span class="keyword">from</span> <span class="string">'components/seller/seller'</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</div><div class="line">  <span class="attr">routes</span>: [&#123;</div><div class="line">    <span class="attr">path</span>: <span class="string">'/'</span>,</div><div class="line">    <span class="attr">redirect</span>: <span class="string">'/goods'</span>  <span class="comment">// 重定向,进入就显示goods信息</span></div><div class="line">  &#125;, &#123;</div><div class="line">    <span class="attr">path</span>: <span class="string">'/goods'</span>,</div><div class="line">    <span class="attr">component</span>: goods</div><div class="line">  &#125;, &#123;</div><div class="line">    <span class="attr">path</span>: <span class="string">'/ratings'</span>,</div><div class="line">    <span class="attr">component</span>: ratings</div><div class="line">  &#125;, &#123;</div><div class="line">    <span class="attr">path</span>: <span class="string">'/seller'</span>,</div><div class="line">    <span class="attr">component</span>: seller</div><div class="line">  &#125;]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="tabs-选中后高亮"><a href="#tabs-选中后高亮" class="headerlink" title="tabs 选中后高亮"></a>tabs 选中后高亮</h2><p><strong>router/index.js</strong><br>全局配置 <router-link> 的默认『激活 class 类名』<br><a href="http://router.vuejs.org/zh-cn/api/options.html" target="_blank" rel="external">http://router.vuejs.org/zh-cn/api/options.html</a></router-link></p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">export</span> <span class="selector-tag">default</span> <span class="selector-tag">new</span> <span class="selector-tag">Router</span>(&#123;</div><div class="line">  <span class="attribute">linkActiveClass</span>: <span class="string">'active'</span>,</div><div class="line"></div><div class="line">  <span class="attribute">routes</span>: [&#123;</div><div class="line">    <span class="attribute">path</span>: <span class="string">'/'</span>,</div><div class="line">    <span class="attribute">redirect</span>: <span class="string">'/goods'</span></div><div class="line">  &#125;, &#123;....</div></pre></td></tr></table></figure>
+<p>新建 <strong>common/stylus/mixin.styl</strong><br>添加 1px border 的样式，通过传颜色使用。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">border-1px</span><span class="params">(<span class="variable">$color</span>)</span></span></div><div class="line">  <span class="attribute">position</span>: relative</div><div class="line">  &amp;:after</div><div class="line">    <span class="attribute">display</span>: block</div><div class="line">    <span class="attribute">position</span>: absolute</div><div class="line">    <span class="attribute">left</span>: <span class="number">0</span></div><div class="line">    <span class="attribute">bottom</span>: <span class="number">0</span></div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span></div><div class="line">    <span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="variable">$color</span></div><div class="line">    <span class="attribute">content</span>: <span class="string">' '</span></div><div class="line"></div><div class="line"><span class="function"><span class="title">border-none</span><span class="params">()</span></span></div><div class="line">  &amp;:after</div><div class="line">    <span class="attribute">display</span>: none</div></pre></td></tr></table></figure>
+<p>新建 <strong>common/stylus/base.styl</strong><br>对 1px border 的样式在不同dpi相应缩放，避免 iphone6 下 1px BUG。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@media</span> (<span class="attribute">-webkit-min-device-pixel-ratio</span>: <span class="number">1.5</span>),(<span class="attribute">min-device-pixel-ratio</span>: <span class="number">1.5</span>)</div><div class="line">  .border-<span class="number">1px</span></div><div class="line">    &amp;::after</div><div class="line">      <span class="attribute">-webkit-transform</span>: scaleY(<span class="number">0.7</span>)</div><div class="line">      <span class="attribute">transform</span>: scaleY(<span class="number">0.7</span>)</div><div class="line"></div><div class="line"><span class="variable">@media</span> (<span class="attribute">-webkit-min-device-pixel-ratio</span>: <span class="number">2</span>),(<span class="attribute">min-device-pixel-ratio</span>: <span class="number">2</span>)</div><div class="line">  .border-<span class="number">1px</span></div><div class="line">    &amp;::after</div><div class="line">      <span class="attribute">-webkit-transform</span>: scaleY(<span class="number">0.5</span>)</div><div class="line">      <span class="attribute">transform</span>: scaleY(<span class="number">0.5</span>)</div></pre></td></tr></table></figure>
+<p>新建 <strong>common/stylus/index.styl</strong><br>引用所有样式</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@import</span> <span class="string">"./mixin"</span></div><div class="line"><span class="variable">@import</span> <span class="string">"./icon"</span></div><div class="line"><span class="variable">@import</span> <span class="string">"./base"</span></div></pre></td></tr></table></figure>
+<p><strong>main.js</strong> 里引用</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'common/stylus/index.styl'</span></div></pre></td></tr></table></figure>
+<p><strong>App.vue:</strong><br>tab基础样式</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">@import <span class="string">"./common/stylus/mixin.styl"</span></div><div class="line"></div><div class="line"><span class="selector-class">.tab</span></div><div class="line">  <span class="attribute">display</span>: flex</div><div class="line">  <span class="attribute">width</span>: <span class="number">100%</span></div><div class="line">  <span class="attribute">height</span>: <span class="number">40px</span></div><div class="line">  <span class="attribute">line-height</span>: <span class="number">40px</span></div><div class="line">  <span class="attribute">border</span>-<span class="number">1px</span>(rgba(<span class="number">7</span>, <span class="number">17</span>, <span class="number">27</span>, <span class="number">0.1</span>))</div><div class="line">  <span class="selector-class">.tab-item</span></div><div class="line">    <span class="attribute">flex</span>: <span class="number">1</span></div><div class="line">    <span class="attribute">text-align</span>: center</div><div class="line">    &amp; &gt; <span class="selector-tag">a</span></div><div class="line">      <span class="attribute">display</span>: block</div><div class="line">      <span class="attribute">font-size</span>: <span class="number">14px</span></div><div class="line">      <span class="attribute">color</span>: rgb(<span class="number">77</span>, <span class="number">85</span>, <span class="number">93</span>)</div><div class="line">      &amp;<span class="selector-class">.active</span></div><div class="line">        <span class="attribute">color</span>: rgb(<span class="number">240</span>, <span class="number">20</span>, <span class="number">20</span>)</div></pre></td></tr></table></figure>
+<h2 id="在手机上预览"><a href="#在手机上预览" class="headerlink" title="在手机上预览"></a>在手机上预览</h2><p>获取本机ip，例如 192.168.1.2 ， 把 localhost:8080/ 改成 192.168.1.2:8080 ，PC上也可以用这个地址访问。</p>
+<p>可以用工具生成二维码，微信扫描访问。确保PC与手机同一局域网下。</p>
+<h2 id="一些常见报错"><a href="#一些常见报错" class="headerlink" title="一些常见报错"></a>一些常见报错</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">报错</th>
+<th style="text-align:left">原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">spaced-commnet</td>
+<td style="text-align:left">注释<code>//</code>、<code>/*</code>后面没有空格，<code>*/</code>前面没有空格</td>
+</tr>
+<tr>
+<td style="text-align:left">unkown custom element</td>
+<td style="text-align:left">自定义标签没有正确注册</td>
+</tr>
+<tr>
+<td style="text-align:left">indent</td>
+<td style="text-align:left">缩进问题</td>
+</tr>
+<tr>
+<td style="text-align:left">space-before-function-paren</td>
+<td style="text-align:left">函数名和括号之间没有加空格</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+
+        <hr>
+        <div class="copyrightss">
+          <a href="http://laker.me/blog/2017/06/20/17_0620_vuejs_eleme_1/">Vue.js 2 高仿饿了么开发及解注一：基础准备</a>
+          <!--%- partial('post/title', {class_name: 'archive-article-title'}) %-->
+          <p>本文原创自<a href="http://laker.me/blog">Laker's Blog</a>，转载请注明出处，欢迎交换友链</p>
+          <p>如果本文对您有帮助，微信扫一扫，请我喝杯咖啡吧</p>
+          <p><img src="http://77g54f.com1.z0.glb.clouddn.com/weixinpay.jpg"></p>
+        </div>
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Vue-js/">Vue.js</a></li></ul>
+
+    </footer>
+  
+  <p class="hint-text hidden">阅读量<span id="busuanzi_value_page_pv"></span>次</p>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2017/06/28/17_0628_ripple_lumen/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          比特币BTC瑞波币XRP用户领取恒星币XLM Lumen
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017/06/15/17_0615_easy_canvas/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">EasyCanvas：连续画图的一些总结&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+<section id="comment">
+  <h1 class="title">comment</h1>
+  <div id="disqus_thread">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1672779"></script>
+    <!-- UY END -->
+  </div>
+</section>
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <!--div id="footer-info" class="inner">
+      &copy; 2017 Laker Huang&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div-->
+    <div id="footer-info" class="inner">
+      &copy; 2014 - 2017 Laker Huang&nbsp; <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    </div>
+    <p class="hint-text">自2015/11/04，本站共被抚摸 <span id="busuanzi_value_site_pv"></span> 次</p>
+    <p class="hint-text">您是第 <span id="busuanzi_value_site_uv"></span> 位小伙伴</p>
+  </div>
+</footer>
+    
+
+<!--script src="/blog/js/jquery.min.js"></script-->
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+<!-- <script src="https://cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script> -->
+
+
+
+<script src="/blog/js/script.js"></script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:50px;cursor: pointer;">
+	<a title="返回顶部"><img src="/blog/img/scrollup.png"/></a>
+</div>
+<script src="/blog/js/totop.js"></script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+
+</body>
+</html>
