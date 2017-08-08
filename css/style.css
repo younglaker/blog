@@ -1124,6 +1124,12 @@ pre .php .xml {
   border-radius: 3px;
   padding: 3px 5px;
 }
+.layout-wrap-inner .project-title {
+  font-size: 1.4em;
+  font-weight: 600;
+  text-align: center;
+  color: #3c8e88;
+}
 .layout-wrap-inner .project-type {
   font-size: 1.8em;
   font-weight: 700;
