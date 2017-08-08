@@ -683,6 +683,75 @@ cordova plugin add cordova-plugin-camera
   </entry>
   
   <entry>
+    <title>Ionic+Angular 开发移动应用三：路由</title>
+    <link href="http://laker.me/blog/2017/04/30/17_0510_ionic_3/"/>
+    <id>http://laker.me/blog/2017/04/30/17_0510_ionic_3/</id>
+    <published>2017-04-30T00:24:00.000Z</published>
+    <updated>2017-07-18T02:39:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<hr>
+<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170510.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="Ionic+Angular 开发移动应用三"></p>
+<a id="more"></a>
+<blockquote>
+<p>欢迎交换友链： <a href="http://laker.me/blog">Laker’s Blog–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
+</blockquote>
+<hr>
+<p>接下来我会在ubuntu里开发，windows大同小异。</p>
+<p>ionic模板已经建好一系列依赖，比如scss的编译，自动检测文件变化并刷新浏览器等。</p>
+<h2 id="做一个页面"><a href="#做一个页面" class="headerlink" title="做一个页面"></a>做一个页面</h2><p>在文件夹www/template下新建文件<code>page.html</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ion-view</span> <span class="attr">view-title</span>=<span class="string">"First Page"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ion-content</span> <span class="attr">class</span>=<span class="string">"padding"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>hello world<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ion-content</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ion-view</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>ion-content标签在又头部导航是，记得加 class=”padding”，不然就被导航遮住一部分</p>
+</blockquote>
+<p><code>app.js</code> 添加路由：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.state</span>(<span class="string">'page'</span>, &#123;</div><div class="line"><span class="attribute">url</span>: <span class="string">'/page'</span>, <span class="comment">// 定义的跳转页面</span></div><div class="line"><span class="attribute">views</span>: &#123;</div><div class="line">  <span class="string">''</span>: &#123; <span class="comment">// 留空</span></div><div class="line">    <span class="attribute">templateUrl</span>: <span class="string">'templates/page.html'</span>, <span class="comment">//页面地址</span></div><div class="line">    <span class="attribute">controller</span>: <span class="string">'PageCtrl'</span> <span class="comment">//控制器名，在下面的配置要用</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p><code>controller.js</code> 添加控制器：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.controller(<span class="string">'PageCtrl'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope)</span> </span>&#123;</div><div class="line">  <span class="comment">// PageCtrl 是在app.js里面定义的控制器名</span></div><div class="line">  $scope.settings = &#123;</div><div class="line">    enableFriends: <span class="keyword">true</span></div><div class="line">  &#125;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>terminal运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> ionic serve</span></div></pre></td></tr></table></figure>
+<p>浏览器自动打开首页<code>http://10.0.2.15:8100/#/tab/dash</code>，把<code>tab/dash</code>改成<code>page</code>，就可以访问我们刚刚写的页面<code>http://10.0.2.15:8100/#/page</code></p>
+<blockquote>
+<p>注意，不要漏掉 <code>/#</code></p>
+</blockquote>
+<p>在chrome里进入开发者模式，点击进入移动开发模式，可以看到效果。</p>
+<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170304154039.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="开发者模式"></p>
+<h2 id="看一下范例中tabs的运用"><a href="#看一下范例中tabs的运用" class="headerlink" title="看一下范例中tabs的运用"></a>看一下范例中tabs的运用</h2><p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170304155314.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="tabs"></p>
+<p><code>tab.html</code> 里定义了底部tabs，比如其中一个tab：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;ion-<span class="literal">tab</span> title=<span class="string">"Status"</span> icon-off=<span class="string">"ion-ios-pulse"</span> icon-<span class="keyword">on</span>=<span class="string">"ion-ios-pulse-strong"</span> href=<span class="string">"#/tab/dash"</span>&gt;</div><div class="line">    &lt;ion-nav-view <span class="built_in">name</span>=<span class="string">"tab-dash"</span>&gt;&lt;/ion-nav-view&gt;</div><div class="line">&lt;/ion-<span class="literal">tab</span>&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>title： 标签的文字</li>
+<li>icon-off：标签不激活状态的icon</li>
+<li>icon-on： 标签激活状态的icon</li>
+<li>href=”#/tab/dash”： tab页地址</li>
+</ul>
+<p><code>app.js</code>看下dash页面的路由配置，注意与我们单页面page不同之处</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//tab</span></div><div class="line"><span class="selector-class">.state</span>(<span class="string">'tab'</span>, &#123;</div><div class="line">	<span class="attribute">url</span>: <span class="string">'/tab'</span>,</div><div class="line">	<span class="attribute">abstract</span>: true,</div><div class="line">	<span class="attribute">templateUrl</span>: <span class="string">'templates/tabs.html'</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// tab.dash</span></div><div class="line"><span class="selector-class">.state</span>(<span class="string">'tab.dash'</span>, &#123; <span class="comment">//注意，这里是tab.dash</span></div><div class="line">	<span class="attribute">url</span>: <span class="string">'/dash'</span>,</div><div class="line">	<span class="attribute">views</span>: &#123;</div><div class="line">	   <span class="comment">// html里面的name &lt;ion-nav-view name="tab-dash"&gt;</span></div><div class="line">	   <span class="comment">// 刚刚我们做page页的时候留空</span></div><div class="line">	  <span class="string">'tab-dash'</span>: &#123;</div><div class="line">	    <span class="attribute">templateUrl</span>: <span class="string">'templates/tab-dash.html'</span>,</div><div class="line">	    <span class="attribute">controller</span>: <span class="string">'DashCtrl'</span></div><div class="line">	  &#125;</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="新建一个tab"><a href="#新建一个tab" class="headerlink" title="新建一个tab"></a>新建一个tab</h2><p>在 <a href="http://ionicons.com" target="_blank" rel="external">http://ionicons.com</a> 可以找到更多icons。</p>
+<p><code>tab.html</code> 添加：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;ion-<span class="literal">tab</span> title=<span class="string">"More"</span> icon-off=<span class="string">"ion-social-angular-outline"</span> icon-<span class="keyword">on</span>=<span class="string">"ion-social-angular"</span> href=<span class="string">"#/tab/more"</span>&gt;</div><div class="line">    &lt;ion-nav-view <span class="built_in">name</span>=<span class="string">"tab-more"</span>&gt;&lt;/ion-nav-view&gt;</div><div class="line">&lt;/ion-<span class="literal">tab</span>&gt;</div></pre></td></tr></table></figure>
+<p><code>app.js</code>：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.state</span>(<span class="string">'tab.more'</span>, &#123;</div><div class="line">  <span class="attribute">url</span>: <span class="string">'/more'</span>,</div><div class="line">  <span class="attribute">views</span>: &#123;</div><div class="line">    <span class="string">'tab-more'</span>: &#123;</div><div class="line">      <span class="attribute">templateUrl</span>: <span class="string">'templates/tab-more.html'</span>,</div><div class="line">      <span class="attribute">controller</span>: <span class="string">'MoreCtrl'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p><code>controller.js</code>：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.controller(<span class="string">'MoreCtrl'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope)</span> </span>&#123;</div><div class="line">  $scope.settings = &#123;</div><div class="line">    enableFriends: <span class="keyword">true</span></div><div class="line">  &#125;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170510.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;Ionic+Angular 开发移动应用三&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
+    
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Ionic+Angular 开发移动应用二：运行、打包</title>
     <link href="http://laker.me/blog/2017/04/30/17_0430_ionic_2/"/>
     <id>http://laker.me/blog/2017/04/30/17_0430_ionic_2/</id>
@@ -769,75 +838,6 @@ cordova plugin add cordova-plugin-camera
     
       &lt;hr&gt;
 &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170421.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;Ionic+Angular 开发移动应用二&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
-    
-    
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ionic+Angular 开发移动应用三：路由</title>
-    <link href="http://laker.me/blog/2017/04/30/17_0510_ionic_3/"/>
-    <id>http://laker.me/blog/2017/04/30/17_0510_ionic_3/</id>
-    <published>2017-04-30T00:24:00.000Z</published>
-    <updated>2017-07-18T02:39:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<hr>
-<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170510.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="Ionic+Angular 开发移动应用三"></p>
-<a id="more"></a>
-<blockquote>
-<p>欢迎交换友链： <a href="http://laker.me/blog">Laker’s Blog–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
-</blockquote>
-<hr>
-<p>接下来我会在ubuntu里开发，windows大同小异。</p>
-<p>ionic模板已经建好一系列依赖，比如scss的编译，自动检测文件变化并刷新浏览器等。</p>
-<h2 id="做一个页面"><a href="#做一个页面" class="headerlink" title="做一个页面"></a>做一个页面</h2><p>在文件夹www/template下新建文件<code>page.html</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ion-view</span> <span class="attr">view-title</span>=<span class="string">"First Page"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ion-content</span> <span class="attr">class</span>=<span class="string">"padding"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>hello world<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ion-content</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ion-view</span>&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>ion-content标签在又头部导航是，记得加 class=”padding”，不然就被导航遮住一部分</p>
-</blockquote>
-<p><code>app.js</code> 添加路由：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.state</span>(<span class="string">'page'</span>, &#123;</div><div class="line"><span class="attribute">url</span>: <span class="string">'/page'</span>, <span class="comment">// 定义的跳转页面</span></div><div class="line"><span class="attribute">views</span>: &#123;</div><div class="line">  <span class="string">''</span>: &#123; <span class="comment">// 留空</span></div><div class="line">    <span class="attribute">templateUrl</span>: <span class="string">'templates/page.html'</span>, <span class="comment">//页面地址</span></div><div class="line">    <span class="attribute">controller</span>: <span class="string">'PageCtrl'</span> <span class="comment">//控制器名，在下面的配置要用</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p><code>controller.js</code> 添加控制器：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.controller(<span class="string">'PageCtrl'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope)</span> </span>&#123;</div><div class="line">  <span class="comment">// PageCtrl 是在app.js里面定义的控制器名</span></div><div class="line">  $scope.settings = &#123;</div><div class="line">    enableFriends: <span class="keyword">true</span></div><div class="line">  &#125;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>terminal运行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> ionic serve</span></div></pre></td></tr></table></figure>
-<p>浏览器自动打开首页<code>http://10.0.2.15:8100/#/tab/dash</code>，把<code>tab/dash</code>改成<code>page</code>，就可以访问我们刚刚写的页面<code>http://10.0.2.15:8100/#/page</code></p>
-<blockquote>
-<p>注意，不要漏掉 <code>/#</code></p>
-</blockquote>
-<p>在chrome里进入开发者模式，点击进入移动开发模式，可以看到效果。</p>
-<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170304154039.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="开发者模式"></p>
-<h2 id="看一下范例中tabs的运用"><a href="#看一下范例中tabs的运用" class="headerlink" title="看一下范例中tabs的运用"></a>看一下范例中tabs的运用</h2><p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170304155314.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="tabs"></p>
-<p><code>tab.html</code> 里定义了底部tabs，比如其中一个tab：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;ion-<span class="literal">tab</span> title=<span class="string">"Status"</span> icon-off=<span class="string">"ion-ios-pulse"</span> icon-<span class="keyword">on</span>=<span class="string">"ion-ios-pulse-strong"</span> href=<span class="string">"#/tab/dash"</span>&gt;</div><div class="line">    &lt;ion-nav-view <span class="built_in">name</span>=<span class="string">"tab-dash"</span>&gt;&lt;/ion-nav-view&gt;</div><div class="line">&lt;/ion-<span class="literal">tab</span>&gt;</div></pre></td></tr></table></figure>
-<ul>
-<li>title： 标签的文字</li>
-<li>icon-off：标签不激活状态的icon</li>
-<li>icon-on： 标签激活状态的icon</li>
-<li>href=”#/tab/dash”： tab页地址</li>
-</ul>
-<p><code>app.js</code>看下dash页面的路由配置，注意与我们单页面page不同之处</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//tab</span></div><div class="line"><span class="selector-class">.state</span>(<span class="string">'tab'</span>, &#123;</div><div class="line">	<span class="attribute">url</span>: <span class="string">'/tab'</span>,</div><div class="line">	<span class="attribute">abstract</span>: true,</div><div class="line">	<span class="attribute">templateUrl</span>: <span class="string">'templates/tabs.html'</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// tab.dash</span></div><div class="line"><span class="selector-class">.state</span>(<span class="string">'tab.dash'</span>, &#123; <span class="comment">//注意，这里是tab.dash</span></div><div class="line">	<span class="attribute">url</span>: <span class="string">'/dash'</span>,</div><div class="line">	<span class="attribute">views</span>: &#123;</div><div class="line">	   <span class="comment">// html里面的name &lt;ion-nav-view name="tab-dash"&gt;</span></div><div class="line">	   <span class="comment">// 刚刚我们做page页的时候留空</span></div><div class="line">	  <span class="string">'tab-dash'</span>: &#123;</div><div class="line">	    <span class="attribute">templateUrl</span>: <span class="string">'templates/tab-dash.html'</span>,</div><div class="line">	    <span class="attribute">controller</span>: <span class="string">'DashCtrl'</span></div><div class="line">	  &#125;</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h2 id="新建一个tab"><a href="#新建一个tab" class="headerlink" title="新建一个tab"></a>新建一个tab</h2><p>在 <a href="http://ionicons.com" target="_blank" rel="external">http://ionicons.com</a> 可以找到更多icons。</p>
-<p><code>tab.html</code> 添加：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;ion-<span class="literal">tab</span> title=<span class="string">"More"</span> icon-off=<span class="string">"ion-social-angular-outline"</span> icon-<span class="keyword">on</span>=<span class="string">"ion-social-angular"</span> href=<span class="string">"#/tab/more"</span>&gt;</div><div class="line">    &lt;ion-nav-view <span class="built_in">name</span>=<span class="string">"tab-more"</span>&gt;&lt;/ion-nav-view&gt;</div><div class="line">&lt;/ion-<span class="literal">tab</span>&gt;</div></pre></td></tr></table></figure>
-<p><code>app.js</code>：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.state</span>(<span class="string">'tab.more'</span>, &#123;</div><div class="line">  <span class="attribute">url</span>: <span class="string">'/more'</span>,</div><div class="line">  <span class="attribute">views</span>: &#123;</div><div class="line">    <span class="string">'tab-more'</span>: &#123;</div><div class="line">      <span class="attribute">templateUrl</span>: <span class="string">'templates/tab-more.html'</span>,</div><div class="line">      <span class="attribute">controller</span>: <span class="string">'MoreCtrl'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p><code>controller.js</code>：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.controller(<span class="string">'MoreCtrl'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope)</span> </span>&#123;</div><div class="line">  $scope.settings = &#123;</div><div class="line">    enableFriends: <span class="keyword">true</span></div><div class="line">  &#125;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;hr&gt;
-&lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170510.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;Ionic+Angular 开发移动应用三&quot;&gt;&lt;/p&gt;
     
     </summary>
     
