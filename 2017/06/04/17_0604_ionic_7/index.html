@@ -12,8 +12,7 @@
 <meta property="og:url" content="http://laker.me/blog/2017/06/04/17_0604_ionic_7/index.html">
 <meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
 <meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170604.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
-<meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170604.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
-<meta property="og:updated_time" content="2017-07-18T02:39:50.000Z">
+<meta property="og:updated_time" content="2017-08-08T08:10:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ionic+Angular 开发移动应用七：打包APK文件">
 <meta name="twitter:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170604.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
@@ -127,7 +126,6 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>欢迎交换友链： <a href="http://laker.me/blog">Laker’s Blog–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
 </blockquote>
-<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170604.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="打包正式版安卓apk"></p>
 <h2 id="打包正式apk："><a href="#打包正式apk：" class="headerlink" title="打包正式apk："></a>打包正式apk：</h2><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ionic build android -—<span class="built_in">release</span></div><div class="line"><span class="comment">// 不带 —-release 就是测试包</span></div></pre></td></tr></table></figure>
 <p>然后会根据<code>config.xml</code>配置生成apk，在<code>root/platforms/android/build/ouputs/apk</code> 里生成<code>android-release-unsigned.apk</code>，这个是未生成签名的apk</p>
 <h2 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h2><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -genkey -<span class="built_in">alias</span> <span class="built_in">demo</span>.keystore -keyalg RSA -validity <span class="number">40000</span> -keystore <span class="built_in">demo</span>.keystore</div></pre></td></tr></table></figure>
