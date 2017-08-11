@@ -474,9 +474,9 @@
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -519,9 +519,9 @@
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -638,9 +638,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -676,18 +676,18 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
   <entry>
     <title>Ionic+Angular 开发移动应用三：路由</title>
-    <link href="http://laker.me/blog/2017/04/30/17_0510_ionic_3/"/>
-    <id>http://laker.me/blog/2017/04/30/17_0510_ionic_3/</id>
-    <published>2017-04-30T00:24:00.000Z</published>
-    <updated>2017-07-18T02:39:50.000Z</updated>
+    <link href="http://laker.me/blog/2017/05/10/17_0510_ionic_3/"/>
+    <id>http://laker.me/blog/2017/05/10/17_0510_ionic_3/</id>
+    <published>2017-05-10T00:24:00.000Z</published>
+    <updated>2017-08-08T08:46:48.000Z</updated>
     
     <content type="html"><![CDATA[<hr>
 <p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170510.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="Ionic+Angular 开发移动应用三"></p>
@@ -745,9 +745,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -844,9 +844,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -924,9 +924,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
