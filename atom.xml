@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2017-09-08T03:34:22.000Z</updated>
+  <updated>2017-09-28T04:02:07.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,85 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Semantic UI 及在 React.js 下开发的一些坑</title>
+    <link href="http://laker.me/blog/2017/09/20/17_0920_sematic/"/>
+    <id>http://laker.me/blog/2017/09/20/17_0920_sematic/</id>
+    <published>2017-09-20T00:24:00.000Z</published>
+    <updated>2017-09-28T04:02:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170928.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="Semantic"></p>
+<a id="more"></a>
+<blockquote>
+<p>欢迎交换友链： <a href="http://laker.me/blog">进击的程序媛 http://laker.me/blog/</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
+</blockquote>
+<p>最近做了一个 React + Semantic 的电商网站，记录一些坑。之前都是用 Bootstrap，第一次用 Semantic，有些不习惯。</p>
+<h2 id="React-版"><a href="#React-版" class="headerlink" title="React 版"></a>React 版</h2><p><a href="https://react.semantic-ui.com/" target="_blank" rel="external">https://react.semantic-ui.com/</a></p>
+<h2 id="避免弹框表单自动聚焦"><a href="#避免弹框表单自动聚焦" class="headerlink" title="避免弹框表单自动聚焦"></a>避免弹框表单自动聚焦</h2><p>弹框表单自动聚焦第一个 input 本来是好事情，但是如果第一个 input 设置了 selection，自动聚焦就会弹出下拉框，会很奇怪，如果是带实时搜索功能就会触发一次无用的搜索造成资源浪费</p>
+<p>dropdown 插件有禁止自动聚焦的属性，<a href="https://semantic-ui.com/modules/dropdown.html#/settings" target="_blank" rel="external">参考1</a>，<a href="https://github.com/Semantic-Org/Semantic-UI/issues/2041" target="_blank" rel="external">参考2</a>:<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$(</span>selector).modal(&#123;</div><div class="line">    <span class="symbol">autofocus:</span> <span class="keyword">false</span>,</div><div class="line">&#125;).modal(<span class="string">'show'</span>);</div></pre></td></tr></table></figure></p>
+<p>但是我设置了无效。</p>
+<p>又根据 <a href="https://stackoverflow.com/questions/7827004/how-to-avoid-automatic-focus-on-first-input-field-when-popping-a-html-form-as-a" target="_blank" rel="external">Stack Overflow 的方法</a> 给 input 设置了 tabindex、autofocus，也未果<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">tabindex</span>=<span class="string">"-1"</span> autofocus=<span class="string">"false"</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>在 react 里 tabindex、autofocus 要写成 tabIndex、autoFocus</p>
+</blockquote>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>实在没有办法，只能伪造一个 input，隐藏在界面最前面，但是不能用display:none</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.hidden-input</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">width</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">border</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">background</span>: none;</div><div class="line">  <span class="attribute">z-index</span>: -<span class="number">99</span>;</div><div class="line">  <span class="attribute">top</span>: -<span class="number">1000px</span>;  <span class="comment">// 让input离开窗口视觉范围，不然还是会有聚焦的高亮框</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>聚焦时不显示下拉列表：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$(</span><span class="string">'.ui.dropdown'</span>).dropdown(</div><div class="line">    <span class="symbol">showOnFocus:</span> <span class="keyword">false</span>, <span class="regexp">//</span> 聚焦时不展开下拉列表</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h2 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h2><p>新增全局 css class，给父级添加就好：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.align-item-c</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">align-items</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="CheckBox-让-label-在左边"><a href="#CheckBox-让-label-在左边" class="headerlink" title="CheckBox 让 label 在左边"></a>CheckBox 让 label 在左边</h2><h3 id="方法一-1"><a href="#方法一-1" class="headerlink" title="方法一"></a>方法一</h3><p>让 label 左浮动<br><a href="http://jsbin.com/tewowa/1/edit?css,output" target="_blank" rel="external">http://jsbin.com/tewowa/1/edit?css,output</a><br><a href="https://stackoverflow.com/questions/25355614/semantic-ui-positioning-labels" target="_blank" rel="external">https://stackoverflow.com/questions/25355614/semantic-ui-positioning-labels</a></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"ui toggle checkbox custom"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">input</span> id=<span class="string">"privacy"</span> type=<span class="string">"checkbox"</span> checked=<span class="string">"checked"</span>&gt;</div><div class="line">    &lt;<span class="selector-tag">label</span> <span class="keyword">for</span>=<span class="string">"privacy"</span>&gt;Public&lt;/label&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line"></div><div class="line"><span class="selector-class">.custom</span> <span class="selector-tag">label</span> &#123;</div><div class="line">  <span class="attribute">float</span>: left;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">5px</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>方法二：</p>
+<p>让 checkbox 右浮动<br><a href="https://github.com/Semantic-Org/Semantic-UI/issues/1986" target="_blank" rel="external">https://github.com/Semantic-Org/Semantic-UI/issues/1986</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.ui</span><span class="selector-class">.toggle</span><span class="selector-class">.checkbox</span><span class="selector-attr">[class*="right floated"]</span> &#123;</div><div class="line">    <span class="attribute">float</span>: right <span class="meta">!important</span>;</div><div class="line">    <span class="attribute">margin-right</span>: <span class="number">0em</span> <span class="meta">!important</span>;</div><div class="line">    <span class="attribute">margin-left</span>: <span class="number">1em</span> <span class="meta">!important</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h3><p>把 label 置空（不能删除，否则 CheckBox 也不见），在 div 前面加个 span 或 lable</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">label</span> <span class="keyword">for</span>=<span class="string">"privacy"</span>&gt;Public&lt;/<span class="keyword">label</span>&gt;</div><div class="line">&lt;div <span class="keyword">class</span>=<span class="string">"ui toggle checkbox custom"</span>&gt;</div><div class="line">    &lt;<span class="keyword">input</span> id=<span class="string">"privacy"</span> <span class="keyword">type</span>=<span class="string">"checkbox"</span> checked=<span class="string">"checked"</span>&gt;</div><div class="line">    &lt;<span class="keyword">label</span>&gt;&lt;/<span class="keyword">label</span>&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h2 id="允许多层弹框"><a href="#允许多层弹框" class="headerlink" title="允许多层弹框"></a>允许多层弹框</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash">(<span class="string">".modal"</span>).modal(&#123;<span class="string">'allowMultiple'</span>: <span class="literal">true</span>&#125;)</span></div></pre></td></tr></table></figure>
+<h2 id="dropdown-里含-checkbox、searchbox"><a href="#dropdown-里含-checkbox、searchbox" class="headerlink" title="dropdown 里含 checkbox、searchbox"></a>dropdown 里含 checkbox、searchbox</h2><p><a href="https://jsfiddle.net/jp8xj0wk/2/" target="_blank" rel="external">https://jsfiddle.net/jp8xj0wk/2/</a><br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">$('.ui.dropdown').dropdown(&#123;</div><div class="line">  action: 'nothing'</div><div class="line">&#125;);</div><div class="line">$('.ui.checkbox').checkbox();</div><div class="line"></div><div class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"ui basic right labeled dropdown icon button"</span>&gt;</div><div class="line">  &lt;i <span class="built_in">class</span>=<span class="string">"dropdown icon"</span>&gt;&lt;/i&gt;</div><div class="line">  &lt;span <span class="built_in">class</span>=<span class="string">"ui tiny header"</span>&gt;Filter&lt;/span&gt;</div><div class="line">  &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"menu"</span>&gt;</div><div class="line">    &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"ui icon search input"</span>&gt;</div><div class="line">      &lt;i <span class="built_in">class</span>=<span class="string">"search icon"</span>&gt;&lt;/i&gt;</div><div class="line">      &lt;input type=<span class="string">"text"</span> <span class="built_in">name</span>=<span class="string">"Search"</span> placeholder=<span class="string">"Search&amp;hellip;"</span>&gt;</div><div class="line">    &lt;/<span class="keyword">div</span>&gt;</div><div class="line">    &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"scrolling menu"</span>&gt;</div><div class="line">      &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"ui item checkbox"</span> data-value=<span class="string">"item1"</span>&gt;</div><div class="line">        &lt;input type=<span class="string">"checkbox"</span> <span class="built_in">name</span>=<span class="string">"item1"</span>&gt;</div><div class="line">        &lt;label&gt;First <span class="built_in">item</span>&lt;/label&gt;</div><div class="line">      &lt;/<span class="keyword">div</span>&gt;</div><div class="line">      &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"ui item checkbox"</span> data-value=<span class="string">"item2"</span>&gt;</div><div class="line">        &lt;input type=<span class="string">"checkbox"</span> <span class="built_in">name</span>=<span class="string">"item2"</span>&gt;</div><div class="line">        &lt;label&gt;Second <span class="built_in">item</span>&lt;/label&gt;</div><div class="line">      &lt;/<span class="keyword">div</span>&gt;</div><div class="line">    &lt;/<span class="keyword">div</span>&gt;</div><div class="line">  &lt;/<span class="keyword">div</span>&gt;</div><div class="line">&lt;/<span class="keyword">div</span>&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="设置下拉选择框已选内容，下拉框全选"><a href="#设置下拉选择框已选内容，下拉框全选" class="headerlink" title="设置下拉选择框已选内容，下拉框全选"></a>设置下拉选择框已选内容，下拉框全选</h2><p>在编辑内容页面，需要从后台获取数据，把数据展示在input 里</p>
+<p><a href="https://jsfiddle.net/dbr26njq/48/" target="_blank" rel="external">https://jsfiddle.net/dbr26njq/48/</a><br><a href="https://codepen.io/monty5811/pen/xVgrzB" target="_blank" rel="external">https://codepen.io/monty5811/pen/xVgrzB</a></p>
+<p>HTML<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">"button"</span> <span class="built_in">id</span>=<span class="string">"setValues"</span> value=<span class="string">"Set Values"</span> /&gt;</div><div class="line">&lt;input type=<span class="string">"button"</span> <span class="built_in">id</span>=<span class="string">"clearValues"</span> value=<span class="string">"Clear Values"</span> /&gt;</div><div class="line"></div><div class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"ui fluid selection search dropdown multiple"</span>&gt;</div><div class="line">  &lt;input <span class="built_in">name</span>=<span class="string">"tags"</span> type=<span class="string">"hidden"</span>&gt;</div><div class="line">  </div><div class="line">  &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"default text"</span>&gt;Select&lt;/<span class="keyword">div</span>&gt;</div><div class="line">  &lt;i <span class="built_in">class</span>=<span class="string">"dropdown icon"</span>&gt;&lt;/i&gt;</div><div class="line">  &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"menu"</span>&gt;</div><div class="line">    &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"item"</span> data-value=<span class="string">"1"</span>&gt;Angular&lt;/<span class="keyword">div</span>&gt;</div><div class="line">    &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"item"</span> data-value=<span class="string">"2"</span>&gt;CSS&lt;/<span class="keyword">div</span>&gt;</div><div class="line">    &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"item"</span> data-value=<span class="string">"3"</span>&gt;JS&lt;/<span class="keyword">div</span>&gt;</div><div class="line">  &lt;/<span class="keyword">div</span>&gt;</div><div class="line">&lt;/<span class="keyword">div</span>&gt;</div></pre></td></tr></table></figure></p>
+<p>JavaScript<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'.ui.dropdown'</span>).dropdown(&#123;</div><div class="line">    <span class="attr">onChange</span>: <span class="function"><span class="keyword">function</span> (<span class="params">value, text, $selectedItem</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(value);</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">forceSelection</span>: <span class="literal">false</span>, </div><div class="line">    <span class="attr">selectOnKeydown</span>: <span class="literal">false</span>, </div><div class="line">    <span class="attr">showOnFocus</span>: <span class="literal">false</span>, <span class="comment">// 聚焦时不展开下拉列表</span></div><div class="line">    on: <span class="string">"hover"</span> </div><div class="line">&#125;);</div><div class="line"> </div><div class="line"></div><div class="line"><span class="comment">// 清空</span></div><div class="line">$(<span class="string">'#clearValues'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="string">'.ui.dropdown'</span>).dropdown(<span class="string">"clear"</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 全选</span></div><div class="line">$(<span class="string">'#setValues'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="string">'.ui.dropdown'</span>).dropdown(<span class="string">"set selected"</span>, [</div><div class="line">        <span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span></div><div class="line">    ]);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>单选下拉框的赋值方法一样：<br><a href="http://jsfiddle.net/0qobkc2x/" target="_blank" rel="external">http://jsfiddle.net/0qobkc2x/</a><br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;select id=<span class="string">"test"</span> class=<span class="string">"ui dropdown"</span>&gt;</div><div class="line">    &lt;<span class="keyword">option</span> <span class="keyword">value</span>=<span class="string">""</span>&gt;Select an <span class="keyword">option</span>...&lt;/<span class="keyword">option</span>&gt;</div><div class="line">    &lt;<span class="keyword">option</span> <span class="keyword">value</span>=<span class="string">"A"</span>&gt;AAA&lt;/<span class="keyword">option</span>&gt;</div><div class="line">    &lt;<span class="keyword">option</span> <span class="keyword">value</span>=<span class="string">"B"</span>&gt;BBB&lt;/<span class="keyword">option</span>&gt;</div><div class="line">&lt;/select&gt;</div><div class="line"></div><div class="line">$(<span class="string">'#test'</span>).dropdown(<span class="string">'set selected'</span>,<span class="string">'B'</span>);</div></pre></td></tr></table></figure></p>
+<h2 id="侧边菜单栏铺满窗口"><a href="#侧边菜单栏铺满窗口" class="headerlink" title="侧边菜单栏铺满窗口"></a>侧边菜单栏铺满窗口</h2><p><a href="https://stackoverflow.com/questions/1575141/make-div-100-height-of-browser-window" target="_blank" rel="external">https://stackoverflow.com/questions/1575141/make-div-100-height-of-browser-window</a><br><code>height:100%</code>无效。除了一些老方法，这里采用用视图单位。</p>
+<p>单位：</p>
+<ul>
+<li>vh：viewport height</li>
+<li>vw: viewport width</li>
+<li>vmin: viewport minimum length</li>
+<li>vmax: viewport maximum length</li>
+</ul>
+<p>例如 1vh = 1% of the viewport的高度</p>
+<p>所以可以这样写：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">    <span class="attribute">height</span>:<span class="number">100vh</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>可以减去头部高度：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">height</span>: calc(<span class="number">100vh</span> - <span class="number">50px</span>);</div></pre></td></tr></table></figure>
+<h2 id="与父级同高，等高"><a href="#与父级同高，等高" class="headerlink" title="与父级同高，等高"></a>与父级同高，等高</h2><p>方法一:<br><a href="http://jsfiddle.net/emn13/7FFp3/" target="_blank" rel="external">http://jsfiddle.net/emn13/7FFp3/</a><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123; <span class="attribute">display</span>: table; &#125;</div><div class="line"><span class="selector-class">.parent</span> &gt; <span class="selector-tag">div</span> &#123;<span class="attribute">display</span>: table-cell; &#125;</div></pre></td></tr></table></figure></p>
+<p>方法二<br><a href="http://jsbin.com/hetunujuma/1/edit?html,css,output" target="_blank" rel="external">http://jsbin.com/hetunujuma/1/edit?html,css,output</a><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123; <span class="attribute">display</span>: flex; &#125;</div><div class="line"><span class="selector-class">.parent</span>&gt;<span class="selector-tag">div</span> &#123; <span class="attribute">flex</span>:<span class="number">1</span>; &#125;</div></pre></td></tr></table></figure></p>
+<h2 id="checkbox-监听"><a href="#checkbox-监听" class="headerlink" title="checkbox 监听"></a>checkbox 监听</h2><p><a href="https://stackoverflow.com/questions/27702613/semantic-ui-checkbox-onchange-event-not-triggered" target="_blank" rel="external">https://stackoverflow.com/questions/27702613/semantic-ui-checkbox-onchange-event-not-triggered</a><br><a href="http://jsfiddle.net/mktm/xwp1L695/" target="_blank" rel="external">http://jsfiddle.net/mktm/xwp1L695/</a><br><a href="https://github.com/Semantic-Org/Semantic-UI/issues/375" target="_blank" rel="external">https://github.com/Semantic-Org/Semantic-UI/issues/375</a></p>
+<p>checkbox 是用 label 的 before 伪装的，，input 是隐藏的，只能根据父级 div 的 checked 属性来判断</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> MyCheckBox = React.createClass(&#123;</div><div class="line">    <span class="attr">getInitialState</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">checked</span>:<span class="literal">false</span></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="attr">handleChange</span>: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">        <span class="keyword">this</span>.setState(&#123;<span class="attr">checked</span>: !<span class="keyword">this</span>.state.checked&#125;);</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"ui toggle checkbox"</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleChange&#125;</span> /&gt;</span></span></div><div class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">value</span>=<span class="string">&#123;this.state.checked&#125;</span> /&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="时间、日期控件-date-range-picker"><a href="#时间、日期控件-date-range-picker" class="headerlink" title="时间、日期控件 date range picker"></a>时间、日期控件 date range picker</h2><p>日期范围选择器jQuery：<a href="https://github.com/longbill/jquery-date-range-picker" target="_blank" rel="external">https://github.com/longbill/jquery-date-range-picker</a><br>日期范围选择器jQuery：<a href="https://codecanyon.net/item/calentim-date-time-range-picker/20099228" target="_blank" rel="external">https://codecanyon.net/item/calentim-date-time-range-picker/20099228</a><br>很多功能的选择器React：<a href="https://github.com/react-component/calendar" target="_blank" rel="external">https://github.com/react-component/calendar</a><br>小时范围选择器 <a href="https://codepen.io/fikrimarhan/pen/Pmaooq" target="_blank" rel="external">https://codepen.io/fikrimarhan/pen/Pmaooq</a><br>日期、小时范围选择 <a href="http://jonthornton.github.io/jquery-timepicker/" target="_blank" rel="external">http://jonthornton.github.io/jquery-timepicker/</a><br>小时范围滑块：<a href="https://codepen.io/caseymhunt/pen/kertA" target="_blank" rel="external">https://codepen.io/caseymhunt/pen/kertA</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170928.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;Semantic&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="React.js" scheme="http://laker.me/blog/categories/React-js/"/>
+    
+    
+      <category term="HTML5" scheme="http://laker.me/blog/tags/HTML5/"/>
+    
+      <category term="JavaScript" scheme="http://laker.me/blog/tags/JavaScript/"/>
+    
+      <category term="React.js" scheme="http://laker.me/blog/tags/React-js/"/>
+    
+      <category term="Semantic" scheme="http://laker.me/blog/tags/Semantic/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue.js 2 高仿饿了么开发及解注三：star 评分件组</title>
@@ -517,9 +596,9 @@
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -562,9 +641,9 @@
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -681,9 +760,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -719,9 +798,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -788,9 +867,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -887,9 +966,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -967,9 +1046,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -1322,50 +1401,6 @@ bower install bootstrap#3.3.7 --save
     
     
       <category term="图饭" scheme="http://laker.me/blog/tags/%E5%9B%BE%E9%A5%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML5+Ajax上传文件</title>
-    <link href="http://laker.me/blog/2016/03/04/16_0304_ajax_file_upload/"/>
-    <id>http://laker.me/blog/2016/03/04/16_0304_ajax_file_upload/</id>
-    <published>2016-03-04T00:24:00.000Z</published>
-    <updated>2017-04-26T15:15:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-523586.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjIucG5n/dissolve/100/gravity/South/dy/5" alt="HTML5+Ajax上传文件"></p>
-<a id="more"></a>
-<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><p><code>input</code>类型设为<code>file</code>：</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">label</span> <span class="keyword">for</span>=<span class="string">"img_input"</span>&gt;&lt;/<span class="keyword">label</span>&gt;</div><div class="line">&lt;<span class="keyword">input</span> id=<span class="string">"img_input"</span> <span class="keyword">type</span>=<span class="string">"file"</span>/&gt;</div></pre></td></tr></table></figure>
-<p>如果想上传多文件，可添加<code>multiple</code></p>
-<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"file"</span> name=<span class="string">"img"</span> multiple=<span class="string">"multiple"</span> /&gt;</div></pre></td></tr></table></figure>
-<p>用<code>accept=&quot;MIME_type&quot;</code>限制提交的文件类型，用逗号隔开的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input" target="_blank" rel="external">MIME 类型</a>列表（服务器端也要最好类型检测双保险），如：</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="keyword">type</span>=<span class="string">"file"</span> <span class="keyword">accept</span>=<span class="string">"image/gif, image/jpeg"</span> /&gt;</div><div class="line">&lt;input <span class="keyword">type</span>=<span class="string">"file"</span> <span class="keyword">accept</span>=<span class="string">"image/*"</span>/&gt;</div></pre></td></tr></table></figure>
-<h2 id="获取文件内容"><a href="#获取文件内容" class="headerlink" title="获取文件内容"></a>获取文件内容</h2><p>JavaScript：</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> file = <span class="built_in">document</span>.getElementById(<span class="string">'fileToUpload'</span>).files[<span class="number">0</span>];</div></pre></td></tr></table></figure>
-<p>jQuery：</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">file</span> = $(<span class="string">"#img_input"</span>).<span class="keyword">prop</span>(<span class="string">"files"</span>)[0];</div></pre></td></tr></table></figure>
-<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>XMLHttpRequest Level 2添加了一个新的接口<code>FormData</code>。利用FormData对象，我们可以通过JavaScript用一些键值对来模拟一系列表单控件。比起普通的Ajax，使用FormData的最大优点就是我们可以异步上传一个二进制文件。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 创建</span></div><div class="line"><span class="keyword">var</span> form_data = <span class="keyword">new</span> FormData();</div><div class="line"></div><div class="line"><span class="comment">// 获取文件</span></div><div class="line"><span class="keyword">var</span> file_data = $(<span class="string">"#img_input"</span>).prop(<span class="string">"files"</span>)[<span class="number">0</span>];</div><div class="line"></div><div class="line"><span class="comment">// 把所以表单信息</span></div><div class="line">form_data.append(<span class="string">"id"</span>, <span class="string">"001"</span>);</div><div class="line">form_data.append(<span class="string">"name"</span>, <span class="string">"test"</span>);</div><div class="line">form_data.append(<span class="string">"img"</span>, file_data);</div><div class="line"></div><div class="line">$.ajax(&#123;</div><div class="line">    <span class="attr">type</span>: <span class="string">"POST"</span>,</div><div class="line">    <span class="attr">url</span>: <span class="string">"...."</span>,</div><div class="line">    <span class="attr">dataType</span> : <span class="string">"json"</span>,</div><div class="line">    <span class="attr">processData</span>: <span class="literal">false</span>,  <span class="comment">// 注意：让jQuery不要处理数据</span></div><div class="line">    contentType: <span class="literal">false</span>,  <span class="comment">// 注意：让jQuery不要设置contentType</span></div><div class="line">    data: form_data</div><div class="line">&#125;).success(<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(msg);</div><div class="line">&#125;).fail(<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(msg);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h2 id="多文件上传"><a href="#多文件上传" class="headerlink" title="多文件上传"></a>多文件上传</h2><p><strong>方法一 ：一次性上传多个文件</strong></p>
-<p>如果后台接口允许多文件上传，就把文件存到一个变量后上传。</p>
-<p><strong>方法二 ：一次性上传多个文件</strong></p>
-<p>如果后台接口要求单个文件，就循环获取文件信息提交，Ajax使用同步上传<code>async: false</code>。</p>
-<h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2><p>JSONP是使用GET方法，无法发送文件。可以让后台开启CORS，Ajax也使用跨域<code>crossDomain: true</code>即可。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">    <span class="attr">type</span>: <span class="string">"POST"</span>,</div><div class="line">    <span class="attr">url</span>: <span class="string">"...."</span>,</div><div class="line">    <span class="attr">dataType</span> : <span class="string">"json"</span>,</div><div class="line">    <span class="attr">crossDomain</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">processData</span>: <span class="literal">false</span>,  <span class="comment">// 注意：让jQuery不要处理数据</span></div><div class="line">    contentType: <span class="literal">false</span>,  <span class="comment">// 注意：让jQuery不要设置contentType</span></div><div class="line">    data: form_data</div><div class="line">&#125;).success(<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(msg);</div><div class="line">&#125;).fail(<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(msg);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-523586.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjIucG5n/dissolve/100/gravity/South/dy/5&quot; alt=&quot;HTML5+Ajax上传文件&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Ajax" scheme="http://laker.me/blog/categories/Ajax/"/>
-    
-    
-      <category term="HTML5" scheme="http://laker.me/blog/tags/HTML5/"/>
-    
-      <category term="Ajax" scheme="http://laker.me/blog/tags/Ajax/"/>
     
   </entry>
   
