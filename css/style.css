@@ -1513,3 +1513,9 @@ pre .php .xml {
   font-family: 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
   text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
 }
+
+#comment .title {
+  margin-bottom: 10px;
+  color: #f16078;
+  font-size: 14px;
+}
