@@ -15,7 +15,7 @@
 <meta property="og:description" content="重新装了系统，又得花老大劲配置环境，好多东西不记得了，只能看笔记和Google，但是比较琐碎，效率还是比较低。索性记录一下我的配置过程，以便今后再配环境时能快速一些。">
 <meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170110.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjIucG5n/dissolve/100/gravity/South/dy/5">
 <meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/QQ20170105162824.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjIucG5n/dissolve/100/gravity/South/dy/5">
-<meta property="og:updated_time" content="2017-07-18T02:39:50.000Z">
+<meta property="og:updated_time" content="2017-09-28T04:17:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我的 Ubuntu 配置记录">
 <meta name="twitter:description" content="重新装了系统，又得花老大劲配置环境，好多东西不记得了，只能看笔记和Google，但是比较琐碎，效率还是比较低。索性记录一下我的配置过程，以便今后再配环境时能快速一些。">
@@ -164,12 +164,12 @@ bower -v
 <pre><code>sudo apt-get install ruby 2.4 （最新版本号可在官网查）
 </code></pre><p>移除默认的<a href="https://rubygems.org源：" target="_blank" rel="external">https://rubygems.org源：</a></p>
 <pre><code>gem source --remove https://rubygems.org/
-</code></pre><p>然后添加淘宝的源<a href="https://ruby.taobao.org/" target="_blank" rel="external">https://ruby.taobao.org/</a>:</p>
-<pre><code>gem source -a https://ruby.taobao.org/
-</code></pre><p>确保只有 ruby.taobao.org</p>
+</code></pre><p>然后添加 Ruby China 的源h<a href="https://gems.ruby-china.org" target="_blank" rel="external">https://gems.ruby-china.org</a>:</p>
+<pre><code>gem source -a hhttps://gems.ruby-china.org
+</code></pre><p>确保只有 gems.ruby-china.org:</p>
 <pre><code>gem sources -l
 *** CURRENT SOURCES ***
-https://ruby.taobao.org
+https://gems.ruby-china.org
 </code></pre><h2 id="Ubuntu安装Sass"><a href="#Ubuntu安装Sass" class="headerlink" title="Ubuntu安装Sass"></a>Ubuntu安装Sass</h2><pre><code>gem install sass
 </code></pre><h2 id="Ubuntu安装CoffeeScript"><a href="#Ubuntu安装CoffeeScript" class="headerlink" title="Ubuntu安装CoffeeScript"></a>Ubuntu安装CoffeeScript</h2><h2 id="Ubuntu安装Gulp"><a href="#Ubuntu安装Gulp" class="headerlink" title="Ubuntu安装Gulp"></a>Ubuntu安装Gulp</h2><pre><code>npm install --global gulp
 </code></pre><h2 id="Ubuntu安装Vim"><a href="#Ubuntu安装Vim" class="headerlink" title="Ubuntu安装Vim"></a>Ubuntu安装Vim</h2><pre><code>sudo apt-get install vim
@@ -189,10 +189,10 @@ $ npm run dev
 bower install bootstrap#3.3.7 --save
 </code></pre>
         <hr>
-        <div class="copyrightss">
+        <div class="copyrights1">
           <a href="http://laker.me/blog/2017/01/10/17_0110_ubunru_settings/">我的 Ubuntu 配置记录</a>
           <!--%- partial('post/title', {class_name: 'archive-article-title'}) %-->
-          <p>本文原创自<a href="http://laker.me/blog">Laker's Blog</a>，转载请注明出处，欢迎交换友链</p>
+          <p>本文原创自<a href="http://laker.me/blog">http://laker.me/blog</a>，转载请注明出处，欢迎交换友链</p>
           <p>如果本文对您有帮助，微信扫一扫，请我喝杯咖啡吧</p>
           <p><img src="http://77g54f.com1.z0.glb.clouddn.com/weixinpay.jpg"></p>
         </div>

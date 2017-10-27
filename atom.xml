@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2017-09-28T04:02:07.000Z</updated>
+  <updated>2017-10-27T07:53:25.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue.js 2 高仿饿了么开发及解注四：goods 商品件组</title>
+    <link href="http://laker.me/blog/2017/10/09/17_1009_vuejs_eleme_4/"/>
+    <id>http://laker.me/blog/2017/10/09/17_1009_vuejs_eleme_4/</id>
+    <published>2017-10-09T00:24:00.000Z</published>
+    <updated>2017-10-27T07:53:25.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170620.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="Vue.js 2 高仿饿了么开发及解注四"></p>
+<a id="more"></a>
+<blockquote>
+<p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
+</blockquote>
+<p>慕课网早期出了《Vue.js 1 高仿饿了么APP》的课程，本系列文章根据课程，使用 Vue.js 2 版本进行开发，并进行了一步步开发流程记录和详细的代码注解。</p>
+<p><a href="https://github.com/ustbhuangyi/vue-sell" target="_blank" rel="external">原作者的代码</a></p>
+<p><a href="https://github.com/younglaker/CometLab/tree/vue-eleme" target="_blank" rel="external">我做的含有详细代码注解的版本</a></p>
+<h2 id="评分组件"><a href="#评分组件" class="headerlink" title="评分组件"></a>评分组件</h2><p>新建 componet / star / star.vue， 评分星级的图片放入。</p>
+<p>评分星级的星星的切图分为无星、半星、全星三种图案，各有2x、3x两种尺寸，通过三种图案组合拼凑成多种评分星数。一个星星用一个 <code>&lt;span&gt;</code> 装载，以背景的形式展现。</p>
+<p><strong>star.vue</strong> CSS</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">@import <span class="string">"../../common/stylus/mixin.styl"</span></div><div class="line"></div><div class="line"><span class="selector-class">.star</span></div><div class="line">  <span class="attribute">font-size</span>: <span class="number">0</span></div><div class="line">  <span class="selector-class">.star-item</span></div><div class="line">    <span class="attribute">display</span>: inline-block</div><div class="line">    <span class="attribute">background-repeat</span>: no-repeat</div><div class="line">  <span class="comment">// star-xx 不同尺寸的星星</span></div><div class="line">  &amp;<span class="selector-class">.star-48</span></div><div class="line">    <span class="selector-class">.star-item</span></div><div class="line">      <span class="attribute">width</span>: <span class="number">20px</span></div><div class="line">      <span class="attribute">height</span>: <span class="number">20px</span></div><div class="line">      <span class="attribute">margin-right</span>: <span class="number">22px</span></div><div class="line">      <span class="attribute">background-size</span>: <span class="number">20px</span> <span class="number">20px</span></div><div class="line">      &amp;:last-child</div><div class="line">        <span class="attribute">margin-right</span>: <span class="number">0</span> // 最后 一个星星没有margin-right</div><div class="line">      &amp;<span class="selector-class">.on</span></div><div class="line">        <span class="comment">// mixin.styl 里定义的 bg-image() </span></div><div class="line">        bg-image(<span class="string">'star48_on'</span>) <span class="comment">// 全星</span></div><div class="line">      &amp;<span class="selector-class">.half</span></div><div class="line">        bg-image(<span class="string">'star48_half'</span>)  <span class="comment">// 半星</span></div><div class="line">      &amp;<span class="selector-class">.off</span></div><div class="line">        bg-image(<span class="string">'star48_off'</span>)  <span class="comment">// 无星</span></div><div class="line">  &amp;<span class="selector-class">.star-36</span></div><div class="line">    <span class="selector-class">.star-item</span></div><div class="line">      <span class="attribute">width</span>: <span class="number">15px</span></div><div class="line">      <span class="attribute">height</span>: <span class="number">15px</span></div><div class="line">      <span class="attribute">margin-right</span>: <span class="number">6px</span></div><div class="line">      <span class="attribute">background-size</span>: <span class="number">15px</span> <span class="number">15px</span></div><div class="line">      &amp;:last-child</div><div class="line">        <span class="attribute">margin-right</span>: <span class="number">0</span></div><div class="line">      &amp;<span class="selector-class">.on</span></div><div class="line">        bg-image(<span class="string">'star36_on'</span>)</div><div class="line">      &amp;<span class="selector-class">.half</span></div><div class="line">        bg-image(<span class="string">'star36_half'</span>)</div><div class="line">      &amp;<span class="selector-class">.off</span></div><div class="line">        bg-image(<span class="string">'star36_off'</span>)</div><div class="line">  &amp;<span class="selector-class">.star-24</span></div><div class="line">    <span class="selector-class">.star-item</span></div><div class="line">      <span class="attribute">width</span>: <span class="number">10px</span></div><div class="line">      <span class="attribute">height</span>: <span class="number">10px</span></div><div class="line">      <span class="attribute">margin-right</span>: <span class="number">3px</span></div><div class="line">      <span class="attribute">background-size</span>: <span class="number">10px</span> <span class="number">10px</span></div><div class="line">      &amp;:last-child</div><div class="line">        <span class="attribute">margin-right</span>: <span class="number">0</span></div><div class="line">      &amp;<span class="selector-class">.on</span></div><div class="line">        bg-image(<span class="string">'star24_on'</span>)</div><div class="line">      &amp;<span class="selector-class">.half</span></div><div class="line">        bg-image(<span class="string">'star24_half'</span>)</div><div class="line">      &amp;<span class="selector-class">.off</span></div><div class="line">        bg-image(<span class="string">'star24_off'</span>)</div></pre></td></tr></table></figure>
+<p><strong>star.vue</strong> HTML<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 循环填充星星状态的class --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"star"</span> <span class="attr">:class</span>=<span class="string">"starType"</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- v-for：循环获取 itemClasses() 返回的数组 --&gt;</span></div><div class="line">  <span class="comment">&lt;!-- :class="itemClass" 把获取的class加给span --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"(itemClass,index) in itemClasses"</span> <span class="attr">:class</span>=<span class="string">"itemClass"</span> <span class="attr">class</span>=<span class="string">"star-item"</span> <span class="attr">key</span>=<span class="string">"index"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><strong>star.vue</strong> JavaScript<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// const 定义常量</span></div><div class="line"><span class="keyword">const</span> LENGTH = <span class="number">5</span>   <span class="comment">// 星星个数</span></div><div class="line"><span class="keyword">const</span> CLS_ON = <span class="string">'on'</span>   <span class="comment">// 星星的三种状态</span></div><div class="line"><span class="keyword">const</span> CLS_HALF = <span class="string">'half'</span></div><div class="line"><span class="keyword">const</span> CLS_OFF = <span class="string">'off'</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  <span class="comment">// 使用组件时传入的参数</span></div><div class="line">  props: &#123;</div><div class="line">    size: &#123;</div><div class="line">      <span class="keyword">type</span>: <span class="built_in">Number</span></div><div class="line">    &#125;,</div><div class="line">    score: &#123;</div><div class="line">      <span class="keyword">type</span>: <span class="built_in">Number</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// 计算</span></div><div class="line">  computed: &#123;</div><div class="line">    starType () &#123;</div><div class="line">      <span class="keyword">return</span> <span class="string">'star-'</span> + <span class="keyword">this</span>.size</div><div class="line">    &#125;,</div><div class="line">    itemClasses () &#123;</div><div class="line">      <span class="keyword">let</span> result = []  <span class="comment">// 存放最终结果的数组</span></div><div class="line">      <span class="keyword">let</span> score = <span class="built_in">Math</span>.floor(<span class="keyword">this</span>.score * <span class="number">2</span>) / <span class="number">2</span> <span class="comment">// 通过分数算星星个数</span></div><div class="line">      <span class="comment">// 向下取0.5的公式。floor() 执行向下取整</span></div><div class="line">      <span class="comment">// floor(3.3 * 2) / 2 = 3 即 3颗全星+2颗无星</span></div><div class="line">      <span class="comment">// floor(3.6 * 2) / 2 = 3.5 即 3颗全星+1颗半星+1颗无星</span></div><div class="line">      <span class="keyword">let</span> hasDecimal = score % <span class="number">1</span> !== <span class="number">0</span> <span class="comment">// 取余不为0则有半星</span></div><div class="line">      <span class="keyword">let</span> integer = <span class="built_in">Math</span>.floor(score) <span class="comment">// 整数部分</span></div><div class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; integer; i++) &#123; <span class="comment">// 设置全星</span></div><div class="line">        result.push(CLS_ON)</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">if</span> (hasDecimal) &#123;</div><div class="line">        result.push(CLS_HALF)</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">while</span> (result.length &lt; LENGTH) &#123; <span class="comment">// 循环，补充无星</span></div><div class="line">        result.push(CLS_OFF)</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> result</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>header.vue</strong> 引用并注册 star 组件<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Star <span class="keyword">from</span> <span class="string">'components/star/star'</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> default &#123;</div><div class="line">  ...</div><div class="line">  components: &#123;</div><div class="line">    Star   <span class="comment">// 注册评分组件</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>header.vue</strong> 使用评分组件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"star-wrapper"</span>&gt;</div><div class="line">  <span class="xml"><span class="comment">&lt;!-- 使用 star 组件时，需传入 size、score --&gt;</span></span></div><div class="line">  <span class="comment">&lt;!-- :size 星星大小，组件定义了48、36、24 --&gt;</span></div><div class="line">  <span class="comment">&lt;!-- :score 评分，从data.json里来 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">star</span> <span class="attr">:size</span>=<span class="string">"48"</span> <span class="attr">:score</span>=<span class="string">"seller.score"</span>&gt;</span><span class="tag">&lt;/<span class="name">star</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170620.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;Vue.js 2 高仿饿了么开发及解注四&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Vue.js" scheme="http://laker.me/blog/categories/Vue-js/"/>
+    
+    
+      <category term="HTML5" scheme="http://laker.me/blog/tags/HTML5/"/>
+    
+      <category term="JavaScript" scheme="http://laker.me/blog/tags/JavaScript/"/>
+    
+      <category term="Vue.js" scheme="http://laker.me/blog/tags/Vue-js/"/>
+    
+  </entry>
   
   <entry>
     <title>Semantic UI 及在 React.js 下开发的一些坑</title>
@@ -596,9 +639,9 @@
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -641,9 +684,9 @@
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -760,9 +803,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -798,9 +841,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -867,9 +910,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -966,9 +1009,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -1046,9 +1089,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -1225,7 +1268,7 @@ import &apos;bootstrap/dist/js/bootstrap.js&apos;
     <link href="http://laker.me/blog/2017/01/24/17_0124_clean_keyboard/"/>
     <id>http://laker.me/blog/2017/01/24/17_0124_clean_keyboard/</id>
     <published>2017-01-24T00:24:00.000Z</published>
-    <updated>2017-04-26T15:15:10.000Z</updated>
+    <updated>2017-09-28T04:13:05.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170124.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="title"></p>
 <a id="more"></a>
@@ -1242,7 +1285,7 @@ import &apos;bootstrap/dist/js/bootstrap.js&apos;
 <p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170124165254.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="pics"></p>
 <p>萌 Logo (*￣3￣)╭</p>
 <p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170124165256.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="pics"></p>
-<p>黑建绿光，这很黑客帝国~</p>
+<p>黑键绿光，这很黑客帝国~</p>
 <p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170124165255.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="pics"></p>
 ]]></content>
     
@@ -1264,7 +1307,7 @@ import &apos;bootstrap/dist/js/bootstrap.js&apos;
     <link href="http://laker.me/blog/2017/01/10/17_0110_ubunru_settings/"/>
     <id>http://laker.me/blog/2017/01/10/17_0110_ubunru_settings/</id>
     <published>2017-01-10T00:24:00.000Z</published>
-    <updated>2017-07-18T02:39:50.000Z</updated>
+    <updated>2017-09-28T04:17:56.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170110.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjIucG5n/dissolve/100/gravity/South/dy/5" alt="The cover"><br>重新装了系统，又得花老大劲配置环境，好多东西不记得了，只能看笔记和Google，但是比较琐碎，效率还是比较低。索性记录一下我的配置过程，以便今后再配环境时能快速一些。</p>
 <a id="more"></a>
@@ -1305,12 +1348,12 @@ bower -v
 <pre><code>sudo apt-get install ruby 2.4 （最新版本号可在官网查）
 </code></pre><p>移除默认的<a href="https://rubygems.org源：" target="_blank" rel="external">https://rubygems.org源：</a></p>
 <pre><code>gem source --remove https://rubygems.org/
-</code></pre><p>然后添加淘宝的源<a href="https://ruby.taobao.org/" target="_blank" rel="external">https://ruby.taobao.org/</a>:</p>
-<pre><code>gem source -a https://ruby.taobao.org/
-</code></pre><p>确保只有 ruby.taobao.org</p>
+</code></pre><p>然后添加 Ruby China 的源h<a href="https://gems.ruby-china.org" target="_blank" rel="external">https://gems.ruby-china.org</a>:</p>
+<pre><code>gem source -a hhttps://gems.ruby-china.org
+</code></pre><p>确保只有 gems.ruby-china.org:</p>
 <pre><code>gem sources -l
 *** CURRENT SOURCES ***
-https://ruby.taobao.org
+https://gems.ruby-china.org
 </code></pre><h2 id="Ubuntu安装Sass"><a href="#Ubuntu安装Sass" class="headerlink" title="Ubuntu安装Sass"></a>Ubuntu安装Sass</h2><pre><code>gem install sass
 </code></pre><h2 id="Ubuntu安装CoffeeScript"><a href="#Ubuntu安装CoffeeScript" class="headerlink" title="Ubuntu安装CoffeeScript"></a>Ubuntu安装CoffeeScript</h2><h2 id="Ubuntu安装Gulp"><a href="#Ubuntu安装Gulp" class="headerlink" title="Ubuntu安装Gulp"></a>Ubuntu安装Gulp</h2><pre><code>npm install --global gulp
 </code></pre><h2 id="Ubuntu安装Vim"><a href="#Ubuntu安装Vim" class="headerlink" title="Ubuntu安装Vim"></a>Ubuntu安装Vim</h2><pre><code>sudo apt-get install vim
@@ -1340,67 +1383,6 @@ bower install bootstrap#3.3.7 --save
     
     
       <category term="Ubuntu" scheme="http://laker.me/blog/tags/Ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>那时候的梦想，你还在坚持吗？</title>
-    <link href="http://laker.me/blog/2016/05/05/16_0505_the_dreams/"/>
-    <id>http://laker.me/blog/2016/05/05/16_0505_the_dreams/</id>
-    <published>2016-05-05T00:24:00.000Z</published>
-    <updated>2017-07-18T02:24:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/essay508286.jpg" alt="那时候的梦想，你还在坚持吗？"></p>
-<a id="more"></a>
-<blockquote>
-<p>那时候，你说想考和TA一样的大学<br>可是你全科红灯高高挂</p>
-</blockquote>
-<p><img src="http://77g54f.com1.z0.glb.clouddn.com/essayimg_2762.jpg" alt="那时候，你说想考和TA一样的大学"></p>
-<blockquote>
-<p>那时候，你说想当一名画家<br>可是你仍然是个渣触</p>
-</blockquote>
-<p><img src="http://77g54f.com1.z0.glb.clouddn.com/blogimg_2761.jpg" alt="那时候，你说想当一名画家"></p>
-<blockquote>
-<p>那时候，你说你想当主持人<br>可是你满嘴“飘biaoz吮zhun”的方言</p>
-</blockquote>
-<p><img src="http://77g54f.com1.z0.glb.clouddn.com/blogimg_2763.jpg" alt="那时候，你说你想当主持人"></p>
-<blockquote>
-<p>但你还是坚持了<br>以艺术特长生的身份和TA成为校友</p>
-</blockquote>
-<p><img src="http://77g54f.com1.z0.glb.clouddn.com/blogimg_2765.jpg" alt="坚持会有好运"></p>
-<blockquote>
-<p>但你还是坚持了<br>每天站在和艺术最近的地方<br>哪怕是在画廊里当一个小员工</p>
-</blockquote>
-<p><img src="http://77g54f.com1.z0.glb.clouddn.com/blogimg_2766.jpg" alt="坚持会有好运"></p>
-<blockquote>
-<p>但你还是坚持了<br>在演播厅里激情解说<br>哪怕只是一个地方电台</p>
-</blockquote>
-<p><img src="http://77g54f.com1.z0.glb.clouddn.com/essayimg_2429.png" alt="坚持会有好运"></p>
-<blockquote>
-<p>那时候，我说我想当一名顶尖的工程师<br>用代码改变世界<br>然而，能力达不到野心的我放弃了<br>拖着疲惫不堪的回到家乡<br>在小角落里找不到出路<br>时光真是个可以治愈人的庸医<br>我拾起键盘，在开源社区里自由的奔驰<br>没有思想的约束，没有功能的限制，没有KPI的压力<br>我就这样写着随性的代码<br>我开始明白<br>那时候，我想做的是——写喜欢的代码<br>我希望我的代码让世界有趣一点<br>保持对技术圈的关注<br>自己写点小程序 <a href="https://github.com/younglaker" target="_blank" rel="external">Github</a><br>坚持写博客记录学习历程和分享心得<br>和技术圈的朋友交流学习<br>我还在坚持</p>
-<p>那你呢？<br>那时候的梦想，你还在坚持吗？</p>
-</blockquote>
-<p>##❤  观影指南</p>
-<p><strong>《请回答1997》</strong></p>
-<p><img src="http://77g54f.com1.z0.glb.clouddn.com/essaytrim.jpg" alt="请回答1997"></p>
-<blockquote>
-<p>   讲述6个好友，从1997年到2012年共同经历着友情、亲情和爱情的成长与蜕变。鲜有的不靠颜值取胜的韩剧，看弹幕的时候会看到一边吐槽颜值、一边说剧情好看、最后爱上所有演员的言论。<br>   该剧有着复古小清新调调，轻松诙谐，能让人笑出言论，又不禁让人回忆思考。<br>   本剧大部分讲述1997年的故事，虽然大背景是韩国，但是绝对能和你所经历的青春产生共鸣。那时候我们年轻，我们追星，我们看球，我们看漫画，我们谈论着隔壁的班花、球场的校草，我们……<br>   该剧采用倒叙、插叙的手法，看第一集的时候会比较晕，但请相信满屏的弹幕，看下去，你一定会感叹编剧的铺垫手法，还有大量的暗示线索可以供亲推测剧情~</p>
-</blockquote>
-<!-- **【图饭】是我倾心维护的 微信公众号，选取有深度的影片片段，结合生活，串接成有味道的文章。**
-**图饭 —— 用长图说故事**
-**我有故事，你有酒吗？** -->
-<!-- ![图饭](http://77g54f.com1.z0.glb.clouddn.com/tufan1056418.png) -->]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/essay508286.jpg&quot; alt=&quot;那时候的梦想，你还在坚持吗？&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="图饭" scheme="http://laker.me/blog/categories/%E5%9B%BE%E9%A5%AD/"/>
-    
-    
-      <category term="图饭" scheme="http://laker.me/blog/tags/%E5%9B%BE%E9%A5%AD/"/>
     
   </entry>
   
