@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2017-10-27T07:53:25.000Z</updated>
+  <updated>2017-11-19T04:02:17.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用迅雷下载百度云，突破大文件和速度限制</title>
+    <link href="http://laker.me/blog/2017/10/19/17_1019_baiduyun_download/"/>
+    <id>http://laker.me/blog/2017/10/19/17_1019_baiduyun_download/</id>
+    <published>2017-10-19T00:24:00.000Z</published>
+    <updated>2017-11-19T04:02:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20171019.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="用迅雷下载百度云"></p>
+<a id="more"></a>
+<blockquote>
+<p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
+</blockquote>
+<p>百度云网页版有限制下载大文件，必须使用客户端，而客户端又有速度限制。要么使用破解版的客户端，安全性不敢保证。迅雷大家都有，可以考虑用迅雷下载百度云的资料。根据<a href="https://www.zhihu.com/question/22085759" target="_blank" rel="external">知乎上的讨论</a>，尝试了大家的方法，最后选择了其中一种，并在原答主的基础上有所改进。</p>
+<h2 id="1、下载浏览器脚本管理器插件"><a href="#1、下载浏览器脚本管理器插件" class="headerlink" title="1、下载浏览器脚本管理器插件"></a>1、下载浏览器脚本管理器插件</h2><p>这里选用<a href="http://tampermonkey.net/index.php?version=4.0.69&amp;ext=dhdg&amp;show=gcal" target="_blank" rel="external">tampermonkey</a>，也可以选用其他的</p>
+<p>官网下载：<a href="http://tampermonkey.net/index.php?version=4.0.69&amp;ext=dhdg&amp;show=gcal" target="_blank" rel="external">http://tampermonkey.net/index.php?version=4.0.69&amp;ext=dhdg&amp;show=gcal</a><br>备用下载：<a href="https://pan.baidu.com/s/1c2CdKFu" target="_blank" rel="external">https://pan.baidu.com/s/1c2CdKFu</a></p>
+<h2 id="2、安装脚本"><a href="#2、安装脚本" class="headerlink" title="2、安装脚本"></a>2、安装脚本</h2><p>到 <a href="https://greasyfork.org/zh-CN/scripts/17800-%E8%A7%A3%E5%86%B3%E7%99%BE%E5%BA%A6%E4%BA%91%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E9%99%90%E5%88%B6" target="_blank" rel="external">greasyfork</a> 下载解决百度云大文件下载限制的脚本</p>
+<p>##３、到百度云网页版下载东西</p>
+<p>打开百度云网页版，脚本就开始运行</p>
+<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170604164848.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="tampermonkey"></p>
+<h3 id="chrome"><a href="#chrome" class="headerlink" title="chrome"></a>chrome</h3><p>选择文件下载</p>
+<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170604165104.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="step"></p>
+<p>可以选择在chrome里下载，但是比较慢。<br>所以暂停下载，获取下载地址：</p>
+<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170604165126.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="step"></p>
+<p>到迅雷新建下载任务，可以一次性下载多个任务</p>
+<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170604165231.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="step"></p>
+<p>刚开始是0B，没事</p>
+<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170604165252.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="step"></p>
+<p>解析、链接之后就正常了</p>
+<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170604165326.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="step"></p>
+<h3 id="360-极速浏览器"><a href="#360-极速浏览器" class="headerlink" title="360 极速浏览器"></a>360 极速浏览器</h3><p>如果文件比较多，这样获取下载地址比较麻烦。国内的浏览器有些有直接点击迅雷下载。如果没有的可以重新安装迅雷以便重新安装迅雷插件。不想下载的也可以手动复制下载链接。</p>
+<p>我刚下载的360极速可以直接显示下载地址，也比较方便。</p>
+<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170604165648.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="step"></p>
+<p>批量下载，速度比较可观。不过不支持断点续传能力较弱，并且会出现下载到一半自动停掉，显示地址错误的提醒，大概是百度云的地址会有更换的机制。</p>
+<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170604181619.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="step"></p>
+<p>如果长时间没下载完成，可能是百度云的某种机制使下载地址会失效，需要重新获取地址。我就是下了一晚上，没有限制下载个数，所有东西只下载了一半然后全部失效，以后都吸取教训限制下载个数，减少损失。建议文件不要太大，多分几个压缩包下载。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20171019.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;用迅雷下载百度云&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tools" scheme="http://laker.me/blog/categories/Tools/"/>
+    
+    
+      <category term="Tools" scheme="http://laker.me/blog/tags/Tools/"/>
+    
+      <category term="效率" scheme="http://laker.me/blog/tags/%E6%95%88%E7%8E%87/"/>
+    
+      <category term="小工具" scheme="http://laker.me/blog/tags/%E5%B0%8F%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue.js 2 高仿饿了么开发及解注四：goods 商品件组</title>
@@ -639,9 +693,9 @@
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -684,9 +738,9 @@
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -803,9 +857,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -841,9 +895,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -910,9 +964,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -1009,9 +1063,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -1089,9 +1143,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -1299,90 +1353,6 @@ import &apos;bootstrap/dist/js/bootstrap.js&apos;
     
     
       <category term="外设" scheme="http://laker.me/blog/tags/%E5%A4%96%E8%AE%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我的 Ubuntu 配置记录</title>
-    <link href="http://laker.me/blog/2017/01/10/17_0110_ubunru_settings/"/>
-    <id>http://laker.me/blog/2017/01/10/17_0110_ubunru_settings/</id>
-    <published>2017-01-10T00:24:00.000Z</published>
-    <updated>2017-09-28T04:17:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170110.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjIucG5n/dissolve/100/gravity/South/dy/5" alt="The cover"><br>重新装了系统，又得花老大劲配置环境，好多东西不记得了，只能看笔记和Google，但是比较琐碎，效率还是比较低。索性记录一下我的配置过程，以便今后再配环境时能快速一些。</p>
-<a id="more"></a>
-<h2 id="Ubuntu更换源"><a href="#Ubuntu更换源" class="headerlink" title="Ubuntu更换源"></a>Ubuntu更换源</h2><p>更换网易或阿里源<br><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170105162824.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjIucG5n/dissolve/100/gravity/South/dy/5" alt="更换网易或阿里源"></p>
-<h2 id="Ubuntu安装Python"><a href="#Ubuntu安装Python" class="headerlink" title="Ubuntu安装Python"></a>Ubuntu安装Python</h2><p>自带</p>
-<h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><p>由于需要翻墙，先在windows下载好linux版本，上传到百度云或U盘，再到Ubuntu系统里安装。</p>
-<p><strong>下载安装包方式</strong></p>
-<p>到这个地址下载 <a href="https://www.google.com/intl/zh-CN/chrome/browser/?standalone=1" target="_blank" rel="external">https://www.google.com/intl/zh-CN/chrome/browser/?standalone=1</a> 下载deb文件</p>
-<h2 id="Ubuntu科学上网"><a href="#Ubuntu科学上网" class="headerlink" title="Ubuntu科学上网"></a>Ubuntu科学上网</h2><h3 id="浏览器插件"><a href="#浏览器插件" class="headerlink" title="浏览器插件"></a>浏览器插件</h3><p>上传omega及其配置到百度云或U盘，再到Ubuntu系统里安装。</p>
-<h3 id="Ubuntu安装ss"><a href="#Ubuntu安装ss" class="headerlink" title="Ubuntu安装ss"></a>Ubuntu安装ss</h3><p>安装的命令：</p>
-<p>然后安装 PIP</p>
-<pre><code>apt-get install python-gevent python-pip
-</code></pre><p>安装 ss</p>
-<pre><code>pip install shadowsocks
-</code></pre><p>为了支持加密方式，需要安装</p>
-<pre><code>apt-get install python-m2crypto
-</code></pre><p>运行：</p>
-<pre><code>sslocal -s 地址 -p 端口 -k 密码 -m 加密方式
-</code></pre><h2 id="Sublime"><a href="#Sublime" class="headerlink" title="Sublime"></a>Sublime</h2><p>安装插件前按Ctrl+` 调出console输入</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import urllib.request,<span class="built_in">os</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); <span class="built_in">open</span>(<span class="built_in">os</span>.<span class="built_in">path</span>.join(ipp, pf), <span class="string">'wb'</span>).<span class="built_in">write</span>(urllib.request.urlopen( <span class="string">'http://sublime.wbond.net/'</span> + pf.replace(<span class="string">' '</span>,<span class="string">'%20'</span>)).<span class="built_in">read</span>())</div></pre></td></tr></table></figure>
-<h2 id="Ubuntu安装Git"><a href="#Ubuntu安装Git" class="headerlink" title="Ubuntu安装Git"></a>Ubuntu安装Git</h2><p>安装</p>
-<pre><code>apt-get install git
-</code></pre><p>配置Github：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> git config --global user.name <span class="string">"用户名"</span></span></div><div class="line"><span class="meta">$</span><span class="bash"> git config --global user.email 邮箱</span></div><div class="line"><span class="meta">$</span><span class="bash"> ssh-keygen -t rsa -b 4096 -C <span class="string">"邮箱"</span></span></div><div class="line"><span class="meta">$</span><span class="bash"> ssh-add ~/.ssh/id_rsa</span></div></pre></td></tr></table></figure></p>
-<p>把在~/.ssh（根目录下按 ctrl + H 显示隐藏文件）ssh-key 添加到 Github 设置里</p>
-<h2 id="Ubuntu安装Nodejs"><a href="#Ubuntu安装Nodejs" class="headerlink" title="Ubuntu安装Nodejs"></a>Ubuntu安装Nodejs</h2><p>安装NVM，重启terminal:</p>
-<pre><code>wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-</code></pre><p>安装Nodejs 6.10.3，含npm，可换其他版本</p>
-<pre><code>nvm install 6.10.3
-node -v
-</code></pre><p>切换Nodejs版本</p>
-<pre><code>nvm use 6.10.3（版本号）
-</code></pre><h2 id="Ubuntu安装cnpm"><a href="#Ubuntu安装cnpm" class="headerlink" title="Ubuntu安装cnpm"></a>Ubuntu安装cnpm</h2><p><a href="https://npm.taobao.org" target="_blank" rel="external">https://npm.taobao.org</a></p>
-<pre><code>npm install -g cnpm --registry=https://registry.npm.taobao.org
-cnpm install [name]
-</code></pre><h2 id="Ubuntu安装Bower"><a href="#Ubuntu安装Bower" class="headerlink" title="Ubuntu安装Bower"></a>Ubuntu安装Bower</h2><pre><code>npm install bower -g
-bower -v
-</code></pre><h2 id="Ubuntu安装Ruby"><a href="#Ubuntu安装Ruby" class="headerlink" title="Ubuntu安装Ruby"></a>Ubuntu安装Ruby</h2><p>含gem</p>
-<pre><code>sudo apt-get install ruby 2.4 （最新版本号可在官网查）
-</code></pre><p>移除默认的<a href="https://rubygems.org源：" target="_blank" rel="external">https://rubygems.org源：</a></p>
-<pre><code>gem source --remove https://rubygems.org/
-</code></pre><p>然后添加 Ruby China 的源h<a href="https://gems.ruby-china.org" target="_blank" rel="external">https://gems.ruby-china.org</a>:</p>
-<pre><code>gem source -a hhttps://gems.ruby-china.org
-</code></pre><p>确保只有 gems.ruby-china.org:</p>
-<pre><code>gem sources -l
-*** CURRENT SOURCES ***
-https://gems.ruby-china.org
-</code></pre><h2 id="Ubuntu安装Sass"><a href="#Ubuntu安装Sass" class="headerlink" title="Ubuntu安装Sass"></a>Ubuntu安装Sass</h2><pre><code>gem install sass
-</code></pre><h2 id="Ubuntu安装CoffeeScript"><a href="#Ubuntu安装CoffeeScript" class="headerlink" title="Ubuntu安装CoffeeScript"></a>Ubuntu安装CoffeeScript</h2><h2 id="Ubuntu安装Gulp"><a href="#Ubuntu安装Gulp" class="headerlink" title="Ubuntu安装Gulp"></a>Ubuntu安装Gulp</h2><pre><code>npm install --global gulp
-</code></pre><h2 id="Ubuntu安装Vim"><a href="#Ubuntu安装Vim" class="headerlink" title="Ubuntu安装Vim"></a>Ubuntu安装Vim</h2><pre><code>sudo apt-get install vim
-</code></pre><h2 id="Ubuntu安装Vue-js"><a href="#Ubuntu安装Vue-js" class="headerlink" title="Ubuntu安装Vue.js"></a>Ubuntu安装Vue.js</h2><pre><code>npm install vue -g
-</code></pre><p>或用Bower：</p>
-<pre><code>bower install vue
-</code></pre><p>或安装命令行工具：</p>
-<pre><code># 全局安装 vue-cli
-$ npm install --global vue-cli
-# 创建一个基于 webpack 模板的新项目
-$ vue init webpack my-project
-# 安装依赖，走你
-$ cd my-project
-$ npm install
-$ npm run dev
-</code></pre><h2 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h2><pre><code>bower init
-bower install bootstrap#3.3.7 --save
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170110.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjIucG5n/dissolve/100/gravity/South/dy/5&quot; alt=&quot;The cover&quot;&gt;&lt;br&gt;重新装了系统，又得花老大劲配置环境，好多东西不记得了，只能看笔记和Google，但是比较琐碎，效率还是比较低。索性记录一下我的配置过程，以便今后再配环境时能快速一些。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Ubuntu" scheme="http://laker.me/blog/categories/Ubuntu/"/>
-    
-    
-      <category term="Ubuntu" scheme="http://laker.me/blog/tags/Ubuntu/"/>
     
   </entry>
   
