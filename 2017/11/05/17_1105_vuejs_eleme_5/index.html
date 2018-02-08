@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Vue.js 2 高仿饿了么开发及解注五：购物车组件（上） - 进击的程序媛，Laker&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="BxWqqPVkmU3CTQmmIjCp27ZjmcXuB_YTf8Xa7lp_G-w" />
+  <meta name="keywords" content="HTML5,JavaScript,Vue.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue.js 2 高仿饿了么开发及解注五：购物车组件（上）">
+<meta property="og:url" content="http://laker.me/blog/2017/11/05/17_1105_vuejs_eleme_5/index.html">
+<meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
+<meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170620.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
+<meta property="og:updated_time" content="2018-02-08T15:53:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue.js 2 高仿饿了么开发及解注五：购物车组件（上）">
+<meta name="twitter:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170620.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
+  
+    <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
+  
+  
+    <!--link rel="icon" href="/favicon.png"-->
+    <link href="/blog/favicon.ico" rel="icon" type="image/x-ico">
+  
+  <!-- <link href="/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css"> -->
+  <link href="/blog/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/blog/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css">
+  <!--% if (theme.google_analytics){ %-->
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+// ga('create', 'null', 'auto');
+ga('create', 'UA-43961506-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+<!--% } %-->
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c84935c1bc2fcf0a3f6a741737cccf7d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <!-- <a id="logo" class="logo" href="/blog/"></a> -->
+      <a id="logo" class="logo" href="http://laker.me"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/blog/projects">Projects</a>
+        
+          <a class="main-nav-link" href="/blog/about">About</a>
+        
+          <a class="main-nav-link" href="/blog/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/blog/blogrolls">Blogrolls</a>
+        
+          <a class="main-nav-link" href="/blog/atom.xml">RSS</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://laker.me/blog"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!-- Fork me on github -->
+  <!-- <a href="https://github.com/younglaker" target="_blank" title="Fork me on GitHub"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
+
+  <!-- Fork me on Github, Github Logo -->
+  <a href="https://github.com/younglaker" class="github-corner" target="_blank" title="Fork me on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#333;color:#fff;position:absolute;top:0;border:0;right:0"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+</header>
+    <section id="main" class="outer"><article id="post-17_1105_vuejs_eleme_5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue.js 2 高仿饿了么开发及解注五：购物车组件（上）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/blog/2017/11/05/17_1105_vuejs_eleme_5/" class="article-date">
+  <time datetime="2017-11-05T00:24:00.000Z" itemprop="datePublished">2017-11-05</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Vue-js/">Vue.js</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170620.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="Vue.js 2 高仿饿了么开发及解注五"></p>
+<a id="more"></a>
+<blockquote>
+<p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
+</blockquote>
+<p>慕课网早期出了《Vue.js 1 高仿饿了么APP》的课程，本系列文章根据课程，使用 Vue.js 2 版本进行开发，并进行了一步步开发流程记录和详细的代码注解。</p>
+<p><a href="https://github.com/ustbhuangyi/vue-sell" target="_blank" rel="external">原作者的代码</a></p>
+<p><a href="https://github.com/younglaker/CometLab/tree/vue-eleme" target="_blank" rel="external">我做的含有详细代码注解的版本</a></p>
+<hr>
+<h1 id="购物车组件"><a href="#购物车组件" class="headerlink" title="购物车组件"></a>购物车组件</h1><p>新建组件 shopcart/shopcart.vue</p>
+<p><code>goods.vue</code> 里引用，并注册<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 购物车组件</span></div><div class="line"><span class="keyword">import</span> shopcart <span class="keyword">from</span> <span class="string">'components/shopcart/shopcart'</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> default &#123;</div><div class="line">  ...</div><div class="line">  components: &#123;</div><div class="line">    shopcart</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="解注：-选择食物"><a href="#解注：-选择食物" class="headerlink" title="解注： 选择食物"></a>解注： 选择食物</h2><p><code>goods.vue</code> </p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">data.json里goods的结构</div><div class="line"><span class="string">"goods"</span>: [</div><div class="line">  &#123;</div><div class="line">    <span class="string">"name"</span>: <span class="string">"热销榜"</span>,</div><div class="line">    <span class="string">"type"</span>: -<span class="number">1</span>,</div><div class="line">    <span class="string">"foods"</span>: [&#123;&#125;, &#123;&#125;...]</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    <span class="string">"name"</span>: <span class="string">"单人精彩套餐"</span>,</div><div class="line">    <span class="string">"type"</span>: <span class="number">2</span>,</div><div class="line">    <span class="string">"foods"</span>: [&#123;&#125;, &#123;&#125;...]</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>放在 computed 里，实时更新<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">computed: &#123;</div><div class="line">  selectFoods () &#123;</div><div class="line">    let foods = []</div><div class="line">    <span class="keyword">this</span>.goods.forEach(<span class="function"><span class="params">(good)</span> =&gt;</span> &#123;</div><div class="line">      good.foods.forEach(<span class="function"><span class="params">(food)</span> =&gt;</span> &#123;</div><div class="line">        <span class="keyword">if</span> (food.count) &#123;</div><div class="line">          foods.push(food)</div><div class="line">        &#125;</div><div class="line">      &#125;)</div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> foods</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="解注1，接收参数"><a href="#解注1，接收参数" class="headerlink" title="解注1，接收参数"></a>解注1，接收参数</h2><p><code>goods.vue</code> 给组件传值selectFoods（选择的食物，最终传的是selectFoods()的返回值foods）、deliveryPrice（配送费）、minPrice（起送价）<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;shopcart  <span class="symbol">:selectFoods=<span class="string">"selectFoods"</span></span> <span class="symbol">:deliveryPrice=<span class="string">"seller.deliveryPrice"</span></span> <span class="symbol">:minPrice=<span class="string">"seller.minPrice"</span>&gt;&lt;/shopcart&gt;</span></div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>shopcart.vue</code>接收goods组件传进来的deliveryPrice、minPrice，default表示如果没有接收到时的默认值<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">export</span> <span class="selector-tag">default</span> &#123;</div><div class="line">  <span class="attribute">props</span>: &#123;</div><div class="line">    selectFoods: &#123;</div><div class="line">      type: Array,</div><div class="line">      <span class="built_in">default</span>() &#123;</div><div class="line">        return [</div><div class="line">          &#123;</div><div class="line">            price: <span class="number">10</span>,</div><div class="line">            count: <span class="number">1</span></div><div class="line">          &#125;</div><div class="line">        ]</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="selector-tag">deliveryPrice</span>: &#123;</div><div class="line">      <span class="attribute">type</span>: Number,</div><div class="line">      default: <span class="number">0</span></div><div class="line">    &#125;,</div><div class="line">    <span class="selector-tag">minPrice</span>: &#123;</div><div class="line">      <span class="attribute">type</span>: Number,</div><div class="line">      default: <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>配送费直接显示：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"desc"</span>&gt;另需配送费￥&#123;&#123;deliveryPrice&#125;&#125;元&lt;/<span class="keyword">div</span>&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="解注2：-显示商品总价和总数"><a href="#解注2：-显示商品总价和总数" class="headerlink" title="解注2： 显示商品总价和总数"></a>解注2： 显示商品总价和总数</h2><p>计算：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">computed: &#123;</div><div class="line">  <span class="comment">/* 计算商品总价 */</span></div><div class="line">  totalPrice() &#123;</div><div class="line">    let <span class="keyword">total</span> = 0</div><div class="line">    <span class="comment">// 循环累加总价</span></div><div class="line">    this.selectFoods.<span class="keyword">forEach</span>((food) =&gt; &#123;</div><div class="line">      <span class="keyword">total</span> += food.price * food.<span class="keyword">count</span></div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> <span class="keyword">total</span></div><div class="line">  &#125;,</div><div class="line">  <span class="comment">/* 计算商品总数 */</span></div><div class="line">  totalCount() &#123;</div><div class="line">    let <span class="keyword">count</span> = 0</div><div class="line">    this.selectFoods.<span class="keyword">forEach</span>((food) =&gt; &#123;</div><div class="line">      <span class="keyword">count</span> += food.<span class="keyword">count</span></div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> <span class="keyword">count</span></div><div class="line">  &#125;,</div></pre></td></tr></table></figure></p>
+<p>显示：</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"logo-wrapper"</span>&gt;</span></span></div><div class="line">  <span class="comment">&lt;!-- 当 totalCount&gt;0 时，就添加 .highlight 高亮样式 --&gt;</span></div><div class="line">  <span class="comment">&lt;!-- totalCount 是一个方法，可以省略‘()’来用 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"logo"</span> <span class="attr">:class</span>=<span class="string">"</span></span><span class="template-variable">&#123;'highlight':totalCount&gt;0&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon-shopping_cart"</span> <span class="attr">:class</span>=<span class="string">"</span></span><span class="template-variable">&#123;'highlight':totalCount&gt;0&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 当 totalCount&gt;0 时，才显示这个标签 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"num"</span> <span class="attr">v-show</span>=<span class="string">"totalCount&gt;0"</span>&gt;</span><span class="template-variable">&#123;&#123;totalCount&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 当 totalPrice&gt;0 时，就添加 .highlight 高亮样式 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"price"</span> <span class="attr">:class</span>=<span class="string">"</span></span><span class="template-variable">&#123;'highlight':totalPrice&gt;0&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span>￥</span><span class="template-variable">&#123;&#123;totalPrice&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"desc"</span>&gt;</span>另需配送费￥<span class="template-variable">&#123;&#123;deliveryPrice&#125;</span><span class="xml">&#125;元<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h2 id="解注3：付款按钮"><a href="#解注3：付款按钮" class="headerlink" title="解注3：付款按钮"></a>解注3：付款按钮</h2><p>付款按钮有三种状态</p>
+<ul>
+<li>未选择食品时，显示起送价</li>
+<li>选择食品但未达到起送价，显示差价</li>
+<li>选择食品但且达到起送价，显示’去结算’</li>
+</ul>
+<blockquote>
+<p>  ES6字符串拼接： <code>字符串${变量}字符串</code> 等同于’字符串’+变量+’字符串’。 注意是反引号 ` ，而不是单引号 ‘</p>
+</blockquote>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 付款按钮的字样 */</span></div><div class="line">payDesc() &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.totalPrice === <span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">return</span> `￥$&#123;<span class="keyword">this</span>.minPrice&#125;元起送`</div><div class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.totalPrice &lt; <span class="keyword">this</span>.minPrice) &#123;</div><div class="line">    let diff = <span class="keyword">this</span>.minPrice - <span class="keyword">this</span>.totalPrice</div><div class="line">    <span class="keyword">return</span> `还差￥$&#123;diff&#125;元起送`</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">'去结算'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"pay"</span> :<span class="built_in">class</span>=<span class="string">"payClass"</span>&gt;</div><div class="line">  &#123;&#123;payDesc&#125;&#125;</div><div class="line">&lt;/<span class="keyword">div</span>&gt;</div></pre></td></tr></table></figure>
+<h1 id="“添加食物”组件"><a href="#“添加食物”组件" class="headerlink" title="“添加食物”组件"></a>“添加食物”组件</h1><p>新建 <code>components/cartcontrol/cartcontrol.vue</code><br>在<code>shopcart.vue</code>引入并注册</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> cartcontrol <span class="keyword">from</span> <span class="string">'components/cartcontrol/cartcontrol'</span></div><div class="line"></div><div class="line">components: &#123;</div><div class="line">  cartcontrol</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"food"</span> v-<span class="keyword">for</span>=<span class="string">"food in selectFoods"</span>&gt;</div><div class="line">  ...</div><div class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"cartcontrol-wrapper"</span>&gt;</div><div class="line">    <span class="xml"><span class="comment">&lt;!-- 传入 food --&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">cartcontrol</span> <span class="attr">:food</span>=<span class="string">"food"</span>&gt;</span><span class="tag">&lt;/<span class="name">cartcontrol</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </div><div class="line">&lt;<span class="regexp">/li&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="解注1：减号滚动出现、数字渐变的动画"><a href="#解注1：减号滚动出现、数字渐变的动画" class="headerlink" title="解注1：减号滚动出现、数字渐变的动画"></a>解注1：减号滚动出现、数字渐变的动画</h2><p>vue.js 的 transition 的使用可以参考 header.vue 里的注释</p>
+<p>添加 transition 标签，name 里写上动画名 move</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"move"</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 当food.count&gt;0时显示删除按钮 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"cart-decrease"</span> <span class="attr">v-show</span>=<span class="string">"food.count&gt;0"</span> &gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"inner icon-remove_circle_outline"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>name=”xx”,这里就是 xxe-enter-active，xxe-leave-active</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.cart-decrease</span></div><div class="line">  ...</div><div class="line">  <span class="attribute">opacity</span>: <span class="number">1</span></div><div class="line">  <span class="attribute">transform</span>: translate3d(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</div><div class="line">  &amp;<span class="selector-class">.move-enter-active</span>, &amp;<span class="selector-class">.move-leave-active</span></div><div class="line">    <span class="attribute">transition</span>: all <span class="number">0.4s</span> linear</div><div class="line">  &amp;<span class="selector-class">.move-enter</span>, &amp;<span class="selector-class">.move-leave-active</span></div><div class="line">    <span class="attribute">opacity</span>: <span class="number">0</span></div><div class="line">    <span class="attribute">transform</span>: translate3d(<span class="number">24px</span>, <span class="number">0</span>, <span class="number">0</span>)</div><div class="line">    <span class="selector-class">.inner</span></div><div class="line">      <span class="attribute">transform</span>: rotate(<span class="number">180deg</span>)</div></pre></td></tr></table></figure>
+<h2 id="解注：添加食物，小球跳进购物车的动画"><a href="#解注：添加食物，小球跳进购物车的动画" class="headerlink" title="解注：添加食物，小球跳进购物车的动画"></a>解注：添加食物，小球跳进购物车的动画</h2><p><code>cartcontrll.vue</code> 里获取点击的食物加号的DOM</p>
+<p><a href="https://cn.vuejs.org/v2/api/#vm-emit" target="_blank" rel="external">https://cn.vuejs.org/v2/api/#vm-emit</a></p>
+<p><code>vm.$emit()</code>：触发当前实例上的事件。附加参数都会传给监听器回调。</p>
+<p>侦听事件使用 <code>$on(eventName)</code><br>定义和触发事件使用 <code>$emit(eventName)</code></p>
+<p>（vue.js 1.0 中的 <code>$dispatch</code> 和 <code>$broadcast</code> 已经被移除）</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">methods: &#123;</div><div class="line">  <span class="comment">/* 添加食物到购物车 */</span></div><div class="line">  addCart (<span class="keyword">event</span>) &#123;</div><div class="line">    ...</div><div class="line">    </div><div class="line">    <span class="comment">// 定义并触发 add 事件，event.target（点击的目标，即食品对应的加号） 作为参数</span></div><div class="line">    <span class="keyword">this</span>.$emit(<span class="string">'add'</span>, <span class="keyword">event</span>.target)</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p><code>goods.vue</code> 里添加食物的组件里使用<br>触发在cartcontroll.vue里定义的add事件，事件发生时触发addFood()<br>@add 等同于 v-on:add<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">cartcontrol</span> @<span class="attr">add</span>=<span class="string">"addFood"</span>&gt;</span><span class="tag">&lt;/<span class="name">cartcontrol</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>goods.vue</code>  addFood()调用_drop(), 调用_drop()再调用shopcart组件的drop方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;shopcart ref=<span class="string">"shopcart"</span> ...&gt;<span class="xml"><span class="tag">&lt;/<span class="name">shopcart</span>&gt;</span></span></div><div class="line"></div><div class="line">addFood (target) &#123;</div><div class="line">  <span class="keyword">this</span>._drop(target)</div><div class="line">&#125;,</div><div class="line">_drop (target) &#123;</div><div class="line">  <span class="comment">// 体验优化,异步执行下落动画</span></div><div class="line">  <span class="keyword">this</span>.$nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="comment">// 先在 &lt;shopcart&gt; 标签里添加 ref="shopcart" 属性，goods组件就能访问子组件shopcart里的方法</span></div><div class="line">    <span class="keyword">this</span>.$refs.shopcart.drop(target)</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>shopcart.vue</code><br>这里的transition用 <a href="https://cn.vuejs.org/v2/guide/transitions.html#JavaScript-%E9%92%A9%E5%AD%90" target="_blank" rel="external">JavaScript 钩子</a>的用法。</p>
+<ul>
+<li>@before-enter=”方法”</li>
+<li>@enter=”方法”</li>
+<li>@after-enter=”方法”</li>
+<li>@enter-cancelled=”方法”</li>
+<li>@before-leave=”方法”</li>
+<li>@leave=”方法”</li>
+<li>@after-leave=”方法”</li>
+<li>@leave-cancelled=”方法”</li>
+</ul>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;transition name=<span class="string">"drop"</span> @before-enter=<span class="string">"beforeDrop"</span> @enter=<span class="string">"dropping"</span> @after-enter=<span class="string">"afterDrop"</span>&gt;</div><div class="line">  &lt;div <span class="class"><span class="keyword">class</span>="<span class="title">ball</span>" <span class="title">v</span>-<span class="title">show</span>="<span class="title">ball</span>.<span class="title">show</span>"&gt;</span></div><div class="line">  &lt;/<span class="title">div</span>&gt;</div><div class="line">&lt;/<span class="title">transition</span>&gt;</div><div class="line"></div><div class="line"><span class="title">methods</span>: &#123;</div><div class="line">  <span class="comment">// --------</span></div><div class="line">  <span class="comment">// 进入中</span></div><div class="line">  <span class="comment">// --------</span></div><div class="line">  beforeDrop: <span class="function"><span class="keyword">function</span> <span class="params">(el)</span> </span>&#123;&#125;,</div><div class="line">  <span class="comment">// 此回调函数是可选项的设置</span></div><div class="line">  <span class="comment">// 与 CSS 结合时使用</span></div><div class="line">  dropping: <span class="function"><span class="keyword">function</span> <span class="params">(el, done)</span> </span>&#123;&#125;,</div><div class="line">  afterDrop: <span class="function"><span class="keyword">function</span> <span class="params">(el)</span> </span>&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>shopcart.vue</code> 里的动画的具体实现。HTML部分：</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="comment">&lt;!-- 点击添加食物时，跳到购物车的动画小球 --&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ball-container"</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- 循环显示小球 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"ball in balls"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 小球下落的动画 --&gt;</span></div><div class="line">    <span class="comment">&lt;!-- https://cn.vuejs.org/v2/guide/transitions.html#JavaScript-钩子 --&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 这里使用了Vue transition 的 avaScript-钩子。@before-enter、@enter、@after-enter、@enter-cancelled、@before-leave、@leave、@after-leave、@leave-cancelled --&gt;</span></div><div class="line">    <span class="comment">&lt;!-- methods: </span><span class="template-variable">&#123;</span></div><div class="line">      beforeDrop: function (el) &#123;&#125;<span class="xml"><span class="comment">,</span></span></div><div class="line">      // 此回调函数是可选项的设置</div><div class="line">      // 与 CSS 结合时使用</div><div class="line">      dropping: function (el, done) <span class="template-variable">&#123;&#125;</span><span class="xml"><span class="comment">,</span></span></div><div class="line">      afterDrop: function (el) <span class="template-variable">&#123;&#125;</span><span class="xml"><span class="comment"></span></span></div><div class="line">    &#125; --&gt;</div><div class="line">    <span class="comment">&lt;!-- 推荐对于仅使用 JavaScript 过渡的元素添加 v-bind:css="false"，Vue 会跳过 CSS 的检测。这也可以避免过渡过程中 CSS 的影响 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"drop"</span> @<span class="attr">before-enter</span>=<span class="string">"beforeDrop"</span> @<span class="attr">enter</span>=<span class="string">"dropping"</span> @<span class="attr">after-enter</span>=<span class="string">"afterDrop"</span>&gt;</span></div><div class="line">      <span class="comment">&lt;!-- 通过 ball.show 来判断是否显示 --&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ball"</span> <span class="attr">v-show</span>=<span class="string">"ball.show"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inner inner-hook"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>JavaScript 里写动画的方法</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 找到可用的小球，将其push到dropBalls[] */</span></div><div class="line">drop (el) &#123;</div><div class="line">  <span class="comment">// 传入的 el 是点击的加号的DOM</span></div><div class="line">  <span class="comment">// balls，自定义的变量</span></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.balls.length; i++) &#123;</div><div class="line">    <span class="keyword">let</span> ball = <span class="keyword">this</span>.balls[i]</div><div class="line">    <span class="keyword">if</span> (!ball.show) &#123;</div><div class="line">      ball.show = <span class="literal">true</span></div><div class="line">      ball.el = el</div><div class="line">      <span class="comment">// dropBalls[]，自定义的变量，下落的小球</span></div><div class="line">      <span class="keyword">this</span>.dropBalls.push(ball)</div><div class="line">      <span class="comment">// 找到一个可用的ball，push到dropBalls[]后就可以退出了</span></div><div class="line">      <span class="keyword">return</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;,</div><div class="line"><span class="comment">/* ‘下落动画’前 */</span></div><div class="line">beforeDrop (el) &#123;</div><div class="line">  <span class="keyword">let</span> count = <span class="keyword">this</span>.balls.length</div><div class="line">  <span class="keyword">while</span> (count--) &#123;</div><div class="line">    <span class="keyword">let</span> ball = <span class="keyword">this</span>.balls[count]</div><div class="line">    <span class="keyword">if</span> (ball.show) &#123;</div><div class="line">      <span class="comment">// drop() 里 给 ball添加的el属性（存放点击的加号的DOM）</span></div><div class="line">      <span class="comment">// getBoundingClientRect() 浏览器接口，获取【加号】相对于视窗的距离</span></div><div class="line">      <span class="keyword">let</span> <span class="built_in">rect</span> = ball.el.getBoundingClientRect()</div><div class="line">      <span class="comment">// 购物车与加号的水平距离 = 购物车横坐标 - 小球.ball的left大小</span></div><div class="line">      <span class="keyword">let</span> x = <span class="built_in">rect</span>.left - <span class="number">32</span></div><div class="line">      <span class="comment">// y 是负数</span></div><div class="line">      <span class="comment">// 购物车与加号的垂直距离 = -(窗口高度 - 购物纵坐标 - 小球.ball的bottom大小)</span></div><div class="line">      <span class="keyword">let</span> y = -(<span class="built_in">window</span>.innerHeight - <span class="built_in">rect</span>.top - <span class="number">22</span>)</div><div class="line">      <span class="comment">// 先不显示</span></div><div class="line">      el.style.display = <span class="string">''</span></div><div class="line">      <span class="comment">// 外面纵向偏移，内部横向偏移，最终达到整体抛物线的动画</span></div><div class="line">      <span class="comment">// 外面的DOM做纵向动画</span></div><div class="line">      <span class="comment">// 注意：字符串拼接，有变量的时候不用单引号，用`</span></div><div class="line">      el.style.webkitTransform = <span class="string">`translate3d(0,<span class="subst">$&#123;y&#125;</span>px,0)`</span></div><div class="line">      el.style.transform = <span class="string">`translate3d(0,<span class="subst">$&#123;y&#125;</span>px,0)`</span></div><div class="line">      <span class="comment">// 内部的DOM做横向动画</span></div><div class="line">      <span class="keyword">let</span> inner = el.getElementsByClassName(<span class="string">'inner-hook'</span>)[<span class="number">0</span>]</div><div class="line">      inner.style.webkitTransform = <span class="string">`translate3d(<span class="subst">$&#123;x&#125;</span>px,0,0)`</span></div><div class="line">      inner.style.transform = <span class="string">`translate3d(<span class="subst">$&#123;x&#125;</span>px,0,0)`</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;,</div><div class="line"><span class="comment">/* ‘下落动画’时 */</span></div><div class="line">dropping (el, done) &#123;</div><div class="line">  <span class="comment">// el.offsetHeight 触发浏览器重绘(当获取一些属性时，浏览器为取得 正确的值会触发重绘重排，如offsetTop、offsetLeft、 offsetWidth、offsetHeight、scrollTop、scrollLeft、scrollWidth、scrollHeight、 clientTop、clientLeft、clientWidth、clientHeight、getComputedStyle() (currentStyle in IE))</span></div><div class="line">  <span class="comment">// 触发重绘，下面</span></div><div class="line">  <span class="comment">// 但是变量rf不用，所以加个eslint的注释不做变量是否使用的检查</span></div><div class="line">  <span class="comment">/* eslint-disable no-unused-vars */</span></div><div class="line">  <span class="keyword">let</span> rf = el.offsetHeight</div><div class="line">  <span class="comment">// 重置属性</span></div><div class="line">  <span class="keyword">this</span>.$nextTick(() =&gt; &#123;</div><div class="line">    el.style.webkitTransform = <span class="string">'translate3d(0,0,0)'</span></div><div class="line">    el.style.transform = <span class="string">'translate3d(0,0,0)'</span></div><div class="line">    <span class="keyword">let</span> inner = el.getElementsByClassName(<span class="string">'inner-hook'</span>)[<span class="number">0</span>]</div><div class="line">    inner.style.webkitTransform = <span class="string">'translate3d(0,0,0)'</span></div><div class="line">    inner.style.transform = <span class="string">'translate3d(0,0,0)'</span></div><div class="line">    el.addEventListener(<span class="string">'transitionend'</span>, done)</div><div class="line">  &#125;)</div><div class="line">&#125;,</div><div class="line"><span class="comment">/* ‘下落动画’后 */</span></div><div class="line">afterDrop (el) &#123;</div><div class="line">  <span class="comment">// 把dropBalls的这个元素删除</span></div><div class="line">  <span class="keyword">let</span> ball = <span class="keyword">this</span>.dropBalls.shift()</div><div class="line">  <span class="comment">// 重置小球属性</span></div><div class="line">  <span class="keyword">if</span> (ball) &#123;</div><div class="line">    ball.show = <span class="literal">false</span></div><div class="line">    el.style.display = <span class="string">'none'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还要在 CSS 里定义 transition 的属性</p>
+<ul>
+<li>transition: 过渡效果的属性 耗时 速度 延迟开始</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.ball-container</span></div><div class="line">  <span class="selector-class">.ball</span></div><div class="line">    <span class="comment">// 配合js写的小球下落的transition，这里定义了完成时间、弧度用贝塞尔曲线速度，来使效果出现抛物线效果</span></div><div class="line">    <span class="attribute">transition</span>: all <span class="number">0.4s</span> cubic-bezier(<span class="number">0.49</span>, -<span class="number">0.29</span>, <span class="number">0.75</span>, <span class="number">0.41</span>)</div><div class="line">    <span class="selector-class">.inner</span></div><div class="line">      <span class="comment">// 配合js写的小球下落的transition</span></div><div class="line">      <span class="attribute">transition</span>: all <span class="number">0.4s</span> linear</div></pre></td></tr></table></figure>
+
+        <hr>
+        <div class="copyrights1">
+          <a href="http://laker.me/blog/2017/11/05/17_1105_vuejs_eleme_5/">Vue.js 2 高仿饿了么开发及解注五：购物车组件（上）</a>
+          <!--%- partial('post/title', {class_name: 'archive-article-title'}) %-->
+          <p>本文原创自<a href="http://laker.me/blog">http://laker.me/blog</a>，转载请注明出处，欢迎交换友链</p>
+          <p>如果本文对您有帮助，微信扫一扫，请我喝杯咖啡吧</p>
+          <p><img src="http://77g54f.com1.z0.glb.clouddn.com/weixinpay.jpg"></p>
+        </div>
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Vue-js/">Vue.js</a></li></ul>
+
+    </footer>
+  
+  <p class="hint-text hidden">阅读量<span id="busuanzi_value_page_pv"></span>次</p>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2017/11/20/17_1120_vuejs_eleme_6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Vue.js 2 高仿饿了么开发及解注六：goods 商品件组
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017/10/19/17_1019_baiduyun_download/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">用迅雷下载百度云，突破大文件和速度限制&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+<section id="comment">
+  <h1 class="title">评论组件不稳定，有事请联系V信 lakerHQ (请备注来自博客)</h1>
+  <div id="disqus_thread">
+    <!-- UY BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1672779"></script>
+    <!-- UY END -->
+  </div>
+</section>
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <!--div id="footer-info" class="inner">
+      &copy; 2018 Laker Huang&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div-->
+    <div id="footer-info" class="inner">
+      &copy; 2014 - 2018 Laker Huang&nbsp; <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    </div>
+    <p class="hint-text">自2015/11/04，本站共被抚摸 <span id="busuanzi_value_site_pv"></span> 次</p>
+    <p class="hint-text">您是第 <span id="busuanzi_value_site_uv"></span> 位小伙伴</p>
+  </div>
+</footer>
+    
+
+<!--script src="/blog/js/jquery.min.js"></script-->
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+<!-- <script src="https://cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script> -->
+
+
+
+<script src="/blog/js/script.js"></script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:50px;cursor: pointer;">
+	<a title="返回顶部"><img src="/blog/img/scrollup.png"/></a>
+</div>
+<script src="/blog/js/totop.js"></script>
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+
+</body>
+</html>
