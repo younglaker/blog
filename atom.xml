@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2018-02-08T15:56:43.000Z</updated>
+  <updated>2018-02-11T15:27:19.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -16,13 +16,68 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>利用 Github 分支管理一写无关痛痒的项目</title>
+    <link href="http://laker.me/blog/2018/02/11/18_0211_use_github/"/>
+    <id>http://laker.me/blog/2018/02/11/18_0211_use_github/</id>
+    <published>2018-02-11T00:24:00.000Z</published>
+    <updated>2018-02-11T15:27:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20180211.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="利用 Github 分支管理小项目"></p>
+<a id="more"></a>
+<blockquote>
+<p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
+</blockquote>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>因为经常会写一些小程序，需要备份到 Github 方便管理和分享。随项目增多，Repo 的数目越来越多，但是很多是无关痛痒的，不必要这么多仓库存放。处女座情结表示这样特别乱，而且一眼看上去都是很辣鸡的代码，得想办法整理一下。</p>
+<h2 id="整理方法"><a href="#整理方法" class="headerlink" title="整理方法"></a>整理方法</h2><p>1.建立一个仓库 （例如我的 <a href="https://github.com/younglaker/CometLab" target="_blank" rel="external">CometLab</a>），master分支用来做展示入口，只存放一个 README.md 来作为介绍。起名 Lab，就是意味着这里就是一个实验室。里面都是些实验性的项目。<br>2.每个小项目用其他分支存放，各分支之间没什么关系。例如现在有的<code>vue-todo</code> <code>vue-eleme</code> <code>ng-ionic</code>。</p>
+<p>问题来了，在分支上的提交不计入 contribution，但是我会在这个仓库的分支进行很多开发，导致calendar是空的，不是所有的发布信息都展示出来，管理代码不太方便。</p>
+<h2 id="Contributions未被Github计入的几个常见原因"><a href="#Contributions未被Github计入的几个常见原因" class="headerlink" title="Contributions未被Github计入的几个常见原因"></a>Contributions未被Github计入的几个常见原因</h2><ul>
+<li>进行Commits的用户没有关联到Github帐号</li>
+<li>未合并到默认分支或gh-pages的Commit</li>
+<li>Fork的仓库</li>
+</ul>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>既然要求合并到 master 才能计入 contribution，那么就 merge 一下就可以解决。</p>
+<p>分支的小项目在日常进行正常的开发、提交，待基本完成后一次性merge 到 master，以前的 commit 会一次性计入 contribution，展示在 calendar上。</p>
+<h2 id="merge-操作"><a href="#merge-操作" class="headerlink" title="merge 操作"></a>merge 操作</h2><p>先切换到默认分支</p>
+<pre><code>git checkout master 
+</code></pre><p>合并到 master </p>
+<pre><code>git merge origin/分支名
+</code></pre><p>删除除了mater readme.md 以外的所以文件，并修改readme的冲突，保持 master 为空。提交更改到本地：</p>
+<pre><code>git add -A
+git commit -m&apos;merge&apos;
+</code></pre><p>再提交到 master</p>
+<pre><code>git push origin master
+</code></pre><p>在分支里曾经提交过的 commit 就会一次性计入 contribution，展示在 calendar上。</p>
+<h2 id="升级用法"><a href="#升级用法" class="headerlink" title="升级用法"></a>升级用法</h2><p>为了方便开发，每个分支在本地用一个文件夹。</p>
+<p>下载指定分支的代码：</p>
+<pre><code>git clone -b 分支 git@github.com:younglaker/CometLab.git
+</code></pre><p>修改本地文件夹名字成分支名字，方便管理。</p>
+<p>再 clone 一个完整的仓库，需要 merge 的时候再 pull、merge、push。</p>
+<p>##　常见问题</p>
+<p>提交代码找不到远端分支。很可能是本地所在分支不是AAA，很可能目前是在master，误以为在AAA分支。</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git push origin AAA</div><div class="line"><span class="keyword">error: </span>src refspec AAA does not match any.</div><div class="line"><span class="keyword">error: </span>failed to push some refs to 'git@github.com:younglaker/BBB.git'</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20180211.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;利用 Github 分支管理小项目&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="GitHub" scheme="http://laker.me/blog/categories/GitHub/"/>
+    
+    
+      <category term="GitHub" scheme="http://laker.me/blog/tags/GitHub/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vue.js 2 高仿饿了么开发及解注六：goods 商品件组</title>
     <link href="http://laker.me/blog/2017/11/20/17_1120_vuejs_eleme_6/"/>
     <id>http://laker.me/blog/2017/11/20/17_1120_vuejs_eleme_6/</id>
     <published>2017-11-20T00:24:00.000Z</published>
-    <updated>2018-02-08T15:56:43.000Z</updated>
+    <updated>2018-02-11T15:05:52.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170620.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="Vue.js 2 高仿饿了么开发及解注四"></p>
+    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170620.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="Vue.js 2 高仿饿了么开发及解注六"></p>
 <a id="more"></a>
 <blockquote>
 <p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
@@ -50,7 +105,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170620.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;Vue.js 2 高仿饿了么开发及解注四&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170620.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;Vue.js 2 高仿饿了么开发及解注六&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -1342,44 +1397,6 @@ cordova plugin add cordova-plugin-camera
     
     
       <category term="Hexo" scheme="http://laker.me/blog/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sublime text 3 注释的快捷键失效</title>
-    <link href="http://laker.me/blog/2017/03/09/17_0309_sublime_shortcuts/"/>
-    <id>http://laker.me/blog/2017/03/09/17_0309_sublime_shortcuts/</id>
-    <published>2017-03-09T00:24:00.000Z</published>
-    <updated>2017-04-26T15:15:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170309.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="title"></p>
-<a id="more"></a>
-<blockquote>
-<p>欢迎交换友链： <a href="http://laker.me/blog">Laker’s Blog–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
-</blockquote>
-<hr>
-<p>最近新装了一个ubuntu虚拟机，装了最新的sublime 3，发现注释的快捷键用不了，大大降低了效率，之前在双系统下没有这样的情况，上网搜了一下，根据StackOverflow里的讨论，说这是一个BUG。开发比较急，也没时间用旧版本覆盖在配置，所以找了下解决方案。</p>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>检查是否和系统、编辑器内部有快捷键冲突。</p>
-<p>安装插件<code>keymap</code>，通过菜单<code>tool-&gt;keymap-find a key</code>，输入<code>comment</code>查看当前注释的快捷键是什么。</p>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>把如下代码添加到 <code>Preferences / Key Bindings - User</code></p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123; <span class="string">"keys"</span>: [<span class="string">"control+keypad_divide"</span>],<span class="string">"command"</span>: <span class="string">"toggle_comment"</span>, <span class="string">"args"</span>: &#123;<span class="string">"block"</span>: false&#125; &#125;,</div><div class="line">&#123; <span class="string">"keys"</span>: [<span class="string">"shift+control+keypad_divide"</span>],<span class="string">"command"</span>: <span class="string">"toggle_comment"</span>, <span class="string">"args"</span>: &#123;<span class="string">"block"</span>: true&#125;&#125;</div></pre></td></tr></table></figure>
-<h2 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h2><p>德式键盘的<code>/</code>在数字7下面，所以把如下代码添加到 <code>Preferences / Key Bindings - User</code></p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123; <span class="string">"keys"</span>: [<span class="string">"ctrl+7"</span>], <span class="string">"command"</span>: <span class="string">"toggle_comment"</span>, <span class="string">"args"</span>: &#123; <span class="string">"block"</span>: false &#125; &#125;,</div><div class="line">&#123; <span class="string">"keys"</span>: [<span class="string">"ctrl+shift+7"</span>], <span class="string">"command"</span>: <span class="string">"toggle_comment"</span>, <span class="string">"args"</span>: &#123; <span class="string">"block"</span>: true &#125; &#125;</div></pre></td></tr></table></figure>
-<h2 id="方法四"><a href="#方法四" class="headerlink" title="方法四"></a>方法四</h2><p>更换其他快捷键设置后还不起作用，可能是不识别ctrl键。<br>我平时习惯右边的 ctrl + / ，上面方法都不起作用，偶然一次发现左边 ctrl + / 才起作用。</p>
-<h2 id="方法五"><a href="#方法五" class="headerlink" title="方法五"></a>方法五</h2><p>用旧一点的版本覆盖，不过可能会丧失某些功能。</p>
-<p><a href="http://stackoverflow.com/questions/17742781/keyboard-shortcut-to-comment-lines-in-sublime-text-3" target="_blank" rel="external">StackOverflow 参考</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170309.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;title&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Sublime" scheme="http://laker.me/blog/categories/Sublime/"/>
-    
-    
-      <category term="Sublime" scheme="http://laker.me/blog/tags/Sublime/"/>
     
   </entry>
   
