@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2018-02-11T15:27:19.000Z</updated>
+  <updated>2018-02-17T16:04:18.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://laker.me/blog/2018/02/11/18_0211_use_github/"/>
     <id>http://laker.me/blog/2018/02/11/18_0211_use_github/</id>
     <published>2018-02-11T00:24:00.000Z</published>
-    <updated>2018-02-11T15:27:19.000Z</updated>
+    <updated>2018-02-17T16:04:18.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20180211.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="利用 Github 分支管理小项目"></p>
 <a id="more"></a>
@@ -52,8 +52,7 @@ git commit -m&apos;merge&apos;
 <pre><code>git clone -b 分支 git@github.com:younglaker/CometLab.git
 </code></pre><p>修改本地文件夹名字成分支名字，方便管理。</p>
 <p>再 clone 一个完整的仓库，需要 merge 的时候再 pull、merge、push。</p>
-<p>##　常见问题</p>
-<p>提交代码找不到远端分支。很可能是本地所在分支不是AAA，很可能目前是在master，误以为在AAA分支。</p>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><p>提交代码找不到远端分支。很可能是本地所在分支不是AAA，很可能目前是在master，误以为在AAA分支。</p>
 <figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git push origin AAA</div><div class="line"><span class="keyword">error: </span>src refspec AAA does not match any.</div><div class="line"><span class="keyword">error: </span>failed to push some refs to 'git@github.com:younglaker/BBB.git'</div></pre></td></tr></table></figure>
 ]]></content>
     
@@ -891,9 +890,9 @@ git commit -m&apos;merge&apos;
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -936,9 +935,9 @@ git commit -m&apos;merge&apos;
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -1055,9 +1054,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -1093,9 +1092,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -1162,9 +1161,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -1261,9 +1260,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -1341,9 +1340,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   

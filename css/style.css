@@ -1342,6 +1342,10 @@ pre .php .xml {
   color: #3c8e88;
 }
 
+.layout-wrap-inner .project-title-box {
+  margin-bottom: 15px
+}
+
 .layout-wrap-inner .project-type {
   font-size: 1.8em;
   font-weight: 700;
