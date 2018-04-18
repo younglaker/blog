@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2018-02-17T16:04:18.000Z</updated>
+  <updated>2018-05-22T14:29:43.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTML5 Canvas 清除圆形、不规则区域</title>
+    <link href="http://laker.me/blog/2018/04/18/18_0418_canvas_cleararc/"/>
+    <id>http://laker.me/blog/2018/04/18/18_0418_canvas_cleararc/</id>
+    <published>2018-04-18T00:24:00.000Z</published>
+    <updated>2018-05-22T14:29:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20180411.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="Canvas 清除不规则区域"></p>
+<a id="more"></a>
+<blockquote>
+<p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
+</blockquote>
+<p> 默认 Canvas Api 只提供了清除矩形区域的接口 <code>clearRect()</code>，但有时候需要清除圆形或其他特殊形状的区域。比如我在开发 <a href="https://github.com/younglaker/pixeler" target="_blank" rel="external">pixeler</a> 擦除绘制的圆形，刚开始是用 <code>clearRect()</code>， 设置大于圆形直径的正方形来擦除，后来想，能不能直接擦除圆形区域。</p>
+<p> 根据 <a href="https://stackoverflow.com/questions/3564717/how-can-i-clear-an-arc-or-circle-in-html5-canvas" target="_blank" rel="external">Stack Overflow</a> 的回答和 <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation" target="_blank" rel="external">Mozilla 的文档</a>，<code>ctx.globalCompositeOperation</code> 提供了多种色彩合成模式，其中 <code>destination-out</code> 能够完成清除效果：</p>
+<p> <img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20180522-180816@2x.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="destination-out"></p>
+<p> 可以拓展 Canvas 接口：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">CanvasRenderingContext2D.prototype.clearArc = function(x, y, radius, startAngle, endAngle, anticlockwise) &#123;</div><div class="line">    <span class="keyword">this</span>.beginPath();</div><div class="line">    <span class="keyword">this</span>.globalCompositeOperation = <span class="string">'destination-out'</span>;</div><div class="line">    <span class="keyword">this</span>.fillStyle = <span class="string">'black'</span>;</div><div class="line">    <span class="keyword">this</span>.arc(x, y, radius, startAngle, endAngle, anticlockwise);</div><div class="line">    <span class="comment">// 参数分别是：圆心横坐标、纵坐标、半径、开始的角度、结束的角度、是否逆时针</span></div><div class="line">    <span class="keyword">this</span>.fill();</div><div class="line">    <span class="keyword">this</span>.closePath();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p> 进一步，可以自定义各种路径：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">CanvasRenderingContext2D.prototype.clear = function() &#123;</div><div class="line">    <span class="keyword">this</span>.save();</div><div class="line">    <span class="keyword">this</span>.globalCompositeOperation = <span class="string">'destination-out'</span>;</div><div class="line">    <span class="keyword">this</span>.fillStyle = <span class="string">'black'</span>;</div><div class="line">    <span class="keyword">this</span>.fill();</div><div class="line">    <span class="keyword">this</span>.restore();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">CanvasRenderingContext2D.prototype.clearArc = function(x, y, radius, startAngle, endAngle, anticlockwise) &#123;</div><div class="line">    <span class="keyword">this</span>.beginPath();</div><div class="line">    <span class="keyword">this</span>.arc(x, y, radius, startAngle, endAngle, anticlockwise);</div><div class="line">    <span class="keyword">this</span>.clear();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">CanvasRenderingContext2D.prototype.clearShape = function(x, y, radius, startAngle, endAngle, anticlockwise) &#123;</div><div class="line">    <span class="keyword">this</span>.beginPath();</div><div class="line">    <span class="comment">// 定义各种不规则图形，如三角形、五角星...</span></div><div class="line">    <span class="keyword">this</span>.clear();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>调用：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var canvas = document.getElementById('canvas');</div><div class="line">var context = canvas.getContext('<span class="number">2</span>d');</div><div class="line"></div><div class="line">context.clearArc(<span class="number">50</span>, <span class="number">100</span>, <span class="number">10</span>, <span class="number">0</span>, Math.<span class="literal">PI</span> * <span class="number">2</span>, false);</div><div class="line">context.clearArc(<span class="number">80</span>, <span class="number">100</span>, <span class="number">20</span>, <span class="number">0</span>, Math.<span class="literal">PI</span>, false);</div></pre></td></tr></table></figure></p>
+<p><a href="http://jsdo.it/akm2/e8CK" target="_blank" rel="external">效果参考</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20180411.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;Canvas 清除不规则区域&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="HTML5" scheme="http://laker.me/blog/categories/HTML5/"/>
+    
+    
+      <category term="HTML5" scheme="http://laker.me/blog/tags/HTML5/"/>
+    
+      <category term="JavaScript" scheme="http://laker.me/blog/tags/JavaScript/"/>
+    
+      <category term="Canvas" scheme="http://laker.me/blog/tags/Canvas/"/>
+    
+  </entry>
   
   <entry>
     <title>利用 Github 分支管理一写无关痛痒的项目</title>
@@ -890,9 +930,9 @@ git commit -m&apos;merge&apos;
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -935,9 +975,9 @@ git commit -m&apos;merge&apos;
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -1054,9 +1094,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -1092,9 +1132,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -1161,9 +1201,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -1260,9 +1300,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
@@ -1340,62 +1380,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Hexo server not working；Hexo 无法访问页面</title>
-    <link href="http://laker.me/blog/2017/03/16/17_0316_hexo_sever/"/>
-    <id>http://laker.me/blog/2017/03/16/17_0316_hexo_sever/</id>
-    <published>2017-03-16T00:24:00.000Z</published>
-    <updated>2017-04-26T15:15:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170316.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="Hexo server not working"></p>
-<a id="more"></a>
-<blockquote>
-<p>欢迎交换友链： <a href="http://laker.me/blog">Laker’s Blog–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
-</blockquote>
-<hr>
-<p>If you can run <code>hexo s</code> perfectly, but can’t vist the local page at <code>http://localhost:4000/blog/</code>. May you can try another port like 5000:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo server -p 5000</div><div class="line">INFO  <span class="keyword">Start</span> processing</div><div class="line">INFO  Hexo <span class="keyword">is</span> running <span class="keyword">at</span> <span class="keyword">http</span>://<span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">5000</span>/blog/. Press Ctrl+C <span class="keyword">to</span> stop.</div></pre></td></tr></table></figure>
-<p>Then visit <code>http://localhost:5000/blog/</code> or <code>http://127.0.0.1:4000/blog/</code>. If it works, congratulations.</p>
-<p>You can add this configuration to the file <code>_config.yml</code> at root:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="attr">server:</span></div><div class="line"><span class="attr">  port:</span> <span class="number">5000</span> <span class="comment"># or anohter number</span></div><div class="line"><span class="attr">  log:</span> <span class="literal">false</span></div><div class="line"><span class="attr">  ip:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></div><div class="line"><span class="attr">  compress:</span> <span class="literal">false</span></div><div class="line"><span class="attr">  header:</span> <span class="literal">true</span></div></pre></td></tr></table></figure>
-<p>Run, then ok：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo s</div><div class="line">INFO  <span class="keyword">Start</span> processing</div><div class="line">INFO  Hexo <span class="keyword">is</span> running <span class="keyword">at</span> <span class="keyword">http</span>://<span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">5000</span>/blog/. Press Ctrl+C <span class="keyword">to</span> stop.</div></pre></td></tr></table></figure></p>
-<hr>
-<p>早在15年建了这个Hexo的blog，不知从什么时候起，Hexo server 就不能运行了，当时因为样式已经稳定，直接写好文章、编译、就发布了，就没有处理这个问题。最近升级了 Nodejs，有些依赖报错，只能从新安装。又由于代码库出现问题，发布的 blog 布局出错，要调整样式必须在本地调。</p>
-<p>我重新 init 了一个 blog，<code>hexo s</code> 能正常运行没有报错，但是无法访问 <code>http://localhost:4000/blog/</code> 。</p>
-<p>经过查找资料发现，是因为 4000 端口被福昕阅读器占用，换个端口就好了。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo server -p 5000</div><div class="line">INFO  <span class="keyword">Start</span> processing</div><div class="line">INFO  Hexo <span class="keyword">is</span> running <span class="keyword">at</span> <span class="keyword">http</span>://<span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">5000</span>/blog/. Press Ctrl+C <span class="keyword">to</span> stop.</div></pre></td></tr></table></figure>
-<p>此时就可以通过 <code>http://localhost:5000/blog/</code> 或 <code>http://127.0.0.1:4000/blog/</code> 访问。</p>
-<blockquote>
-<p>如果直接复制官网的命令，会报错<br><figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">$</span> hexo s -p <span class="number">5000</span></div><div class="line">bash: <span class="symbol">$</span><span class="string">'\302\226hexo'</span>: command <span class="keyword">not</span> found</div></pre></td></tr></table></figure></p>
-<p>因为空格符编码问题，手动输入一遍是没有问题的<br><a href="http://superuser.com/questions/670867/why-do-i-sometimes-get-sh-302-211-command-not-found-in-xterm-sh/1123368#1123368" target="_blank" rel="external">参考</a></p>
-</blockquote>
-<p>但是以上命令只能一次性使用，下次还会恢复成4000，要在根目录下<code>_config.yml</code>里配置一下：<br><a href="https://github.com/hexojs/hexo-server" target="_blank" rel="external">hexo-server</a><br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="attr">server:</span></div><div class="line"><span class="attr">  port:</span> <span class="number">5000</span></div><div class="line"><span class="attr">  log:</span> <span class="literal">false</span></div><div class="line"><span class="attr">  ip:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></div><div class="line"><span class="attr">  compress:</span> <span class="literal">false</span></div><div class="line"><span class="attr">  header:</span> <span class="literal">true</span></div></pre></td></tr></table></figure></p>
-<p>运行即可：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo s</div><div class="line">INFO  <span class="keyword">Start</span> processing</div><div class="line">INFO  Hexo <span class="keyword">is</span> running <span class="keyword">at</span> <span class="keyword">http</span>://<span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">5000</span>/blog/. Press Ctrl+C <span class="keyword">to</span> stop.</div></pre></td></tr></table></figure>
-<h2 id="127-0-0-1-0-0-0-0-localhost-的区别"><a href="#127-0-0-1-0-0-0-0-localhost-的区别" class="headerlink" title="127.0.0.1, 0.0.0.0, localhost 的区别"></a>127.0.0.1, 0.0.0.0, localhost 的区别</h2><ul>
-<li>127.0.0.1是一个回送地址，指本地机，一般用来测试使用。</li>
-<li>localhost 是 127.0.0.1 的别名，可以改成别的。win7下可以到<br><code>C:\Windows\System32\drivers\etc\hosts</code>里修改。</li>
-<li>0.0.0.0 表示无路由目标，主机可能有多个ip地址， 0.0.0.0 指向本机所有ip地址</li>
-</ul>
-<p><a href="https://www.howtogeek.com/225487/what-is-the-difference-between-127.0.0.1-and-0.0.0.0/" target="_blank" rel="external">参考</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170316.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;Hexo server not working&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://laker.me/blog/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="http://laker.me/blog/tags/Hexo/"/>
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
