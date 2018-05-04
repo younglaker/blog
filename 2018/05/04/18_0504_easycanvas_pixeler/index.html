@@ -3,20 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>HTML5 Canvas 清除圆形、不规则区域 - 进击的程序媛，Laker&#39;s blog</title>
+  <title>自开发的EasyCanvas绘图库实践、Pixeler项目开发小结 - 进击的程序媛，Laker&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="BxWqqPVkmU3CTQmmIjCp27ZjmcXuB_YTf8Xa7lp_G-w" />
   <meta name="keywords" content="HTML5,JavaScript,Canvas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML5 Canvas 清除圆形、不规则区域">
-<meta property="og:url" content="http://laker.me/blog/2018/04/18/18_0418_canvas_cleararc/index.html">
+<meta property="og:title" content="自开发的EasyCanvas绘图库实践、Pixeler项目开发小结">
+<meta property="og:url" content="http://laker.me/blog/2018/05/04/18_0504_easycanvas_pixeler/index.html">
 <meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
-<meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20180411.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
-<meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/QQ20180522-180816@2x.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
-<meta property="og:updated_time" content="2018-05-22T14:29:43.000Z">
+<meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20180503.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
+<meta property="og:image" content="https://camo.githubusercontent.com/1d13f30b16d7e66731cab36a3433bf27d4f10e9e/687474703a2f2f3737673534662e636f6d312e7a302e676c622e636c6f7564646e2e636f6d2f626c6f6732303135313232393131333032322e706e67">
+<meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/QQ2018050301.jpg">
+<meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/blog20151229112337.png">
+<meta property="og:updated_time" content="2018-05-22T14:48:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML5 Canvas 清除圆形、不规则区域">
-<meta name="twitter:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20180411.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
+<meta name="twitter:title" content="自开发的EasyCanvas绘图库实践、Pixeler项目开发小结">
+<meta name="twitter:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20180503.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
   
     <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
   
@@ -95,7 +97,7 @@ var _hmt = _hmt || [];
   <!-- Fork me on Github, Github Logo -->
   <a href="https://github.com/younglaker" class="github-corner" target="_blank" title="Fork me on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#333;color:#fff;position:absolute;top:0;border:0;right:0"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 </header>
-    <section id="main" class="outer"><article id="post-18_0418_canvas_cleararc" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-18_0504_easycanvas_pixeler" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -103,15 +105,15 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      HTML5 Canvas 清除圆形、不规则区域
+      自开发的EasyCanvas绘图库实践、Pixeler项目开发小结
     </h1>
   
 
       </header>
     
     <div class="article-meta">
-      <a href="/blog/2018/04/18/18_0418_canvas_cleararc/" class="article-date">
-  <time datetime="2018-04-18T00:24:00.000Z" itemprop="datePublished">2018-04-18</time>
+      <a href="/blog/2018/05/04/18_0504_easycanvas_pixeler/" class="article-date">
+  <time datetime="2018-05-04T00:24:00.000Z" itemprop="datePublished">2018-05-04</time>
 </a>
       
   <div class="article-category">
@@ -122,24 +124,37 @@ var _hmt = _hmt || [];
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20180411.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="Canvas 清除不规则区域"></p>
+        <p> <img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20180503.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="EasyCanvas绘图库实践"></p>
 <a id="more"></a>
 <blockquote>
 <p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
 </blockquote>
-<p> 默认 Canvas Api 只提供了清除矩形区域的接口 <code>clearRect()</code>，但有时候需要清除圆形或其他特殊形状的区域。比如我在开发 <a href="https://github.com/younglaker/pixeler" target="_blank" rel="external">pixeler</a> 擦除绘制的圆形，刚开始是用 <code>clearRect()</code>， 设置大于圆形直径的正方形来擦除，后来想，能不能直接擦除圆形区域。</p>
-<p> 根据 <a href="https://stackoverflow.com/questions/3564717/how-can-i-clear-an-arc-or-circle-in-html5-canvas" target="_blank" rel="external">Stack Overflow</a> 的回答和 <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation" target="_blank" rel="external">Mozilla 的文档</a>，<code>ctx.globalCompositeOperation</code> 提供了多种色彩合成模式，其中 <code>destination-out</code> 能够完成清除效果：</p>
-<p> <img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20180522-180816@2x.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="destination-out"></p>
-<p> 可以拓展 Canvas 接口：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">CanvasRenderingContext2D.prototype.clearArc = function(x, y, radius, startAngle, endAngle, anticlockwise) &#123;</div><div class="line">    <span class="keyword">this</span>.beginPath();</div><div class="line">    <span class="keyword">this</span>.globalCompositeOperation = <span class="string">'destination-out'</span>;</div><div class="line">    <span class="keyword">this</span>.fillStyle = <span class="string">'black'</span>;</div><div class="line">    <span class="keyword">this</span>.arc(x, y, radius, startAngle, endAngle, anticlockwise);</div><div class="line">    <span class="comment">// 参数分别是：圆心横坐标、纵坐标、半径、开始的角度、结束的角度、是否逆时针</span></div><div class="line">    <span class="keyword">this</span>.fill();</div><div class="line">    <span class="keyword">this</span>.closePath();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p> 进一步，可以自定义各种路径：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">CanvasRenderingContext2D.prototype.clear = function() &#123;</div><div class="line">    <span class="keyword">this</span>.save();</div><div class="line">    <span class="keyword">this</span>.globalCompositeOperation = <span class="string">'destination-out'</span>;</div><div class="line">    <span class="keyword">this</span>.fillStyle = <span class="string">'black'</span>;</div><div class="line">    <span class="keyword">this</span>.fill();</div><div class="line">    <span class="keyword">this</span>.restore();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">CanvasRenderingContext2D.prototype.clearArc = function(x, y, radius, startAngle, endAngle, anticlockwise) &#123;</div><div class="line">    <span class="keyword">this</span>.beginPath();</div><div class="line">    <span class="keyword">this</span>.arc(x, y, radius, startAngle, endAngle, anticlockwise);</div><div class="line">    <span class="keyword">this</span>.clear();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">CanvasRenderingContext2D.prototype.clearShape = function(x, y, radius, startAngle, endAngle, anticlockwise) &#123;</div><div class="line">    <span class="keyword">this</span>.beginPath();</div><div class="line">    <span class="comment">// 定义各种不规则图形，如三角形、五角星...</span></div><div class="line">    <span class="keyword">this</span>.clear();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>调用：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var canvas = document.getElementById('canvas');</div><div class="line">var context = canvas.getContext('<span class="number">2</span>d');</div><div class="line"></div><div class="line">context.clearArc(<span class="number">50</span>, <span class="number">100</span>, <span class="number">10</span>, <span class="number">0</span>, Math.<span class="literal">PI</span> * <span class="number">2</span>, false);</div><div class="line">context.clearArc(<span class="number">80</span>, <span class="number">100</span>, <span class="number">20</span>, <span class="number">0</span>, Math.<span class="literal">PI</span>, false);</div></pre></td></tr></table></figure></p>
-<p><a href="http://jsdo.it/akm2/e8CK" target="_blank" rel="external">效果参考</a></p>
+<h2 id="涉及的两个项目"><a href="#涉及的两个项目" class="headerlink" title="涉及的两个项目"></a>涉及的两个项目</h2><p><a href="https://github.com/younglaker/pixeler" target="_blank" rel="external">Pixler</a>：一个用于设计像素图片（拼豆）的应用。</p>
+<p><a href="https://github.com/younglaker/EasyCanvas" target="_blank" rel="external">Easycanvas.js</a>： Canvas 绘图库</p>
+<p><img src="https://camo.githubusercontent.com/1d13f30b16d7e66731cab36a3433bf27d4f10e9e/687474703a2f2f3737673534662e636f6d312e7a302e676c622e636c6f7564646e2e636f6d2f626c6f6732303135313232393131333032322e706e67" alt="Pixler"></p>
+<h2 id="开发背景"><a href="#开发背景" class="headerlink" title="开发背景"></a>开发背景</h2><p>我对拼豆感兴趣，在做拼豆前要设计图纸，类似画像素图。我试用了网上能搜到的几个拼豆图纸设计的应用，但是没有适合我的，我就想着自己开发一个。</p>
+<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ2018050301.jpg" alt="拼豆"></p>
+<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>拼豆图纸就类似于像素图，我刚开始构思如何开发的时候，想着它有点像下棋。所以我参考了五子棋的下棋原理。我在五子棋的算法上优化了鼠标点击时落脚的位置的计算方法，即鼠标点击时，获取点击位置，计算出它处于哪个方格中，在那个方格中画上一个像素点，用一个二维数组记录方格中已绘制的位置。这就完成了初步的拼豆像素图的算法设计。</p>
+<p>在以往的开发中，我都要求每一步都精益求精，导致整体进度缓慢，常常停留在初步阶段，就把自己绕晕。所以在此次开发中，尝试了小步快跑、快速迭代的方法。</p>
+<h2 id="第一版：快速开发"><a href="#第一版：快速开发" class="headerlink" title="第一版：快速开发"></a>第一版：快速开发</h2><p>第一版本开发的时候，我尽量减少对性能、代码优化的思考，在最快的速度完成基本功能，也就是如何绘制像素点和删除像素图。</p>
+<p>这样没有束缚的情况下，只需要集中精力完成功能的算法，很快就实现基本功能。</p>
+<p>当然，代码也是很简单粗暴的，就需要第二版的完善。</p>
+<h2 id="第二版：性能和代码优化"><a href="#第二版：性能和代码优化" class="headerlink" title="第二版：性能和代码优化"></a>第二版：性能和代码优化</h2><p>首先，把画布分为两层，一层是参考线画布，一层是绘图画布。参考线画布在初始化后就不需要修改，所有操作只需要在绘图画布上进行，减少了绘图时候的工作量。</p>
+<p>然后，把通用功能的代码封装成公共函数，减少冗余。</p>
+<h2 id="第三版：封装绘图库，并在应用中不断完善"><a href="#第三版：封装绘图库，并在应用中不断完善" class="headerlink" title="第三版：封装绘图库，并在应用中不断完善"></a>第三版：封装绘图库，并在应用中不断完善</h2><p>Pixler 主要代码是 Canvas 绘图，所以可以把 Canvas 主要绘图功能封装一下，单独成一个绘图库，减少主代码冗余，也方便在其他项目中引用。</p>
+<p>在大学期间，我研究 jQuery 的时候就仿着写了一个链式结构的 JavaScript 框架 <a href="https://github.com/younglaker/octjs" target="_blank" rel="external">Oct.js</a>，加上第一、第二版本对 Canvas 接口的熟悉，所以开发起来并不困难。但在接口设计上重复弄了几次，这部分的经验我也写了一篇文章 <a href="http://laker.me/blog/2017/06/15/17_0615_easy_canvas/">《EasyCanvas：连续画图的一些总结》</a> 记录了一下。</p>
+<p>开发 Easycanvas.js，不仅是在 JavaScript 开发、Canvas 运用上的提升，还是一个开源项目的完整实践。期间有一个小伙伴加入参与了合作，可惜没参与太多功能就退出了，但还是一次很好的开源项目的体验。</p>
+<p>在开发代码的过程中，还编写了相关的文档。接口不断优化修改，文档也不断的调整，就连文档格式也做了多次调整，工作量是不小，但也不厌其烦。</p>
+<p>由于时间原因，在开发完 Easycanvas.js 基础版本后就去做别的项目。间隔一段时间回来再看，基本没有有最初开发时候的熟悉感，这就得靠我之前写的文档了。所以，好的文档是项目的开门钥匙。</p>
+<p>就这样，我像一个刚接触这个绘图库的用户一样，参照文档，把 Easycanvas.js 重构了 Pixler 的绘图代码。同时，在应用的过程中发现了 Easycanvas.js 的不足，又反过来进行完善。两个项目相辅相成。</p>
+<p><img src="http://77g54f.com1.z0.glb.clouddn.com/blog20151229112337.png" alt="Easycanvas"></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>相比之前开发的 <a href="https://github.com/younglaker/octjs" target="_blank" rel="external">Oct.js</a>，只有开发和单元测试，并没有大规模地应用到实际项目中（我也尝试过，但一旦项目做大，就涉及到 jQuery 插件 ，就不得不引入 jQuery，就和 Oct.js 重复了，就只好把 Oct.js 删掉）。</p>
+<p>所以，这次 Pixler 和 Easycanvas.js 的开发，从0到1再到100，是一个很好的经历。不仅是编程技能上的提升，还是项目管理上积累了经验。</p>
+<p>至此 Pixler 和 Easycanvas.js 完成了一个较为稳定的版本，但还有很大的提升空间，我都一一记录在 Todolist 上了，等我一一突破。</p>
 
         <hr>
         <div class="copyrights1">
-          <a href="http://laker.me/blog/2018/04/18/18_0418_canvas_cleararc/">HTML5 Canvas 清除圆形、不规则区域</a>
+          <a href="http://laker.me/blog/2018/05/04/18_0504_easycanvas_pixeler/">自开发的EasyCanvas绘图库实践、Pixeler项目开发小结</a>
           <!--%- partial('post/title', {class_name: 'archive-article-title'}) %-->
           <p>本文原创自<a href="http://laker.me/blog">http://laker.me/blog</a>，转载请注明出处，欢迎交换友链</p>
           <p>如果本文对您有帮助，微信扫一扫，请我喝杯咖啡吧</p>
@@ -160,17 +175,9 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/blog/2018/05/04/18_0504_easycanvas_pixeler/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-title"><span>&lt;</span>&nbsp;
-        
-          自开发的EasyCanvas绘图库实践、Pixeler项目开发小结
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/2018/02/11/18_0211_use_github/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">利用 Github 分支管理一写无关痛痒的项目&nbsp;<span>&gt;</span></div>
+    <a href="/blog/2018/04/18/18_0418_canvas_cleararc/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTML5 Canvas 清除圆形、不规则区域&nbsp;<span>&gt;</span></div>
     </a>
   
 </nav>
