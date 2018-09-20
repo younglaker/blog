@@ -51,6 +51,33 @@
   </entry>
   
   <entry>
+    <title>关于博客图片失效的公告</title>
+    <link href="http://laker.me/blog/2018/09/20/18_0920_%20notice/"/>
+    <id>http://laker.me/blog/2018/09/20/18_0920_ notice/</id>
+    <published>2018-09-20T00:24:00.000Z</published>
+    <updated>2018-09-20T13:42:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://wx4.sinaimg.cn/large/6d184cefly1fvzxnqr4qpj20p00463z2.jpg" alt="关于博客图片失效的公告"></p>
+<a id="more"></a>
+<blockquote>
+<p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
+</blockquote>
+<p><img src="http://wx4.sinaimg.cn/large/6d184cefly1fvzxnqr4qpj20p00463z2.jpg" alt="公告"><br>本站图片原本存于七牛云存储。近期七牛收回了免费的域名，导致所有图片链接失效。</p>
+<p>自定义域名需要备案，本站域名是在狗爹买的，感觉会很麻烦。图片迁移的话工作量很大。我再想办法。</p>
+<p>虽然博文质量一般，但对我而言是很好的学习记录，还是希望能重新弄好。</p>
+<p>感谢这些年，通过博客认识的朋友们，大家一起努力鸭~~</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://wx4.sinaimg.cn/large/6d184cefly1fvzxnqr4qpj20p00463z2.jpg&quot; alt=&quot;关于博客图片失效的公告&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>记一次移动硬盘无法读取的处理过程</title>
     <link href="http://laker.me/blog/2018/06/02/18_0602_disk/"/>
     <id>http://laker.me/blog/2018/06/02/18_0602_disk/</id>
@@ -1050,9 +1077,9 @@ git commit -m&apos;merge&apos;
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -1095,9 +1122,9 @@ git commit -m&apos;merge&apos;
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -1214,47 +1241,9 @@ cordova plugin add cordova-plugin-camera
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Ionic+Angular 开发移动应用四：图片轮播</title>
-    <link href="http://laker.me/blog/2017/05/15/17_0515_ionic_4/"/>
-    <id>http://laker.me/blog/2017/05/15/17_0515_ionic_4/</id>
-    <published>2017-05-15T00:24:00.000Z</published>
-    <updated>2017-07-18T02:39:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170515.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="图片轮播"></p>
-<a id="more"></a>
-<blockquote>
-<p>欢迎交换友链： <a href="http://laker.me/blog">Laker’s Blog–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
-</blockquote>
-<p>template文件夹新建<code>slider.html</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ion-view</span> <span class="attr">view-title</span>=<span class="string">"图片轮播"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ion-content</span> <span class="attr">class</span>=<span class="string">"padding"</span> <span class="attr">scroll</span>=<span class="string">"false"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-slides</span> <span class="attr">class</span>=<span class="string">"slider-box"</span>  <span class="attr">options</span>=<span class="string">"options"</span> <span class="attr">slider</span>=<span class="string">"data.slider"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">ion-slide-page</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box blue"</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>BLUE<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">ion-slide-page</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">ion-slide-page</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box yellow"</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>YELLOW<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">ion-slide-page</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">ion-slide-page</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box pink"</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>PINK<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">ion-slide-page</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ion-slides</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ion-content</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ion-view</span>&gt;</span></div></pre></td></tr></table></figure>
-<p><code>style.css</code></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.slider-box</span> &#123;</div><div class="line">	<span class="attribute">height</span>: <span class="number">300px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.slider-box</span> <span class="selector-class">.box</span> &#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.yellow</span> &#123;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#FFF68F</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.blue</span> &#123;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#1E90FF</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.pink</span> &#123;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#FF6A6A</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>app.js</code>:</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.state</span>(<span class="string">'slider'</span>, &#123;</div><div class="line">  <span class="attribute">url</span>: <span class="string">'/slider'</span>,</div><div class="line">  <span class="attribute">views</span>: &#123;</div><div class="line">    <span class="string">''</span>: &#123;</div><div class="line">      <span class="attribute">templateUrl</span>: <span class="string">'templates/slider.html'</span>,</div><div class="line">      <span class="attribute">controller</span>: <span class="string">'SliderCtrl'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p><code>controller.js</code>:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.controller(<span class="string">'SliderCtrl'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope)</span> </span>&#123;</div><div class="line">  $scope.settings = &#123;</div><div class="line">    enableFriends: <span class="keyword">true</span></div><div class="line">  &#125;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170304174730.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="demo"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170515.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;图片轮播&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
-    
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
