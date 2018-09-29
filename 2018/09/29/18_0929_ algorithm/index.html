@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>记一次移动硬盘无法读取的处理过程 - 进击的程序媛，Laker&#39;s blog</title>
+  <title>算法学习：重新排序链表 - 进击的程序媛，Laker&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="BxWqqPVkmU3CTQmmIjCp27ZjmcXuB_YTf8Xa7lp_G-w" />
-  <meta property="og:type" content="article">
-<meta property="og:title" content="记一次移动硬盘无法读取的处理过程">
-<meta property="og:url" content="http://laker.me/blog/2018/06/02/18_0602_disk/index.html">
+  <meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法学习：重新排序链表">
+<meta property="og:url" content="http://laker.me/blog/2018/09/29/18_0929_ algorithm/index.html">
 <meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
-<meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20180602.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
-<meta property="og:updated_time" content="2018-08-03T05:15:46.000Z">
+<meta property="og:image" content="http://wx2.sinaimg.cn/large/6d184cefly1fvwi0uvwsmj20p0046gm8.jpg">
+<meta property="og:image" content="http://wx4.sinaimg.cn/mw690/6d184cefly1fvwju0nqrvj20u0141ta3.jpg">
+<meta property="og:updated_time" content="2018-09-29T14:28:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记一次移动硬盘无法读取的处理过程">
-<meta name="twitter:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20180602.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
+<meta name="twitter:title" content="算法学习：重新排序链表">
+<meta name="twitter:image" content="http://wx2.sinaimg.cn/large/6d184cefly1fvwi0uvwsmj20p0046gm8.jpg">
   
     <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
   
@@ -93,7 +95,7 @@ var _hmt = _hmt || [];
   <!-- Fork me on Github, Github Logo -->
   <a href="https://github.com/younglaker" class="github-corner" target="_blank" title="Fork me on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#333;color:#fff;position:absolute;top:0;border:0;right:0"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 </header>
-    <section id="main" class="outer"><article id="post-18_0602_disk" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-18_0929_ algorithm" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -101,41 +103,42 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      记一次移动硬盘无法读取的处理过程
+      算法学习：重新排序链表
     </h1>
   
 
       </header>
     
     <div class="article-meta">
-      <a href="/blog/2018/06/02/18_0602_disk/" class="article-date">
-  <time datetime="2018-06-02T00:24:00.000Z" itemprop="datePublished">2018-06-02</time>
+      <a href="/blog/2018/09/29/18_0929_ algorithm/" class="article-date">
+  <time datetime="2018-09-29T00:24:00.000Z" itemprop="datePublished">2018-09-29</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/Others/">Others</a>
+    <a class="article-category-link" href="/blog/categories/算法/">算法</a>
   </div>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p> <img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20180602.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="移动硬盘无法读取"></p>
+        <p><img src="http://wx2.sinaimg.cn/large/6d184cefly1fvwi0uvwsmj20p0046gm8.jpg" alt="算法学习：重新排序链表"></p>
 <a id="more"></a>
 <blockquote>
 <p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
 </blockquote>
-<h2 id="状况"><a href="#状况" class="headerlink" title="状况"></a>状况</h2><p>新电脑硬盘插到硬盘盒上，Windows笔记本电脑不识别，没有任何反应，也不报错，换了接口也不行。</p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>考虑到硬盘盒硬盘盒都比较新，坏的可能性不大，就尝试换设备试下。</p>
-<h3 id="1-查看磁盘管理是否有读取而无盘符"><a href="#1-查看磁盘管理是否有读取而无盘符" class="headerlink" title="1.查看磁盘管理是否有读取而无盘符"></a>1.查看磁盘管理是否有读取而无盘符</h3><p>右键<code>计算机</code> —— <code>磁盘管理</code>，如果有读取出新磁盘，加个盘符即可。但此时无新磁盘。</p>
-<h3 id="2-换了一台-Windows电脑尝试"><a href="#2-换了一台-Windows电脑尝试" class="headerlink" title="2.换了一台 Windows电脑尝试"></a>2.换了一台 Windows电脑尝试</h3><p>换了台式电脑，仍无反应。</p>
-<h3 id="3-换-Mac-电脑尝试"><a href="#3-换-Mac-电脑尝试" class="headerlink" title="3.换 Mac 电脑尝试"></a>3.换 Mac 电脑尝试</h3><p>有弹框反应，表明不是硬盘和硬盘盒的问题。<br>报错显示无法读写硬盘。此时考虑可以格式化。</p>
-<p><code>Launchpad</code> —— <code>Other 其他</code> —— <code>Disk Utility 磁盘管理</code> —— <code>选中硬盘，Erase 抹除</code></p>
-<p>考虑到 Mac 和 Windows 都能用的格式，选择exFAT，其他默认。<br>格式化好，Mac 可以正常读写，再插到Windows笔记本，也能正常读写了。</p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个单链表，将链表按头节点、尾节点、第二个节点、 倒数第二个节点…的规律重建。要求：原地操作，不改变节点的值。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>暴力法：先找头节点，再找尾节点，然后顺次第二个节点，倒数第二个节点，由于是单链表，不停的从表头遍历到表尾，时间复杂度O(n^2)</p>
+<p>看下有没有其他便捷方法。</p>
+<p>假设给一组数字<code>1,2,3,4,5,6</code>，重新排序后是<code>1,6,2,5,3,4</code>，会发现一个规律，<code>1, 2, 3</code>是顺序的，<code>6, 5, 4</code>是倒序插入的。</p>
+<p>所以可这样考虑：<br>先把链表一分为二，把后半部分数据倒序插入前半部分。<br>头插法制作倒序链表，时间复杂度 O(n)，将左右两链表合并，时间复杂度 O(n)。总时间复杂度为O(n)。</p>
+<h2 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h2><figure class="highlight xl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">void Revert (Link L1) &#123;</div><div class="line">	new Link L2; <span class="comment">//用于存放倒序的后半部链表</span></div><div class="line">	int half_len = L1.lenght() / <span class="number">2</span>; <span class="comment">//记录链表的一半</span></div><div class="line">	<span class="function"><span class="title">int</span> *p = L1-&gt;</span>head; <span class="comment">//p 指向 L1 头节点</span></div><div class="line">	<span class="function"><span class="title">int</span> *q = L2-&gt;</span>head; <span class="comment">//q 指向 L2 头指针</span></div><div class="line">	int *s, *t;</div><div class="line"></div><div class="line">	<span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; half_len; i++) &#123;</div><div class="line">		<span class="function"><span class="title">s</span> = s-&gt;</span>next; <span class="comment">// 找到链表中部</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="title">q</span> = s-&gt;</span>next; <span class="comment">//把后半段链表赋值给 L2</span></div><div class="line">	<span class="function"><span class="title">s</span>-&gt;</span>next = null; <span class="comment">// 此时 s 为 L1尾指针</span></div><div class="line"></div><div class="line">	<span class="function"><span class="title">t</span> = q-&gt;</span>next;</div><div class="line">	<span class="comment">// 这里我直接在表内操作，看起来有点乱，新建个 L3来存放会看得舒服点</span></div><div class="line">	<span class="function"><span class="title">while</span> ( t-&gt;</span>next != null ) &#123; <span class="comment">//倒置 L2</span></div><div class="line">		<span class="function"><span class="title">q</span>-&gt;</span><span class="function"><span class="title">next</span> = t-&gt;</span>next;</div><div class="line">		<span class="function"><span class="title">t</span>-&gt;</span>next = q;</div><div class="line">		L2-&gt;<span class="function"><span class="title">head</span>-&gt;</span>next = t;</div><div class="line">		<span class="function"><span class="title">t</span> = q-&gt;</span>next;</div><div class="line">		<span class="function"><span class="title">q</span> = L2-&gt;</span><span class="function"><span class="title">head</span>-&gt;</span>next;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">while</span> ( p != s ) &#123; <span class="comment">// p 没有走到表尾时插入L2节点</span></div><div class="line">		<span class="function"><span class="title">t</span> = L2-&gt;</span><span class="function"><span class="title">head</span>-&gt;</span>next; <span class="comment">//一开始，t 指向 L2第一个节点</span></div><div class="line">		L2-&gt;<span class="function"><span class="title">head</span>-&gt;</span><span class="function"><span class="title">next</span> = L2-&gt;</span><span class="function"><span class="title">head</span>-&gt;</span><span class="function"><span class="title">next</span>-&gt;</span>next; <span class="comment">//取出第一个节点，第二个节点变成第一个节点</span></div><div class="line">		<span class="function"><span class="title">t</span>-&gt;</span><span class="function"><span class="title">next</span> = p-&gt;</span>next; <span class="comment">//t 插入 p</span></div><div class="line">		<span class="function"><span class="title">p</span>-&gt;</span><span class="function"><span class="title">next</span> = t-&gt;</span>next;</div><div class="line">		<span class="function"><span class="title">p</span> = p-&gt;</span><span class="function"><span class="title">next</span>-&gt;</span>next; <span class="comment">//移动 p 到下一个待插入的节点</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>简单的图示：</p>
+<p><img src="http://wx4.sinaimg.cn/mw690/6d184cefly1fvwju0nqrvj20u0141ta3.jpg" alt="图示"></p>
 
         <hr>
         <div class="copyrights1">
-          <a href="http://laker.me/blog/2018/06/02/18_0602_disk/">记一次移动硬盘无法读取的处理过程</a>
+          <a href="http://laker.me/blog/2018/09/29/18_0929_ algorithm/">算法学习：重新排序链表</a>
           <!--%- partial('post/title', {class_name: 'archive-article-title'}) %-->
           <p>本文原创自<a href="http://laker.me/blog">http://laker.me/blog</a>，转载请注明出处，欢迎交换友链</p>
           <p>如果本文对您有帮助，微信扫一扫，请我喝杯咖啡吧</p>
@@ -146,6 +149,8 @@ var _hmt = _hmt || [];
   
     <footer class="article-footer">
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/算法/">算法</a></li></ul>
+
     </footer>
   
   <p class="hint-text hidden">阅读量<span id="busuanzi_value_page_pv"></span>次</p>
@@ -154,17 +159,9 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/blog/2018/09/29/18_0929_ algorithm/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-title"><span>&lt;</span>&nbsp;
-        
-          算法学习：重新排序链表
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/2018/05/04/18_0504_easycanvas_pixeler/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">自开发的EasyCanvas绘图库实践、Pixeler项目开发小结&nbsp;<span>&gt;</span></div>
+    <a href="/blog/2018/06/02/18_0602_disk/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">记一次移动硬盘无法读取的处理过程&nbsp;<span>&gt;</span></div>
     </a>
   
 </nav>
