@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2018-10-07T15:00:08.000Z</updated>
+  <updated>2018-10-07T15:01:24.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://laker.me/blog/2018/10/04/18_1004_anaconda/"/>
     <id>http://laker.me/blog/2018/10/04/18_1004_anaconda/</id>
     <published>2018-10-04T00:24:00.000Z</published>
-    <updated>2018-10-07T15:00:08.000Z</updated>
+    <updated>2018-10-07T15:01:24.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://wx4.sinaimg.cn/large/6d184cefly1fvzxnkjnwij20p0046t97.jpg" alt="AI 学习：Anaconda 配置"></p>
 <a id="more"></a>
@@ -65,7 +65,7 @@ conda 4.3.30
 </code></pre><p>添加以下命令</p>
 <pre><code>export PATH=&quot;/Users/nick(你自己的安装路径)/anaconda3/bin:$PATH&quot;
 </code></pre><p>vim使用<code>:wq</code>命令保存退出<br>保存文件后如要立即生效，输入以下命令，</p>
-<pre><code>source $HOME/.bash_profile
+<pre><code>source $HOME/.zsh_profile
 </code></pre><blockquote>
 <p>注意：重启机子后也可能要执行这个</p>
 </blockquote>
@@ -1184,9 +1184,9 @@ git commit -m&apos;merge&apos;
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -1229,9 +1229,9 @@ git commit -m&apos;merge&apos;
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
