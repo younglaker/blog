@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2018-10-04T14:44:24.000Z</updated>
+  <updated>2018-10-07T15:00:08.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -16,18 +16,19 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>AI 学习1：Anaconda 配置</title>
-    <link href="http://laker.me/blog/2018/10/04/18_0929_%20algorithm/"/>
-    <id>http://laker.me/blog/2018/10/04/18_0929_ algorithm/</id>
+    <title>AI 学习1	：Anaconda 配置</title>
+    <link href="http://laker.me/blog/2018/10/04/18_1004_anaconda/"/>
+    <id>http://laker.me/blog/2018/10/04/18_1004_anaconda/</id>
     <published>2018-10-04T00:24:00.000Z</published>
-    <updated>2018-10-04T14:44:24.000Z</updated>
+    <updated>2018-10-07T15:00:08.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://wx4.sinaimg.cn/large/6d184cefly1fvzxnkjnwij20p0046t97.jpg" alt="AI 学习：Anaconda 配置"></p>
 <a id="more"></a>
 <blockquote>
 <p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
 </blockquote>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>目前Anaconda 出了 Python3.7 版本，但 TensorFlow 只支持3.5、3.6、2.7。有两种解决方案。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>本文环境是 Mac OS。</p>
+<p>目前Anaconda 出了 Python3.7 版本，但 TensorFlow 只支持3.5、3.6、2.7。有两种解决方案。</p>
 <ul>
 <li>方案一：</li>
 </ul>
@@ -123,10 +124,10 @@ show_channel_urls: true
   
   <entry>
     <title>算法学习1：重新排序链表</title>
-    <link href="http://laker.me/blog/2018/09/29/18_1004_anaconda/"/>
-    <id>http://laker.me/blog/2018/09/29/18_1004_anaconda/</id>
+    <link href="http://laker.me/blog/2018/09/29/18_0929_%20algorithm/"/>
+    <id>http://laker.me/blog/2018/09/29/18_0929_ algorithm/</id>
     <published>2018-09-29T00:24:00.000Z</published>
-    <updated>2018-09-20T14:11:08.000Z</updated>
+    <updated>2018-10-07T14:56:39.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://wx2.sinaimg.cn/large/6d184cefly1fvwi0uvwsmj20p0046gm8.jpg" alt="算法学习：重新排序链表"></p>
 <a id="more"></a>
