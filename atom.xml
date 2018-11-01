@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2018-10-07T15:01:24.000Z</updated>
+  <updated>2018-11-01T14:04:39.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -16,11 +16,145 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>AI learning 2：SVM Algorithm</title>
+    <link href="http://laker.me/blog/2018/11/01/18_1101_ai_svm/"/>
+    <id>http://laker.me/blog/2018/11/01/18_1101_ai_svm/</id>
+    <published>2018-11-01T00:24:00.000Z</published>
+    <updated>2018-11-01T14:04:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://wx4.sinaimg.cn/large/6d184cefly1fwylhut942j20p00463yw.jpg" alt="AI learning 2：SVM Algorithm"></p>
+<a id="more"></a>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">laker.me</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+<h2 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h2><p>Environment: </p>
+<ul>
+<li>Anacoda Navigator</li>
+<li>python 3.6</li>
+</ul>
+<p>Python packages(all in Anacoda, don’t have to install extractly):</p>
+<ul>
+<li><a href="http://www.numpy.org/" target="_blank" rel="external">numpy</a>: for scientific computing</li>
+<li><a href="https://pandas.pydata.org/" target="_blank" rel="external">pandas</a>: for data analysis</li>
+<li><a href="http://scikit-learn.org/stable/" target="_blank" rel="external">sklearn</a>: Simple and efficient tools for data mining and data analysis</li>
+</ul>
+<h2 id="Coding"><a href="#Coding" class="headerlink" title="Coding"></a>Coding</h2><p>Import packages and set alias.</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"># <span class="keyword">import</span> SVC <span class="keyword">in</span> svm <span class="keyword">module</span></div><div class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC </div><div class="line">#<span class="keyword">import</span> train_test_split <span class="keyword">in</span> model_selection <span class="keyword">module</span></div><div class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</div></pre></td></tr></table></figure>
+<p>Import training file, it’s a matrix of a picture. The first column is type of then row.<br>The number means grayscale value of the picture pixel.<br>And we only use the last 5000 rows to train.</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># inputData <span class="keyword">is</span> <span class="keyword">object</span> <span class="keyword">of</span> pandas, <span class="keyword">and</span> use pandas <span class="function"><span class="keyword">function</span>  <span class="title">iloc</span> <span class="title">to</span> <span class="title">select</span> <span class="title">the</span> <span class="title">last</span> 5000 <span class="title">rows</span>.</span></div><div class="line"></div><div class="line"><span class="title">inputData</span> = <span class="title">pd</span>.<span class="title">read_csv</span><span class="params">(<span class="string">'./16.MNIST.train.csv'</span>)</span></div><div class="line"><span class="title">inputData</span> = <span class="title">inputData</span>.<span class="title">iloc</span>[-5000:, :]</div></pre></td></tr></table></figure>
+<p>============== Usage of pandas function iloc ==============<br><a href="https://www.shanelynn.ie/select-pandas-dataframe-rows-and-columns-using-iloc-loc-and-ix/" target="_blank" rel="external">https://www.shanelynn.ie/select-pandas-dataframe-rows-and-columns-using-iloc-loc-and-ix/</a><br>There are two “arguments” to iloc – a row selector, and a column selector. </p>
+<p><code>data.iloc[rows, columns]</code></p>
+<p><code>data.iloc[a:b, c:d]</code> means from row a to row b, column c to column d.</p>
+<p><code>data.iloc[a:, :d]</code> means from row a to column end, column one to column d.</p>
+<p>Single selections using iloc and DataFrame</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># Rows:</span></div><div class="line"><span class="class"><span class="keyword">data</span>.iloc[0] # first row of <span class="keyword">data</span> frame - <span class="type">Note</span> a <span class="type">Series</span> <span class="keyword">data</span> <span class="keyword">type</span> output.</span></div><div class="line"><span class="class"><span class="keyword">data</span>.iloc[1] # second row of <span class="keyword">data</span> frame </span></div><div class="line"><span class="class"><span class="keyword">data</span>.iloc[-1] # last row of <span class="keyword">data</span> frame </span></div><div class="line"></div><div class="line"><span class="meta"># Columns:</span></div><div class="line"><span class="class"><span class="keyword">data</span>.iloc[:,0] # first column of <span class="keyword">data</span> frame </span></div><div class="line"><span class="class"><span class="keyword">data</span>.iloc[:,1] # second column of <span class="keyword">data</span> frame </span></div><div class="line"><span class="class"><span class="keyword">data</span>.iloc[:,-1] # last column of <span class="keyword">data</span> frame</span></div></pre></td></tr></table></figure>
+<p>Multiple columns and rows can be selected together using the .iloc indexer.</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">data.iloc[<span class="number">0</span>:<span class="number">5</span>] # <span class="keyword">first</span> five rows of dataframe</div><div class="line">data.iloc[:, <span class="number">0</span>:<span class="number">2</span>] # <span class="keyword">first</span> two columns of data frame with <span class="keyword">all</span> rows</div><div class="line">data.iloc[[<span class="number">0</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">24</span>], [<span class="number">0</span>,<span class="number">5</span>,<span class="number">6</span>]] # <span class="number">1</span><span class="keyword">st</span>, <span class="number">4</span><span class="keyword">th</span>, <span class="number">7</span><span class="keyword">th</span>, <span class="number">25</span><span class="keyword">th</span> row + <span class="number">1</span><span class="keyword">st</span> <span class="number">6</span><span class="keyword">th</span> <span class="number">7</span><span class="keyword">th</span> columns.</div><div class="line">data.iloc[<span class="number">0</span>:<span class="number">5</span>, <span class="number">5</span>:<span class="number">8</span>] # <span class="keyword">first</span> <span class="number">5</span> rows <span class="built_in">and</span> <span class="number">5</span><span class="keyword">th</span>, <span class="number">6</span><span class="keyword">th</span>, <span class="number">7</span><span class="keyword">th</span> columns of data frame</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Python list <a href="https://www.w3schools.com/python/python_lists.asp" target="_blank" rel="external">https://www.w3schools.com/python/python_lists.asp</a></p>
+</blockquote>
+<p>============== / End Usage of pandas function iloc ==============</p>
+<p>In the taining data, the first colums is lable, so we drop label column using <code>drop([&#39;label&#39;], 1)</code>, extract it to parameter ‘label’ using <code>inputData[&#39;label&#39;]</code>, and convert it to array using <code>np.array()</code>.<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">data = <span class="built_in">np</span>.<span class="built_in">array</span>(inputData.drop(['<span class="built_in">label</span>'], <span class="number">1</span>))</div><div class="line"><span class="built_in">label</span> = <span class="built_in">np</span>.<span class="built_in">array</span>(inputData['<span class="built_in">label</span>'])</div></pre></td></tr></table></figure></p>
+<p>============== Usage of pandas function drop ==============<br><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.drop.html" target="_blank" rel="external">https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.drop.html</a><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; df = pd.DataFrame(np.arange(<span class="number">12</span>).reshape(<span class="number">3</span>,<span class="number">4</span>),</div><div class="line">...                   columns=['A', 'B', 'C', 'D'])</div><div class="line">&gt;&gt;&gt; df</div><div class="line">   A  B   C   D</div><div class="line"><span class="number">0</span>  <span class="number">0</span>  <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span></div><div class="line"><span class="number">1</span>  <span class="number">4</span>  <span class="number">5</span>   <span class="number">6</span>   <span class="number">7</span></div><div class="line"><span class="number">2</span>  <span class="number">8</span>  <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span></div></pre></td></tr></table></figure></p>
+<p>Drop columns</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> axis : &#123;0 or ‘index’, 1 or ‘columns’&#125;, default 0</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; df.drop([<span class="string">'B'</span>, <span class="string">'C'</span>], axis=1)</span></div><div class="line">   A   D</div><div class="line">0  0   3</div><div class="line">1  4   7</div><div class="line">2  8  11</div></pre></td></tr></table></figure>
+<p>or:</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; df.drop(columns=['B', 'C'])</div><div class="line">   A   D</div><div class="line"><span class="number">0</span>  <span class="number">0</span>   <span class="number">3</span></div><div class="line"><span class="number">1</span>  <span class="number">4</span>   <span class="number">7</span></div><div class="line"><span class="number">2</span>  <span class="number">8</span>  <span class="number">11</span></div></pre></td></tr></table></figure>
+<p>Drop a row by index<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; df.drop([<span class="number">0</span>, <span class="number">1</span>])</div><div class="line">   A  B   C   D</div><div class="line"><span class="number">2</span>  <span class="number">8</span>  <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span></div></pre></td></tr></table></figure></p>
+<p>============== / End Usage of pandas function drop ==============</p>
+<p>============== Usage of numpy function array ==============<br><a href="https://docs.scipy.org/doc/numpy-1.15.1/reference/generated/numpy.array.html" target="_blank" rel="external">https://docs.scipy.org/doc/numpy-1.15.1/reference/generated/numpy.array.html</a></p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; np.array(<span class="string">[[1, 2], [3, 4]]</span>)</div><div class="line">array(<span class="string">[[1, 2],</span></div><div class="line">       [3, 4]])</div></pre></td></tr></table></figure>
+<p>============== / End Usage of numpy function array ==============</p>
+<p>Then deal with the data, it’s a little tricky. Set data which is smaller than 100 to 0, and which is bigger than 100 to 1.</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># Improve accuracy from 0.1 to 0.9</span></div><div class="line"><span class="class"><span class="keyword">data</span>[<span class="keyword">data</span>&lt;=100] = 0</span></div><div class="line"><span class="class"><span class="keyword">data</span>[<span class="keyword">data</span>&gt;100] = 1</span></div></pre></td></tr></table></figure>
+<p>Extract the first 5 rows.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">inputData</span><span class="selector-class">.head</span>()</div></pre></td></tr></table></figure>
+<p>============== Usage of pandas function iloc ==============<br><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.head.html" target="_blank" rel="external">https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.head.html</a></p>
+<blockquote>
+<p>DataFrame.head(n)</p>
+</blockquote>
+<p>Return the first n rows, default n=5.</p>
+<p>This function returns the first n rows for the object based on position. It is useful for quickly testing if your object has the right type of data in it.</p>
+<p>See also</p>
+<blockquote>
+<p>DataFrame.tail(n)</p>
+</blockquote>
+<p>Returns the last n rows.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;</span>&gt; df = pd.DataFrame(&#123;<span class="string">'animal'</span><span class="symbol">:</span>[<span class="string">'alligator'</span>, <span class="string">'bee'</span>, <span class="string">'falcon'</span>, <span class="string">'lion'</span>,</div><div class="line">...                    <span class="string">'monkey'</span>, <span class="string">'parrot'</span>, <span class="string">'shark'</span>, <span class="string">'whale'</span>, <span class="string">'zebra'</span>]&#125;)</div><div class="line"><span class="meta">&gt;&gt;</span>&gt; df</div><div class="line">      animal</div><div class="line"><span class="number">0</span>  alligator</div><div class="line"><span class="number">1</span>        bee</div><div class="line"><span class="number">2</span>     falcon</div><div class="line"><span class="number">3</span>       lion</div><div class="line"><span class="number">4</span>     monkey</div><div class="line"><span class="number">5</span>     parrot</div><div class="line"><span class="number">6</span>      shark</div><div class="line"><span class="number">7</span>      whale</div><div class="line"><span class="number">8</span>      zebra</div></pre></td></tr></table></figure>
+<p>Viewing the first n lines (three in this case)<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; df.head(<span class="number">3</span>)</div><div class="line">      animal</div><div class="line"><span class="number">0</span>  alligator</div><div class="line"><span class="number">1</span>        bee</div><div class="line"><span class="number">2</span>     falcon</div></pre></td></tr></table></figure></p>
+<p>============== /End Usage of pandas function iloc ==============</p>
+<p>Use 70% data to train and 30% to test the taining result using <code>test_size=0.3</code>. Here we don’t specify the train_size, and it will automatically set to the complement of the test size, which is 1-0.3=0.7.</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data_train, data_test, label_train, <span class="attr">label_test</span> = train_test_split(data, label, <span class="attr">test_size=0.3,</span> <span class="attr">random_state=87)</span></div></pre></td></tr></table></figure>
+<p>======= Usage of sklearn.model_selection.train_test_split =======<br><a href="http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html" target="_blank" rel="external">http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html</a></p>
+<p><code>train_test_split(*arrays, **options)</code> </p>
+<p>Split arrays or matrices into random train and test subsets</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</div></pre></td></tr></table></figure>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><p>*arrays : sequence of indexables with same length / shape[0]<br>Allowed inputs are lists, numpy arrays, scipy-sparse matrices or pandas dataframes.</p>
+</li>
+<li><p>test_size : float, int or None, optional (default=0.25)<br>If float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the test split. If int, represents the absolute number of test samples. If None, the value is set to the complement of the train size. By default, the value is set to 0.25. </p>
+</li>
+<li><p>train_size : float, int, or None, (default=None)<br>If float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the train split. If int, represents the absolute number of train samples. If None, the value is automatically set to the complement of the test size.</p>
+</li>
+<li><p>random_state : int, RandomState instance or None, optional (default=None)<br>If int, random_state is the seed used by the random number generator; If RandomState instance, random_state is the random number generator; If None, the random number generator is the RandomState instance used by np.random.</p>
+</li>
+<li><p>shuffle : boolean, optional (default=True)<br>Whether or not to shuffle the data before splitting. If shuffle=False then stratify must be None.</p>
+</li>
+<li><p>stratify : array-like or None (default=None)<br>If not None, data is split in a stratified fashion, using this as the class labels.</p>
+</li>
+</ul>
+<p><strong>Returns:</strong>  </p>
+<ul>
+<li>splitting : list, length=2 * len(arrays)<br>List containing train-test split of inputs.</li>
+</ul>
+<p>======= /End Usage of sklearn.model_selection.train_test_split =======</p>
+<p>Use SVC model and <code>fit()</code> to train, set more parameters in SVC() improve accuracy:</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SVM_model = SVC()</div><div class="line">SVM_model.fit(data_train, label_train)</div></pre></td></tr></table></figure>
+<p>======= Usage of sklearn.model_selection.train_test_split =======</p>
+<p><a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html" target="_blank" rel="external">http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html</a></p>
+<blockquote>
+<p>SVC(C=1.0, kernel=’rbf’, degree=3, gamma=’auto_deprecated’, coef0=0.0, shrinking=True, probability=False, tol=0.001, cache_size=200, class_weight=None, verbose=False, max_iter=-1, decision_function_shape=’ovr’, random_state=None)</p>
+</blockquote>
+<p><a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC.fit" target="_blank" rel="external">http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC.fit</a></p>
+<blockquote>
+<p>fit(X, y, sample_weight=None)</p>
+</blockquote>
+<p>Fit the SVM model according to the given training data.</p>
+<p>======= /End Usage of sklearn.model_selection.train_test_split =======</p>
+<p>Use the first 10 rows to test and get the predict result. Then compare the predict result and label to score a point.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">SVM_model</span><span class="selector-class">.predict</span>(<span class="selector-tag">data_test</span><span class="selector-attr">[:10]</span>)</div><div class="line"></div><div class="line"><span class="selector-tag">label_test</span><span class="selector-attr">[:10]</span></div><div class="line"></div><div class="line"><span class="selector-tag">SVM_model</span><span class="selector-class">.score</span>(<span class="selector-tag">data_test</span>, <span class="selector-tag">label_test</span>)</div></pre></td></tr></table></figure>
+<p>We can write a <code>score()</code> fuction like this instead of using <code>score()</code>.</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">correct = 0</div><div class="line">prediction = SVM_model.<span class="keyword">predict</span>(data_test)</div><div class="line"><span class="keyword">for</span> i, <span class="keyword">lab</span> <span class="keyword">in</span> enumerate(label_test):</div><div class="line">    # <span class="keyword">if</span> prediction == <span class="keyword">label</span>, correct+1</div><div class="line">    <span class="keyword">if</span> prediction[i] == <span class="keyword">lab</span>:  </div><div class="line">        correct += 1</div><div class="line"></div><div class="line"># accuracy = correct numbers / all <span class="keyword">test</span> numbers</div><div class="line">accuracy = correct / len(label_test)</div><div class="line"><span class="keyword">print</span>(<span class="string">"Accuracy is:"</span>, accuracy)</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://wx4.sinaimg.cn/large/6d184cefly1fwylhut942j20p00463yw.jpg&quot; alt=&quot;AI learning 2：SVM Algorithm&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="AI" scheme="http://laker.me/blog/categories/AI/"/>
+    
+    
+      <category term="Algorithm" scheme="http://laker.me/blog/tags/Algorithm/"/>
+    
+      <category term="人工智能" scheme="http://laker.me/blog/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+      <category term="AI" scheme="http://laker.me/blog/tags/AI/"/>
+    
+      <category term="ML" scheme="http://laker.me/blog/tags/ML/"/>
+    
+      <category term="DL" scheme="http://laker.me/blog/tags/DL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>AI 学习1	：Anaconda 配置</title>
     <link href="http://laker.me/blog/2018/10/04/18_1004_anaconda/"/>
     <id>http://laker.me/blog/2018/10/04/18_1004_anaconda/</id>
     <published>2018-10-04T00:24:00.000Z</published>
-    <updated>2018-10-07T15:01:24.000Z</updated>
+    <updated>2018-10-31T11:52:32.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://wx4.sinaimg.cn/large/6d184cefly1fvzxnkjnwij20p0046t97.jpg" alt="AI 学习：Anaconda 配置"></p>
 <a id="more"></a>
@@ -111,14 +245,18 @@ show_channel_urls: true
     
     </summary>
     
-      <category term="人工智能" scheme="http://laker.me/blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+      <category term="AI" scheme="http://laker.me/blog/categories/AI/"/>
     
     
-      <category term="算法" scheme="http://laker.me/blog/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="Algorithm" scheme="http://laker.me/blog/tags/Algorithm/"/>
     
       <category term="人工智能" scheme="http://laker.me/blog/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
       <category term="AI" scheme="http://laker.me/blog/tags/AI/"/>
+    
+      <category term="ML" scheme="http://laker.me/blog/tags/ML/"/>
+    
+      <category term="DL" scheme="http://laker.me/blog/tags/DL/"/>
     
   </entry>
   
@@ -159,8 +297,8 @@ show_channel_urls: true
   
   <entry>
     <title>关于博客图片失效的公告</title>
-    <link href="http://laker.me/blog/2018/09/20/18_0920_%20notice/"/>
-    <id>http://laker.me/blog/2018/09/20/18_0920_ notice/</id>
+    <link href="http://laker.me/blog/2018/09/20/18_0920_notice/"/>
+    <id>http://laker.me/blog/2018/09/20/18_0920_notice/</id>
     <published>2018-09-20T00:24:00.000Z</published>
     <updated>2018-09-20T13:42:52.000Z</updated>
     
@@ -1184,54 +1322,9 @@ git commit -m&apos;merge&apos;
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
       <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Ionic+Angular 开发移动应用六：第三方、数据交互、修改图标</title>
-    <link href="http://laker.me/blog/2017/05/24/17_0524_ionic_6/"/>
-    <id>http://laker.me/blog/2017/05/24/17_0524_ionic_6/</id>
-    <published>2017-05-24T00:24:00.000Z</published>
-    <updated>2017-07-18T02:39:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170524.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="第三方登陆/分享/支付、数据交互、修改图标"></p>
-<a id="more"></a>
-<blockquote>
-<p>欢迎交换友链： <a href="http://laker.me/blog">Laker’s Blog–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
-</blockquote>
-<h1 id="第三方登陆、分享、支付"><a href="#第三方登陆、分享、支付" class="headerlink" title="第三方登陆、分享、支付"></a>第三方登陆、分享、支付</h1><h2 id="QQ登陆与分享"><a href="#QQ登陆与分享" class="headerlink" title="QQ登陆与分享"></a>QQ登陆与分享</h2><p>插件地址: <code>https://github.com/iVanPan/Cordova_QQ</code><br>安装: </p>
-<pre><code>cordova plugin add https://github.com/iVanPan/Cordova_QQ.git --variable QQ_APP_ID=YOUR_QQ_APPID
-</code></pre><h2 id="微信登陆、分享、支付"><a href="#微信登陆、分享、支付" class="headerlink" title="微信登陆、分享、支付"></a>微信登陆、分享、支付</h2><p>插件地址: <code>https://github.com/xu-li/cordova-plugin-wechat</code><br>安装: </p>
-<pre><code>cordova plugin add cordova-plugin-wechat --variable wechatappid=YOUR_WECHAT_APPID
-</code></pre><h2 id="新浪微博登陆与分享"><a href="#新浪微博登陆与分享" class="headerlink" title="新浪微博登陆与分享"></a>新浪微博登陆与分享</h2><p>插件地址: <code>https://github.com/iVanPan/cordova_weibo</code><br>安装: </p>
-<pre><code>cordova plugin add https://github.com/iVanPan/cordova_weibo.git --variable WEIBO_APP_ID=YOUR_WEIBO_APPID
-</code></pre><h2 id="支付宝支付"><a href="#支付宝支付" class="headerlink" title="支付宝支付"></a>支付宝支付</h2><p>插件地址: <code>https://github.com/charleyw/cordova-plugin-alipay</code><br>安装: </p>
-<pre><code>cordova plugin add https://github.com/charleyw/cordova-plugin-alipay.git --variable PARTNER_ID=[你的商户PID可以在账户中查询] --variable SELLER_ACCOUNT=[你的商户支付宝帐号] --variable PRIVATE_KEY=[你生成的private key]
-</code></pre><h1 id="Ionic前后台数据交互"><a href="#Ionic前后台数据交互" class="headerlink" title="Ionic前后台数据交互"></a>Ionic前后台数据交互</h1><p>前台发起请求：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$http(&#123;</div><div class="line">  url:’’,</div><div class="line">  method：’post’,<span class="comment">//get</span></div><div class="line">  data: &#123;&#125;,<span class="comment">//传给服务器的参数</span></div><div class="line">  success:<span class="function"><span class="keyword">function</span><span class="params">(res)</span></span>&#123;</div><div class="line">       <span class="comment">//服务器返回的数据 json格式</span></div><div class="line">       <span class="comment">//res即是返回的json对象</span></div><div class="line">       <span class="comment">//成功返回的数据处理逻辑写这里</span></div><div class="line">  &#125;,</div><div class="line">  error:<span class="function"><span class="keyword">function</span><span class="params">(err)</span></span>&#123;</div><div class="line">      <span class="comment">//异常</span></div><div class="line">  &#125;，</div><div class="line">  timeout: <span class="number">20000</span><span class="comment">//请求超时设置</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h1 id="App图标修改"><a href="#App图标修改" class="headerlink" title="App图标修改"></a>App图标修改</h1><ol>
-<li>进入resources目录，替换icon.png,splash.png</li>
-<li>命令行输入： ionic resources （执行后会上传图片到服务器并自动裁切生成不同尺寸的图片）</li>
-</ol>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ionic resource —<span class="attribute">icon</span>   <span class="comment">// 自动生成icon</span></div><div class="line">ionic resource —splash    <span class="comment">// 自动生成splash</span></div></pre></td></tr></table></figure>
-<p>3.app名字修改：修改根目录下config.xml里的name的值即可</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170524.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;第三方登陆/分享/支付、数据交互、修改图标&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
-    
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
-    
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
