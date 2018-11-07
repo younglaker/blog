@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://laker.me/blog/2018/11/01/18_1101_ai_svm/index.html">
 <meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
 <meta property="og:image" content="http://wx4.sinaimg.cn/large/6d184cefly1fwylhut942j20p00463yw.jpg">
-<meta property="og:updated_time" content="2018-11-01T14:04:39.000Z">
+<meta property="og:updated_time" content="2018-11-07T00:55:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AI learning 2：SVM Algorithm">
 <meta name="twitter:image" content="http://wx4.sinaimg.cn/large/6d184cefly1fwylhut942j20p00463yw.jpg">
@@ -137,9 +137,10 @@ var _hmt = _hmt || [];
 <li><a href="https://pandas.pydata.org/" target="_blank" rel="external">pandas</a>: for data analysis</li>
 <li><a href="http://scikit-learn.org/stable/" target="_blank" rel="external">sklearn</a>: Simple and efficient tools for data mining and data analysis</li>
 </ul>
+<p>Code and datas <a href="https://pan.baidu.com/s/1wX3rXqWvjlnCFRk6yyXznQ" target="_blank" rel="external">https://pan.baidu.com/s/1wX3rXqWvjlnCFRk6yyXznQ</a></p>
 <h2 id="Coding"><a href="#Coding" class="headerlink" title="Coding"></a>Coding</h2><p>Import packages and set alias.</p>
 <figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"># <span class="keyword">import</span> SVC <span class="keyword">in</span> svm <span class="keyword">module</span></div><div class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC </div><div class="line">#<span class="keyword">import</span> train_test_split <span class="keyword">in</span> model_selection <span class="keyword">module</span></div><div class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</div></pre></td></tr></table></figure>
-<p>Import training file, it’s a matrix of a picture. The first column is type of then row.<br>The number means grayscale value of the picture pixel.<br>And we only use the last 5000 rows to train.</p>
+<p>Import training file <code>16.MNIST.train.csv</code>, it’s a matrix of a picture. The first column is type of then row.<br>The number means grayscale value of the picture pixel.<br>And we only use the last 5000 rows to train.</p>
 <figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># inputData <span class="keyword">is</span> <span class="keyword">object</span> <span class="keyword">of</span> pandas, <span class="keyword">and</span> use pandas <span class="function"><span class="keyword">function</span>  <span class="title">iloc</span> <span class="title">to</span> <span class="title">select</span> <span class="title">the</span> <span class="title">last</span> 5000 <span class="title">rows</span>.</span></div><div class="line"></div><div class="line"><span class="title">inputData</span> = <span class="title">pd</span>.<span class="title">read_csv</span><span class="params">(<span class="string">'./16.MNIST.train.csv'</span>)</span></div><div class="line"><span class="title">inputData</span> = <span class="title">inputData</span>.<span class="title">iloc</span>[-5000:, :]</div></pre></td></tr></table></figure>
 <p>============== Usage of pandas function iloc ==============<br><a href="https://www.shanelynn.ie/select-pandas-dataframe-rows-and-columns-using-iloc-loc-and-ix/" target="_blank" rel="external">https://www.shanelynn.ie/select-pandas-dataframe-rows-and-columns-using-iloc-loc-and-ix/</a><br>There are two “arguments” to iloc – a row selector, and a column selector. </p>
 <p><code>data.iloc[rows, columns]</code></p>
