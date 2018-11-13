@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2018-11-07T00:55:08.000Z</updated>
+  <updated>2018-11-14T08:21:29.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>First step in Tencent Cloud and Baota Panel</title>
+    <link href="http://laker.me/blog/2018/11/14/18_1113_tencent_cloud/"/>
+    <id>http://laker.me/blog/2018/11/14/18_1113_tencent_cloud/</id>
+    <published>2018-11-14T00:24:00.000Z</published>
+    <updated>2018-11-14T08:21:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://wx4.sinaimg.cn/large/6d184cefly1fx7m4l3l8sj20p0046wf0.jpg" alt="Tencent Cloud and Baota Panel"></p>
+<a id="more"></a>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">laker.me</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+<h2 id="Install-Baota-Panel-in-Tencent-Cloud"><a href="#Install-Baota-Panel-in-Tencent-Cloud" class="headerlink" title="Install Baota Panel in Tencent Cloud"></a>Install Baota Panel in Tencent Cloud</h2><p>Visit <a href="https://www.bt.cn/" target="_blank" rel="external">https://www.bt.cn/</a>:</p>
+<p><img src="http://wx3.sinaimg.cn/mw690/6d184cefly1fx6o8b5ehnj21ac0ngagg.jpg" alt="bt website"></p>
+<p>Find the installation command, now we use V5.9 for CentOS. Also you can use other systems you want.</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/6d184cefly1fx6o8jm2wlj21ds0bqn0t.jpg" alt="installation command"><br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum <span class="keyword">install</span> -y wget &amp;&amp; wget -O <span class="keyword">install</span>.sh http://download.bt.cn/<span class="keyword">install</span>/<span class="keyword">install</span>.sh &amp;&amp; sh <span class="keyword">install</span>.sh</div></pre></td></tr></table></figure></p>
+<p>Open your sever in Tencent Cloud:</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/6d184cefly1fx7k4mtsmvj21k40ncdp9.jpg" alt="Tencent Cloud"></p>
+<p>Install Baota Panel:</p>
+<p><img src="http://wx4.sinaimg.cn/large/6d184cefly1fx6o938vr1j21go086wgg.jpg" alt="Install Baota Panel"></p>
+<p>Then we get your Baota Panel accout for the server, and login your panel. Here is my serve address, yours is different.</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/6d184cefly1fx6o9h3n7vj20n608sq46.jpg" alt="Baota Panel accout"></p>
+<h2 id="New-a-website-in-Tencent-Cloud"><a href="#New-a-website-in-Tencent-Cloud" class="headerlink" title="New a website in Tencent Cloud"></a>New a website in Tencent Cloud</h2><p>After login your server panel, setup a new website in the server:</p>
+<p><img src="http://wx1.sinaimg.cn/mw690/6d184cefly1fx6o9z91xpj212g0gmgok.jpg" alt="New a website"></p>
+<p>Add your domain name:</p>
+<p><img src="http://wx1.sinaimg.cn/mw690/6d184cefly1fx6oai0mvzj21100i2n01.jpg" alt="Add domain name"></p>
+<p>All done, you can visit it now:</p>
+<p><img src="http://wx1.sinaimg.cn/mw690/6d184cefly1fx6oape3hej215g0uq78v.jpg" alt="visit"></p>
+<p>You can edit files in Tencent Cloud, use cd into the file:</p>
+<p><img src="http://wx1.sinaimg.cn/mw690/6d184cefly1fx6oayqr3fj20ru01ugly.jpg" alt="edit files"></p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">vi</span> <span class="built_in">index</span>.html</div></pre></td></tr></table></figure>
+<p><img src="http://wx1.sinaimg.cn/mw690/6d184cefly1fx6ob3u08qj20z00l843a.jpg" alt="vi index.html"></p>
+<p>Save and visit:</p>
+<p><img src="http://wx4.sinaimg.cn/mw690/6d184cefly1fx6ocgwlzij20ue0ky419.jpg" alt="visit"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://wx4.sinaimg.cn/large/6d184cefly1fx7m4l3l8sj20p0046wf0.jpg&quot; alt=&quot;Tencent Cloud and Baota Panel&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Server" scheme="http://laker.me/blog/categories/Server/"/>
+    
+    
+      <category term="Server" scheme="http://laker.me/blog/tags/Server/"/>
+    
+      <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
+    
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
+    
+  </entry>
   
   <entry>
     <title>AI learning 2：SVM Algorithm</title>
@@ -1271,61 +1324,6 @@ git commit -m&apos;merge&apos;
       <category term="SQL" scheme="http://laker.me/blog/tags/SQL/"/>
     
       <category term="Oracle" scheme="http://laker.me/blog/tags/Oracle/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ionic+Angular 开发移动应用七：打包APK文件</title>
-    <link href="http://laker.me/blog/2017/06/04/17_0604_ionic_7/"/>
-    <id>http://laker.me/blog/2017/06/04/17_0604_ionic_7/</id>
-    <published>2017-06-04T00:24:00.000Z</published>
-    <updated>2017-08-08T08:10:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170604.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="打包APK文件"></p>
-<a id="more"></a>
-<blockquote>
-<p>欢迎交换友链： <a href="http://laker.me/blog">Laker’s Blog–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
-</blockquote>
-<h2 id="打包正式apk："><a href="#打包正式apk：" class="headerlink" title="打包正式apk："></a>打包正式apk：</h2><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ionic build android -—<span class="built_in">release</span></div><div class="line"><span class="comment">// 不带 —-release 就是测试包</span></div></pre></td></tr></table></figure>
-<p>然后会根据<code>config.xml</code>配置生成apk，在<code>root/platforms/android/build/ouputs/apk</code> 里生成<code>android-release-unsigned.apk</code>，这个是未生成签名的apk</p>
-<h2 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h2><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -genkey -<span class="built_in">alias</span> <span class="built_in">demo</span>.keystore -keyalg RSA -validity <span class="number">40000</span> -keystore <span class="built_in">demo</span>.keystore</div></pre></td></tr></table></figure>
-<p>把demo换成你想要的名字</p>
-<p>然后设置密码、回答一系列问题</p>
-<blockquote>
-<p>注意：此demo.keystore证书要保留好，是app打包的唯一凭证，再生成就相当于另一个app</p>
-</blockquote>
-<h2 id="签名"><a href="#签名" class="headerlink" title="签名"></a>签名</h2><p>官网上的命令我运行了报错，经过查找资料用了这个命令：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jarsigner -verbose -keystore demo<span class="selector-class">.keystore</span> -signedjar demo_signed<span class="selector-class">.apk</span> android-release-unsigned<span class="selector-class">.apk</span> demo.keystore</div></pre></td></tr></table></figure></p>
-<p>替换以下内容</p>
-<ul>
-<li>demo.keystore：之前生成的keystore</li>
-<li>demo_signed.apk：自定义签名后的apk的名字</li>
-<li>android-release-unsigned.apk：之前build生成的文件</li>
-</ul>
-<p>运行结果：<br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">  ....</div><div class="line">  signing: res/xml/config.xml</div><div class="line">  signing: res/xml/provider_paths.xml</div><div class="line">  signing: resources.arsc</div><div class="line">jar <span class="built_in">signed</span>.</div><div class="line"></div><div class="line"><span class="literal">Warning</span>: </div><div class="line">No -tsa <span class="keyword">or</span> -tsacert <span class="keyword">is</span> provided <span class="keyword">and</span> this jar <span class="keyword">is</span> <span class="keyword">not</span> timestamped. Without a timestamp, users may <span class="keyword">not</span> be able <span class="keyword">to</span> validate this jar <span class="keyword">after</span> the signer certificate<span class="symbol">'s</span> expiration date (<span class="number">2126</span>-<span class="number">09</span>-<span class="number">10</span>) <span class="keyword">or</span> <span class="keyword">after</span> any future revocation date.</div></pre></td></tr></table></figure></p>
-<p>最后的报错是说没有提供时间戳，不影响。此时已经生成一个签名的apk，可以在手机上安装运行。</p>
-<h3 id="常见报错："><a href="#常见报错：" class="headerlink" title="常见报错："></a>常见报错：</h3><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Jar signer, Unable <span class="keyword">to</span> <span class="keyword">open</span> xxx.apk</div></pre></td></tr></table></figure>
-<p>keystore和未签名的apk不在一个路径，可以把他们剪切到一个目录下，或者在命令里指明路径，如:</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jarsigner -verbose -keystore path/demo<span class="selector-class">.keystore</span> -signedjar path/demo_signed<span class="selector-class">.apk</span> android-release-unsigned<span class="selector-class">.apk</span> demo.keystore</div></pre></td></tr></table></figure>
-<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>安装zipalign<br><figure class="highlight q"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></div></pre></td></tr></table></figure></p>
-<p>运行<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">zipalign</span> <span class="selector-tag">-v</span> 4 <span class="selector-tag">demo_signed</span><span class="selector-class">.apk</span> <span class="selector-tag">final</span><span class="selector-class">.apk</span></div></pre></td></tr></table></figure></p>
-<p>final.apk即最终编译出来的带签名的app，可用于正式发布<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">-<span class="ruby">c     Check alignment only (does <span class="keyword">not</span> modify file)</span></div><div class="line">-<span class="ruby">f     Overwrite existing outfile.zip</span></div><div class="line">-<span class="ruby">p     Page align stored shared object files</span></div><div class="line">-<span class="ruby">v     Verbose output</span></div><div class="line">-<span class="ruby">z     Recompress using Zopfli</span></div></pre></td></tr></table></figure></p>
-<p>卸载<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># 普通卸载</span></div><div class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">remove</span>  zipalign</div><div class="line"><span class="meta"># 把相关依赖也卸载</span></div><div class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">remove</span> --auto-<span class="keyword">remove</span> zipalign</div><div class="line"><span class="meta"># 把配置和数据也删除</span></div><div class="line">sudo apt-<span class="keyword">get</span> purge zipalign</div><div class="line"><span class="meta"># 把相关依赖、配置、数据卸载</span></div><div class="line">sudo apt-<span class="keyword">get</span> purge --auto-<span class="keyword">remove</span> zipalign</div></pre></td></tr></table></figure></p>
-<h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><p>直接将final.apk(可以修改文件名)发布于服务器或第三方平台即可</p>
-<p><a href="http://ionicframework.com/docs/guide/publishing.html" target="_blank" rel="external">参考1</a>， <a href="http://rasyid.net/2015/10/02/step-by-step-guide-create-apk-for-your-ionic-framework-project/" target="_blank" rel="external">参考2</a>， <a href="https://gist.github.com/leommoore/b441473ce4fb1a8cee97" target="_blank" rel="external">参考3</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170604.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;打包APK文件&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
-    
-    
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
-      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
     
   </entry>
   
