@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2018-11-14T08:21:29.000Z</updated>
+  <updated>2018-11-20T15:26:22.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -16,11 +16,81 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Install ThinkPHP in Tencent Cloud</title>
+    <link href="http://laker.me/blog/2018/11/20/18_1120_thinkphp_mysql/"/>
+    <id>http://laker.me/blog/2018/11/20/18_1120_thinkphp_mysql/</id>
+    <published>2018-11-20T00:24:00.000Z</published>
+    <updated>2018-11-20T15:26:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://wx4.sinaimg.cn/large/6d184cefly1fx7m4l3l8sj20p0046wf0.jpg" alt="Tencent Cloud and Baota Panel"></p>
+<a id="more"></a>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">laker.me</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Install ThinkPHP 5 in Baota Panel:</p>
+<p><img src="http://wx1.sinaimg.cn/mw690/6d184cefly1fxev3h4cgsj20vp0nu78l.jpg" alt="ThinkPHP"></p>
+<p>Choose ThinkPHP</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/6d184cefly1fxetszitejj21k40muag8.jpg" alt="ThinkPHP"></p>
+<p>Add your server infomation:</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/6d184cefly1fxettd9s42j20tw0pc76n.jpg" alt="server infomation"></p>
+<p>Finish installation</p>
+<p><img src="http://wx4.sinaimg.cn/mw690/6d184cefly1fxettjiz72j20oo0bgmyu.jpg" alt="Finish"></p>
+<p>You can visit your website now:</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/6d184cefly1fxettow4m5j20xk0m241h.jpg" alt="visit"></p>
+<p>You can edit the welcome message:</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/6d184cefly1fxetubwd72j216o0hs40u.jpg" alt="edit"></p>
+<h2 id="Create-a-database-table"><a href="#Create-a-database-table" class="headerlink" title="Create a database table"></a>Create a database table</h2><p>Manage your database:</p>
+<p><img src="http://wx2.sinaimg.cn/large/6d184cefly1fxetup3k4pj21sa0daad4.jpg" alt="database"></p>
+<p>Enter phpMyadmin:</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/6d184cefly1fxetuyfimpj21560gun16.jpg" alt="phpMyadmin"></p>
+<p>Create a user table:</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/6d184cefly1fxetv7rxffj20pl0el41v.jpg" alt="user table"></p>
+<p>Insert  a data for admin user:</p>
+<ul>
+<li>name: admin</li>
+<li>pwd: 21232f297a57a5a743894a0e4a801c3 (admin)</li>
+</ul>
+<h2 id="Create-a-login-page"><a href="#Create-a-login-page" class="headerlink" title="Create a login page"></a>Create a login page</h2><p>Connect ThinkPHP to database:</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/6d184cefly1fxetvu2j4ej20te0lk78l.jpg" alt="Connect"></p>
+<p>Edit config file for debug pattern:</p>
+<p><img src="http://wx4.sinaimg.cn/mw690/6d184cefly1fxetwn4el5j20v40jkwhw.jpg" alt="config"></p>
+<p>Add a view file:</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/6d184cefly1fxetwdrbq2j20le0ewq4d.jpg" alt="view"></p>
+<p><code>application/index/view/login/index.html</code></p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="meta">&lt;!DOCTYPE html&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Login system<span class="tag">&lt;/<span class="name">title</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"/static/bootstrap/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"> </div><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">"gray-bg"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-7"</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ibox float-e-margins"</span>&gt;</span>            </div><div class="line">              <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ibox-content"</span>&gt;</span></div><div class="line">                  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">                      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-6 b-r"</span>&gt;</span></div><div class="line">                          <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"m-t-none m-b"</span>&gt;</span>Login<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">                          <span class="tag">&lt;<span class="name">p</span>&gt;</span>Welcome (⊙o⊙)<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">                          <span class="tag">&lt;<span class="name">form</span> <span class="attr">role</span>=<span class="string">"form"</span> <span class="attr">action</span>=<span class="string">"</span></span><span class="template-variable">&#123;:url('login/dologin')&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span></div><div class="line">                              <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">                                  <span class="tag">&lt;<span class="name">label</span>&gt;</span>Useranme<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">                                  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"Input your name"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">name</span>=<span class="string">"user_name"</span>&gt;</span></div><div class="line">                              <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                              <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">                                  <span class="tag">&lt;<span class="name">label</span>&gt;</span>Password<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">                                  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">placeholder</span>=<span class="string">"Input your password"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">name</span>=<span class="string">"user_pwd"</span>&gt;</span></div><div class="line">                              <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                              <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">                                  <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-sm btn-primary pull-right m-t-n-xs"</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>Login<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></div><div class="line">                                  <span class="tag">&lt;/<span class="name">button</span>&gt;</span>                                </div><div class="line">                              <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                          <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line">                      <span class="tag">&lt;/<span class="name">div</span>&gt;</span>                     </div><div class="line">                  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">              <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/static/js/jquery.min.js?v=2.1.4"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/static/bootstrap/js/bootstrap.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Add controller Login:<br><code>application/index/controller/Login.php</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?php</span></span></div><div class="line"><span class="keyword">namespace</span> <span class="title">app</span>\<span class="title">index</span>\<span class="title">controller</span>;</div><div class="line"> </div><div class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Controller</span>;</div><div class="line"> </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Login</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">    <span class="comment">// Deal with login</span></div><div class="line">      <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;fetch();</div><div class="line">      </div><div class="line">    &#125; </div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">doLogin</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">      $param = input(<span class="string">'post.'</span>);</div><div class="line">      <span class="keyword">if</span>(<span class="keyword">empty</span>($param[<span class="string">'user_name'</span>]))&#123;</div><div class="line">        </div><div class="line">        <span class="keyword">$this</span>-&gt;error(<span class="string">'Username can'</span>t be <span class="keyword">null</span><span class="string">');</span></div><div class="line">      &#125;</div><div class="line">      </div><div class="line">      if(empty($param['user_pwd<span class="string">']))&#123;</span></div><div class="line">        </div><div class="line">        $this-&gt;error('Password can<span class="string">'t be null'</span>);</div><div class="line">      &#125;</div><div class="line">      </div><div class="line">      <span class="comment">// Check username</span></div><div class="line">      $has = db(<span class="string">'users'</span>)-&gt;where(<span class="string">'user_name'</span>, $param[<span class="string">'user_name'</span>])-&gt;find();</div><div class="line">      <span class="keyword">if</span>(<span class="keyword">empty</span>($has))&#123;</div><div class="line">        </div><div class="line">        <span class="keyword">$this</span>-&gt;error(<span class="string">'Usename or password is wrong'</span>);</div><div class="line">      &#125;</div><div class="line">      </div><div class="line">      <span class="comment">// Check password</span></div><div class="line">      <span class="keyword">if</span>($has[<span class="string">'user_pwd'</span>] != md5($param[<span class="string">'user_pwd'</span>]))&#123;</div><div class="line">        </div><div class="line">        <span class="keyword">$this</span>-&gt;error(<span class="string">'Usename or password is wrong'</span>);</div><div class="line">      &#125;</div><div class="line">      </div><div class="line">      <span class="comment">// Remember the user infomation</span></div><div class="line">      cookie(<span class="string">'user_id'</span>, $has[<span class="string">'id'</span>], <span class="number">3600</span>);  <span class="comment">// One month's validity period</span></div><div class="line">      cookie(<span class="string">'user_name'</span>, $has[<span class="string">'user_name'</span>], <span class="number">3600</span>);</div><div class="line">      </div><div class="line">      <span class="keyword">$this</span>-&gt;redirect(url(<span class="string">'index/index'</span>));</div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Visit：</p>
+<p><img src="http://wx3.sinaimg.cn/mw690/6d184cefly1fxetxc6oiyj20w00ek40g.jpg" alt="Success"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://wx4.sinaimg.cn/large/6d184cefly1fx7m4l3l8sj20p0046wf0.jpg&quot; alt=&quot;Tencent Cloud and Baota Panel&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Server" scheme="http://laker.me/blog/categories/Server/"/>
+    
+    
+      <category term="Server" scheme="http://laker.me/blog/tags/Server/"/>
+    
+      <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
+    
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
+    
+      <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
+    
+      <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
+    
+  </entry>
+  
+  <entry>
     <title>First step in Tencent Cloud and Baota Panel</title>
-    <link href="http://laker.me/blog/2018/11/14/18_1113_tencent_cloud/"/>
-    <id>http://laker.me/blog/2018/11/14/18_1113_tencent_cloud/</id>
-    <published>2018-11-14T00:24:00.000Z</published>
-    <updated>2018-11-14T08:21:29.000Z</updated>
+    <link href="http://laker.me/blog/2018/11/13/18_1113_tencent_cloud/"/>
+    <id>http://laker.me/blog/2018/11/13/18_1113_tencent_cloud/</id>
+    <published>2018-11-13T00:24:00.000Z</published>
+    <updated>2018-11-13T08:27:44.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://wx4.sinaimg.cn/large/6d184cefly1fx7m4l3l8sj20p0046wf0.jpg" alt="Tencent Cloud and Baota Panel"></p>
 <a id="more"></a>
@@ -1264,66 +1334,6 @@ git commit -m&apos;merge&apos;
       <category term="JavaScript" scheme="http://laker.me/blog/tags/JavaScript/"/>
     
       <category term="Canvas" scheme="http://laker.me/blog/tags/Canvas/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>记一次数据库导入的过程</title>
-    <link href="http://laker.me/blog/2017/06/06/17_0606_sql/"/>
-    <id>http://laker.me/blog/2017/06/06/17_0606_sql/</id>
-    <published>2017-06-06T00:24:00.000Z</published>
-    <updated>2017-07-18T02:39:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170605.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="Title"></p>
-<a id="more"></a>
-<blockquote>
-<p>欢迎交换友链： <a href="http://laker.me/blog">Laker’s Blog–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
-</blockquote>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>系统运行两年，员工信息变动大，但是系统未与HR系统对接，导致本系统人员信息滞后。现需要导入新的员工信息，并为其创建账号。</p>
-<h2 id="创建临时表导入最新员工信息"><a href="#创建临时表导入最新员工信息" class="headerlink" title="创建临时表导入最新员工信息"></a>创建临时表导入最新员工信息</h2><p>从HR得到一个最新全司员工信息的 Excel 表格，包含工号、姓名、部门。</p>
-<h3 id="导入临时表"><a href="#导入临时表" class="headerlink" title="导入临时表"></a>导入临时表</h3><p>新建临时表 tmp，新建字段（取 employee 表的必填字段即可），按正式的员工数据表的字段设置类型。导入 Excel，选择 Excel 列对应相应字段。</p>
-<p>tmp 字段：</p>
-<ul>
-<li>serial_id：工号</li>
-<li>user_name：姓名</li>
-<li>dep_name：部门名</li>
-<li>dep_id：部门id</li>
-<li>employee_id：对应 employee 表的自增序列 sequence</li>
-</ul>
-<h3 id="去重"><a href="#去重" class="headerlink" title="去重"></a>去重</h3><p>把 tmp 里已存在于 employee 表里的员工删除</p>
-<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> tmp</div><div class="line"><span class="keyword">where</span> serial_id <span class="keyword">in</span> (</div><div class="line">    <span class="keyword">select</span> serial_id <span class="keyword">from</span> employee</div><div class="line">)</div></pre></td></tr></table></figure>
-<p>剩下的就是新增的员工</p>
-<h3 id="更新部门id"><a href="#更新部门id" class="headerlink" title="更新部门id"></a>更新部门id</h3><p>Excel 表里只有部门名称，要把 tmp 表里的部门名找到对应的部门id</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">update tmp <span class="selector-tag">a</span></div><div class="line">set <span class="selector-tag">a</span><span class="selector-class">.dep_id</span> = (</div><div class="line">    select <span class="selector-tag">b</span><span class="selector-class">.section_id</span> from sectioninfo <span class="selector-tag">b</span></div><div class="line">    where <span class="selector-tag">a</span><span class="selector-class">.dep_name</span> = <span class="selector-tag">b</span><span class="selector-class">.section_name</span></div><div class="line">)</div></pre></td></tr></table></figure>
-<h3 id="处理部门数据"><a href="#处理部门数据" class="headerlink" title="处理部门数据"></a>处理部门数据</h3><p>会出现 HR 给的 Excel 表里部门名称与系统对应的名称不一致，导致无法匹配部门id，只能手动修改。</p>
-<p>在 SQL developer 里操作不方便，可以把 tmp 数据导出 Excel 表进行操作，手动补充部门id。</p>
-<p>清空 tmp 数据，导入新 Excel。</p>
-<h3 id="把-tmp-插入-employee"><a href="#把-tmp-插入-employee" class="headerlink" title="把 tmp 插入 employee"></a>把 tmp 插入 employee</h3><p>把 tmp 插入 employee，对应好字段，注意必填字段必须导入或设置自非空定义值（可以参考 employee 里已有的数据格式）</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> employee(</div><div class="line">	employee_id,</div><div class="line">	serial_id,</div><div class="line">	user_name,</div><div class="line">	domain_name,</div><div class="line">	created_by</div><div class="line">)</div><div class="line"><span class="keyword">select</span> saaf_employee_s.nextval,</div><div class="line">    # employee 表的 <span class="keyword">sequence</span>，取系一个值。<span class="keyword">sequence</span> 在数据库 &gt; 序列 里查找</div><div class="line">	serial_id,</div><div class="line">	user_name,</div><div class="line">	user_name,</div><div class="line">	<span class="number">-1</span></div><div class="line"><span class="keyword">from</span> tmp</div><div class="line"><span class="keyword">where</span> serial_id <span class="keyword">not</span> <span class="keyword">in</span> (</div><div class="line">	<span class="keyword">select</span> serial_id <span class="keyword">from</span> employee</div><div class="line">)</div></pre></td></tr></table></figure>
-<h3 id="建立部门和员工的关系"><a href="#建立部门和员工的关系" class="headerlink" title="建立部门和员工的关系"></a>建立部门和员工的关系</h3><p>本系统中，部门和员工关系在 sectioninfo_employee 表里。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> sectioninfo_employee(</div><div class="line">		se_id,</div><div class="line">		employee_id,</div><div class="line">		isval,</div><div class="line">		section_id,</div><div class="line">		creation_date)</div><div class="line"><span class="keyword">select</span> sectioninfo_employee_s.nextval,</div><div class="line">	employee_id,</div><div class="line">	<span class="number">1</span>,</div><div class="line">	dep_id,</div><div class="line">	<span class="keyword">to_date</span>(<span class="string">'14-4月-17'</span>,<span class="string">'dd-mon-rr'</span>)</div><div class="line"><span class="keyword">from</span> tmp</div><div class="line"><span class="keyword">where</span> serial_id <span class="keyword">in</span> (</div><div class="line">	<span class="keyword">select</span> serial_id <span class="keyword">from</span> tmp</div><div class="line">)</div></pre></td></tr></table></figure>
-<h3 id="新建账号"><a href="#新建账号" class="headerlink" title="新建账号"></a>新建账号</h3><p>查找 epmloyee 表里工号不在账户表 users 的人员，新建账号</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> saaf_users(</div><div class="line">	user_id,</div><div class="line">	user_name,</div><div class="line">	user_full_name,</div><div class="line">	encrypted_password</div><div class="line">)</div><div class="line"><span class="keyword">select</span> users_s.nextval, # <span class="keyword">users</span> 表的 <span class="keyword">sequence</span></div><div class="line">	serial_id,</div><div class="line">	user_name,</div><div class="line">	<span class="string">'*********'</span>, # 加密密码。从已有的数据里选一个做默认密码</div><div class="line"><span class="keyword">from</span> saaf_employee</div><div class="line"><span class="keyword">where</span> serial_id <span class="keyword">not</span> <span class="keyword">in</span> (</div><div class="line">	<span class="keyword">select</span> user_name <span class="keyword">from</span> saaf_users</div><div class="line">)</div></pre></td></tr></table></figure>
-<p>按理说就能用新账号登录了，但是一直并无法登录。往回查错。</p>
-<p>所有的必填字段都已经有相应的值，按道理说应该能运行了。</p>
-<p>我就导出 users 表 ，用原有数据和新插入的数据进行对比，发现新插入的数据比旧数据唯一哦的差别在于一个值 <code>start_date_active</code>，生效时间的字段。此字段非必填，但是程序里做了控制，登录时系统要判断账号是否生效，没有生效日期就不能使用。在系统界面里新建是账号的时候默认是 新建当日，而刚刚SQL操作的时候被忽略了。</p>
-<p>查找出今日操作的数据，更新生效日期：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">update</span> saaf_users</div><div class="line"><span class="keyword">set</span> start_date_active = <span class="keyword">to_date</span>(<span class="string">'14-6月-6'</span>,<span class="string">'dd-mon-rr'</span>)</div><div class="line"><span class="keyword">where</span> creation_date = <span class="keyword">to_date</span>(<span class="string">'14-6月-6'</span>,<span class="string">'dd-mon-rr'</span>)</div></pre></td></tr></table></figure>
-<p>完成</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170605.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;Title&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="SQL" scheme="http://laker.me/blog/categories/SQL/"/>
-    
-    
-      <category term="SQL" scheme="http://laker.me/blog/tags/SQL/"/>
-    
-      <category term="Oracle" scheme="http://laker.me/blog/tags/Oracle/"/>
     
   </entry>
   
