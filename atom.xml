@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2018-11-20T15:26:22.000Z</updated>
+  <updated>2018-11-28T02:58:34.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Develope WeChat Official Account&#39;s Hello Message</title>
+    <link href="http://laker.me/blog/2018/11/25/18_1125_wechat_hello/"/>
+    <id>http://laker.me/blog/2018/11/25/18_1125_wechat_hello/</id>
+    <published>2018-11-25T00:24:00.000Z</published>
+    <updated>2018-11-28T02:58:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://wx2.sinaimg.cn/large/6d184cefly1fxnkwi98vuj20p0046dg6.jpg" alt="Develope WeChat Official Account&#39;s Hello Message"></p>
+<a id="more"></a>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">laker.me</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+<h2 id="Apply-test-account"><a href="#Apply-test-account" class="headerlink" title="Apply test account"></a>Apply test account</h2><p>Apply for Wechat testing account:</p>
+<p><a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421137524" target="_blank" rel="external">https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421137524</a></p>
+<p><img src="http://wx4.sinaimg.cn/mw690/6d184cefly1fxetxsngt1j20x40hqdif.jpg" alt="Application"></p>
+<h2 id="Connect-WeChat-server-with"><a href="#Connect-WeChat-server-with" class="headerlink" title="Connect WeChat server with"></a>Connect WeChat server with</h2><p>Enter your testing account, and set your server address and the director <code>wx</code> for WeChat server. Set a token name what ever you like: </p>
+<p><img src="http://wx4.sinaimg.cn/mw690/6d184cefly1fxev12r26ej20jq0boq3p.jpg" alt="token name"></p>
+<p>Enter your Baota Panel, new a file <code>wx</code> in <code>application/public/</code></p>
+<p><img src="http://wx2.sinaimg.cn/mw690/6d184cefly1fxeycapacwj20q00faabs.jpg" alt="Baota Panel"></p>
+<p>Add a new file  <code>index.php</code> in <code>wx</code></p>
+<p>Function:</p>
+<ul>
+<li>Connect to WeChat server</li>
+<li>When someone subscribes, reply a hello message</li>
+<li>When get user text messge, reply what he sent</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?php</span></span></div><div class="line">    <span class="comment">/*</span></div><div class="line">    * Connect to WeChat server</div><div class="line">    */</div><div class="line">    <span class="comment">// Get signature nonce token timestamp echostr</span></div><div class="line">    $nonce     = $_GET[<span class="string">'nonce'</span>];</div><div class="line">    $token     = <span class="string">'YOUR_TOKEN'</span>;</div><div class="line">    $timestamp = $_GET[<span class="string">'timestamp'</span>];</div><div class="line">    $echostr   = $_GET[<span class="string">'echostr'</span>];</div><div class="line">    $signature = $_GET[<span class="string">'signature'</span>];</div><div class="line">    <span class="comment">// Set it as array, and sort</span></div><div class="line">    $array = <span class="keyword">array</span>();</div><div class="line">    $array = <span class="keyword">array</span>($nonce, $timestamp, $token);</div><div class="line">    sort($array);</div><div class="line">    <span class="comment">// Join them as a string, use sha1 to encrypt, and check with signature</span></div><div class="line">    $str = sha1( implode( $array ) );</div><div class="line">    </div><div class="line">    <span class="comment">//The first time weixin api</span></div><div class="line">    <span class="keyword">if</span>( $str == $signature &amp;&amp; $echostr )&#123;</div><div class="line">        <span class="keyword">echo</span>  $echostr;</div><div class="line">        <span class="keyword">exit</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">/*</span></div><div class="line">        * When someone subscribes, reply a hello message</div><div class="line">        */</div><div class="line">        <span class="comment">// 1. Get the posted xml data from Weixin</span></div><div class="line">        $postArr = $GLOBALS[<span class="string">'HTTP_RAW_POST_DATA'</span>];</div><div class="line">        <span class="comment">// 2. Deal with message type and set reply type and content</span></div><div class="line">        $postObj = simplexml_load_string( $postArr );</div><div class="line">        <span class="comment">// Check if the data is subscription event</span></div><div class="line">        <span class="keyword">if</span>( strtolower( $postObj-&gt;MsgType) == <span class="string">'event'</span>)&#123;</div><div class="line">            <span class="comment">// If it'is subscribe event</span></div><div class="line">            <span class="keyword">if</span>( strtolower($postObj-&gt;Event == <span class="string">'subscribe'</span>) )&#123;</div><div class="line">                <span class="comment">// Reply text message </span></div><div class="line">                $toUser   = $postObj-&gt;FromUserName;</div><div class="line">                $fromUser = $postObj-&gt;ToUserName;</div><div class="line">                $time     = time();</div><div class="line">                $msgType  =  <span class="string">'text'</span>;</div><div class="line">                $content  = <span class="string">'Hello, welcome~ '</span>.$postObj-&gt;FromUserName.<span class="string">'-'</span>.$postObj-&gt;ToUserName;;</div><div class="line">                $template = <span class="string">"&lt;xml&gt;</span></div><div class="line">                                &lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;</div><div class="line">                                &lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;</div><div class="line">                                &lt;CreateTime&gt;%s&lt;/CreateTime&gt;</div><div class="line">                                &lt;MsgType&gt;&lt;![CDATA[%s]]&gt;&lt;/MsgType&gt;</div><div class="line">                                &lt;Content&gt;&lt;![CDATA[%s]]&gt;&lt;/Content&gt;</div><div class="line">                                &lt;/xml&gt;";</div><div class="line">                $info     = sprintf($template, $toUser, $fromUser, $time, $msgType, $content);</div><div class="line">                <span class="keyword">echo</span> $info;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">/*</span></div><div class="line">        * When get user text messge, reply what he sent</div><div class="line">        */</div><div class="line">        <span class="comment">// Check if the data is text</span></div><div class="line">        <span class="keyword">if</span>( strtolower( $postObj-&gt;MsgType) == <span class="string">'text'</span>)&#123;</div><div class="line">             <span class="comment">// Get text message</span></div><div class="line">        $content = $postObj-&gt;Content;</div><div class="line">                <span class="comment">// Reply text message </span></div><div class="line">                $toUser   = $postObj-&gt;FromUserName;</div><div class="line">                $fromUser = $postObj-&gt;ToUserName;</div><div class="line">                $time     = time();</div><div class="line">                $msgType  =  <span class="string">'text'</span>;</div><div class="line">                $content  = <span class="string">'The content you sent is '</span>.$content;</div><div class="line">                $template = <span class="string">"&lt;xml&gt;</span></div><div class="line">                                &lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;</div><div class="line">                                &lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;</div><div class="line">                                &lt;CreateTime&gt;%s&lt;/CreateTime&gt;</div><div class="line">                                &lt;MsgType&gt;&lt;![CDATA[%s]]&gt;&lt;/MsgType&gt;</div><div class="line">                                &lt;Content&gt;&lt;![CDATA[%s]]&gt;&lt;/Content&gt;</div><div class="line">                                &lt;/xml&gt;";</div><div class="line">                $info     = sprintf($template, $toUser, $fromUser, $time, $msgType, $content);</div><div class="line">                <span class="keyword">echo</span> $info;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>In  Official Accounts，when you subscibe, it will say hello to you . When you send a text, it will send what you sent:</p>
+<p><img src="http://wx4.sinaimg.cn/mw690/6d184cefly1fxnj4rdnwbj20u00w1jvy.jpg" alt="Done"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://wx2.sinaimg.cn/large/6d184cefly1fxnkwi98vuj20p0046dg6.jpg&quot; alt=&quot;Develope WeChat Official Account&amp;#39;s Hello Message&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Server" scheme="http://laker.me/blog/categories/Server/"/>
+    
+    
+      <category term="Server" scheme="http://laker.me/blog/tags/Server/"/>
+    
+      <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
+    
+      <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
+    
+      <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
+    
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
+    
+      <category term="Wechat" scheme="http://laker.me/blog/tags/Wechat/"/>
+    
+  </entry>
   
   <entry>
     <title>Install ThinkPHP in Tencent Cloud</title>
@@ -77,11 +131,11 @@
     
       <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
     
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
-    
       <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
     
       <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
+    
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
     
   </entry>
   
@@ -1262,78 +1316,6 @@ git commit -m&apos;merge&apos;
       <category term="JavaScript" scheme="http://laker.me/blog/tags/JavaScript/"/>
     
       <category term="Vue.js" scheme="http://laker.me/blog/tags/Vue-js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>EasyCanvas：连续画图的一些总结</title>
-    <link href="http://laker.me/blog/2017/06/15/17_0615_easy_canvas/"/>
-    <id>http://laker.me/blog/2017/06/15/17_0615_easy_canvas/</id>
-    <published>2017-06-15T00:24:00.000Z</published>
-    <updated>2017-07-18T02:39:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170615.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="Easy Canvas"></p>
-<a id="more"></a>
-<blockquote>
-<p>欢迎交换友链： <a href="http://laker.me/blog">Laker’s Blog–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
-</blockquote>
-<hr>
-<p>自己造轮子，写一个 Canvas 绘图库 <a href="https://github.com/younglaker/EasyCanvas" target="_blank" rel="external">EasyCanvas</a> ，master 分支上已完成基本图形的绘制。我开始思考如何让这个框架更高效地绘制，接口的设计比实现头痛多了。</p>
-<blockquote>
-<p>欢迎有兴趣的朋友加入本框架的编写中，或者提供修改建议。V信：lakerHQ</p>
-</blockquote>
-<h2 id="最初的设计"><a href="#最初的设计" class="headerlink" title="最初的设计"></a>最初的设计</h2><p>目前 master 分支上的版本的配置里的 points 传入坐标，不同的画图功能，points 是不同含义。</p>
-<p>例如画线，第一组数组是起始点，后面依次是下一个绘制点，就可以连续画线：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">b</span><span class="selector-class">.line</span>(&#123;</div><div class="line">    <span class="attribute">points</span>: [[<span class="number">10</span>, <span class="number">100</span>], [<span class="number">200</span>, <span class="number">100</span>], [<span class="number">10</span>, <span class="number">200</span>]]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>例如画二次贝塞尔曲线，三组坐标分别是开始点、控制点、结束点：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">b</span><span class="selector-class">.bezier</span>(&#123;</div><div class="line">    <span class="attribute">points</span>: [[<span class="number">20</span>, <span class="number">20</span>],  [<span class="number">200</span>, <span class="number">100</span>], [<span class="number">200</span>, <span class="number">20</span>]]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>例如画矩形，points是矩形左上角坐标，矩形长宽另写：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">b</span><span class="selector-class">.rect</span>(&#123;</div><div class="line">    <span class="attribute">points</span>: [<span class="number">10</span>, <span class="number">50</span>],</div><div class="line">    rectWidth: <span class="number">300</span>,</div><div class="line">    rectHeight: <span class="number">200</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul>
-<li>按目前的设计，除了画直线，连续画图要多次调用同一个方法，如：</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">b</span><span class="selector-class">.bezier</span>(&#123;</div><div class="line">    <span class="attribute">points</span>: [[<span class="number">20</span>, <span class="number">20</span>],  [<span class="number">200</span>, <span class="number">100</span>], [<span class="number">200</span>, <span class="number">20</span>]]，</div><div class="line">    color: <span class="string">"#00f"</span>,</div><div class="line">    shadowColor: <span class="string">"#000"</span></div><div class="line">&#125;)<span class="selector-class">.bezier</span>(&#123;</div><div class="line">    <span class="attribute">points</span>: [[<span class="number">10</span>, <span class="number">10</span>],  [<span class="number">100</span>, <span class="number">100</span>], [<span class="number">100</span>, <span class="number">10</span>]]，</div><div class="line">    color: <span class="string">"#00f"</span>,</div><div class="line">    shadowColor: <span class="string">"#000"</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>上述代码想画两条同样样式的曲线，但是写法过于累赘，并且两条曲线是不相连接。</p>
-<ul>
-<li>必要的属性分开写，增加代码量。例如画矩形必须提供起始坐标和长宽，把基本值分开书写徒增代码量：</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">b</span><span class="selector-class">.rect</span>(&#123;</div><div class="line">    <span class="attribute">points</span>: [<span class="number">10</span>, <span class="number">50</span>],</div><div class="line">    rectWidth: <span class="number">300</span>,</div><div class="line">    rectHeight: <span class="number">200</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h2 id="改进方案："><a href="#改进方案：" class="headerlink" title="改进方案："></a>改进方案：</h2><p>目标：</p>
-<ul>
-<li>只写一次方法就能连续画图</li>
-<li>缩减不必要的代码</li>
-</ul>
-<p>所以把配置的 points 去掉，所有基本配置由 basic 传入。</p>
-<p>例如画一条连续的二次贝塞尔曲线，坐标两两成一组，曲线第一笔画的最后一组坐标（200, 10）是二笔画的起始点，这样既节省代码，又避免修改的时候出错：</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">b.bezier(&#123;</div><div class="line"><span class="symbol">    shadow:</span> [<span class="number">1</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="string">"#0f0"</span>],</div><div class="line"><span class="symbol">    color:</span> <span class="string">"#0000ff"</span>,</div><div class="line"><span class="symbol">    shadowColor:</span> <span class="string">"#000"</span>,</div><div class="line"><span class="symbol">    basic:</span> [</div><div class="line">            [<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">100</span>, <span class="number">200</span>, <span class="number">10</span>], <span class="comment">//曲线第一笔画</span></div><div class="line">            [<span class="number">30</span>, <span class="number">100</span>, <span class="number">300</span>, <span class="number">10</span>] <span class="comment">//曲线第二笔画</span></div><div class="line">           ]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>例如画多条的二次贝塞尔曲线：</p>
-<figure class="highlight prolog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">b.bezier(&#123;</div><div class="line">    shadow: [<span class="number">1</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="string">"#0f0"</span>],</div><div class="line">    color: <span class="string">"#0000ff"</span>,</div><div class="line">    shadowColor: <span class="string">"#000"</span>,</div><div class="line">    basic: [    //第一条曲线</div><div class="line">            [<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">100</span>, <span class="number">200</span>, <span class="number">10</span>],</div><div class="line">            [<span class="number">30</span>, <span class="number">100</span>, <span class="number">300</span>, <span class="number">10</span>]</div><div class="line">           ],</div><div class="line">    basic1: [    //第二条曲线</div><div class="line">            [<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">10</span>],</div><div class="line">            [<span class="number">40</span>, <span class="number">100</span>, <span class="number">400</span>, <span class="number">10</span>],</div><div class="line">            [<span class="number">50</span>, <span class="number">120</span>, <span class="number">200</span>, <span class="number">60</span>]</div><div class="line">           ],</div><div class="line">    .....</div><div class="line">    basicN: []</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>例如画矩形， basic 的参数依此代码起始点横纵坐标、长宽：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">b</span><span class="selector-class">.rect</span>(&#123;</div><div class="line">    <span class="attribute">color</span>: <span class="string">"#0000ff"</span>,</div><div class="line">    basic: [<span class="number">10</span>, <span class="number">10</span>, <span class="number">50</span>, <span class="number">100</span>]</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="selector-tag">b</span><span class="selector-class">.rect</span>(&#123;</div><div class="line">    <span class="attribute">color</span>: <span class="string">"#0000ff"</span>,</div><div class="line"></div><div class="line">    basic: [<span class="number">10</span>, <span class="number">10</span>, <span class="number">50</span>, <span class="number">100</span>],</div><div class="line">    basic1: [<span class="number">20</span>, <span class="number">30</span>, <span class="number">550</span>, <span class="number">120</span>]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>最开始设计的时候，为了表意明确，把坐标、长宽都独立成一个设置值，但是这几个值都是画图最基本的参数，并且参考 CSS 样式、Canva s画图的参数设置方式，也就决定把基本值合并在一个 basic 设置里。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>画曲线部分下一笔画的开始时上一笔画的结束，代码实现方案有两种：</p>
-<ul>
-<li>把上一笔画的结束点 unshift 到下一笔画的数值最开始</li>
-<li>绘制时判断是否第一笔画，进行相应操作</li>
-</ul>
-<p>我选择了第二种方案，代码如下：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> *  Draw quadratic curve</div><div class="line"> */</div><div class="line">bezier: function(settings) &#123;</div><div class="line">	<span class="keyword">var</span> opt = _extendDefaults(<span class="keyword">this</span>.defaults, settings);</div><div class="line">	<span class="keyword">var</span> bs = &#123;&#125;;</div><div class="line"></div><div class="line">	_setOpt(<span class="keyword">this</span>.ctx, opt);</div><div class="line"></div><div class="line">	<span class="comment">// 遍历所有设置</span></div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> opt) &#123;</div><div class="line">		<span class="comment">// 把 basic 设置放入 bs</span></div><div class="line">		<span class="keyword">if</span> (!!i.match(/basic/))</div><div class="line">			<span class="comment">// 给 “baisc” 填充成 “baisc0”，方便后续遍历</span></div><div class="line">			bs[!!i.match(/basic\d+/) ? i : i + <span class="string">"0"</span>] = opt[i];</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; Object.keys(bs).length; i++) &#123;</div><div class="line">		<span class="keyword">var</span> basic = bs[<span class="string">"basic"</span> + i];</div><div class="line"></div><div class="line">		<span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; basic.length; j++) &#123;</div><div class="line"></div><div class="line">			<span class="keyword">if</span> (j === <span class="number">0</span>) &#123;	<span class="comment">// basic0</span></div><div class="line">				<span class="keyword">this</span>.ctx.moveTo(basic[j][<span class="number">0</span>], basic[j][<span class="number">3</span>]);</div><div class="line">				<span class="keyword">this</span>.ctx.quadraticCurveTo(basic[j][<span class="number">2</span>], basic[j][<span class="number">3</span>], basic[j][<span class="number">4</span>], basic[j][<span class="number">5</span>]);</div><div class="line"></div><div class="line">			&#125; <span class="keyword">else</span> &#123;	<span class="comment">// 其他basic使用上一笔画的结束点作为此笔画的起始点</span></div><div class="line">				<span class="keyword">this</span>.ctx.moveTo(basic[j - <span class="number">1</span>][<span class="number">4</span>], basic[j - <span class="number">1</span>][<span class="number">5</span>]);</div><div class="line">				<span class="keyword">this</span>.ctx.quadraticCurveTo(basic[j][<span class="number">0</span>], basic[j][<span class="number">4</span>], basic[j][<span class="number">2</span>], basic[j][<span class="number">3</span>]);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">this</span>.ctx.fill();</div><div class="line">	<span class="keyword">this</span>.ctx.stroke();</div><div class="line">	<span class="keyword">this</span>.ctx.closePath();</div><div class="line"></div><div class="line">	<span class="keyword">this</span>._renewDefaults();</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170615.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;Easy Canvas&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="HTML5" scheme="http://laker.me/blog/categories/HTML5/"/>
-    
-    
-      <category term="HTML5" scheme="http://laker.me/blog/tags/HTML5/"/>
-    
-      <category term="JavaScript" scheme="http://laker.me/blog/tags/JavaScript/"/>
-    
-      <category term="Canvas" scheme="http://laker.me/blog/tags/Canvas/"/>
     
   </entry>
   
