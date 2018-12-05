@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2018-11-28T03:06:10.000Z</updated>
+  <updated>2018-12-05T07:16:31.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,69 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WeChat Official Accounts with Access_token and Menu</title>
+    <link href="http://laker.me/blog/2018/12/05/18_1205_wechat/"/>
+    <id>http://laker.me/blog/2018/12/05/18_1205_wechat/</id>
+    <published>2018-12-05T00:24:00.000Z</published>
+    <updated>2018-12-05T07:16:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://wx2.sinaimg.cn/large/6d184cefly1fxnkwi98vuj20p0046dg6.jpg" alt="WeChat Official Accounts: Access_token and Menu"></p>
+<a id="more"></a>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">laker.me</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+<h2 id="Get-Access-token"><a href="#Get-Access-token" class="headerlink" title="Get Access_token"></a>Get Access_token</h2><p>Add your Official Accounts appID and appsecret to get access_token, and remember it.</p>
+<p><a href="https://mp.weixin.qq.com/debug/cgi-bin/apiinfo?t=index&amp;type=%E5%9F%BA%E7%A1%80%E6%94%AF%E6%8C%81&amp;form=%E8%8E%B7%E5%8F%96access_token%E6%8E%A5%E5%8F%A3%20/token" target="_blank" rel="external">https://mp.weixin.qq.com/debug/cgi-bin/apiinfo?t=index&amp;type=%E5%9F%BA%E7%A1%80%E6%94%AF%E6%8C%81&amp;form=%E8%8E%B7%E5%8F%96access_token%E6%8E%A5%E5%8F%A3%20/token</a></p>
+<p>In your database, new a table using this sql code,  and modify your Official Accounts appID, appsecret and access_token in <code>&#39;your_appid&#39;, &#39;your_appsecret&#39;, &#39;your_access_token&#39;</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> <span class="string">`wxtoken`</span> (</div><div class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`appid`</span> <span class="built_in">varchar</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`appsecret`</span> <span class="built_in">varchar</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`access_token`</span> <span class="built_in">varchar</span>(<span class="number">1024</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`AccessExpires`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`TIMESTAMP`</span> <span class="keyword">timestamp</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">CURRENT_TIMESTAMP</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="keyword">CURRENT_TIMESTAMP</span></div><div class="line">    ) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> AUTO_INCREMENT=<span class="number">1</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`wxtoken`</span> (<span class="string">`id`</span>, <span class="string">`appid`</span>, <span class="string">`appsecret`</span>, <span class="string">`access_token`</span>, <span class="string">`AccessExpires`</span>, <span class="string">`TIMESTAMP`</span>) <span class="keyword">VALUES</span></div><div class="line">(<span class="number">1</span>, <span class="string">'your_appid'</span>, <span class="string">'your_appsecret'</span>, <span class="string">'your_access_token'</span>, <span class="number">1543244037</span>, <span class="string">'2018-11-26 12:53:57'</span>);</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`wxtoken`</span></div><div class="line">  <span class="keyword">ADD</span> PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>);</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`wxtoken`</span></div><div class="line">  <span class="keyword">MODIFY</span> <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,AUTO_INCREMENT=<span class="number">2</span>;</div></pre></td></tr></table></figure>
+<p>And a <code>wx</code> directory in ThinkPHP project: </p>
+<p><img src="http://wx3.sinaimg.cn/mw690/6d184cefly1fxnhyj36c1j20j20hodh5.jpg" alt="wx directory"></p>
+<p>New a <code>controller</code> directory and <code>index.php</code>:</p>
+<p><img src="http://wx4.sinaimg.cn/mw690/6d184cefly1fxnhypexuij20je0d2jsg.jpg" alt="controller"></p>
+<p>Add this code to <code>Index.php</code>, and modify your Official Accounts appID and appsecret in <code>&quot;你的公众号appid&quot;,&quot;你的公众号appsecret&quot;</code> :</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    $access_token = <span class="keyword">$this</span>-&gt;getToken();</div><div class="line">    <span class="keyword">echo</span> $access_token;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getToken</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;checkAccessToken(<span class="string">"你的公众号appid"</span>,<span class="string">"你的公众号appsecret"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkAccessToken</span><span class="params">($appid,$appsecret)</span></span>&#123;</div><div class="line">    $condition = <span class="keyword">array</span>(<span class="string">'appid'</span>=&gt;$appid,<span class="string">'appsecret'</span>=&gt;$appsecret);</div><div class="line">    $access_token_set=DB(<span class="string">'wxtoken'</span>)-&gt;where($condition)-&gt;find();<span class="comment">//获取数据</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span>($access_token_set)&#123;</div><div class="line">        <span class="comment">//检查是否超时，超时了重新获取</span></div><div class="line">        <span class="keyword">if</span>($access_token_set[<span class="string">'AccessExpires'</span>]&gt;time())&#123;</div><div class="line">            <span class="comment">//未超时，直接返回access_token</span></div><div class="line">            <span class="keyword">return</span> $access_token_set[<span class="string">'access_token'</span>];</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="comment">//已超时，重新获取</span></div><div class="line">            $url_get=<span class="string">'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid='</span>.$appid.<span class="string">'&amp;secret='</span>.$appsecret;</div><div class="line">            $json= <span class="keyword">$this</span>-&gt;https_request($url_get);</div><div class="line">            var_dump($json);</div><div class="line">            $access_token=$json[<span class="string">'access_token'</span>];</div><div class="line">            $AccessExpires=time()+intval($json[<span class="string">'expires_in'</span>]);</div><div class="line">            $data[<span class="string">'access_token'</span>]=$access_token;</div><div class="line">            $data[<span class="string">'AccessExpires'</span>]=$AccessExpires;</div><div class="line">            $result = DB(<span class="string">'wxtoken'</span>)-&gt;where($condition)-&gt;update($data);<span class="comment">//更新数据</span></div><div class="line">            <span class="keyword">if</span>($result)&#123;</div><div class="line">                <span class="keyword">return</span> $access_token;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                <span class="keyword">return</span> $access_token;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">echo</span> <span class="string">"appid或appsecret不正确"</span>;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">https_request</span> <span class="params">($url)</span></span>&#123;</div><div class="line">    $ch = curl_init();</div><div class="line">    curl_setopt($ch, CURLOPT_URL, $url);</div><div class="line">    curl_setopt($ch,CURLOPT_RETURNTRANSFER,<span class="number">1</span>);</div><div class="line">    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, <span class="keyword">false</span>);</div><div class="line">    $out = curl_exec($ch);</div><div class="line">    curl_close($ch);</div><div class="line">    <span class="keyword">return</span>  json_decode($out,<span class="keyword">true</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://wx3.sinaimg.cn/mw690/6d184cefly1fxnhz2j3s1j20j40cugn4.jpg" alt="Code"></p>
+<p>Visit your api: </p>
+<p><img src="http://wx3.sinaimg.cn/mw690/6d184cefly1fxnhyvioa8j217206sgov.jpg" alt="Visit"></p>
+<h2 id="Create-a-menu-in-Official-Accounts"><a href="#Create-a-menu-in-Official-Accounts" class="headerlink" title="Create a menu in Official Accounts"></a>Create a menu in Official Accounts</h2><p>Modify <code>index()</code>:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    $menu = <span class="keyword">$this</span>-&gt;createmenu();</div><div class="line">    <span class="keyword">echo</span> $menu;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Add this code into <code>index.php</code></p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">public function createmenu()&#123;</div><div class="line">  <span class="variable">$data</span>='&#123;</div><div class="line">   <span class="string">"button"</span>:[</div><div class="line">   &#123;</div><div class="line">        <span class="string">"type"</span>:<span class="string">"click"</span>,</div><div class="line">        <span class="string">"name"</span>:<span class="string">"今日歌曲1"</span>,</div><div class="line">        <span class="string">"key"</span>:<span class="string">"V1001_TODAY_MUSIC"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">         <span class="string">"name"</span>:<span class="string">"菜单"</span>,</div><div class="line">         <span class="string">"sub_button"</span>:[</div><div class="line">         &#123;</div><div class="line">             <span class="string">"type"</span>:<span class="string">"view"</span>,</div><div class="line">             <span class="string">"name"</span>:<span class="string">"搜索"</span>,</div><div class="line">             <span class="string">"url"</span>:<span class="string">"http://www.soso.com/"</span></div><div class="line">          &#125;,</div><div class="line">          &#123;</div><div class="line">             <span class="string">"type"</span>:<span class="string">"click"</span>,</div><div class="line">             <span class="string">"name"</span>:<span class="string">"赞一下我们"</span>,</div><div class="line">             <span class="string">"key"</span>:<span class="string">"V1001_GOOD"</span></div><div class="line">          &#125;]</div><div class="line">     &#125;]</div><div class="line">  &#125;';</div><div class="line">  <span class="variable">$access_token</span>=<span class="variable">$this</span>-&gt;<span class="keyword">getToken</span>();</div><div class="line">  <span class="variable">$url</span>='https:<span class="comment">//api.weixin.qq.com/cgi-bin/menu/create?access_token='.$access_token;</span></div><div class="line">  var_dump(<span class="variable">$url</span>);</div><div class="line">  var_dump(<span class="variable">$data</span>);</div><div class="line">  <span class="variable">$result</span>= <span class="variable">$this</span>-&gt;postcurl(<span class="variable">$url</span>,<span class="variable">$data</span>);</div><div class="line">  var_dump(<span class="variable">$result</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">function postcurl(<span class="variable">$url</span>,<span class="variable">$data</span> = null)&#123;</div><div class="line">    <span class="variable">$ch</span> = curl_init();</div><div class="line">    curl_setopt(<span class="variable">$ch</span>, CURLOPT_URL, <span class="variable">$url</span>);</div><div class="line">    curl_setopt(<span class="variable">$ch</span>, CURLOPT_SSL_VERIFYPEER, FALSE);</div><div class="line">    curl_setopt(<span class="variable">$ch</span>, CURLOPT_SSL_VERIFYHOST, FALSE);</div><div class="line">    <span class="keyword">if</span> (!empty(<span class="variable">$data</span>))&#123;</div><div class="line">        curl_setopt(<span class="variable">$ch</span>, CURLOPT_POST, TRUE);</div><div class="line">        curl_setopt(<span class="variable">$ch</span>, CURLOPT_POSTFIELDS, <span class="variable">$data</span>);</div><div class="line">    &#125;</div><div class="line">    curl_setopt(<span class="variable">$ch</span>, CURLOPT_RETURNTRANSFER, 1);</div><div class="line">    <span class="variable">$output</span> = curl_exec(<span class="variable">$ch</span>);</div><div class="line">    curl_close(<span class="variable">$ch</span>);</div><div class="line">    <span class="keyword">return</span>  <span class="variable">$output</span>=json_decode(<span class="variable">$output</span>,true);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Visit the api <code>/index.php/wx/index/index</code>:</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/6d184cefly1fxnhzb9vddj210007ugoe.jpg" alt="Visit"></p>
+<p>Visit the Official Account:</p>
+<p><img src="http://wx4.sinaimg.cn/mw690/6d184cefly1fxni2kkiicj20u01femyj.jpg" alt="Visit"></p>
+<h2 id="Get-user-data"><a href="#Get-user-data" class="headerlink" title="Get user data"></a>Get user data</h2><p>Modify <code>index()</code>:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    $data = <span class="keyword">$this</span>-&gt;getuser();</div><div class="line">    <span class="keyword">echo</span> $data;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Add this code into <code>index.php</code>:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getuser</span><span class="params">()</span></span>&#123;</div><div class="line">     $access_token=<span class="keyword">$this</span>-&gt;getToken();</div><div class="line">     $url_get=<span class="string">'https://api.weixin.qq.com/cgi-bin/user/get?access_token='</span>.$access_token;</div><div class="line">     $user_json= <span class="keyword">$this</span>-&gt;https_request($url_get);</div><div class="line">     <span class="comment">//var_dump($json);</span></div><div class="line">     $url_get=<span class="string">'https://api.weixin.qq.com/cgi-bin/user/info?access_token='</span>.$access_token.<span class="string">'&amp;openid='</span>.$user_json[<span class="string">'data'</span>][<span class="string">'openid'</span>][<span class="number">0</span>].<span class="string">'&amp;lang=zh_CN'</span>;</div><div class="line">     $user_info= <span class="keyword">$this</span>-&gt;https_request($url_get);</div><div class="line">     var_dump($user_info);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Visit the api <code>/index.php/wx/index/index</code>:</p>
+<p><img src="http://wx2.sinaimg.cn/mw690/6d184cefly1fxnhzb9vddj210007ugoe.jpg" alt="Visit"></p>
+<p>在此输入正文</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://wx2.sinaimg.cn/large/6d184cefly1fxnkwi98vuj20p0046dg6.jpg&quot; alt=&quot;WeChat Official Accounts: Access_token and Menu&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Server" scheme="http://laker.me/blog/categories/Server/"/>
+    
+    
+      <category term="Server" scheme="http://laker.me/blog/tags/Server/"/>
+    
+      <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
+    
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
+    
+      <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
+    
+      <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
+    
+      <category term="Wechat" scheme="http://laker.me/blog/tags/Wechat/"/>
+    
+  </entry>
   
   <entry>
     <title>MySql and Navicat in MacOS</title>
@@ -1159,94 +1222,6 @@ git commit -m&apos;merge&apos;
       <category term="JavaScript" scheme="http://laker.me/blog/tags/JavaScript/"/>
     
       <category term="Vue.js" scheme="http://laker.me/blog/tags/Vue-js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>比特币BTC瑞波币XRP用户领取恒星币XLM Lumen</title>
-    <link href="http://laker.me/blog/2017/06/28/17_0628_ripple_lumen/"/>
-    <id>http://laker.me/blog/2017/06/28/17_0628_ripple_lumen/</id>
-    <published>2017-06-28T00:24:00.000Z</published>
-    <updated>2018-08-03T05:19:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170628.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="领取恒星币XLM Lumen"></p>
-<a id="more"></a>
-<blockquote>
-<p>欢迎交换友链： <a href="http://laker.me/blog">Laker’s Blog–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
-</blockquote>
-<h2 id="领取步骤"><a href="#领取步骤" class="headerlink" title="领取步骤"></a>领取步骤</h2><p>XLM是恒星币Lumen的简称。</p>
-<p>比特币用户领取地址<br><a href="https://www.stellar.org/cn/lumens/bitcoin-lumen-program/" target="_blank" rel="external">https://www.stellar.org/cn/lumens/bitcoin-lumen-program/</a></p>
-<p>瑞波币用户领取地址<br><a href="https://www.stellar.org/lumens/ripple-lumen-program/" target="_blank" rel="external">https://www.stellar.org/lumens/ripple-lumen-program/</a></p>
-<p>我的比特币钱包地址找不到了，所以只有瑞波币可领，各位大佬自行摸索比特币用户的领取吧。。</p>
-<p><strong>瑞波比领取资格：瑞波钱包在2014年5月22前存在，并有余额</strong></p>
-<p>感觉这个是程序员的一大福利。几年前Github的用户可以免费领取好像2K个吧，现在Ripple市值2-3元之间，算是一笔横财。不过当时我年轻不懂事，以为是诈骗邮件，没有领，后来自己了解了Ripple，后悔莫及，自己花钱买了一点，幻想着能像BTC一样。虽然现在也涨不上去，不过比我之前买的价位也是翻了几番，也心满意足了。本次赠送活动2014年5月22前存在，也就是说在Github发放时领取的钱包是有效范围！！</p>
-<p>本次赠送的数目是按照2017年6月26日的快照显示的数目按比例赠送，所以现在充值没有用了，具体比例见后文的新闻摘抄。</p>
-<p>前段时间随着比特币勒索病毒，大多虚拟币大涨，乘机清空了Ripple。但是由于Gatehub要求账户最低保留25个币，当时还很痛恨这个规定，现在看来，反而符合了赠币的要求。想起一个故事，一切都是最好的安排。</p>
-<p>废话有点多，开始正文：</p>
-<p>点击链接后，用FB账号登录，验证你的地区，因为美国地区法律受限制 ，此次活动不送给美国部分地区的人（手动开心）</p>
-<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170628155223.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="验证地区"></p>
-<p>通过验证后，如果已经有恒星的钱包，就在下面表单输入自己的恒星和瑞波的钱包。<br>如果没有恒星的钱包，点击上面的<code>Create Sellar Account</code> 创建一个，下个页面里会帮你创建一个恒星钱包，你自己填写你的瑞波钱包。<br>进入下一步。</p>
-<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170628155259.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="输入自己的 Ripple 钱包"></p>
-<p>（我这里是新建钱包的页面，不知道已有钱包是不是也这样）<br>出现一个交易要求，意思是你要从你的Ripple钱包发送一些钱和编号给恒星币机构的钱包，他们再打恒星币给你的恒星钱包。</p>
-<ul>
-<li>Destination Address：恒星币机构的钱包，打ripple币给他们</li>
-<li>Destination Tag：你的编号</li>
-<li>Amount：要打给他们的Ripple个数</li>
-</ul>
-<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170628155359.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="交易要求"></p>
-<p>到你的钱包里打钱。我用的Gatehub。</p>
-<p><img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20170628161859.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="打钱"></p>
-<p><a href="https://www.stellar.org/cn/?noredirect=zh" target="_blank" rel="external">登录你的恒星钱包</a>，输入密钥登录，进入后会显示你的恒星币数目。<br>（现在活动刚开始一两天，兑换的人比较多，获取币会有延时，等十几分钟）</p>
-<p>目前恒星币大约2毛一个，以后能不能财富自由就看它了，想想就开心（手动滑稽）</p>
-<h2 id="区块链铅笔Blockchain相关新闻"><a href="#区块链铅笔Blockchain相关新闻" class="headerlink" title="区块链铅笔Blockchain相关新闻"></a><a href="https://mp.weixin.qq.com/s?__biz=MzA3NTg1MjE0Ng==&amp;mid=2649776959&amp;idx=2&amp;sn=ed84f281d3540c2ed995349acbe1e069&amp;chksm=876ef322b0197a34667e328037b47d5251634c831653bde2c4c7a10f3b6b5871358a9cebf11b&amp;mpshare=1&amp;scene=23&amp;srcid=03291VbSU78Tbfnem3YSYXTP#rd" target="_blank" rel="external">区块链铅笔Blockchain相关新闻</a></h2><p>Brian, March 28, 2017</p>
-<p>去年10月，我们完成了向比特币持有人分发lumen币计划的第一步，而这一步只是Stellar.org承诺的一部分。Stellar.org承诺为比特币持有人预留lumen币初始供应量的19%，共计190亿lumen币。</p>
-<p>今日，我们宣布在下一步计划中，将为比特币持有人分发共计160亿lumen币，即占lumen初始供应总量的16%。2017年6月27日，只要比特币持有人想要领取lumen币，我们便会向其分发，包括在第一轮赠送过程中获得lumen币的持有人。</p>
-<p>如果你刚刚才听说这个消息，你可能会问我们为什么要这样做？在我们最初设计Stellar时，就深受比特币的启发。比特币网络是第一个证实一组相互不信任的各方可以迅速达成通用数据库的案例，直到现在比特币社区仍然在影响着我们对比特币区块链技术的理解。</p>
-<h3 id="如何运作？"><a href="#如何运作？" class="headerlink" title="如何运作？"></a>如何运作？</h3><p>2017年6月26日：我们将对6月26日（UTC / GMT）挖矿的第一个区块并带有时间戳的所在区块链生成快照。该快照将记录当时所有比特币帐户的货币余额。</p>
-<p>2017年6月27日：我们将发布领取页面，请比特币持有人验证他们是否管理着给定的比特币地址。接着，我们将把该地址的lumen币份额发送到持有人提供的Stellar账户。</p>
-<p>为了解赠送lumen币的计算方式，我们以Rachel为例：</p>
-<p>截至快照生成时<br>共计仍存有16,215,950个比特币<br>Rachel拥有10个比特币<br>Rachel能够申请<br>16,000,000,000 * (10/16,215,950) = 9,866.83个lumen币</p>
-<p>计算结果</p>
-<p>快照生成时，Rachel拥有的比特币占现存比特币总量的0.00006167％。</p>
-<p>因此，她的9,866.83 个lumen币等同于赠送lumen币总量的0.00006167％。</p>
-<p>2017年8月27日：bitcoin-lumen计划即宣告结束。若仍有lumen币无人认领，这些lumen币将转入Stellar.org的运营基金以及Build Challenge中。</p>
-<p>由于受到监管限制，该计划不向美国纽约州、佐治亚州、新罕布什尔州、康涅狄格州以及伊朗、古巴、朝鲜以及受美国制裁的其他国家居民开放。但这些限制会随监管状况的变化而变化。</p>
-<p>Stellar.org的成员及董事会成员均不会参与bitcoin-lumen计划，亦不会从中领取任何lumen币。</p>
-<h3 id="领取lumen币：个人"><a href="#领取lumen币：个人" class="headerlink" title="领取lumen币：个人"></a>领取lumen币：个人</h3><p>6月27日：我们将提供领取页面的链接，通过该链接引导您完成简单的领取流程。</p>
-<p>参与交易平台（若有其他交易平台与我们取得联系，我们会更新此列表）：</p>
-<ul>
-<li>Kraken</li>
-<li>BTC38</li>
-<li>Poloniex</li>
-</ul>
-<p>接下来的内容可能会有些令人感到麻烦。</p>
-<p>如果您并未使用任何交易平台，按照法律要求，我们需要确保您不列于美国制裁名单中，或者位于上述任何受限制的司法管辖区。目前，我们正使用Facebook帐户验证对此进行查验。</p>
-<p>我们知道这种感觉很糟糕。但隐私一直以来都是比特币生态系统最受关注的问题。 Stellar.org不会将您的Facebook数据用于任何其他目的，亦绝不会发布您的帐户。如果您不想分享您的Facebook信息，您仍然可以通过参与交易平台参与此次活动。</p>
-<h3 id="领取lumen币：交易平台及企业"><a href="#领取lumen币：交易平台及企业" class="headerlink" title="领取lumen币：交易平台及企业"></a>领取lumen币：交易平台及企业</h3><p>6月27日之前：如果您是交易平台或其他为客户提供比特币池的企业，请通过您的企业电子邮件向bitcoin@stellar.org发送邮件。邮件内容请包含您的热钱包比特币地址，我们会确保将赠送给该地址的lumen币仅发送给您。</p>
-<p>收到lumen币后，我们鼓励您按比例向每位客户分发。如有任何疑问或欲商讨任何其他方式，请发送邮件至bitcoin@stellar.org。</p>
-<h3 id="领取lumen币：瑞波币（XRP）持有人"><a href="#领取lumen币：瑞波币（XRP）持有人" class="headerlink" title="领取lumen币：瑞波币（XRP）持有人"></a>领取lumen币：瑞波币（XRP）持有人</h3><p>6月27日：我们将提供领取页面的链接，通过该链接引导您完成简单的领取流程。</p>
-<p>除了向比特币持有人分发lumen币外，我们还为XRP持有人预留了初始lumen币供应量的1％（10亿）。对于XRP，我们简要记录了ripple分类帐本6,762,000（2014年5月22日发生的分类帐）。任何ripple账户持有人在其账户中拥有少于750万XRP（当时为$ 50,000美元）均有资格获得赠币。每个具备资格的XRP持有人可以通过如下方式参与活动：</p>
-<p>按比例：与比特币持有人类似，具备资格的XRP持有人会按比例收到此次赠送的币额（1％），并被记入高达150万XRP。</p>
-<p>捐赠：符合条件的XRP持有人也可以将高达150万XRP捐赠给一系列精选慈善机构，并获得等量lumen币作为回报。</p>
-<h3 id="Stellar与比特币和其他网络相比如何？"><a href="#Stellar与比特币和其他网络相比如何？" class="headerlink" title="Stellar与比特币和其他网络相比如何？"></a>Stellar与比特币和其他网络相比如何？</h3><p>Stellar网络深受比特币启发——我们从中吸取教训，并增加了在计算能力较低的环境中容忍非理性行为者的能力。</p>
-<p>Stellar与比特币之间的其他一些主要的区别在于：</p>
-<p>在比特币中，用来确认交易的节点负责挖掘比特币，并且随着时间的推移向矿工分发货币。Stellar网络中不存在挖矿：在网络启动时会自动创建1000亿lumen币。其中95％的lumen币可向全世界提供。</p>
-<p>Stellar采用全新的共识算法，即使用联合拜占庭协议的恒星共识协议（SCP）。Stellar网络中的交易在几秒钟内便可得到确认，而且确认节点使用的计算资源也相对较少。</p>
-<p>比特币在最初几年暴涨，最终达到近乎固定的供应量，而lumen币的供应量每年以1％的固定比率增长。</p>
-<h3 id="了解更多"><a href="#了解更多" class="headerlink" title="了解更多"></a>了解更多</h3><p>我们相信Stellar网络的以社区为基础的所有权，并希望早期的数字货币爱好者（例如比特币持有人）在Stellar社区感到轻松自在。关于bitcoin-lumen如有任何问题，请随时与我们取得联系：</p>
-<p>在slack.stellar.org中加入对话</p>
-<p>进入官方Bitcointalk线程</p>
-<p>如果您是开发人员，并有兴趣在Stellar网络中搭建应用程序，请浏览我们的文档。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170628.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;领取恒星币XLM Lumen&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Others" scheme="http://laker.me/blog/categories/Others/"/>
-    
     
   </entry>
   
