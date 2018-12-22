@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2018-12-05T07:16:31.000Z</updated>
+  <updated>2018-12-22T11:42:21.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,55 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Use ThinkPHP Develope API</title>
+    <link href="http://laker.me/blog/2018/12/19/18_1219_wechat/"/>
+    <id>http://laker.me/blog/2018/12/19/18_1219_wechat/</id>
+    <published>2018-12-19T00:24:00.000Z</published>
+    <updated>2018-12-22T11:42:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://wx3.sinaimg.cn/large/6d184cefly1fxnkwr63qej20oz046aay.jpg" alt="Use ThinkPHP Develope WeChat Official Account API"></p>
+<a id="more"></a>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+<h2 id="Create-database-data"><a href="#Create-database-data" class="headerlink" title="Create database data"></a>Create database data</h2><p>Import this sql file into your database, you can commit execute sql or import by tools:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- ----------------------------</span></div><div class="line"><span class="comment">-- Table structure for news</span></div><div class="line"><span class="comment">-- ----------------------------</span></div><div class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`news`</span>;</div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`news`</span> (</div><div class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</div><div class="line">  <span class="string">`title`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`content`</span> <span class="built_in">text</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</div><div class="line">) <span class="keyword">ENGINE</span>=MyISAM AUTO_INCREMENT=<span class="number">5</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 <span class="keyword">COMMENT</span>=<span class="string">'新闻表'</span>;</div><div class="line"></div><div class="line"><span class="comment">-- ----------------------------</span></div><div class="line"><span class="comment">-- Records of news</span></div><div class="line"><span class="comment">-- ----------------------------</span></div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`news`</span> <span class="keyword">VALUES</span> (<span class="string">'1'</span>, <span class="string">'新闻1'</span>, <span class="string">'新闻1内容'</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`news`</span> <span class="keyword">VALUES</span> (<span class="string">'2'</span>, <span class="string">'新闻2'</span>, <span class="string">'新闻2内容'</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`news`</span> <span class="keyword">VALUES</span> (<span class="string">'3'</span>, <span class="string">'新闻3'</span>, <span class="string">'新闻3内容'</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`news`</span> <span class="keyword">VALUES</span> (<span class="string">'4'</span>, <span class="string">'房价又涨了'</span>, <span class="string">'据新华社消息：上海均价环比上涨5%'</span>);</div></pre></td></tr></table></figure>
+<h2 id="Write-API"><a href="#Write-API" class="headerlink" title="Write API"></a>Write API</h2><p>Wechat Official Account documents:<br><a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421140840" target="_blank" rel="external">https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421140840</a></p>
+<p><img src="https://ws4.sinaimg.cn/large/6d184cefly1fyfor5rxodj20io0bw0tk.jpg" alt="image"></p>
+<p>New files: <code>application/api/controller/News.php</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?php</span></span></div><div class="line"><span class="keyword">namespace</span> <span class="title">app</span>\<span class="title">api</span>\<span class="title">controller</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Controller</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">News</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">read</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        $id = input(<span class="string">'id'</span>);</div><div class="line">        $model = model(<span class="string">'News'</span>);</div><div class="line">        $data = $model-&gt;getNews($id);</div><div class="line">        <span class="keyword">if</span> ($data) &#123;</div><div class="line">            $code = <span class="number">200</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            $code = <span class="number">404</span>;</div><div class="line">        &#125;</div><div class="line">        $data = [</div><div class="line">            <span class="string">'code'</span> =&gt; $code,</div><div class="line">            <span class="string">'data'</span> =&gt; $data</div><div class="line">        ];</div><div class="line">        <span class="keyword">return</span> json($data);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>New files: <code>application/api/model/News.php</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?php</span></span></div><div class="line"><span class="keyword">namespace</span> <span class="title">app</span>\<span class="title">api</span>\<span class="title">model</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Model</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Db</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">News</span> <span class="keyword">extends</span> <span class="title">Model</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getNews</span><span class="params">($id = <span class="number">1</span>)</span></span></div><div class="line">    &#123;</div><div class="line">        $res = Db::name(<span class="string">'news'</span>)-&gt;where(<span class="string">'id'</span>, $id)-&gt;select();</div><div class="line">        <span class="keyword">return</span> $res;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getNewsList</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        $res = Db::name(<span class="string">'news'</span>)-&gt;select();</div><div class="line">        <span class="keyword">return</span> $res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Visit API:</p>
+<p><img src="https://ws2.sinaimg.cn/large/6d184cefly1fyfqyhq1sij213q050gmr.jpg" alt="image"></p>
+<h2 id="Shorten-API-address"><a href="#Shorten-API-address" class="headerlink" title="Shorten API address"></a>Shorten API address</h2><p>According to the ThinkPHP router rules, we can edit it in <code>application/route.php</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Route</span>;</div><div class="line"></div><div class="line">Route::rule(<span class="string">'news/:id'</span>,<span class="string">'api/news/read'</span>);</div></pre></td></tr></table></figure>
+<p>Visit new route:</p>
+<p><img src="https://ws4.sinaimg.cn/large/6d184cefly1fyfqyznk0vj2136044my6.jpg" alt="image"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://wx3.sinaimg.cn/large/6d184cefly1fxnkwr63qej20oz046aay.jpg&quot; alt=&quot;Use ThinkPHP Develope WeChat Official Account API&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Server" scheme="http://laker.me/blog/categories/Server/"/>
+    
+    
+      <category term="Server" scheme="http://laker.me/blog/tags/Server/"/>
+    
+      <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
+    
+      <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
+    
+      <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
+    
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
+    
+  </entry>
   
   <entry>
     <title>WeChat Official Accounts with Access_token and Menu</title>
@@ -68,11 +117,11 @@
     
       <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
     
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
-    
       <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
     
       <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
+    
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
     
       <category term="Wechat" scheme="http://laker.me/blog/tags/Wechat/"/>
     
@@ -175,11 +224,11 @@
     
       <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
     
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
-    
       <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
     
       <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
+    
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
     
       <category term="Wechat" scheme="http://laker.me/blog/tags/Wechat/"/>
     
@@ -247,11 +296,11 @@
     
       <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
     
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
-    
       <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
     
       <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
+    
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
     
   </entry>
   
@@ -1143,74 +1192,6 @@ git commit -m&apos;merge&apos;
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170620.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;Vue.js 2 高仿饿了么开发及解注三&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Vue.js" scheme="http://laker.me/blog/categories/Vue-js/"/>
-    
-    
-      <category term="HTML5" scheme="http://laker.me/blog/tags/HTML5/"/>
-    
-      <category term="JavaScript" scheme="http://laker.me/blog/tags/JavaScript/"/>
-    
-      <category term="Vue.js" scheme="http://laker.me/blog/tags/Vue-js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue.js 2 高仿饿了么开发及解注二：header 组件</title>
-    <link href="http://laker.me/blog/2017/08/08/17_0808_vuejs_eleme_2/"/>
-    <id>http://laker.me/blog/2017/08/08/17_0808_vuejs_eleme_2/</id>
-    <published>2017-08-08T00:24:00.000Z</published>
-    <updated>2017-09-08T03:31:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170620.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="Vue.js 2 高仿饿了么开发及解注二"></p>
-<a id="more"></a>
-<blockquote>
-<p>欢迎交换友链： <a href="http://laker.me/blog">Laker’s Blog–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
-</blockquote>
-<p>慕课网早期出了《Vue.js 1 高仿饿了么APP》的课程，本系列文章根据课程，使用 Vue.js 2 版本进行开发，并进行了一步步开发流程记录和详细的代码注解。</p>
-<p><a href="https://github.com/ustbhuangyi/vue-sell" target="_blank" rel="external">原作者的代码</a></p>
-<p><a href="https://github.com/younglaker/CometLab/tree/vue-eleme" target="_blank" rel="external">我做的含有详细代码注解的版本</a></p>
-<h1 id="vue-resource"><a href="#vue-resource" class="headerlink" title="vue-resource"></a>vue-resource</h1><p>处理HTTP请求，<a href="https://github.com/pagekit/vue-resource" target="_blank" rel="external">https://github.com/pagekit/vue-resource</a></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code>cnpm install vue-resource --save
-</code></pre><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>在 <strong>routers/index.js</strong> :</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 注入</span></div><div class="line"><span class="keyword">import</span> Resource <span class="keyword">from</span> <span class="string">'vue-resource'</span></div><div class="line"></div><div class="line"><span class="comment">// 注册</span></div><div class="line">Vue.use(Resource)</div></pre></td></tr></table></figure>
-<h1 id="编写header内容"><a href="#编写header内容" class="headerlink" title="编写header内容"></a>编写header内容</h1><h2 id="App-vue"><a href="#App-vue" class="headerlink" title="App.vue"></a>App.vue</h2><p>发起ajax请求<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义一个常量，表示请求返回正常</span></div><div class="line">const RESP_OK = <span class="number">1</span></div><div class="line"></div><div class="line">export <span class="keyword">default</span> &#123;</div><div class="line">  name: <span class="string">'app'</span>,</div><div class="line">  <span class="keyword">data</span>() &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      seller: &#123;&#125;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  created () &#123;</div><div class="line">    <span class="keyword">this</span>.$http.<span class="keyword">get</span>(<span class="string">'/api/seller'</span>).then((response) =&gt; &#123;</div><div class="line">      <span class="comment">// .body 获取 json 数据</span></div><div class="line">      response = response.body</div><div class="line"></div><div class="line">      <span class="comment">// 判断请求是否正常</span></div><div class="line">      <span class="keyword">if</span> (response.status === RESP_OK) &#123;</div><div class="line">        <span class="keyword">this</span>.seller = response.<span class="keyword">data</span></div><div class="line"></div><div class="line">        <span class="comment">// 测试</span></div><div class="line">        console.log(<span class="keyword">this</span>.seller)</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">  &#125;,</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>接口 <code>/api/seller</code> 在之前写的 <code>build/dev-server.js</code> 里定义了状态码和返回的数据</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">apiRoutes</span><span class="selector-class">.get</span>(<span class="string">'/seller'</span>, function (req, res) &#123;</div><div class="line">  <span class="selector-tag">res</span><span class="selector-class">.json</span>(&#123;</div><div class="line">    <span class="attribute">status</span>: <span class="number">1</span>,</div><div class="line">    <span class="attribute">data</span>: seller</div><div class="line">  &#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p><strong>App.vue :</strong><br>把 Ajax 请求获取的 seller 对象传给 v-header 标签。<br>:seller=”seller” 等同于 v-bind:seller=”seller”<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;v-header <span class="symbol">:seller=<span class="string">"seller"</span>&gt;&lt;/v-header&gt;</span></div></pre></td></tr></table></figure></p>
-<h2 id="header-vue"><a href="#header-vue" class="headerlink" title="header.vue"></a>header.vue</h2><p>获取 seller 对象<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">export</span> <span class="selector-tag">default</span> &#123;</div><div class="line">  <span class="attribute">props</span>: &#123;</div><div class="line">    seller: &#123;</div><div class="line">      type: Object</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  ...</div></pre></td></tr></table></figure></p>
-<p>写好一系列HTML、CSS。<br>注意几个地方：<br>1、在 <strong>common/mixin.styl</strong> 添加根据设备 dpi 使用不同像素的图片作为背景的代码。</p>
-<blockquote>
-<p>组件使用的图片都放在组件的文件夹里。</p>
-</blockquote>
-<figure class="highlight mel"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">bg-<span class="keyword">image</span>($url)</div><div class="line">  background-<span class="keyword">image</span>: url($url + <span class="string">"@2x.png"</span>)</div><div class="line">  @media (-webkit-<span class="keyword">min</span>-device-pixel-ratio: <span class="number">3</span>),(<span class="keyword">min</span>-device-pixel-ratio: <span class="number">3</span>)</div><div class="line">    background-<span class="keyword">image</span>: url($url + <span class="string">"@3x.png"</span>)</div></pre></td></tr></table></figure>
-<p>使用方法 <code>bg-image(&#39;图片名&#39;)</code></p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">bg-image</span><span class="params">(<span class="string">'bulletin'</span>)</span></span></div></pre></td></tr></table></figure>
-<p>2、<strong>header.vue</strong> 里引用 mixin.styl<br><figure class="highlight xl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">import</span> <span class="string">"../../common/stylus/mixin"</span></div></pre></td></tr></table></figure></p>
-<p>3、异步插入的图片地址，要用 vue 的指令 <code>:src</code>。如果用 <code>src</code> 就会在编译的时候渲染，但异步获取图片地址会有延时，导致找不到图片。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">img</span> <span class="attribute">width</span>=<span class="string">"64"</span> height=<span class="string">"64"</span> :src=<span class="string">"seller.avatar"</span>&gt;</div></pre></td></tr></table></figure>
-<p>4、多class的处理</p>
-<p>在 data.json 里，定义有商家支持的活动</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="string">"supports"</span>: [</div><div class="line">  &#123;</div><div class="line">    <span class="string">"type"</span>: <span class="number">0</span>,</div><div class="line">    <span class="string">"description"</span>: <span class="string">"在线支付满28减5"</span></div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    <span class="string">"type"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"description"</span>: <span class="string">"VC无限橙果汁全场8折"</span></div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    <span class="string">"type"</span>: <span class="number">2</span>,</div><div class="line">    <span class="string">"description"</span>: <span class="string">"单人精彩套餐"</span></div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    <span class="string">"type"</span>: <span class="number">3</span>,</div><div class="line">    <span class="string">"description"</span>: <span class="string">"该商家支持发票,请下单写好发票抬头"</span></div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    <span class="string">"type"</span>: <span class="number">4</span>,</div><div class="line">    <span class="string">"description"</span>: <span class="string">"已加入“外卖保”计划,食品安全保障"</span></div><div class="line">  &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
-<p>header.vue  CSS 添加每个活动 icon 的样式<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.icon</span></div><div class="line">  ...</div><div class="line">  &amp;<span class="selector-class">.decrease</span></div><div class="line">    bg-image(<span class="string">'decrease_2'</span>)</div><div class="line">  &amp;<span class="selector-class">.discount</span></div><div class="line">    bg-image(<span class="string">'discount_2'</span>)</div><div class="line">  &amp;<span class="selector-class">.invoice</span></div><div class="line">    bg-image(<span class="string">'invoice_2'</span>)</div><div class="line">  &amp;<span class="selector-class">.special</span></div><div class="line">    bg-image(<span class="string">'special_2'</span>)</div><div class="line">  &amp;<span class="selector-class">.guarantee</span></div><div class="line">    bg-image(<span class="string">'guarantee_2'</span>)</div></pre></td></tr></table></figure></p>
-<p>header.vue 创建classMap数组，依次写下对应data.json的supports数字的class<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="built_in">default</span> &#123;</div><div class="line">  ...</div><div class="line">  created() &#123;</div><div class="line">    <span class="keyword">this</span>.classMap = [<span class="string">'decrease'</span>, <span class="string">'discount'</span>, <span class="string">'special'</span>, <span class="string">'invoice'</span>, <span class="string">'guarantee'</span>];</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
-<p>icon 标签通过 :class 动态绑定class<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;span class=<span class="string">"icon"</span> <span class="symbol">:class=<span class="string">"classMap[seller.supports[0].type]"</span>&gt;&lt;/span&gt;</span></div></pre></td></tr></table></figure></p>
-<p>5、用 v-if 判断异步请求完成后再渲染，不使用则会在请求完成前竞选人导致报错，如：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">div</span> v-<span class="keyword">if</span>=<span class="string">"seller.supports"</span> <span class="built_in">class</span>=<span class="string">"support"</span>&gt;</div></pre></td></tr></table></figure>
-<p>6、详细活动弹出层</p>
-<p>HTML：</p>
-<p>整个详情弹出层，通过指令 v-show 来控制显示隐藏<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">div</span> v-show=<span class="string">"detailShow"</span> <span class="built_in">class</span>=<span class="string">"detail"</span>&gt;</div></pre></td></tr></table></figure></p>
-<p>显示按钮<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div v-<span class="keyword">if</span>=<span class="string">"seller.supports"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"support-count"</span> <span class="meta">@click</span>=<span class="string">"showDetail"</span>&gt;</div></pre></td></tr></table></figure></p>
-<p>关闭按钮<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"detail-close"</span> @click=<span class="string">"hideDetail"</span>&gt;</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon-close"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></p>
-<p>JavaScript：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">export <span class="keyword">default</span> &#123;</div><div class="line">  ...</div><div class="line">  <span class="keyword">data</span> () &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      detailShow: <span class="literal">false</span> <span class="comment">// 初始化 detailShow</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    <span class="comment">// 显示、隐藏的方法</span></div><div class="line">    showDetail () &#123;</div><div class="line">      <span class="keyword">this</span>.detailShow = <span class="literal">true</span></div><div class="line">    &#125;,</div><div class="line">    hideDetail () &#123;</div><div class="line">      <span class="keyword">this</span>.detailShow = <span class="literal">false</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170620.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;Vue.js 2 高仿饿了么开发及解注二&quot;&gt;&lt;/p&gt;
     
     </summary>
     
