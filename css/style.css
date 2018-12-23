@@ -93,7 +93,7 @@ input,
 button {
   margin: 0;
   padding: 0;
-  font: 16px 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
+  font: 16px 'Monaco', 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
 }
 input::-moz-focus-inner,
 button::-moz-focus-inner {
@@ -107,6 +107,12 @@ button::-moz-focus-inner {
   src: url("fonts/fontawesome-webfont.eot?v=#4.0.3");
   src: url("fonts/fontawesome-webfont.eot?#iefix&v=#4.0.3") format("embedded-opentype"), url("fonts/fontawesome-webfont.woff?v=#4.0.3") format("woff"), url("fonts/fontawesome-webfont.ttf?v=#4.0.3") format("truetype"), url("fonts/fontawesome-webfont.svg#fontawesomeregular?v=#4.0.3") format("svg");
 }
+@font-face {
+  font-family: Monaco;
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/Monaco.woff2") format("woff2"), url("fonts/Monaco.woff") format("woff"), url("fonts/Monaco.ttf") format("truetype"), url("fonts/Monaco.eot") format("embedded-opentype"), url("fonts/Monaco.svg") format("svg");
+}
 html,
 body,
 #container {
@@ -114,7 +120,7 @@ body,
 }
 body {
   background: #fff;
-  font: 16px 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
+  font: 16px 'Monaco', 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
   -webkit-text-size-adjust: 100%;
   background-image: url("../img/bg.png");
 }
@@ -475,7 +481,7 @@ body.article {
   margin-bottom: 10px;
 }
 .article-title {
-  font-size: 2em;
+  font-size: 1.6em;
   font-weight: 700;
   line-height: 1em;
 }
@@ -541,7 +547,7 @@ body.article {
   padding: 10px 0;
 }
 .article-entry blockquote {
-  font-family: 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
+  font-family: 'Monaco', 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
   font-size: 1.2em;
   padding: 1px 0;
   border-left: 5px solid #d0d0d0;
@@ -846,7 +852,7 @@ body.article {
 }
 .article-entry pre,
 .article-entry code {
-  font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace, '华文中宋';
+  font-family: 'Monaco', Monaco, Consolas, Menlo, Consolas, monospace, '华文中宋';
 }
 .article-entry code {
   background: #60615d;
@@ -912,7 +918,7 @@ body.article {
 }
 .article-entry .gist .gist-file {
   border: none;
-  font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace, '华文中宋';
+  font-family: 'Monaco', Monaco, Consolas, Menlo, Consolas, monospace, '华文中宋';
   margin: 0;
 }
 .article-entry .gist .gist-file .gist-data {
@@ -1283,12 +1289,12 @@ pre .php .xml {
 .fancybox-skin {
   padding: 0 !important;
   border-radius: 0;
-  font-family: 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
+  font-family: 'Monaco', 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
 }
 .fancybox-skin .fancybox-title .child {
   background: none;
   font-weight: 400;
   font-size: 16px;
-  font-family: 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
+  font-family: 'Monaco', 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
   text-shadow: 1px 3px 3px rgba(0,0,0,0.5);
 }
