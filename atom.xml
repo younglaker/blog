@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2019-01-30T13:00:17.000Z</updated>
+  <updated>2019-01-21T13:57:33.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,72 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Use labelme to annotate image for machine learning</title>
+    <link href="http://laker.me/blog/2019/01/31/19_0131_labelme/"/>
+    <id>http://laker.me/blog/2019/01/31/19_0131_labelme/</id>
+    <published>2019-01-31T00:24:00.000Z</published>
+    <updated>2019-01-21T13:57:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://wx4.sinaimg.cn/large/6d184cefgy1fzoyeywzqxj20p0046q3i.jpg" alt="labelme"></p>
+<a id="more"></a>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+<p>Labelme is a graphical image annotation tool. It is written in Python and uses Qt for its graphical interface. It is open source in Github at <a href="https://github.com/wkentaro/labelme" target="_blank" rel="external">https://github.com/wkentaro/labelme</a></p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>It can be used in both Python 2 and Python 3. Now, let’s use Python 3.</p>
+<p>I use Anaconda for machin learning. So in Anaconda :</p>
+<ol>
+<li>Install conda</li>
+</ol>
+<p><img src="https://ws1.sinaimg.cn/mw690/6d184cefgy1fzoxcwooe8j21gi118tf0.jpg" alt="Install conda"></p>
+<p>If conda is not working in terminal, activate your terminal profile:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> ~/.zsh_profile</span></div></pre></td></tr></table></figure>
+<p><img src="https://wx4.sinaimg.cn/mw690/6d184cefgy1fzoxl24g3xj20u00hsn1u.jpg" alt="image"></p>
+<ol>
+<li>Create a new environment</li>
+</ol>
+<p>Choose a Python version you want.</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">conda create -n labelme python</span>=3.6</div></pre></td></tr></table></figure>
+<p>Then we get a new clean environment for labelme:</p>
+<p><img src="https://wx2.sinaimg.cn/mw690/6d184cefgy1fzoxfcd0ixj20qu0em0u3.jpg" alt="a new clean environment"></p>
+<ol>
+<li>Install labelme</li>
+</ol>
+<p>Active the environment :</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">activate</span> labelme</div></pre></td></tr></table></figure>
+<p>If not worked and show <code>zsh: command not found: activate</code>, add <code>source</code> like this:</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source <span class="built_in">activate</span> labelme</div></pre></td></tr></table></figure>
+<p>We will in the labeme environment.</p>
+<p><img src="https://ws4.sinaimg.cn/mw690/6d184cefgy1fzoxip1hzrj20ka03y74r.jpg" alt="environment"></p>
+<p>Python will be the version we chosen:</p>
+<p><img src="https://ws1.sinaimg.cn/mw690/6d184cefgy1fzoxon8x00j20ni050mxv.jpg" alt="Python"></p>
+<p>The pip also is the labelme version :</p>
+<p><img src="https://ws2.sinaimg.cn/mw690/6d184cefgy1fzoxowgvazj219k0500tv.jpg" alt="pip"></p>
+<p>Install labelme:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> pip install labelme</span></div></pre></td></tr></table></figure>
+<h2 id="Use-labelme"><a href="#Use-labelme" class="headerlink" title="Use labelme"></a>Use labelme</h2><p>Input:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> labelme</span></div></pre></td></tr></table></figure>
+<p>or:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> labelme <span class="comment"># Open GUI</span></span></div></pre></td></tr></table></figure>
+<p><img src="https://wx3.sinaimg.cn/mw690/6d184cefgy1fzoy0my8ghj21no136hdt.jpg" alt="labelme"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://wx4.sinaimg.cn/large/6d184cefgy1fzoyeywzqxj20p0046q3i.jpg&quot; alt=&quot;labelme&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="AI" scheme="http://laker.me/blog/categories/AI/"/>
+    
+    
+      <category term="AI" scheme="http://laker.me/blog/tags/AI/"/>
+    
+      <category term="ML" scheme="http://laker.me/blog/tags/ML/"/>
+    
+  </entry>
   
   <entry>
     <title>Algorithm - Quick Sort by Python</title>
@@ -118,9 +184,9 @@
     
       <category term="Server" scheme="http://laker.me/blog/tags/Server/"/>
     
-      <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
-    
       <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
+    
+      <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
     
       <category term="Python" scheme="http://laker.me/blog/tags/Python/"/>
     
@@ -169,11 +235,11 @@
     
       <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
     
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
+    
       <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
     
       <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
-    
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
     
   </entry>
   
@@ -230,11 +296,11 @@
     
       <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
     
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
+    
       <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
     
       <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
-    
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
     
       <category term="Wechat" scheme="http://laker.me/blog/tags/Wechat/"/>
     
@@ -337,11 +403,11 @@
     
       <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
     
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
+    
       <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
     
       <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
-    
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
     
       <category term="Wechat" scheme="http://laker.me/blog/tags/Wechat/"/>
     
@@ -409,11 +475,11 @@
     
       <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
     
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
+    
       <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
     
       <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
-    
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
     
   </entry>
   
@@ -1151,49 +1217,6 @@ git commit -m&apos;merge&apos;
       <category term="效率" scheme="http://laker.me/blog/tags/%E6%95%88%E7%8E%87/"/>
     
       <category term="小工具" scheme="http://laker.me/blog/tags/%E5%B0%8F%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue.js 2 高仿饿了么开发及解注四：goods 商品件组</title>
-    <link href="http://laker.me/blog/2017/10/09/17_1009_vuejs_eleme_4/"/>
-    <id>http://laker.me/blog/2017/10/09/17_1009_vuejs_eleme_4/</id>
-    <published>2017-10-09T00:24:00.000Z</published>
-    <updated>2017-10-27T07:53:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170620.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="Vue.js 2 高仿饿了么开发及解注四"></p>
-<a id="more"></a>
-<blockquote>
-<p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
-</blockquote>
-<p>慕课网早期出了《Vue.js 1 高仿饿了么APP》的课程，本系列文章根据课程，使用 Vue.js 2 版本进行开发，并进行了一步步开发流程记录和详细的代码注解。</p>
-<p><a href="https://github.com/ustbhuangyi/vue-sell" target="_blank" rel="external">原作者的代码</a></p>
-<p><a href="https://github.com/younglaker/CometLab/tree/vue-eleme" target="_blank" rel="external">我做的含有详细代码注解的版本</a></p>
-<h2 id="评分组件"><a href="#评分组件" class="headerlink" title="评分组件"></a>评分组件</h2><p>新建 componet / star / star.vue， 评分星级的图片放入。</p>
-<p>评分星级的星星的切图分为无星、半星、全星三种图案，各有2x、3x两种尺寸，通过三种图案组合拼凑成多种评分星数。一个星星用一个 <code>&lt;span&gt;</code> 装载，以背景的形式展现。</p>
-<p><strong>star.vue</strong> CSS</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">@import <span class="string">"../../common/stylus/mixin.styl"</span></div><div class="line"></div><div class="line"><span class="selector-class">.star</span></div><div class="line">  <span class="attribute">font-size</span>: <span class="number">0</span></div><div class="line">  <span class="selector-class">.star-item</span></div><div class="line">    <span class="attribute">display</span>: inline-block</div><div class="line">    <span class="attribute">background-repeat</span>: no-repeat</div><div class="line">  <span class="comment">// star-xx 不同尺寸的星星</span></div><div class="line">  &amp;<span class="selector-class">.star-48</span></div><div class="line">    <span class="selector-class">.star-item</span></div><div class="line">      <span class="attribute">width</span>: <span class="number">20px</span></div><div class="line">      <span class="attribute">height</span>: <span class="number">20px</span></div><div class="line">      <span class="attribute">margin-right</span>: <span class="number">22px</span></div><div class="line">      <span class="attribute">background-size</span>: <span class="number">20px</span> <span class="number">20px</span></div><div class="line">      &amp;:last-child</div><div class="line">        <span class="attribute">margin-right</span>: <span class="number">0</span> // 最后 一个星星没有margin-right</div><div class="line">      &amp;<span class="selector-class">.on</span></div><div class="line">        <span class="comment">// mixin.styl 里定义的 bg-image() </span></div><div class="line">        bg-image(<span class="string">'star48_on'</span>) <span class="comment">// 全星</span></div><div class="line">      &amp;<span class="selector-class">.half</span></div><div class="line">        bg-image(<span class="string">'star48_half'</span>)  <span class="comment">// 半星</span></div><div class="line">      &amp;<span class="selector-class">.off</span></div><div class="line">        bg-image(<span class="string">'star48_off'</span>)  <span class="comment">// 无星</span></div><div class="line">  &amp;<span class="selector-class">.star-36</span></div><div class="line">    <span class="selector-class">.star-item</span></div><div class="line">      <span class="attribute">width</span>: <span class="number">15px</span></div><div class="line">      <span class="attribute">height</span>: <span class="number">15px</span></div><div class="line">      <span class="attribute">margin-right</span>: <span class="number">6px</span></div><div class="line">      <span class="attribute">background-size</span>: <span class="number">15px</span> <span class="number">15px</span></div><div class="line">      &amp;:last-child</div><div class="line">        <span class="attribute">margin-right</span>: <span class="number">0</span></div><div class="line">      &amp;<span class="selector-class">.on</span></div><div class="line">        bg-image(<span class="string">'star36_on'</span>)</div><div class="line">      &amp;<span class="selector-class">.half</span></div><div class="line">        bg-image(<span class="string">'star36_half'</span>)</div><div class="line">      &amp;<span class="selector-class">.off</span></div><div class="line">        bg-image(<span class="string">'star36_off'</span>)</div><div class="line">  &amp;<span class="selector-class">.star-24</span></div><div class="line">    <span class="selector-class">.star-item</span></div><div class="line">      <span class="attribute">width</span>: <span class="number">10px</span></div><div class="line">      <span class="attribute">height</span>: <span class="number">10px</span></div><div class="line">      <span class="attribute">margin-right</span>: <span class="number">3px</span></div><div class="line">      <span class="attribute">background-size</span>: <span class="number">10px</span> <span class="number">10px</span></div><div class="line">      &amp;:last-child</div><div class="line">        <span class="attribute">margin-right</span>: <span class="number">0</span></div><div class="line">      &amp;<span class="selector-class">.on</span></div><div class="line">        bg-image(<span class="string">'star24_on'</span>)</div><div class="line">      &amp;<span class="selector-class">.half</span></div><div class="line">        bg-image(<span class="string">'star24_half'</span>)</div><div class="line">      &amp;<span class="selector-class">.off</span></div><div class="line">        bg-image(<span class="string">'star24_off'</span>)</div></pre></td></tr></table></figure>
-<p><strong>star.vue</strong> HTML<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 循环填充星星状态的class --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"star"</span> <span class="attr">:class</span>=<span class="string">"starType"</span>&gt;</span></div><div class="line">  <span class="comment">&lt;!-- v-for：循环获取 itemClasses() 返回的数组 --&gt;</span></div><div class="line">  <span class="comment">&lt;!-- :class="itemClass" 把获取的class加给span --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"(itemClass,index) in itemClasses"</span> <span class="attr">:class</span>=<span class="string">"itemClass"</span> <span class="attr">class</span>=<span class="string">"star-item"</span> <span class="attr">key</span>=<span class="string">"index"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p><strong>star.vue</strong> JavaScript<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// const 定义常量</span></div><div class="line"><span class="keyword">const</span> LENGTH = <span class="number">5</span>   <span class="comment">// 星星个数</span></div><div class="line"><span class="keyword">const</span> CLS_ON = <span class="string">'on'</span>   <span class="comment">// 星星的三种状态</span></div><div class="line"><span class="keyword">const</span> CLS_HALF = <span class="string">'half'</span></div><div class="line"><span class="keyword">const</span> CLS_OFF = <span class="string">'off'</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  <span class="comment">// 使用组件时传入的参数</span></div><div class="line">  props: &#123;</div><div class="line">    size: &#123;</div><div class="line">      <span class="keyword">type</span>: <span class="built_in">Number</span></div><div class="line">    &#125;,</div><div class="line">    score: &#123;</div><div class="line">      <span class="keyword">type</span>: <span class="built_in">Number</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// 计算</span></div><div class="line">  computed: &#123;</div><div class="line">    starType () &#123;</div><div class="line">      <span class="keyword">return</span> <span class="string">'star-'</span> + <span class="keyword">this</span>.size</div><div class="line">    &#125;,</div><div class="line">    itemClasses () &#123;</div><div class="line">      <span class="keyword">let</span> result = []  <span class="comment">// 存放最终结果的数组</span></div><div class="line">      <span class="keyword">let</span> score = <span class="built_in">Math</span>.floor(<span class="keyword">this</span>.score * <span class="number">2</span>) / <span class="number">2</span> <span class="comment">// 通过分数算星星个数</span></div><div class="line">      <span class="comment">// 向下取0.5的公式。floor() 执行向下取整</span></div><div class="line">      <span class="comment">// floor(3.3 * 2) / 2 = 3 即 3颗全星+2颗无星</span></div><div class="line">      <span class="comment">// floor(3.6 * 2) / 2 = 3.5 即 3颗全星+1颗半星+1颗无星</span></div><div class="line">      <span class="keyword">let</span> hasDecimal = score % <span class="number">1</span> !== <span class="number">0</span> <span class="comment">// 取余不为0则有半星</span></div><div class="line">      <span class="keyword">let</span> integer = <span class="built_in">Math</span>.floor(score) <span class="comment">// 整数部分</span></div><div class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; integer; i++) &#123; <span class="comment">// 设置全星</span></div><div class="line">        result.push(CLS_ON)</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">if</span> (hasDecimal) &#123;</div><div class="line">        result.push(CLS_HALF)</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">while</span> (result.length &lt; LENGTH) &#123; <span class="comment">// 循环，补充无星</span></div><div class="line">        result.push(CLS_OFF)</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> result</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>header.vue</strong> 引用并注册 star 组件<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Star <span class="keyword">from</span> <span class="string">'components/star/star'</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> default &#123;</div><div class="line">  ...</div><div class="line">  components: &#123;</div><div class="line">    Star   <span class="comment">// 注册评分组件</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>header.vue</strong> 使用评分组件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"star-wrapper"</span>&gt;</div><div class="line">  <span class="xml"><span class="comment">&lt;!-- 使用 star 组件时，需传入 size、score --&gt;</span></span></div><div class="line">  <span class="comment">&lt;!-- :size 星星大小，组件定义了48、36、24 --&gt;</span></div><div class="line">  <span class="comment">&lt;!-- :score 评分，从data.json里来 --&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">star</span> <span class="attr">:size</span>=<span class="string">"48"</span> <span class="attr">:score</span>=<span class="string">"seller.score"</span>&gt;</span><span class="tag">&lt;/<span class="name">star</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://77g54f.com1.z0.glb.clouddn.com/bgt-20170620.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10&quot; alt=&quot;Vue.js 2 高仿饿了么开发及解注四&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Vue.js" scheme="http://laker.me/blog/categories/Vue-js/"/>
-    
-    
-      <category term="HTML5" scheme="http://laker.me/blog/tags/HTML5/"/>
-    
-      <category term="JavaScript" scheme="http://laker.me/blog/tags/JavaScript/"/>
-    
-      <category term="Vue.js" scheme="http://laker.me/blog/tags/Vue-js/"/>
     
   </entry>
   

@@ -3,19 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Ionic+Angular 开发移动应用六：第三方、数据交互、修改图标 - 进击的程序媛，Laker&#39;s blog</title>
+  <title>Use labelme to annotate image for machine learning - 进击的程序媛，Laker&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="BxWqqPVkmU3CTQmmIjCp27ZjmcXuB_YTf8Xa7lp_G-w" />
-  <meta name="keywords" content="Ionic,Angular">
+  <meta name="keywords" content="AI,ML">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ionic+Angular 开发移动应用六：第三方、数据交互、修改图标">
-<meta property="og:url" content="http://laker.me/blog/2017/05/24/17_0524_ionic_6/index.html">
+<meta property="og:title" content="Use labelme to annotate image for machine learning">
+<meta property="og:url" content="http://laker.me/blog/2019/01/31/19_0131_labelme/index.html">
 <meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
-<meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170524.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
-<meta property="og:updated_time" content="2017-07-18T02:39:50.000Z">
+<meta property="og:image" content="https://wx4.sinaimg.cn/large/6d184cefgy1fzoyeywzqxj20p0046q3i.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/mw690/6d184cefgy1fzoxcwooe8j21gi118tf0.jpg">
+<meta property="og:image" content="https://wx4.sinaimg.cn/mw690/6d184cefgy1fzoxl24g3xj20u00hsn1u.jpg">
+<meta property="og:image" content="https://wx2.sinaimg.cn/mw690/6d184cefgy1fzoxfcd0ixj20qu0em0u3.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/mw690/6d184cefgy1fzoxip1hzrj20ka03y74r.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/mw690/6d184cefgy1fzoxon8x00j20ni050mxv.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/mw690/6d184cefgy1fzoxowgvazj219k0500tv.jpg">
+<meta property="og:image" content="https://wx3.sinaimg.cn/mw690/6d184cefgy1fzoy0my8ghj21no136hdt.jpg">
+<meta property="og:updated_time" content="2019-01-21T13:57:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ionic+Angular 开发移动应用六：第三方、数据交互、修改图标">
-<meta name="twitter:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170524.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
+<meta name="twitter:title" content="Use labelme to annotate image for machine learning">
+<meta name="twitter:image" content="https://wx4.sinaimg.cn/large/6d184cefgy1fzoyeywzqxj20p0046q3i.jpg">
   
     <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
   
@@ -94,7 +101,7 @@ var _hmt = _hmt || [];
   <!-- Fork me on Github, Github Logo -->
   <a href="https://github.com/younglaker" class="github-corner" target="_blank" title="Fork me on GitHub"><svg width="60" height="60" viewBox="0 0 250 250" style="fill:#333;color:#fff;position:absolute;top:0;border:0;right:0"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 </header>
-    <section id="main" class="outer"><article id="post-17_0524_ionic_6" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-19_0131_labelme" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -102,50 +109,71 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      Ionic+Angular 开发移动应用六：第三方、数据交互、修改图标
+      Use labelme to annotate image for machine learning
     </h1>
   
 
       </header>
     
     <div class="article-meta">
-      <a href="/blog/2017/05/24/17_0524_ionic_6/" class="article-date">
-  <time datetime="2017-05-24T00:24:00.000Z" itemprop="datePublished">2017-05-24</time>
+      <a href="/blog/2019/01/31/19_0131_labelme/" class="article-date">
+  <time datetime="2019-01-31T00:24:00.000Z" itemprop="datePublished">2019-01-31</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/Angular/">Angular</a>
+    <a class="article-category-link" href="/blog/categories/AI/">AI</a>
   </div>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170524.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="第三方登陆/分享/支付、数据交互、修改图标"></p>
+        <p><img src="https://wx4.sinaimg.cn/large/6d184cefgy1fzoyeywzqxj20p0046q3i.jpg" alt="labelme"></p>
 <a id="more"></a>
 <blockquote>
-<p>欢迎交换友链： <a href="http://laker.me/blog">Laker’s Blog–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
 </blockquote>
-<h1 id="第三方登陆、分享、支付"><a href="#第三方登陆、分享、支付" class="headerlink" title="第三方登陆、分享、支付"></a>第三方登陆、分享、支付</h1><h2 id="QQ登陆与分享"><a href="#QQ登陆与分享" class="headerlink" title="QQ登陆与分享"></a>QQ登陆与分享</h2><p>插件地址: <code>https://github.com/iVanPan/Cordova_QQ</code><br>安装: </p>
-<pre><code>cordova plugin add https://github.com/iVanPan/Cordova_QQ.git --variable QQ_APP_ID=YOUR_QQ_APPID
-</code></pre><h2 id="微信登陆、分享、支付"><a href="#微信登陆、分享、支付" class="headerlink" title="微信登陆、分享、支付"></a>微信登陆、分享、支付</h2><p>插件地址: <code>https://github.com/xu-li/cordova-plugin-wechat</code><br>安装: </p>
-<pre><code>cordova plugin add cordova-plugin-wechat --variable wechatappid=YOUR_WECHAT_APPID
-</code></pre><h2 id="新浪微博登陆与分享"><a href="#新浪微博登陆与分享" class="headerlink" title="新浪微博登陆与分享"></a>新浪微博登陆与分享</h2><p>插件地址: <code>https://github.com/iVanPan/cordova_weibo</code><br>安装: </p>
-<pre><code>cordova plugin add https://github.com/iVanPan/cordova_weibo.git --variable WEIBO_APP_ID=YOUR_WEIBO_APPID
-</code></pre><h2 id="支付宝支付"><a href="#支付宝支付" class="headerlink" title="支付宝支付"></a>支付宝支付</h2><p>插件地址: <code>https://github.com/charleyw/cordova-plugin-alipay</code><br>安装: </p>
-<pre><code>cordova plugin add https://github.com/charleyw/cordova-plugin-alipay.git --variable PARTNER_ID=[你的商户PID可以在账户中查询] --variable SELLER_ACCOUNT=[你的商户支付宝帐号] --variable PRIVATE_KEY=[你生成的private key]
-</code></pre><h1 id="Ionic前后台数据交互"><a href="#Ionic前后台数据交互" class="headerlink" title="Ionic前后台数据交互"></a>Ionic前后台数据交互</h1><p>前台发起请求：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$http(&#123;</div><div class="line">  url:’’,</div><div class="line">  method：’post’,<span class="comment">//get</span></div><div class="line">  data: &#123;&#125;,<span class="comment">//传给服务器的参数</span></div><div class="line">  success:<span class="function"><span class="keyword">function</span><span class="params">(res)</span></span>&#123;</div><div class="line">       <span class="comment">//服务器返回的数据 json格式</span></div><div class="line">       <span class="comment">//res即是返回的json对象</span></div><div class="line">       <span class="comment">//成功返回的数据处理逻辑写这里</span></div><div class="line">  &#125;,</div><div class="line">  error:<span class="function"><span class="keyword">function</span><span class="params">(err)</span></span>&#123;</div><div class="line">      <span class="comment">//异常</span></div><div class="line">  &#125;，</div><div class="line">  timeout: <span class="number">20000</span><span class="comment">//请求超时设置</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h1 id="App图标修改"><a href="#App图标修改" class="headerlink" title="App图标修改"></a>App图标修改</h1><ol>
-<li>进入resources目录，替换icon.png,splash.png</li>
-<li>命令行输入： ionic resources （执行后会上传图片到服务器并自动裁切生成不同尺寸的图片）</li>
+<p>Labelme is a graphical image annotation tool. It is written in Python and uses Qt for its graphical interface. It is open source in Github at <a href="https://github.com/wkentaro/labelme" target="_blank" rel="external">https://github.com/wkentaro/labelme</a></p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>It can be used in both Python 2 and Python 3. Now, let’s use Python 3.</p>
+<p>I use Anaconda for machin learning. So in Anaconda :</p>
+<ol>
+<li>Install conda</li>
 </ol>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ionic resource —<span class="attribute">icon</span>   <span class="comment">// 自动生成icon</span></div><div class="line">ionic resource —splash    <span class="comment">// 自动生成splash</span></div></pre></td></tr></table></figure>
-<p>3.app名字修改：修改根目录下config.xml里的name的值即可</p>
+<p><img src="https://ws1.sinaimg.cn/mw690/6d184cefgy1fzoxcwooe8j21gi118tf0.jpg" alt="Install conda"></p>
+<p>If conda is not working in terminal, activate your terminal profile:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> ~/.zsh_profile</span></div></pre></td></tr></table></figure>
+<p><img src="https://wx4.sinaimg.cn/mw690/6d184cefgy1fzoxl24g3xj20u00hsn1u.jpg" alt="image"></p>
+<ol>
+<li>Create a new environment</li>
+</ol>
+<p>Choose a Python version you want.</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">conda create -n labelme python</span>=3.6</div></pre></td></tr></table></figure>
+<p>Then we get a new clean environment for labelme:</p>
+<p><img src="https://wx2.sinaimg.cn/mw690/6d184cefgy1fzoxfcd0ixj20qu0em0u3.jpg" alt="a new clean environment"></p>
+<ol>
+<li>Install labelme</li>
+</ol>
+<p>Active the environment :</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">activate</span> labelme</div></pre></td></tr></table></figure>
+<p>If not worked and show <code>zsh: command not found: activate</code>, add <code>source</code> like this:</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source <span class="built_in">activate</span> labelme</div></pre></td></tr></table></figure>
+<p>We will in the labeme environment.</p>
+<p><img src="https://ws4.sinaimg.cn/mw690/6d184cefgy1fzoxip1hzrj20ka03y74r.jpg" alt="environment"></p>
+<p>Python will be the version we chosen:</p>
+<p><img src="https://ws1.sinaimg.cn/mw690/6d184cefgy1fzoxon8x00j20ni050mxv.jpg" alt="Python"></p>
+<p>The pip also is the labelme version :</p>
+<p><img src="https://ws2.sinaimg.cn/mw690/6d184cefgy1fzoxowgvazj219k0500tv.jpg" alt="pip"></p>
+<p>Install labelme:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> pip install labelme</span></div></pre></td></tr></table></figure>
+<h2 id="Use-labelme"><a href="#Use-labelme" class="headerlink" title="Use labelme"></a>Use labelme</h2><p>Input:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> labelme</span></div></pre></td></tr></table></figure>
+<p>or:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> labelme <span class="comment"># Open GUI</span></span></div></pre></td></tr></table></figure>
+<p><img src="https://wx3.sinaimg.cn/mw690/6d184cefgy1fzoy0my8ghj21no136hdt.jpg" alt="labelme"></p>
 
         <hr>
         <div class="copyrights1">
-          <a href="http://laker.me/blog/2017/05/24/17_0524_ionic_6/">Ionic+Angular 开发移动应用六：第三方、数据交互、修改图标</a>
+          <a href="http://laker.me/blog/2019/01/31/19_0131_labelme/">Use labelme to annotate image for machine learning</a>
           <!--%- partial('post/title', {class_name: 'archive-article-title'}) %-->
           <p>本文原创自<a href="http://laker.me/blog">http://laker.me/blog</a>，转载请注明出处，欢迎交换友链</p>
           <p>如果本文对您有帮助，微信扫一扫，请我吃个鸡腿吧</p>
@@ -156,7 +184,7 @@ var _hmt = _hmt || [];
   
     <footer class="article-footer">
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Ionic/">Ionic</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/AI/">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ML/">ML</a></li></ul>
 
     </footer>
   
@@ -166,17 +194,9 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/blog/2017/06/04/17_0604_ionic_7/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-title"><span>&lt;</span>&nbsp;
-        
-          Ionic+Angular 开发移动应用七：打包APK文件
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/2017/05/18/17_0518_ionic_5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Ionic+Angular 开发移动应用五：利用Cordova调用设备功能&nbsp;<span>&gt;</span></div>
+    <a href="/blog/2019/01/22/19_0121_quick_sort/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Algorithm - Quick Sort by Python&nbsp;<span>&gt;</span></div>
     </a>
   
 </nav>
