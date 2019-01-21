@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://laker.me/blog/2019/01/22/19_0121_quick_sort/</loc>
+    
+    <lastmod>2019-01-30T13:00:17.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://laker.me/blog/2018/12/28/18_1228_django_deployment/</loc>
     
     <lastmod>2018-12-28T09:30:17.000Z</lastmod>
@@ -268,7 +275,7 @@
   </url>
   
   <url>
-    <loc>http://laker.me/blog/2017/05/18/17_0518_ionic_5/</loc>
+    <loc>http://laker.me/blog/2017/06/15/17_0615_easy_canvas/</loc>
     
     <lastmod>2017-07-18T02:39:50.000Z</lastmod>
     
@@ -282,7 +289,14 @@
   </url>
   
   <url>
-    <loc>http://laker.me/blog/2017/06/06/17_0606_sql/</loc>
+    <loc>http://laker.me/blog/2017/05/18/17_0518_ionic_5/</loc>
+    
+    <lastmod>2017-07-18T02:39:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://laker.me/blog/2017/05/15/17_0515_ionic_4/</loc>
     
     <lastmod>2017-07-18T02:39:50.000Z</lastmod>
     
@@ -296,21 +310,14 @@
   </url>
   
   <url>
+    <loc>http://laker.me/blog/2017/06/06/17_0606_sql/</loc>
+    
+    <lastmod>2017-07-18T02:39:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://laker.me/blog/2015/09/08/15_0908_virtualbox_visit_harddrive/</loc>
-    
-    <lastmod>2017-07-18T02:39:50.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://laker.me/blog/2017/06/15/17_0615_easy_canvas/</loc>
-    
-    <lastmod>2017-07-18T02:39:50.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://laker.me/blog/2017/05/15/17_0515_ionic_4/</loc>
     
     <lastmod>2017-07-18T02:39:50.000Z</lastmod>
     
@@ -331,6 +338,13 @@
   </url>
   
   <url>
+    <loc>http://laker.me/blog/2015/07/13/15_0713_hexo_github_2/</loc>
+    
+    <lastmod>2017-04-30T09:50:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://laker.me/blog/2015/07/19/15_0719_hexo_github_5/</loc>
     
     <lastmod>2017-04-30T09:50:10.000Z</lastmod>
@@ -345,13 +359,6 @@
   </url>
   
   <url>
-    <loc>http://laker.me/blog/2015/07/10/15_0710_hexo_github_1/</loc>
-    
-    <lastmod>2017-04-30T09:50:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://laker.me/blog/2015/07/15/15_0715_hexo_github_3/</loc>
     
     <lastmod>2017-04-30T09:50:10.000Z</lastmod>
@@ -359,7 +366,7 @@
   </url>
   
   <url>
-    <loc>http://laker.me/blog/2015/07/13/15_0713_hexo_github_2/</loc>
+    <loc>http://laker.me/blog/2015/07/10/15_0710_hexo_github_1/</loc>
     
     <lastmod>2017-04-30T09:50:10.000Z</lastmod>
     
@@ -374,13 +381,6 @@
   
   <url>
     <loc>http://laker.me/blog/2015/10/28/15_1028_brackets_intro/</loc>
-    
-    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://laker.me/blog/2015/11/03/15_1103_git_and_svn/</loc>
     
     <lastmod>2017-04-26T15:15:10.000Z</lastmod>
     
@@ -422,13 +422,6 @@
   </url>
   
   <url>
-    <loc>http://laker.me/blog/2016/03/04/16_0304_ajax_file_upload/</loc>
-    
-    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://laker.me/blog/2016/01/05/16_0105_searchbox_ruby_china/</loc>
     
     <lastmod>2017-04-26T15:15:10.000Z</lastmod>
@@ -443,7 +436,49 @@
   </url>
   
   <url>
-    <loc>http://laker.me/blog/2015/02/10/15_0210_cto/</loc>
+    <loc>http://laker.me/blog/2016/03/04/16_0304_ajax_file_upload/</loc>
+    
+    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://laker.me/blog/2015/02/05/15_0205_html5_speech/</loc>
+    
+    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://laker.me/blog/2015/02/26/15_0226_strellarjs/</loc>
+    
+    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://laker.me/blog/2017/03/09/17_0309_sublime_shortcuts/</loc>
+    
+    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://laker.me/blog/2017/02/13/17_0213_vuejs2_leaning/</loc>
+    
+    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://laker.me/blog/2014/01/24/14_0124_aomine_CI_2_file_upload/</loc>
+    
+    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://laker.me/blog/2017/03/16/17_0316_hexo_sever/</loc>
     
     <lastmod>2017-04-26T15:15:10.000Z</lastmod>
     
@@ -458,41 +493,6 @@
   
   <url>
     <loc>http://laker.me/blog/2015/02/28/15_0228_google_coder_learning/</loc>
-    
-    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://laker.me/blog/2017/02/13/17_0213_vuejs2_leaning/</loc>
-    
-    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://laker.me/blog/2017/03/09/17_0309_sublime_shortcuts/</loc>
-    
-    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://laker.me/blog/2017/03/16/17_0316_hexo_sever/</loc>
-    
-    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://laker.me/blog/2014/01/24/14_0124_aomine_CI_2_file_upload/</loc>
-    
-    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://laker.me/blog/2015/02/26/15_0226_strellarjs/</loc>
     
     <lastmod>2017-04-26T15:15:10.000Z</lastmod>
     
@@ -541,13 +541,6 @@
   </url>
   
   <url>
-    <loc>http://laker.me/blog/2015/07/21/15_0421_new_blog/</loc>
-    
-    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://laker.me/blog/2015/01/12/15_0112_css3_text_shadow/</loc>
     
     <lastmod>2017-04-26T15:15:10.000Z</lastmod>
@@ -556,6 +549,13 @@
   
   <url>
     <loc>http://laker.me/blog/2015/03/18/15_0318_Gogs/</loc>
+    
+    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://laker.me/blog/2015/07/21/15_0421_new_blog/</loc>
     
     <lastmod>2017-04-26T15:15:10.000Z</lastmod>
     
@@ -590,20 +590,6 @@
   </url>
   
   <url>
-    <loc>http://laker.me/blog/2015/02/03/15_0203_page_visibility/</loc>
-    
-    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://laker.me/blog/2015/07/29/15_0729_BeX5_2/</loc>
-    
-    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://laker.me/blog/2015/01/28/15_0128_no_jq_animation/</loc>
     
     <lastmod>2017-04-26T15:15:10.000Z</lastmod>
@@ -618,14 +604,21 @@
   </url>
   
   <url>
-    <loc>http://laker.me/blog/2015/07/31/15_0731_BeX5_3/</loc>
+    <loc>http://laker.me/blog/2015/02/03/15_0203_page_visibility/</loc>
     
     <lastmod>2017-04-26T15:15:10.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://laker.me/blog/2015/08/04/15_0804_MySQL_temporary_table/</loc>
+    <loc>http://laker.me/blog/2015/07/29/15_0729_BeX5_2/</loc>
+    
+    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://laker.me/blog/2015/07/31/15_0731_BeX5_3/</loc>
     
     <lastmod>2017-04-26T15:15:10.000Z</lastmod>
     
@@ -639,35 +632,14 @@
   </url>
   
   <url>
+    <loc>http://laker.me/blog/2015/08/04/15_0804_MySQL_temporary_table/</loc>
+    
+    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://laker.me/blog/2015/08/28/15_0828_cloud9_jekyll/</loc>
-    
-    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://laker.me/blog/2015/02/04/15_0204_mean/</loc>
-    
-    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://laker.me/blog/2015/09/18/15_0918_Git_push_errors/</loc>
-    
-    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://laker.me/blog/2015/02/05/15_0205_html5_speech/</loc>
-    
-    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://laker.me/blog/2015/09/28/15_0928_hexo_to_coding/</loc>
     
     <lastmod>2017-04-26T15:15:10.000Z</lastmod>
     
@@ -681,14 +653,35 @@
   </url>
   
   <url>
-    <loc>http://laker.me/blog/2015/10/10/15_1010_rgb_hex_color/</loc>
+    <loc>http://laker.me/blog/2015/09/18/15_0918_Git_push_errors/</loc>
     
     <lastmod>2017-04-26T15:15:10.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://laker.me/blog/2015/10/12/15_1012_ubuntu_npm_error/</loc>
+    <loc>http://laker.me/blog/2015/02/04/15_0204_mean/</loc>
+    
+    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://laker.me/blog/2015/09/28/15_0928_hexo_to_coding/</loc>
+    
+    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://laker.me/blog/2015/02/10/15_0210_cto/</loc>
+    
+    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://laker.me/blog/2015/10/10/15_1010_rgb_hex_color/</loc>
     
     <lastmod>2017-04-26T15:15:10.000Z</lastmod>
     
@@ -702,7 +695,21 @@
   </url>
   
   <url>
+    <loc>http://laker.me/blog/2015/10/12/15_1012_ubuntu_npm_error/</loc>
+    
+    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://laker.me/blog/2015/10/22/15_1022_ADF_table_validation/</loc>
+    
+    <lastmod>2017-04-26T15:15:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://laker.me/blog/2015/11/03/15_1103_git_and_svn/</loc>
     
     <lastmod>2017-04-26T15:15:10.000Z</lastmod>
     
@@ -723,14 +730,14 @@
   </url>
   
   <url>
-    <loc>http://laker.me/blog/categories/index.html</loc>
+    <loc>http://laker.me/blog/blogrolls/index.html</loc>
     
     <lastmod>2017-04-26T15:15:10.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://laker.me/blog/blogrolls/index.html</loc>
+    <loc>http://laker.me/blog/categories/index.html</loc>
     
     <lastmod>2017-04-26T15:15:10.000Z</lastmod>
     
