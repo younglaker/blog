@@ -11,11 +11,9 @@
 <meta property="og:title" content="利用 Github 分支管理一写无关痛痒的项目">
 <meta property="og:url" content="http://laker.me/blog/2018/02/11/18_0211_use_github/index.html">
 <meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
-<meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20180211.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
-<meta property="og:updated_time" content="2018-02-17T16:04:18.000Z">
+<meta property="og:updated_time" content="2019-03-09T03:29:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用 Github 分支管理一写无关痛痒的项目">
-<meta name="twitter:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20180211.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
   
     <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
   
@@ -121,7 +119,7 @@ var _hmt = _hmt || [];
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20180211.jpg?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="利用 Github 分支管理小项目"></p>
+        <!-- ![利用 Github 分支管理小项目][1] -->
 <a id="more"></a>
 <blockquote>
 <p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
@@ -137,8 +135,8 @@ var _hmt = _hmt || [];
 <h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>既然要求合并到 master 才能计入 contribution，那么就 merge 一下就可以解决。</p>
 <p>分支的小项目在日常进行正常的开发、提交，待基本完成后一次性merge 到 master，以前的 commit 会一次性计入 contribution，展示在 calendar上。</p>
 <h2 id="merge-操作"><a href="#merge-操作" class="headerlink" title="merge 操作"></a>merge 操作</h2><p>先切换到默认分支</p>
-<pre><code>git checkout master 
-</code></pre><p>合并到 master </p>
+<pre><code>git checkout master
+</code></pre><p>合并到 master</p>
 <pre><code>git merge origin/分支名
 </code></pre><p>删除除了mater readme.md 以外的所以文件，并修改readme的冲突，保持 master 为空。提交更改到本地：</p>
 <pre><code>git add -A
@@ -212,7 +210,7 @@ git commit -m&apos;merge&apos;
 
 
 <!-- !index 表示不是首页是显示，即在文章详情页显示 -->
-<div>adasdadas</div>
+<!-- <div>adasdadas</div> -->
 
 <div id="disqus_thread"></div>
 <script>
@@ -261,7 +259,8 @@ s.setAttribute('data-timestamp', +new Date());
 <script src="/blog/js/script.js"></script>
 
 <div id="totop" style="position:fixed;bottom:100px;right:50px;cursor: pointer;">
-	<a title="返回顶部"><img src="/blog/img/scrollup.png"/></a>
+	<!-- 返回顶部 -->
+	<a title="Top"><img src="/blog/img/scrollup.png"/></a>
 </div>
 <script src="/blog/js/totop.js"></script>
 

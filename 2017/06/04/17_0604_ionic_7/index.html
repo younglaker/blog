@@ -11,11 +11,9 @@
 <meta property="og:title" content="Ionic+Angular 开发移动应用七：打包APK文件">
 <meta property="og:url" content="http://laker.me/blog/2017/06/04/17_0604_ionic_7/index.html">
 <meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
-<meta property="og:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170604.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
-<meta property="og:updated_time" content="2017-08-08T08:10:50.000Z">
+<meta property="og:updated_time" content="2019-03-09T03:29:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ionic+Angular 开发移动应用七：打包APK文件">
-<meta name="twitter:image" content="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170604.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10">
   
     <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
   
@@ -121,7 +119,7 @@ var _hmt = _hmt || [];
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://77g54f.com1.z0.glb.clouddn.com/bgt-20170604.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="打包APK文件"></p>
+        <!-- ![打包APK文件][1] -->
 <a id="more"></a>
 <blockquote>
 <p>欢迎交换友链： <a href="http://laker.me/blog">Laker’s Blog–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
@@ -141,7 +139,7 @@ var _hmt = _hmt || [];
 <li>demo_signed.apk：自定义签名后的apk的名字</li>
 <li>android-release-unsigned.apk：之前build生成的文件</li>
 </ul>
-<p>运行结果：<br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">  ....</div><div class="line">  signing: res/xml/config.xml</div><div class="line">  signing: res/xml/provider_paths.xml</div><div class="line">  signing: resources.arsc</div><div class="line">jar <span class="built_in">signed</span>.</div><div class="line"></div><div class="line"><span class="literal">Warning</span>: </div><div class="line">No -tsa <span class="keyword">or</span> -tsacert <span class="keyword">is</span> provided <span class="keyword">and</span> this jar <span class="keyword">is</span> <span class="keyword">not</span> timestamped. Without a timestamp, users may <span class="keyword">not</span> be able <span class="keyword">to</span> validate this jar <span class="keyword">after</span> the signer certificate<span class="symbol">'s</span> expiration date (<span class="number">2126</span>-<span class="number">09</span>-<span class="number">10</span>) <span class="keyword">or</span> <span class="keyword">after</span> any future revocation date.</div></pre></td></tr></table></figure></p>
+<p>运行结果：<br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">  ....</div><div class="line">  signing: res/xml/config.xml</div><div class="line">  signing: res/xml/provider_paths.xml</div><div class="line">  signing: resources.arsc</div><div class="line">jar <span class="built_in">signed</span>.</div><div class="line"></div><div class="line"><span class="literal">Warning</span>:</div><div class="line">No -tsa <span class="keyword">or</span> -tsacert <span class="keyword">is</span> provided <span class="keyword">and</span> this jar <span class="keyword">is</span> <span class="keyword">not</span> timestamped. Without a timestamp, users may <span class="keyword">not</span> be able <span class="keyword">to</span> validate this jar <span class="keyword">after</span> the signer certificate<span class="symbol">'s</span> expiration date (<span class="number">2126</span>-<span class="number">09</span>-<span class="number">10</span>) <span class="keyword">or</span> <span class="keyword">after</span> any future revocation date.</div></pre></td></tr></table></figure></p>
 <p>最后的报错是说没有提供时间戳，不影响。此时已经生成一个签名的apk，可以在手机上安装运行。</p>
 <h3 id="常见报错："><a href="#常见报错：" class="headerlink" title="常见报错："></a>常见报错：</h3><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Jar signer, Unable <span class="keyword">to</span> <span class="keyword">open</span> xxx.apk</div></pre></td></tr></table></figure>
 <p>keystore和未签名的apk不在一个路径，可以把他们剪切到一个目录下，或者在命令里指明路径，如:</p>
@@ -211,7 +209,7 @@ var _hmt = _hmt || [];
 
 
 <!-- !index 表示不是首页是显示，即在文章详情页显示 -->
-<div>adasdadas</div>
+<!-- <div>adasdadas</div> -->
 
 <div id="disqus_thread"></div>
 <script>
@@ -260,7 +258,8 @@ s.setAttribute('data-timestamp', +new Date());
 <script src="/blog/js/script.js"></script>
 
 <div id="totop" style="position:fixed;bottom:100px;right:50px;cursor: pointer;">
-	<a title="返回顶部"><img src="/blog/img/scrollup.png"/></a>
+	<!-- 返回顶部 -->
+	<a title="Top"><img src="/blog/img/scrollup.png"/></a>
 </div>
 <script src="/blog/js/totop.js"></script>
 
