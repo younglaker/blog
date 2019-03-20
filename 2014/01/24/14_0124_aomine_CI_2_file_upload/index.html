@@ -6,18 +6,16 @@
   <title>跟着阿大学CodeIgniter （二）—— 文件上传 - 进击的程序媛，Laker&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="BxWqqPVkmU3CTQmmIjCp27ZjmcXuB_YTf8Xa7lp_G-w" />
-  <meta name="description" content="Ubuntu下的PS太难用了，为做一张配图，还要切回winows，好苦13 ╮(╯-╰)╭">
+  <meta name="description" content="原生php上传在使用CI之前，我们来看看用原生代码是如何上传的，做个对比，就知道CI有多么方便～ 首先创建一个视图ci/application/views/uploader1.php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="跟着阿大学CodeIgniter （二）—— 文件上传">
 <meta property="og:url" content="http://laker.me/blog/2014/01/24/14_0124_aomine_CI_2_file_upload/index.html">
 <meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
-<meta property="og:description" content="Ubuntu下的PS太难用了，为做一张配图，还要切回winows，好苦13 ╮(╯-╰)╭">
-<meta property="og:image" content="http://segmentfault.com/img/bVbPbI">
-<meta property="og:updated_time" content="2017-04-26T15:15:10.000Z">
+<meta property="og:description" content="原生php上传在使用CI之前，我们来看看用原生代码是如何上传的，做个对比，就知道CI有多么方便～ 首先创建一个视图ci/application/views/uploader1.php">
+<meta property="og:updated_time" content="2019-03-20T07:22:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跟着阿大学CodeIgniter （二）—— 文件上传">
-<meta name="twitter:description" content="Ubuntu下的PS太难用了，为做一张配图，还要切回winows，好苦13 ╮(╯-╰)╭">
-<meta name="twitter:image" content="http://segmentfault.com/img/bVbPbI">
+<meta name="twitter:description" content="原生php上传在使用CI之前，我们来看看用原生代码是如何上传的，做个对比，就知道CI有多么方便～ 首先创建一个视图ci/application/views/uploader1.php">
   
     <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
   
@@ -123,10 +121,11 @@ var _hmt = _hmt || [];
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://segmentfault.com/img/bVbPbI" alt="请输入图片描述"><br>Ubuntu下的PS太难用了，为做一张配图，还要切回winows，好苦13 ╮(╯-╰)╭</p>
-<a id="more"></a>
+        <!-- ![请输入图片描述][1] -->
+<!-- Ubuntu下的PS太难用了，为做一张配图，还要切回winows，好苦13 ╮(╯-╰)╭ -->
 <h2 id="原生php上传"><a href="#原生php上传" class="headerlink" title="原生php上传"></a>原生php上传</h2><p>在使用CI之前，我们来看看用原生代码是如何上传的，做个对比，就知道CI有多么方便～</p>
 <p>首先创建一个视图ci/application/views/uploader1.php</p>
+<a id="more"></a>
 <ul>
 <li>表单的 action 填写调用的控制器的上传方法’upload1/up’，这个将在下一步代码中完成控制器具体内容</li>
 <li>填写method，get或post</li>

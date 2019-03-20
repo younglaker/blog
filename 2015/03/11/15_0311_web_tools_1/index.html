@@ -12,13 +12,12 @@
 <meta property="og:url" content="http://laker.me/blog/2015/03/11/15_0311_web_tools_1/index.html">
 <meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
 <meta property="og:description" content="看到一个很棒的系列，介绍了很多对web开发很有帮助的利器，解决了很多开发中遇到的繁琐事，翻译来分享一下：  Prepros 这是很赞的预处理程序。 Prepros能编译很多种语言 (LESS, Sass, SCSS, Stylus, Jade, Slim, Coffeescript, LiveScript, Haml, Markdown)，实时压缩和连接JS，优化图片，当CSS或HTML变化时自动">
-<meta property="og:image" content="http://segmentfault.com/img/bVk15L">
 <meta property="og:image" content="http://segmentfault.com/img/bVk15M">
-<meta property="og:updated_time" content="2018-08-03T05:22:24.000Z">
+<meta property="og:updated_time" content="2019-03-20T07:20:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web开发利器推荐（一）">
 <meta name="twitter:description" content="看到一个很棒的系列，介绍了很多对web开发很有帮助的利器，解决了很多开发中遇到的繁琐事，翻译来分享一下：  Prepros 这是很赞的预处理程序。 Prepros能编译很多种语言 (LESS, Sass, SCSS, Stylus, Jade, Slim, Coffeescript, LiveScript, Haml, Markdown)，实时压缩和连接JS，优化图片，当CSS或HTML变化时自动">
-<meta name="twitter:image" content="http://segmentfault.com/img/bVk15L">
+<meta name="twitter:image" content="http://segmentfault.com/img/bVk15M">
   
     <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
   
@@ -126,7 +125,7 @@ var _hmt = _hmt || [];
       
         <p>看到一个很棒的系列，介绍了很多对web开发很有帮助的利器，解决了很多开发中遇到的繁琐事，翻译来分享一下：</p>
 <hr>
-<h2 id="Prepros"><a href="#Prepros" class="headerlink" title="Prepros"></a><a href="http://alphapixels.com/prepros/" target="_blank" rel="external">Prepros</a></h2><p><img src="http://segmentfault.com/img/bVk15L" alt="clipboard.png"></p>
+<h2 id="Prepros"><a href="#Prepros" class="headerlink" title="Prepros"></a><a href="http://alphapixels.com/prepros/" target="_blank" rel="external">Prepros</a></h2><!-- ![clipboard.png](http://segmentfault.com/img/bVk15L) -->
 <p>这是很赞的预处理程序。 Prepros能编译很多种语言 (LESS, Sass, SCSS, Stylus, Jade, Slim, Coffeescript, LiveScript, Haml, Markdown)，实时压缩和连接JS，优化图片，当CSS或HTML变化时自动刷新浏览器，多设备测试。</p>
 <p>所以你不用购买<a href="http://livereload.com/" target="_blank" rel="external">Liverload</a> 和 <a href="http://vanamco.com/ghostlab/" target="_blank" rel="external">Ghostlab</a>，Prepros是<a href="https://github.com/Subash/Prepros" target="_blank" rel="external">开源</a>、免费的。 类似的功能只能通过<a href="http://gruntjs.com/" target="_blank" rel="external">Grunt</a>实现，但Prepros让事情变得简单。</p>
 <a id="more"></a>
@@ -153,16 +152,16 @@ else alert( &quot;The URL is incorrect&quot; );
 </code></pre><p>VerbalExpressions也能操作 Ruby, C#, Python, Java, Groovy, PHP, Haskell, C++, Objective-C的正则。</p>
 <h2 id="HTML-js"><a href="#HTML-js" class="headerlink" title="HTML.js"></a><a href="https://github.com/nbubna/HTML" target="_blank" rel="external">HTML.js</a></h2><p>这个是 fork 自 Voyeur.js 的库，压缩后才2KB，语法良好，用于遍历和操作DOM。</p>
 <h3 id="查找元素"><a href="#查找元素" class="headerlink" title="查找元素"></a>查找元素</h3><pre><code>HTML.div.h1; // body&gt;div&gt;h1, return H1 elent
-HTML.div.h1.innerHTML = &quot;Ilya Pestov&quot;; 
+HTML.div.h1.innerHTML = &quot;Ilya Pestov&quot;;
 HTML.div.ul.li; // return array of li elements
 
 HTML.find(&quot;#example&quot;); // return one node
 HTML.find(&quot;.example&quot;); // return array of nodes
-HTML.find(&quot;#example&quot;).h1.em; 
+HTML.find(&quot;#example&quot;).h1.em;
 </code></pre><h3 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h3><p>HTML.tag…use( callback(element) ) Root HTMLElement</p>
 <pre><code>HTML.div.ul.li.use(); // return div element
 HTML.div.ul.li.use(function(li, i) {
-        // loop in list 
+        // loop in list
         li.innerHTML = &quot;List item #&quot; + i;
 });
 
@@ -175,8 +174,8 @@ HTML.div.ul.use(function(ul) {
 HTML.create.div.h1; // return H1 with div parent
 HTML.create.div.h1.em;
 
-HTML.create.ul.li.mult(10).use(function(li, i) { // create 10 li elements 
-     li.innerHTML = &quot;Created list items!&quot;; // 
+HTML.create.ul.li.mult(10).use(function(li, i) { // create 10 li elements
+     li.innerHTML = &quot;Created list items!&quot;; //
 });
 
 //HTML.tag...eq( begin , end ) HTMLElement|Array

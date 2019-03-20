@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2019-03-07T02:23:42.000Z</updated>
+  <updated>2019-03-20T07:28:15.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,71 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode 189 Rotate Array</title>
+    <link href="http://laker.me/blog/2019/03/20/19_0320_leetcode189/"/>
+    <id>http://laker.me/blog/2019/03/20/19_0320_leetcode189/</id>
+    <published>2019-03-20T00:24:00.000Z</published>
+    <updated>2019-03-20T07:28:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://ws1.sinaimg.cn/mw690/6d184cefgy1fzs9pgmo9aj20p0046gly.jpg" alt="LeetCode 189 Rotate Array"></p>
+<a id="more"></a>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="https://leetcode.com/problems/rotate-array/" target="_blank" rel="external">https://leetcode.com/problems/rotate-array/</a></p>
+<p>Given an array, rotate the array to the right by k steps, where k is non-negative.</p>
+<p>Example 1:</p>
+<pre><code>Input: [1,2,3,4,5,6,7] and k = 3
+Output: [5,6,7,1,2,3,4]
+Explanation:
+rotate 1 steps to the right: [7,1,2,3,4,5,6]
+rotate 2 steps to the right: [6,7,1,2,3,4,5]
+rotate 3 steps to the right: [5,6,7,1,2,3,4]
+</code></pre><p>Example 2:</p>
+<pre><code>Input: [-1,-100,3,99] and k = 2
+Output: [3,99,-1,-100]
+Explanation:
+rotate 1 steps to the right: [99,-1,-100,3]
+rotate 2 steps to the right: [3,99,-1,-100]
+</code></pre><p>Note:</p>
+<p>Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.<br>Could you do it in-place with O(1) extra space?</p>
+<h2 id="Solution-one"><a href="#Solution-one" class="headerlink" title="Solution one"></a>Solution one</h2><h3 id="Expalnation"><a href="#Expalnation" class="headerlink" title="Expalnation:"></a>Expalnation:</h3><p><img src="https://ws2.sinaimg.cn/mw690/6d184cefgy1fzs815rp2qj211s0h7n4y.jpg" alt="Expalnation"></p>
+<p>Every element moves k steps and it will get the correct array.</p>
+<h3 id="Method-one"><a href="#Method-one" class="headerlink" title="Method one"></a>Method one</h3><p>Use a new list to store the result, but it need O(n) space.</p>
+<h3 id="Method-two"><a href="#Method-two" class="headerlink" title="Method two"></a>Method two</h3><p>Set the element to the correct position one by one, it only need O(1) space and O(n) time.</p>
+<p>Whewn the length of nums id odd, it can set to the correct position one by one for one time,</p>
+<p>But when the lenght of nums is even, like the example above, it will collide. In our example above, the length of nums is 6 and when k=2, nums[0]-&gt;nums[2]-&gt;nums[4]-&gt;nums[0], so we have to move to nums[1] to restart. So in our code, when ‘i==j’, then ‘i++’.</p>
+<p>Also the exchange will execute ‘length’ times. So in our code, it will exchange when ‘count &lt; length’</p>
+<h3 id="Full-Code-in-Github"><a href="#Full-Code-in-Github" class="headerlink" title="Full Code in Github :"></a>Full Code in Github :</h3><p><a href="https://github.com/younglaker/leetcode/blob/master/189_Rotate_Array.py" target="_blank" rel="external">https://github.com/younglaker/leetcode/blob/master/189_Rotate_Array.py</a></p>
+<h3 id="Code-explanation"><a href="#Code-explanation" class="headerlink" title="Code explanation"></a>Code explanation</h3><p><img src="https://wx3.sinaimg.cn/mw690/6d184cefgy1fzs8m6ovhsj21on2dre81.jpg" alt="Code explanation"></p>
+<h2 id="Solution-two"><a href="#Solution-two" class="headerlink" title="Solution two"></a>Solution two</h2><h3 id="Expalnation-1"><a href="#Expalnation-1" class="headerlink" title="Expalnation:"></a>Expalnation:</h3><p><img src="https://ws4.sinaimg.cn/mw690/6d184cefgy1fzs9glaom3j214s0gdaek.jpg" alt="Expalnation"></p>
+<ul>
+<li>Reverse the whole list</li>
+<li>Reverse list from 0 to k-1 (because the list starts from 0)</li>
+<li>Reverse list from k to length-1</li>
+</ul>
+<h3 id="Full-Code-in-Github-1"><a href="#Full-Code-in-Github-1" class="headerlink" title="Full Code in Github :"></a>Full Code in Github :</h3><p><a href="https://github.com/younglaker/leetcode/blob/master/189_Rotate_Array2.py" target="_blank" rel="external">https://github.com/younglaker/leetcode/blob/master/189_Rotate_Array2.py</a></p>
+<h3 id="Code-explanation-1"><a href="#Code-explanation-1" class="headerlink" title="Code explanation"></a>Code explanation</h3><p><img src="https://ws2.sinaimg.cn/mw690/6d184cefgy1fzs9isk58gj215e15fne1.jpg" alt="Code explanation"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://ws1.sinaimg.cn/mw690/6d184cefgy1fzs9pgmo9aj20p0046gly.jpg&quot; alt=&quot;LeetCode 189 Rotate Array&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Algorithm" scheme="http://laker.me/blog/categories/Algorithm/"/>
+    
+    
+      <category term="Algorithm" scheme="http://laker.me/blog/tags/Algorithm/"/>
+    
+      <category term="Python" scheme="http://laker.me/blog/tags/Python/"/>
+    
+      <category term="LeetCode" scheme="http://laker.me/blog/tags/LeetCode/"/>
+    
+  </entry>
   
   <entry>
     <title>Wechat mini program - start up and homepage</title>
@@ -303,9 +368,9 @@ Output: &quot;1211&quot;
     <link href="http://laker.me/blog/2018/12/28/18_1228_django_deployment/"/>
     <id>http://laker.me/blog/2018/12/28/18_1228_django_deployment/</id>
     <published>2018-12-28T00:24:00.000Z</published>
-    <updated>2018-12-28T09:30:17.000Z</updated>
+    <updated>2019-03-20T07:26:48.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://wx4.sinaimg.cn/large/6d184cefly1fxvvjn56zij20p004675r.jpg" alt="Django Enviroment in Tencent Cloud Ubuntu"></p>
+    <content type="html"><![CDATA[<!-- ![Django Enviroment in Tencent Cloud Ubuntu][1] -->
 <a id="more"></a>
 <blockquote>
 <p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
@@ -353,7 +418,7 @@ Output: &quot;1211&quot;
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://wx4.sinaimg.cn/large/6d184cefly1fxvvjn56zij20p004675r.jpg&quot; alt=&quot;Django Enviroment in Tencent Cloud Ubuntu&quot;&gt;&lt;/p&gt;
+      &lt;!-- ![Django Enviroment in Tencent Cloud Ubuntu][1] --&gt;
     
     </summary>
     
@@ -1144,60 +1209,6 @@ show_channel_urls: true
       <category term="JavaScript" scheme="http://laker.me/blog/tags/JavaScript/"/>
     
       <category term="Canvas" scheme="http://laker.me/blog/tags/Canvas/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>利用 Github 分支管理一写无关痛痒的项目</title>
-    <link href="http://laker.me/blog/2018/02/11/18_0211_use_github/"/>
-    <id>http://laker.me/blog/2018/02/11/18_0211_use_github/</id>
-    <published>2018-02-11T00:24:00.000Z</published>
-    <updated>2019-03-09T03:29:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- ![利用 Github 分支管理小项目][1] -->
-<a id="more"></a>
-<blockquote>
-<p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
-</blockquote>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>因为经常会写一些小程序，需要备份到 Github 方便管理和分享。随项目增多，Repo 的数目越来越多，但是很多是无关痛痒的，不必要这么多仓库存放。处女座情结表示这样特别乱，而且一眼看上去都是很辣鸡的代码，得想办法整理一下。</p>
-<h2 id="整理方法"><a href="#整理方法" class="headerlink" title="整理方法"></a>整理方法</h2><p>1.建立一个仓库 （例如我的 <a href="https://github.com/younglaker/CometLab" target="_blank" rel="external">CometLab</a>），master分支用来做展示入口，只存放一个 README.md 来作为介绍。起名 Lab，就是意味着这里就是一个实验室。里面都是些实验性的项目。<br>2.每个小项目用其他分支存放，各分支之间没什么关系。例如现在有的<code>vue-todo</code> <code>vue-eleme</code> <code>ng-ionic</code>。</p>
-<p>问题来了，在分支上的提交不计入 contribution，但是我会在这个仓库的分支进行很多开发，导致calendar是空的，不是所有的发布信息都展示出来，管理代码不太方便。</p>
-<h2 id="Contributions未被Github计入的几个常见原因"><a href="#Contributions未被Github计入的几个常见原因" class="headerlink" title="Contributions未被Github计入的几个常见原因"></a>Contributions未被Github计入的几个常见原因</h2><ul>
-<li>进行Commits的用户没有关联到Github帐号</li>
-<li>未合并到默认分支或gh-pages的Commit</li>
-<li>Fork的仓库</li>
-</ul>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>既然要求合并到 master 才能计入 contribution，那么就 merge 一下就可以解决。</p>
-<p>分支的小项目在日常进行正常的开发、提交，待基本完成后一次性merge 到 master，以前的 commit 会一次性计入 contribution，展示在 calendar上。</p>
-<h2 id="merge-操作"><a href="#merge-操作" class="headerlink" title="merge 操作"></a>merge 操作</h2><p>先切换到默认分支</p>
-<pre><code>git checkout master
-</code></pre><p>合并到 master</p>
-<pre><code>git merge origin/分支名
-</code></pre><p>删除除了mater readme.md 以外的所以文件，并修改readme的冲突，保持 master 为空。提交更改到本地：</p>
-<pre><code>git add -A
-git commit -m&apos;merge&apos;
-</code></pre><p>再提交到 master</p>
-<pre><code>git push origin master
-</code></pre><p>在分支里曾经提交过的 commit 就会一次性计入 contribution，展示在 calendar上。</p>
-<h2 id="升级用法"><a href="#升级用法" class="headerlink" title="升级用法"></a>升级用法</h2><p>为了方便开发，每个分支在本地用一个文件夹。</p>
-<p>下载指定分支的代码：</p>
-<pre><code>git clone -b 分支 git@github.com:younglaker/CometLab.git
-</code></pre><p>修改本地文件夹名字成分支名字，方便管理。</p>
-<p>再 clone 一个完整的仓库，需要 merge 的时候再 pull、merge、push。</p>
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><p>提交代码找不到远端分支。很可能是本地所在分支不是AAA，很可能目前是在master，误以为在AAA分支。</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git push origin AAA</div><div class="line"><span class="keyword">error: </span>src refspec AAA does not match any.</div><div class="line"><span class="keyword">error: </span>failed to push some refs to 'git@github.com:younglaker/BBB.git'</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- ![利用 Github 分支管理小项目][1] --&gt;
-    
-    </summary>
-    
-      <category term="GitHub" scheme="http://laker.me/blog/categories/GitHub/"/>
-    
-    
-      <category term="GitHub" scheme="http://laker.me/blog/tags/GitHub/"/>
     
   </entry>
   

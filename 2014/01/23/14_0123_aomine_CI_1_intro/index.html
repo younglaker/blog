@@ -6,18 +6,16 @@
   <title>跟着阿大学CodeIgniter（一）——了解MVC - 进击的程序媛，Laker&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="BxWqqPVkmU3CTQmmIjCp27ZjmcXuB_YTf8Xa7lp_G-w" />
-  <meta name="description" content="有的没的阿大镇文(-_-メ)～阿大你太黑了，回去洗把脸看看有没有救～ 学习背景CI是一个比较流行的PHP MVC框架，CI的文档完善和资源丰富，适合初学～按照我觉得比较高效的学习方法：了解基本语法 -&amp;gt; 学会使用一个流行的框架 -&amp;gt; 反过来在用原生语言自己实现一个框架">
+  <meta name="description" content="学习背景CI是一个比较流行的PHP MVC框架，CI的文档完善和资源丰富，适合初学～按照我觉得比较高效的学习方法：了解基本语法 -&amp;gt; 学会使用一个流行的框架 -&amp;gt; 反过来在用原生语言自己实现一个框架">
 <meta property="og:type" content="article">
 <meta property="og:title" content="跟着阿大学CodeIgniter（一）——了解MVC">
 <meta property="og:url" content="http://laker.me/blog/2014/01/23/14_0123_aomine_CI_1_intro/index.html">
 <meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
-<meta property="og:description" content="有的没的阿大镇文(-_-メ)～阿大你太黑了，回去洗把脸看看有没有救～ 学习背景CI是一个比较流行的PHP MVC框架，CI的文档完善和资源丰富，适合初学～按照我觉得比较高效的学习方法：了解基本语法 -&amp;gt; 学会使用一个流行的框架 -&amp;gt; 反过来在用原生语言自己实现一个框架">
-<meta property="og:image" content="http://segmentfault.com/img/bVbOml">
-<meta property="og:updated_time" content="2017-04-26T15:15:10.000Z">
+<meta property="og:description" content="学习背景CI是一个比较流行的PHP MVC框架，CI的文档完善和资源丰富，适合初学～按照我觉得比较高效的学习方法：了解基本语法 -&amp;gt; 学会使用一个流行的框架 -&amp;gt; 反过来在用原生语言自己实现一个框架">
+<meta property="og:updated_time" content="2019-03-20T07:22:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跟着阿大学CodeIgniter（一）——了解MVC">
-<meta name="twitter:description" content="有的没的阿大镇文(-_-メ)～阿大你太黑了，回去洗把脸看看有没有救～ 学习背景CI是一个比较流行的PHP MVC框架，CI的文档完善和资源丰富，适合初学～按照我觉得比较高效的学习方法：了解基本语法 -&amp;gt; 学会使用一个流行的框架 -&amp;gt; 反过来在用原生语言自己实现一个框架">
-<meta name="twitter:image" content="http://segmentfault.com/img/bVbOml">
+<meta name="twitter:description" content="学习背景CI是一个比较流行的PHP MVC框架，CI的文档完善和资源丰富，适合初学～按照我觉得比较高效的学习方法：了解基本语法 -&amp;gt; 学会使用一个流行的框架 -&amp;gt; 反过来在用原生语言自己实现一个框架">
   
     <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
   
@@ -123,7 +121,10 @@ var _hmt = _hmt || [];
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="有的没的"><a href="#有的没的" class="headerlink" title="有的没的"></a>有的没的</h2><p><img src="http://segmentfault.com/img/bVbOml" alt="青峰大辉"><br><a href="http://baike.baidu.com/link?url=e1_jXEDQnhyDOoG5YCg9_-EU2HZD5_2kpGIz4MgVe7U5HQ19v0IssPJDYnt2gTI2v-DnAQs52mWbi4fiJdo_Na" target="_blank" rel="external">阿大</a>镇文(-_-メ)～<br>阿大你太黑了，回去洗把脸看看有没有救～</p>
+        <!-- ## 有的没的 -->
+<!-- ![青峰大辉][1] -->
+<!-- [阿大](http://baike.baidu.com/link?url=e1_jXEDQnhyDOoG5YCg9_-EU2HZD5_2kpGIz4MgVe7U5HQ19v0IssPJDYnt2gTI2v-DnAQs52mWbi4fiJdo_Na)镇文(-_-メ)～ -->
+<!-- 阿大你太黑了，回去洗把脸看看有没有救～ -->
 <h2 id="学习背景"><a href="#学习背景" class="headerlink" title="学习背景"></a>学习背景</h2><p>CI是一个比较流行的PHP MVC框架，CI的文档完善和资源丰富，适合初学～<br>按照我觉得比较高效的学习方法：了解基本语法 -&gt; 学会使用一个流行的框架 -&gt; 反过来在用原生语言自己实现一个框架</p>
 <a id="more"></a>
 <h2 id="关于CodeIgniter"><a href="#关于CodeIgniter" class="headerlink" title="关于CodeIgniter"></a>关于CodeIgniter</h2><p><a href="http://codeigniter.org.cn/" target="_blank" rel="external">codeigniter</a>是一套给 PHP 网站开发者使用的应用程序开发框架和工具包。它提供一套丰富的标准库以及简单的接口和逻辑结构，其目的是使开发人员更快速地进行项目开发。使用 CodeIgniter 可以减少代码的编写量，并将你的精力投入到项目的创造性开发上。</p>

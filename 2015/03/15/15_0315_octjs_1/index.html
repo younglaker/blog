@@ -12,12 +12,10 @@
 <meta property="og:url" content="http://laker.me/blog/2015/03/15/15_0315_octjs_1/index.html">
 <meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
 <meta property="og:description" content="前言以前大三的时候写的一个小框架，仿jquery链式结构，纯属练手，大牛勿喷。当时还把JQ的源码全部打印下来（因为在电脑上看不方便做笔记），7600+行代码，300+页A4纸，对照着看别人是怎么写的。还好一个长我一届的学长当时比较闲，我说我想读JQ代码，他也没读过，就找来上两届的学长以前练手写的小框架进行学习。可惜只找到了压缩混淆后的代码，对于一个渣渣来说，阅读起来很困难。在他的指点下，我大致了">
-<meta property="og:image" content="http://segmentfault.com/img/bVkvoJ">
-<meta property="og:updated_time" content="2017-04-26T15:15:10.000Z">
+<meta property="og:updated_time" content="2019-03-20T07:22:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我是怎么写JavaScript框架的（一）">
 <meta name="twitter:description" content="前言以前大三的时候写的一个小框架，仿jquery链式结构，纯属练手，大牛勿喷。当时还把JQ的源码全部打印下来（因为在电脑上看不方便做笔记），7600+行代码，300+页A4纸，对照着看别人是怎么写的。还好一个长我一届的学长当时比较闲，我说我想读JQ代码，他也没读过，就找来上两届的学长以前练手写的小框架进行学习。可惜只找到了压缩混淆后的代码，对于一个渣渣来说，阅读起来很困难。在他的指点下，我大致了">
-<meta name="twitter:image" content="http://segmentfault.com/img/bVkvoJ">
   
     <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
   
@@ -123,7 +121,7 @@ var _hmt = _hmt || [];
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://segmentfault.com/img/bVkvoJ" alt="clipboard.png"></p>
+        <!-- ![clipboard.png](http://segmentfault.com/img/bVkvoJ) -->
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>以前大三的时候写的一个小框架，仿jquery链式结构，纯属练手，大牛勿喷。当时还把JQ的源码全部打印下来（因为在电脑上看不方便做笔记），7600+行代码，300+页A4纸，对照着看别人是怎么写的。还好一个长我一届的学长当时比较闲，我说我想读JQ代码，他也没读过，就找来上两届的学长以前练手写的小框架进行学习。可惜只找到了压缩混淆后的代码，对于一个渣渣来说，阅读起来很困难。<a href="http://weibo.com/1830309103/zCAmJ7xDY?from=page_1005051830309103_profile&amp;wvr=6&amp;mod=weibotime&amp;type=comment#_rnd1420465493227" target="_blank" rel="external">在他的指点下</a>，我大致了解了原理，并开始着手自己写。现在陆续有学弟找我要这个代码。虽然现在觉得写得一塌糊涂，但是，可能对于和我当时一样摸不着边的人来说，可能会有帮助。我就打算慢慢解析我是怎么写的，并穿插讲解我对JQ（2.0版）写法的理解。其实源代码里我都写有注释，我也是靠这些注释回忆我当时是怎么想的。可能会有很多不好的地方，轻喷~ 罒ω罒</p>
 <p>我给库起名Oct.js，是因为这个是在企鹅实习生应聘失败后为10月校招而写。纪念那个稚嫩的我。</p>
 <p><a href="https://github.com/younglaker/octjs/blob/master/octjs/octjs.js" target="_blank" rel="external">全部代码，看这里看这里~(￣▽￣)~*　</a><br><a href="https://github.com/younglaker/octjs/tree/master/doc" target="_blank" rel="external">配合使用文档看代码更容易理解</a></p>
@@ -131,27 +129,27 @@ var _hmt = _hmt || [];
 <h2 id="闭包结构"><a href="#闭包结构" class="headerlink" title="闭包结构"></a>闭包结构</h2><p>为了防止和别的库的冲突，用闭包把整个框架安全地保护好。我们待会的代码都写在里面。这里创建一个全局变量”window.O”，就是在window对象里加个O，它等价于 “Oct”，相当于jquery、Jquery这样的别称，意味着以后用Oct()或O()来进行操作。把window.O写成window.$，那就和JQ的$调用用法一样。window.O返回一个Octobj对象，这很重要。</p>
 <pre><code>(function() {
     // 创建一个全局变量&quot;window.O&quot;
-    window.O = Oct = function(selector, root_id, tag) { 
-        return new Octobj(selector, root_id, tag); 
-    }; 
+    window.O = Oct = function(selector, root_id, tag) {
+        return new Octobj(selector, root_id, tag);
+    };
 
     // 帅气地定义一个版本
-    Oct.version = &quot;1.0&quot;; 
+    Oct.version = &quot;1.0&quot;;
 
 })();
 </code></pre><h2 id="链式结构原理"><a href="#链式结构原理" class="headerlink" title="链式结构原理"></a>链式结构原理</h2><p>JQ的流行，我想是因为它很方便吧，一个选择器就可以接着写一连串的方法。链式结构就是在每个方法结束时返回一个对象进行下一个方法的操作。后面会通过代码说明</p>
 <h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><p>选择器非常重要。JQ特别把选择器部分剥离出一个库sizzle.js。现在的JQ内部也是调用JQ里面的sizzle。“选择器”三个字写得简单，代码写起来就很有学问，sizzle.js这种高大上的我就不说了。我这里简单实现一些功能：选择class/id/标签。</p>
-<p>首先，把上面的Octobj对象骨架搭建起来。包含selector, root_id, tag三个参数。selector就是你想要找的东西，root_id是你想要找的东西的上级的id，tag是你要指定返回某种标签。 </p>
+<p>首先，把上面的Octobj对象骨架搭建起来。包含selector, root_id, tag三个参数。selector就是你想要找的东西，root_id是你想要找的东西的上级的id，tag是你要指定返回某种标签。</p>
 <pre><code>var Octobj = function(selector, root_id, tag) {
 
 };
 </code></pre><p>定义一些参数</p>
-<pre><code>// args: 存储root_id的子标签 
+<pre><code>// args: 存储root_id的子标签
 // type: 类型标记，id(&quot;#&quot;), class(&quot;.&quot;) 或者 tag(&quot;&amp;。 tag也加标记是为了代码方便
 // eles: 临时的，存储`selector`变量里&quot;# . &amp;&quot;标记后面的字符串
 // selector_exp: 用来匹配标签的正则规则
-var agrs, type, eles; 
-var selector_exp = /^(?:#(\w-_)+|\.(\w-_)+|(\w)+)$/; 
+var agrs, type, eles;
+var selector_exp = /^(?:#(\w-_)+|\.(\w-_)+|(\w)+)$/;
 
 // this.elements: 存储函数结束后返回对象
 this.elements = [];
@@ -172,7 +170,7 @@ if (tag !== &quot;*&quot;) {
 }
 </code></pre><p>进入核心部分。分两种情况，能支持<code>querySelector()</code>方法的“高级”浏览器和不能支持的“低端”浏览器。先是能支持querySelector的，就很简单了：</p>
 <pre><code>if (document.querySelectorAll) {
-    // 因为我用&apos;&amp;&apos;符号来标记标签 ，所以要用&quot;replace()&quot;去掉&apos;&amp;&apos; 
+    // 因为我用&apos;&amp;&apos;符号来标记标签 ，所以要用&quot;replace()&quot;去掉&apos;&amp;&apos;
     var node_list = document.querySelectorAll(selector.replace(&quot;&amp;&quot;, &quot;&quot;))
     for (var i in node_list) {
         if (node_list[i].tagName !== undefined) {
@@ -192,7 +190,7 @@ args = root_id.getElementsByTagName(tag);
 type = selector[0].charAt(0);
 
 // 所要选取的目标的字符串
-eles = selector[0].slice(1);  
+eles = selector[0].slice(1);
 </code></pre><p>处理选择class的情况。有文章指出for in的效率不高，我本来是用for处理的，但是出现问题，因为会把方法一起选进来。JQ用了for in，感觉有了标杆，我就全部改用for in了。</p>
 <pre><code>if (type === &quot;.&quot;) {
     // 查找每个标签中有className,提取处理进行匹配
@@ -248,7 +246,7 @@ eles = selector[0].slice(1);
 </code></pre><p>4.选择 .buddy 里的 <code>&lt;p&gt;</code>.</p>
 <pre><code>O(&quot;.buddy&quot;, null, &quot;&amp;p&quot;)
 </code></pre><p>5.选择#dad下的.buddy</p>
-<pre><code>O(&quot;.buddy&quot;, &quot;#dad&quot;)   
+<pre><code>O(&quot;.buddy&quot;, &quot;#dad&quot;)
 </code></pre>
         <hr>
         <div class="copyrights1">
