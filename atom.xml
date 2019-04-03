@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2019-03-20T07:28:15.000Z</updated>
+  <updated>2019-04-03T12:25:37.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode 26 Remove Duplicates from Sorted Array</title>
+    <link href="http://laker.me/blog/2019/04/03/19_0403_leetcode26/"/>
+    <id>http://laker.me/blog/2019/04/03/19_0403_leetcode26/</id>
+    <published>2019-04-03T00:24:00.000Z</published>
+    <updated>2019-04-03T12:25:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://wx4.sinaimg.cn/large/6d184cefgy1g008qty954j20p0046aaf.jpg" alt="LeetCode 26 Rotate Array"></p>
+<a id="more"></a>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array/" target="_blank" rel="external">https://leetcode.com/problems/remove-duplicates-from-sorted-array/</a></p>
+<p>Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.</p>
+<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
+<p>Example 1:</p>
+<pre><code>Given nums = [1,1,2],
+
+Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.
+</code></pre><p>It doesn’t matter what you leave beyond the returned length.</p>
+<p>Example 2:</p>
+<pre><code>Given nums = [0,0,1,1,1,2,2,3,3,4],
+
+Your function should return length = 5, with the first five elements of nums being modified to 0, 1, 2, 3, and 4 respectively.
+</code></pre><p>It doesn’t matter what values are set beyond the returned length.</p>
+<p>Clarification:</p>
+<p>Confused why the returned value is an integer but your answer is an array?</p>
+<p>Note that the input array is passed in by reference, which means modification to the input array will be known to the caller as well.</p>
+<p>Internally you can think of this:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// nums is passed in by reference. (i.e., without making a copy)</span></div><div class="line"><span class="keyword">int</span> <span class="built_in">len</span> = removeDuplicates(nums);</div><div class="line"></div><div class="line"><span class="comment">// any modification to nums in your function would be known by the caller.</span></div><div class="line"><span class="comment">// using the length returned by your function, it prints the first len elements.</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">len</span>; i++) &#123;</div><div class="line">    <span class="built_in">print</span>(nums[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="Expalnation"><a href="#Expalnation" class="headerlink" title="Expalnation:"></a>Expalnation:</h3><p>Because the question require that ‘Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory’. We don’t have to delete the duplicates, we can overwrite the duplicates.</p>
+<h3 id="Full-Code-in-Github"><a href="#Full-Code-in-Github" class="headerlink" title="Full Code in Github :"></a>Full Code in Github :</h3><h3 id="Example-explanation"><a href="#Example-explanation" class="headerlink" title="Example explanation"></a>Example explanation</h3><p><img src="https://ws3.sinaimg.cn/mw690/6d184cefly1g0adk9xo90j217d1vl7u8.jpg" alt="Example explanation"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://wx4.sinaimg.cn/large/6d184cefgy1g008qty954j20p0046aaf.jpg&quot; alt=&quot;LeetCode 26 Rotate Array&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Algorithm" scheme="http://laker.me/blog/categories/Algorithm/"/>
+    
+    
+      <category term="Algorithm" scheme="http://laker.me/blog/tags/Algorithm/"/>
+    
+      <category term="Python" scheme="http://laker.me/blog/tags/Python/"/>
+    
+      <category term="LeetCode" scheme="http://laker.me/blog/tags/LeetCode/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode 189 Rotate Array</title>
@@ -1158,46 +1209,6 @@ show_channel_urls: true
     <summary type="html">
     
       &lt;!-- ![EasyCanvas绘图库实践][1] --&gt;
-    
-    </summary>
-    
-      <category term="HTML5" scheme="http://laker.me/blog/categories/HTML5/"/>
-    
-    
-      <category term="HTML5" scheme="http://laker.me/blog/tags/HTML5/"/>
-    
-      <category term="JavaScript" scheme="http://laker.me/blog/tags/JavaScript/"/>
-    
-      <category term="Canvas" scheme="http://laker.me/blog/tags/Canvas/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML5 Canvas 清除圆形、不规则区域</title>
-    <link href="http://laker.me/blog/2018/04/18/18_0418_canvas_cleararc/"/>
-    <id>http://laker.me/blog/2018/04/18/18_0418_canvas_cleararc/</id>
-    <published>2018-04-18T00:24:00.000Z</published>
-    <updated>2019-03-09T03:29:03.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- ![Canvas 清除不规则区域][1] -->
-<a id="more"></a>
-<blockquote>
-<p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
-</blockquote>
-<p> 默认 Canvas Api 只提供了清除矩形区域的接口 <code>clearRect()</code>，但有时候需要清除圆形或其他特殊形状的区域。比如我在开发 <a href="https://github.com/younglaker/pixeler" target="_blank" rel="external">pixeler</a> 擦除绘制的圆形，刚开始是用 <code>clearRect()</code>， 设置大于圆形直径的正方形来擦除，后来想，能不能直接擦除圆形区域。</p>
-<p> 根据 <a href="https://stackoverflow.com/questions/3564717/how-can-i-clear-an-arc-or-circle-in-html5-canvas" target="_blank" rel="external">Stack Overflow</a> 的回答和 <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation" target="_blank" rel="external">Mozilla 的文档</a>，<code>ctx.globalCompositeOperation</code> 提供了多种色彩合成模式，其中 <code>destination-out</code> 能够完成清除效果：</p>
-<p> <img src="http://77g54f.com1.z0.glb.clouddn.com/QQ20180522-180816@2x.png?imageView2/1/q/100|watermark/1/image/aHR0cDovLzc3ZzU0Zi5jb20xLnowLmdsYi5jbG91ZGRuLmNvbS9sYWtlcjEucG5n/dissolve/100/gravity/South/dy/10" alt="destination-out"></p>
-<p> 可以拓展 Canvas 接口：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">CanvasRenderingContext2D.prototype.clearArc = function(x, y, radius, startAngle, endAngle, anticlockwise) &#123;</div><div class="line">    <span class="keyword">this</span>.beginPath();</div><div class="line">    <span class="keyword">this</span>.globalCompositeOperation = <span class="string">'destination-out'</span>;</div><div class="line">    <span class="keyword">this</span>.fillStyle = <span class="string">'black'</span>;</div><div class="line">    <span class="keyword">this</span>.arc(x, y, radius, startAngle, endAngle, anticlockwise);</div><div class="line">    <span class="comment">// 参数分别是：圆心横坐标、纵坐标、半径、开始的角度、结束的角度、是否逆时针</span></div><div class="line">    <span class="keyword">this</span>.fill();</div><div class="line">    <span class="keyword">this</span>.closePath();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p> 进一步，可以自定义各种路径：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">CanvasRenderingContext2D.prototype.clear = function() &#123;</div><div class="line">    <span class="keyword">this</span>.save();</div><div class="line">    <span class="keyword">this</span>.globalCompositeOperation = <span class="string">'destination-out'</span>;</div><div class="line">    <span class="keyword">this</span>.fillStyle = <span class="string">'black'</span>;</div><div class="line">    <span class="keyword">this</span>.fill();</div><div class="line">    <span class="keyword">this</span>.restore();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">CanvasRenderingContext2D.prototype.clearArc = function(x, y, radius, startAngle, endAngle, anticlockwise) &#123;</div><div class="line">    <span class="keyword">this</span>.beginPath();</div><div class="line">    <span class="keyword">this</span>.arc(x, y, radius, startAngle, endAngle, anticlockwise);</div><div class="line">    <span class="keyword">this</span>.clear();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">CanvasRenderingContext2D.prototype.clearShape = function(x, y, radius, startAngle, endAngle, anticlockwise) &#123;</div><div class="line">    <span class="keyword">this</span>.beginPath();</div><div class="line">    <span class="comment">// 定义各种不规则图形，如三角形、五角星...</span></div><div class="line">    <span class="keyword">this</span>.clear();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>调用：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var canvas = document.getElementById('canvas');</div><div class="line">var context = canvas.getContext('<span class="number">2</span>d');</div><div class="line"></div><div class="line">context.clearArc(<span class="number">50</span>, <span class="number">100</span>, <span class="number">10</span>, <span class="number">0</span>, Math.<span class="literal">PI</span> * <span class="number">2</span>, false);</div><div class="line">context.clearArc(<span class="number">80</span>, <span class="number">100</span>, <span class="number">20</span>, <span class="number">0</span>, Math.<span class="literal">PI</span>, false);</div></pre></td></tr></table></figure></p>
-<p><a href="http://jsdo.it/akm2/e8CK" target="_blank" rel="external">效果参考</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- ![Canvas 清除不规则区域][1] --&gt;
     
     </summary>
     
