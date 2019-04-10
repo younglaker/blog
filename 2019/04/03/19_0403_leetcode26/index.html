@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
 <meta property="og:image" content="https://wx4.sinaimg.cn/large/6d184cefgy1g008qty954j20p0046aaf.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/mw690/6d184cefly1g0adk9xo90j217d1vl7u8.jpg">
-<meta property="og:updated_time" content="2019-04-03T12:25:37.000Z">
+<meta property="og:updated_time" content="2019-04-03T12:33:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 26 Remove Duplicates from Sorted Array">
 <meta name="twitter:image" content="https://wx4.sinaimg.cn/large/6d184cefgy1g008qty954j20p0046aaf.jpg">
@@ -146,7 +146,8 @@ Your function should return length = 5, with the first five elements of nums bei
 <p>Internally you can think of this:</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// nums is passed in by reference. (i.e., without making a copy)</span></div><div class="line"><span class="keyword">int</span> <span class="built_in">len</span> = removeDuplicates(nums);</div><div class="line"></div><div class="line"><span class="comment">// any modification to nums in your function would be known by the caller.</span></div><div class="line"><span class="comment">// using the length returned by your function, it prints the first len elements.</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">len</span>; i++) &#123;</div><div class="line">    <span class="built_in">print</span>(nums[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="Expalnation"><a href="#Expalnation" class="headerlink" title="Expalnation:"></a>Expalnation:</h3><p>Because the question require that ‘Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory’. We don’t have to delete the duplicates, we can overwrite the duplicates.</p>
-<h3 id="Full-Code-in-Github"><a href="#Full-Code-in-Github" class="headerlink" title="Full Code in Github :"></a>Full Code in Github :</h3><h3 id="Example-explanation"><a href="#Example-explanation" class="headerlink" title="Example explanation"></a>Example explanation</h3><p><img src="https://ws3.sinaimg.cn/mw690/6d184cefly1g0adk9xo90j217d1vl7u8.jpg" alt="Example explanation"></p>
+<h3 id="Full-Code-in-Github"><a href="#Full-Code-in-Github" class="headerlink" title="Full Code in Github :"></a>Full Code in Github :</h3><p><a href="https://github.com/younglaker/leetcode/blob/master/26_remove_duplicates_from_sorted_array.py" target="_blank" rel="external">https://github.com/younglaker/leetcode/blob/master/26_remove_duplicates_from_sorted_array.py</a></p>
+<h3 id="Example-explanation"><a href="#Example-explanation" class="headerlink" title="Example explanation"></a>Example explanation</h3><p><img src="https://ws3.sinaimg.cn/mw690/6d184cefly1g0adk9xo90j217d1vl7u8.jpg" alt="Example explanation"></p>
 
         <hr>
         <div class="copyrights1">
@@ -171,9 +172,17 @@ Your function should return length = 5, with the first five elements of nums bei
     
 <nav id="article-nav">
   
+    <a href="/blog/2019/04/10/19_0410_leetcode136/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          LeetCode 136 Single Number (Python)
+        
+      </div>
+    </a>
+  
   
     <a href="/blog/2019/03/20/19_0320_leetcode189/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">LeetCode 189 Rotate Array&nbsp;<span>&gt;</span></div>
+      <div class="article-nav-title">Python-LeetCode 189 Rotate Array&nbsp;<span>&gt;</span></div>
     </a>
   
 </nav>
@@ -226,7 +235,7 @@ s.setAttribute('data-timestamp', +new Date());
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div-->
     <div id="footer-info" class="inner">
-      &copy; 2014 - 2019 Laker Huang&nbsp; <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+      &copy; 2014 - 2019 Laker Huang&nbsp; <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Attribution-NonCommercial-ShareAlike" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
     </div>
     <!-- <p class="hint-text">自2015/11/04，本站共被抚摸 <span id="busuanzi_value_site_pv"></span> 次</p> -->
     <!-- <p class="hint-text">您是第 <span id="busuanzi_value_site_uv"></span> 位小伙伴</p> -->
