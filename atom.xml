@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2019-04-10T08:41:31.000Z</updated>
+  <updated>2019-04-11T04:13:50.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,80 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java On MacOS</title>
+    <link href="http://laker.me/blog/2019/04/11/19_0411_java%20_on_mac/"/>
+    <id>http://laker.me/blog/2019/04/11/19_0411_java _on_mac/</id>
+    <published>2019-04-11T00:24:00.000Z</published>
+    <updated>2019-04-11T04:13:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><ul>
+<li>JDK: Java development toolkit, the library of Java, using to complie and run Java programs</li>
+<li>J2EE: Java 2 enterprise edition, for enterprise</li>
+<li>J2SE: Java 2 standard edition, standar version</li>
+<li>J2ME: Java 2 Micro Edition, usually for mobile developement</li>
+</ul>
+<a id="more"></a>
+<h2 id="Install-JDK"><a href="#Install-JDK" class="headerlink" title="Install JDK"></a>Install JDK</h2><p>If you use Eclipse, you don’t have to install Java development, it has one.</p>
+<h3 id="Download-JDK"><a href="#Download-JDK" class="headerlink" title="Download JDK"></a>Download JDK</h3><p>Download JDK from <a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html" target="_blank" rel="external">https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html</a></p>
+<p>I use <code>jdk-11.0.2_osx-x64_bin.dmg</code></p>
+<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>After install the dmg file, enter <code>java -version</code> in terminal to test whether it is successful:</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ java -version</div><div class="line">java version <span class="string">"11.0.2"</span> <span class="number">2019</span><span class="number">-01</span><span class="number">-15</span> LTS</div><div class="line">Java(TM) SE Runtime Environment <span class="number">18.9</span> (build <span class="number">11.0</span><span class="number">.2</span>+<span class="number">9</span>-LTS)</div><div class="line">Java HotSpot(TM) <span class="number">64</span>-Bit Server VM <span class="number">18.9</span> (build <span class="number">11.0</span><span class="number">.2</span>+<span class="number">9</span>-LTS, mixed mode)</div></pre></td></tr></table></figure>
+<h2 id="Enviroment"><a href="#Enviroment" class="headerlink" title="Enviroment"></a>Enviroment</h2><h3 id="Add-PATH-and-CALSSPATH"><a href="#Add-PATH-and-CALSSPATH" class="headerlink" title="Add PATH and CALSSPATH"></a>Add PATH and CALSSPATH</h3><p>Check the version:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ls <span class="regexp">/Library/</span>Java<span class="regexp">/JavaVirtualMachines/</span></div><div class="line">jdk-<span class="number">11.0</span>.<span class="number">2</span>.jdk</div></pre></td></tr></table></figure>
+<p>Or open Finder, press “Command + Shift + G”, and enter <code>/Library/Java/JavaVirtualMachines/</code> to see it.</p>
+<p>Edit profile:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo vim /etc/profile</span></div></pre></td></tr></table></figure>
+<p>Add this at the last:</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">JAVA_HOME=<span class="string">"/Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home/"</span></div><div class="line"></div><div class="line">CLASS_PATH=<span class="string">"$JAVA_HOME/lib"</span></div><div class="line"></div><div class="line">PATH=<span class="string">".:$PATH:$JAVA_HOME/bin</span></div></pre></td></tr></table></figure>
+<p>The whole file should be like this:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># System-wide .profile for sh(1)</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> [ -x /usr/libexec/path_helper ]; <span class="keyword">then</span></div><div class="line">        <span class="built_in">eval</span> `/usr/libexec/path_helper <span class="_">-s</span>`</div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$&#123;BASH-no&#125;</span>"</span> != <span class="string">"no"</span> ]; <span class="keyword">then</span></div><div class="line">        [ -r /etc/bashrc ] &amp;&amp; . /etc/bashrc</div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line">JAVA_HOME=<span class="string">"/Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home/"</span></div><div class="line"></div><div class="line">CLASS_PATH=<span class="string">"<span class="variable">$JAVA_HOME</span>/lib"</span></div><div class="line"></div><div class="line">PATH=<span class="string">".:<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin"</span></div></pre></td></tr></table></figure>
+<p>Press <code>esc</code> and enter <code>:wq!</code> to sava and exit.</p>
+<p>Enter this to make it effective:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> /etc/profile</span></div></pre></td></tr></table></figure>
+<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><p>Write a <code>Hello.jav</code> file.</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> <span class="title">Hello</span> &#123;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>&#123;</div><div class="line">         System.<span class="keyword">out</span>.println(<span class="string">"Hello Laker"</span>);</div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Compile it :</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> laker @ Laker <span class="keyword">in</span> ~/Downloads [21:23:40] C:1</span></div><div class="line"><span class="meta">$</span><span class="bash"> javac Hello.java</span></div></pre></td></tr></table></figure>
+<p>Run it</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> laker @ Laker <span class="keyword">in</span> ~/Downloads [21:24:12]</span></div><div class="line"><span class="meta">$</span><span class="bash"> java Hello</span></div><div class="line">Hello Laker</div></pre></td></tr></table></figure>
+<h2 id="Uninstallation"><a href="#Uninstallation" class="headerlink" title="Uninstallation"></a>Uninstallation</h2><p>Futhermore, the uninstallation is following command:<br><a href="https://blog.csdn.net/qq_30889373/article/details/78863313" target="_blank" rel="external">https://blog.csdn.net/qq_30889373/article/details/78863313</a></p>
+<ul>
+<li>Fisrt</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo rm -fr /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo rm -fr /Library/PreferencesPanes/JavaControlPanel.prefpane</span></div></pre></td></tr></table></figure>
+<ul>
+<li>Second</li>
+</ul>
+<p>Check the version:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ls <span class="regexp">/Library/</span>Java<span class="regexp">/JavaVirtualMachines/</span></div><div class="line">jdk-<span class="number">11.0</span>.<span class="number">2</span>.jdk</div></pre></td></tr></table></figure>
+<p>Remove</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo rm -rf <span class="regexp">/Library/</span>Java<span class="regexp">/JavaVirtualMachines/</span>jdk-<span class="number">9.0</span>.<span class="number">1</span>.jdk</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot; title=&quot;About&quot;&gt;&lt;/a&gt;About&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;JDK: Java development toolkit, the library of Java, using to complie and run Java programs&lt;/li&gt;
+&lt;li&gt;J2EE: Java 2 enterprise edition, for enterprise&lt;/li&gt;
+&lt;li&gt;J2SE: Java 2 standard edition, standar version&lt;/li&gt;
+&lt;li&gt;J2ME: Java 2 Micro Edition, usually for mobile developement&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="http://laker.me/blog/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://laker.me/blog/tags/Java/"/>
+    
+      <category term="MacOS" scheme="http://laker.me/blog/tags/MacOS/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode 136 Single Number (Python)</title>
@@ -1198,38 +1272,6 @@ show_channel_urls: true
       &lt;p&gt;&lt;img src=&quot;http://wx4.sinaimg.cn/large/6d184cefly1fvzxnqr4qpj20p00463z2.jpg&quot; alt=&quot;关于博客图片失效的公告&quot;&gt;&lt;/p&gt;
     
     </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>记一次移动硬盘无法读取的处理过程</title>
-    <link href="http://laker.me/blog/2018/06/02/18_0602_disk/"/>
-    <id>http://laker.me/blog/2018/06/02/18_0602_disk/</id>
-    <published>2018-06-02T00:24:00.000Z</published>
-    <updated>2019-03-09T03:28:45.000Z</updated>
-    
-    <content type="html"><![CDATA[ <!-- ![移动硬盘无法读取][1] -->
-<a id="more"></a>
-<blockquote>
-<p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
-</blockquote>
-<h2 id="状况"><a href="#状况" class="headerlink" title="状况"></a>状况</h2><p>新电脑硬盘插到硬盘盒上，Windows笔记本电脑不识别，没有任何反应，也不报错，换了接口也不行。</p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>考虑到硬盘盒硬盘盒都比较新，坏的可能性不大，就尝试换设备试下。</p>
-<h3 id="1-查看磁盘管理是否有读取而无盘符"><a href="#1-查看磁盘管理是否有读取而无盘符" class="headerlink" title="1.查看磁盘管理是否有读取而无盘符"></a>1.查看磁盘管理是否有读取而无盘符</h3><p>右键<code>计算机</code> —— <code>磁盘管理</code>，如果有读取出新磁盘，加个盘符即可。但此时无新磁盘。</p>
-<h3 id="2-换了一台-Windows电脑尝试"><a href="#2-换了一台-Windows电脑尝试" class="headerlink" title="2.换了一台 Windows电脑尝试"></a>2.换了一台 Windows电脑尝试</h3><p>换了台式电脑，仍无反应。</p>
-<h3 id="3-换-Mac-电脑尝试"><a href="#3-换-Mac-电脑尝试" class="headerlink" title="3.换 Mac 电脑尝试"></a>3.换 Mac 电脑尝试</h3><p>有弹框反应，表明不是硬盘和硬盘盒的问题。<br>报错显示无法读写硬盘。此时考虑可以格式化。</p>
-<p><code>Launchpad</code> —— <code>Other 其他</code> —— <code>Disk Utility 磁盘管理</code> —— <code>选中硬盘，Erase 抹除</code></p>
-<p>考虑到 Mac 和 Windows 都能用的格式，选择exFAT，其他默认。<br>格式化好，Mac 可以正常读写，再插到Windows笔记本，也能正常读写了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- ![移动硬盘无法读取][1] --&gt;
-    
-    </summary>
-    
-      <category term="Others" scheme="http://laker.me/blog/categories/Others/"/>
     
     
   </entry>
