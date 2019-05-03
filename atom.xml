@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2019-04-11T04:13:50.000Z</updated>
+  <updated>2019-05-03T11:36:48.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Homebrew updating problem</title>
+    <link href="http://laker.me/blog/2019/05/03/19_0503_homebrew_problem/"/>
+    <id>http://laker.me/blog/2019/05/03/19_0503_homebrew_problem/</id>
+    <published>2019-05-03T00:24:00.000Z</published>
+    <updated>2019-05-03T11:36:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>There are two common problem when updating brew.</p>
+<a id="more"></a>
+<h2 id="Permission-denied"><a href="#Permission-denied" class="headerlink" title="Permission denied"></a>Permission denied</h2><blockquote>
+<p>brew update Homebrew/.git/FETCH_HEAD: Permission denied</p>
+</blockquote>
+<p>When you run <code>brew doctor</code>, you can find there some permission problem with the <code>/usr/local/</code> files.</p>
+<p><img src="https://wx4.sinaimg.cn/mw690/6d184cefly1g2oamxl1c1j21po0rmhdt.jpg" alt="image"></p>
+<p>You should change the permission, run this:</p>
+<pre><code>sudo chown -R YOURNAME:admin /usr/local
+</code></pre><h2 id="Could-not-read-Username"><a href="#Could-not-read-Username" class="headerlink" title="Could not read Username"></a>Could not read Username</h2><blockquote>
+<p>brew update fatal: could not read Username for ‘<a href="https://github.com" target="_blank" rel="external">https://github.com</a>‘: terminal prompts disabled</p>
+</blockquote>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># laker @ Laker <span class="keyword">in</span> ~ [<span class="number">11</span>:<span class="number">03</span>:<span class="number">59</span>] C:<span class="number">1</span></div><div class="line">$ brew update</div><div class="line">git: <span class="string">'credential-osxkeychain'</span> <span class="keyword">is</span> <span class="keyword">not</span> a git command. See <span class="string">'git --help'</span>.git: <span class="string">'credential-osxkeychain'</span> <span class="keyword">is</span> <span class="keyword">not</span> a git command. See <span class="string">'git --help'</span>.</div><div class="line"></div><div class="line">fatal: could <span class="keyword">not</span> <span class="keyword">read</span> Username <span class="keyword">for</span> <span class="string">'https://github.com'</span>: terminal prompts disabled</div><div class="line">fatal: could <span class="keyword">not</span> <span class="keyword">read</span> Username <span class="keyword">for</span> <span class="string">'https://github.com'</span>: terminal prompts disabled</div><div class="line">Error: homebrew/homebrew-x11 does <span class="keyword">not</span> exist! Run <span class="string">'brew untap homebrew/homebrew-x11'</span></div><div class="line">homebrew/homebrew-dupes does <span class="keyword">not</span> exist! Run <span class="string">'brew untap homebrew/homebrew-dupes'</span></div></pre></td></tr></table></figure>
+<p>Run the command it recommend:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> laker @ Laker <span class="keyword">in</span> ~ [11:05:57] C:1</span></div><div class="line"><span class="meta">$</span><span class="bash"> brew untap homebrew/homebrew-x11</span></div><div class="line">Untapping homebrew/x11...</div><div class="line">Untapped (242 files, 224.9KB).</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash"> laker @ Laker <span class="keyword">in</span> ~ [11:06:39]</span></div><div class="line"><span class="meta">$</span><span class="bash"> brew untap homebrew/homebrew-dupes</span></div><div class="line">Untapping homebrew/dupes...</div><div class="line">Untapped 36 formulae (277 files, 263.5KB).</div></pre></td></tr></table></figure>
+<p>Then we can update sucessfully:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> laker @ Laker <span class="keyword">in</span> ~ [11:06:44]</span></div><div class="line"><span class="meta">$</span><span class="bash"> brew update</span></div><div class="line">Already up-to-date.</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;There are two common problem when updating brew.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://laker.me/blog/categories/Mac/"/>
+    
+    
+      <category term="Java" scheme="http://laker.me/blog/tags/Java/"/>
+    
+      <category term="MacOS" scheme="http://laker.me/blog/tags/MacOS/"/>
+    
+  </entry>
   
   <entry>
     <title>Java On MacOS</title>
@@ -1246,33 +1286,6 @@ show_channel_urls: true
     
     
       <category term="算法" scheme="http://laker.me/blog/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于博客图片失效的公告</title>
-    <link href="http://laker.me/blog/2018/09/20/18_0920_notice/"/>
-    <id>http://laker.me/blog/2018/09/20/18_0920_notice/</id>
-    <published>2018-09-20T00:24:00.000Z</published>
-    <updated>2018-12-23T06:44:55.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://wx4.sinaimg.cn/large/6d184cefly1fvzxnqr4qpj20p00463z2.jpg" alt="关于博客图片失效的公告"></p>
-<a id="more"></a>
-<blockquote>
-<p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
-</blockquote>
-<p>本站图片原本存于七牛云存储。近期七牛收回了免费的域名，导致所有图片链接失效。</p>
-<p>自定义域名需要备案，本站域名是在狗爹买的，查了一下我手头有的域名都不支持备案，感觉会很麻烦。图片迁移的话工作量很大。我再想办法。</p>
-<p>虽然博文质量一般，但对我而言是很好的学习记录，还是希望能重新弄好。</p>
-<p>感谢这些年，通过博客认识的朋友们，大家一起努力鸭~~</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://wx4.sinaimg.cn/large/6d184cefly1fvzxnqr4qpj20p00463z2.jpg&quot; alt=&quot;关于博客图片失效的公告&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
     
   </entry>
   
