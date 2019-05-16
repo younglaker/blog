@@ -6,16 +6,17 @@
   <title>LeetCode 136 Single Number (Python) - 进击的程序媛，Laker&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="BxWqqPVkmU3CTQmmIjCp27ZjmcXuB_YTf8Xa7lp_G-w" />
-  <meta name="keywords" content="Algorithm,Python,LeetCode">
+  <meta name="description" content="DescriptionGiven a non-empty array of integers, every element appears twice except for one. Find that single one.">
+<meta name="keywords" content="Algorithm,Python,LeetCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 136 Single Number (Python)">
 <meta property="og:url" content="http://laker.me/blog/2019/04/10/19_0410_leetcode136/index.html">
 <meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
-<meta property="og:image" content="https://wx4.sinaimg.cn/large/6d184cefgy1g008qty954j20p0046aaf.jpg">
-<meta property="og:updated_time" content="2019-04-10T08:41:31.000Z">
+<meta property="og:description" content="DescriptionGiven a non-empty array of integers, every element appears twice except for one. Find that single one.">
+<meta property="og:updated_time" content="2019-05-16T00:53:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 136 Single Number (Python)">
-<meta name="twitter:image" content="https://wx4.sinaimg.cn/large/6d184cefgy1g008qty954j20p0046aaf.jpg">
+<meta name="twitter:description" content="DescriptionGiven a non-empty array of integers, every element appears twice except for one. Find that single one.">
   
     <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
   
@@ -121,12 +122,9 @@ var _hmt = _hmt || [];
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://wx4.sinaimg.cn/large/6d184cefgy1g008qty954j20p0046aaf.jpg" alt="LeetCode 189 Rotate Array"></p>
-<a id="more"></a>
-<blockquote>
-<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
-</blockquote>
+        <!-- ![LeetCode 189 Rotate Array](https://wx4.sinaimg.cn/large/6d184cefgy1g008qty954j20p0046aaf.jpg) -->
 <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a non-empty array of integers, every element appears twice except for one. Find that single one.</p>
+<a id="more"></a>
 <p>Note:</p>
 <p>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
 <p>Example 1:</p>
@@ -158,6 +156,9 @@ Output: 4
 </ul>
 <h3 id="Approach-4-XOR"><a href="#Approach-4-XOR" class="headerlink" title="Approach 4: XOR"></a>Approach 4: XOR</h3><p>Because <code>a⊕0=a</code> and <code>a⊕a=0</code><br>Then: <code>a⊕b⊕a=(a⊕a)⊕b=0⊕b=b</code><br>So we can XOR all bits together to find the unique number.</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">singleNumber4</span><span class="params">(nums)</span></span>:</div><div class="line">    a = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="symbol">nums:</span></div><div class="line">        a ^= i</div><div class="line">    <span class="keyword">return</span> a</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
 
         <hr>
         <div class="copyrights1">

@@ -6,19 +6,21 @@
   <title>Use ThinkPHP Develope API - 进击的程序媛，Laker&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="BxWqqPVkmU3CTQmmIjCp27ZjmcXuB_YTf8Xa7lp_G-w" />
-  <meta name="keywords" content="Server,PHP,Tencent Cloud,ThinkPHP,MySql">
+  <meta name="description" content="Create database dataImport this sql file into your database, you can commit execute sql or import by tools:">
+<meta name="keywords" content="Server,PHP,Tencent Cloud,ThinkPHP,MySql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Use ThinkPHP Develope API">
 <meta property="og:url" content="http://laker.me/blog/2018/12/19/18_1219_wechat/index.html">
 <meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
-<meta property="og:image" content="http://wx3.sinaimg.cn/large/6d184cefly1fxnkwr63qej20oz046aay.jpg">
+<meta property="og:description" content="Create database dataImport this sql file into your database, you can commit execute sql or import by tools:">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/6d184cefly1fyfor5rxodj20io0bw0tk.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/6d184cefly1fyfqyhq1sij213q050gmr.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/6d184cefly1fyfqyznk0vj2136044my6.jpg">
-<meta property="og:updated_time" content="2018-12-22T11:42:21.000Z">
+<meta property="og:updated_time" content="2019-05-16T00:55:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Use ThinkPHP Develope API">
-<meta name="twitter:image" content="http://wx3.sinaimg.cn/large/6d184cefly1fxnkwr63qej20oz046aay.jpg">
+<meta name="twitter:description" content="Create database dataImport this sql file into your database, you can commit execute sql or import by tools:">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/6d184cefly1fyfor5rxodj20io0bw0tk.jpg">
   
     <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
   
@@ -124,12 +126,9 @@ var _hmt = _hmt || [];
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://wx3.sinaimg.cn/large/6d184cefly1fxnkwr63qej20oz046aay.jpg" alt="Use ThinkPHP Develope WeChat Official Account API"></p>
-<a id="more"></a>
-<blockquote>
-<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
-</blockquote>
+        <!-- ![Use ThinkPHP Develope WeChat Official Account API](http://wx3.sinaimg.cn/large/6d184cefly1fxnkwr63qej20oz046aay.jpg) -->
 <h2 id="Create-database-data"><a href="#Create-database-data" class="headerlink" title="Create database data"></a>Create database data</h2><p>Import this sql file into your database, you can commit execute sql or import by tools:</p>
+<a id="more"></a>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- ----------------------------</span></div><div class="line"><span class="comment">-- Table structure for news</span></div><div class="line"><span class="comment">-- ----------------------------</span></div><div class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`news`</span>;</div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`news`</span> (</div><div class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</div><div class="line">  <span class="string">`title`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  <span class="string">`content`</span> <span class="built_in">text</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</div><div class="line">) <span class="keyword">ENGINE</span>=MyISAM AUTO_INCREMENT=<span class="number">5</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 <span class="keyword">COMMENT</span>=<span class="string">'新闻表'</span>;</div><div class="line"></div><div class="line"><span class="comment">-- ----------------------------</span></div><div class="line"><span class="comment">-- Records of news</span></div><div class="line"><span class="comment">-- ----------------------------</span></div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`news`</span> <span class="keyword">VALUES</span> (<span class="string">'1'</span>, <span class="string">'新闻1'</span>, <span class="string">'新闻1内容'</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`news`</span> <span class="keyword">VALUES</span> (<span class="string">'2'</span>, <span class="string">'新闻2'</span>, <span class="string">'新闻2内容'</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`news`</span> <span class="keyword">VALUES</span> (<span class="string">'3'</span>, <span class="string">'新闻3'</span>, <span class="string">'新闻3内容'</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`news`</span> <span class="keyword">VALUES</span> (<span class="string">'4'</span>, <span class="string">'房价又涨了'</span>, <span class="string">'据新华社消息：上海均价环比上涨5%'</span>);</div></pre></td></tr></table></figure>
 <h2 id="Write-API"><a href="#Write-API" class="headerlink" title="Write API"></a>Write API</h2><p>Wechat Official Account documents:<br><a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421140840" target="_blank" rel="external">https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421140840</a></p>
 <p><img src="https://ws4.sinaimg.cn/large/6d184cefly1fyfor5rxodj20io0bw0tk.jpg" alt="image"></p>
@@ -143,6 +142,9 @@ var _hmt = _hmt || [];
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Route</span>;</div><div class="line"></div><div class="line">Route::rule(<span class="string">'news/:id'</span>,<span class="string">'api/news/read'</span>);</div></pre></td></tr></table></figure>
 <p>Visit new route:</p>
 <p><img src="https://ws4.sinaimg.cn/large/6d184cefly1fyfqyznk0vj2136044my6.jpg" alt="image"></p>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
 
         <hr>
         <div class="copyrights1">
