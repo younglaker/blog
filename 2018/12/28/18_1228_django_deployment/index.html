@@ -13,15 +13,15 @@
 <meta property="og:url" content="http://laker.me/blog/2018/12/28/18_1228_django_deployment/index.html">
 <meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
 <meta property="og:description" content="Enviroment: MacOS Tencent Cloud Ubuntu 18.04 Python 3.6 Django 2.0">
-<meta property="og:image" content="http://wx1.sinaimg.cn/mw690/6d184cefly1fxvvjsd9nsj20qp0pcgqz.jpg">
-<meta property="og:image" content="https://wx1.sinaimg.cn/mw690/6d184cefly1fyml7c32q7j20ym0aajt1.jpg">
-<meta property="og:image" content="http://wx2.sinaimg.cn/mw690/6d184cefly1fxvvdovl3oj21080ikade.jpg">
-<meta property="og:image" content="http://wx4.sinaimg.cn/mw690/6d184cefly1fxvvdvmaklj216o0qqdie.jpg">
-<meta property="og:updated_time" content="2019-05-16T00:55:38.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18122801.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18122802.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18122803.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18122804.jpg">
+<meta property="og:updated_time" content="2019-05-29T07:18:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django Enviroment in Tencent Cloud Ubuntu">
 <meta name="twitter:description" content="Enviroment: MacOS Tencent Cloud Ubuntu 18.04 Python 3.6 Django 2.0">
-<meta name="twitter:image" content="http://wx1.sinaimg.cn/mw690/6d184cefly1fxvvjsd9nsj20qp0pcgqz.jpg">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18122801.jpg">
   
     <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
   
@@ -135,7 +135,7 @@ var _hmt = _hmt || [];
 <li>Django 2.0</li>
 </ul>
 <a id="more"></a>
-<h2 id="Connect-to-server"><a href="#Connect-to-server" class="headerlink" title="Connect to server"></a>Connect to server</h2><p><img src="http://wx1.sinaimg.cn/mw690/6d184cefly1fxvvjsd9nsj20qp0pcgqz.jpg" alt="Connect via SSH"></p>
+<h2 id="Connect-to-server"><a href="#Connect-to-server" class="headerlink" title="Connect to server"></a>Connect to server</h2><p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18122801.jpg" alt="Connect via SSH"></p>
 <p>In MacOs, it’s very easy to connect to the server. In terminal :</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -<span class="selector-tag">q</span> -l ubuntu -<span class="selector-tag">p</span> [port] [ip]</div></pre></td></tr></table></figure>
 <p>Like <code>ssh -q -l ubuntu -p 20 188.131.***.***</code>.</p>
@@ -160,13 +160,13 @@ var _hmt = _hmt || [];
 <p>Add your IP in <code>ALLOWED_HOSTS = []</code> to  <code>ALLOWED_HOSTS = [&quot;188.131.***.***&quot;]</code></p>
 <p>Save and quit vim:<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">:wq</span></div></pre></td></tr></table></figure></p>
 <p>Open port 8080 in Baota Panel:</p>
-<p><img src="https://wx1.sinaimg.cn/mw690/6d184cefly1fyml7c32q7j20ym0aajt1.jpg" alt="Open port 808"></p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18122802.jpg" alt="Open port 808"></p>
 <p>Or set in Tencent Cloud:</p>
-<p><img src="http://wx2.sinaimg.cn/mw690/6d184cefly1fxvvdovl3oj21080ikade.jpg" alt="Open port 808"></p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18122803.jpg" alt="Open port 808"></p>
 <p>Run the project :</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ../</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo python manage.py runserver 0.0.0.0:8080</span></div></pre></td></tr></table></figure>
 <p>Visit the website:</p>
-<p><img src="http://wx4.sinaimg.cn/mw690/6d184cefly1fxvvdvmaklj216o0qqdie.jpg" alt="website"></p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18122804.jpg" alt="website"></p>
 <p>Reference:<br><a href="https://www.bt.cn/bbs/thread-8889-1-3.html" target="_blank" rel="external">ubuntu + nginx + uwsgi + django(python3)</a><br><a href="https://www.cnblogs.com/dalanjing/p/8636338.html" target="_blank" rel="external">python3+Django</a></p>
 <blockquote>
 <p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>

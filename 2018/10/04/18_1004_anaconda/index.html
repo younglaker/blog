@@ -13,16 +13,16 @@
 <meta property="og:url" content="http://laker.me/blog/2018/10/04/18_1004_anaconda/index.html">
 <meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
 <meta property="og:description" content="安装本文环境是 Mac OS。 目前Anaconda 出了 Python3.7 版本，但 TensorFlow 只支持3.5、3.6、2.7。有两种解决方案。">
-<meta property="og:image" content="http://wx1.sinaimg.cn/mw690/6d184cefly1fvzuazc915j21jc0okgq7.jpg">
-<meta property="og:image" content="http://wx2.sinaimg.cn/mw690/6d184cefly1fvzub9u6vrj20ck0ew754.jpg">
-<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/6d184cefly1fvzublo0fuj20hy0fgdgu.jpg">
-<meta property="og:image" content="http://wx3.sinaimg.cn/mw690/6d184cefly1fvzuc8mo3lj214a0q8q6t.jpg">
-<meta property="og:image" content="http://wx4.sinaimg.cn/mw690/6d184cefly1fvzudre5z8j21bs0fmhdt.jpg">
-<meta property="og:updated_time" content="2019-05-16T00:57:41.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18100402.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18100403.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18100404.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18100405.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18100406.jpg">
+<meta property="og:updated_time" content="2019-05-29T08:24:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AI 学习1	：Anaconda 配置">
 <meta name="twitter:description" content="安装本文环境是 Mac OS。 目前Anaconda 出了 Python3.7 版本，但 TensorFlow 只支持3.5、3.6、2.7。有两种解决方案。">
-<meta name="twitter:image" content="http://wx1.sinaimg.cn/mw690/6d184cefly1fvzuazc915j21jc0okgq7.jpg">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18100402.jpg">
   
     <link rel="alternative" href="true" title="进击的程序媛，Laker&#39;s blog" type="application/atom+xml">
   
@@ -191,20 +191,20 @@ show_channel_urls: true
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ~<span class="string">/anaconda3/bin/pip</span> install <span class="params">--upgrade</span> <span class="params">--ignore-installed</span> tensorflow</div></pre></td></tr></table></figure>
 <p>可能会有一段黄色警告，再多等会，或者开代理</p>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># laker @ Laker in ~ [13:11:43]</span></div><div class="line">$ ~/anaconda3/bin/pip install <span class="comment">--upgrade --ignore-installed tensorflow</span></div><div class="line">Collecting tensorflow</div><div class="line">  Retrying (Retry(total=<span class="number">4</span>, connect=None, <span class="built_in">read</span>=None, redirect=None, status=None)) <span class="keyword">after</span> connection broken <span class="keyword">by</span> <span class="string">'NewConnectionError('</span>&lt;pip.<span class="title">_vendor</span>.urllib3.connection.VerifiedHTTPSConnection object <span class="keyword">at</span> <span class="number">0x11021c828</span>&gt;: Failed <span class="built_in">to</span> establish <span class="keyword">a</span> <span class="built_in">new</span> connection: [Errno <span class="number">8</span>] nodename nor servname provided, <span class="keyword">or</span> <span class="keyword">not</span> known<span class="string">',)'</span>: /simple/tensorflow/</div><div class="line">  Retrying (Retry(total=<span class="number">3</span>, connect=None, <span class="built_in">read</span>=None, redirect=None, status=None)) <span class="keyword">after</span> connection broken <span class="keyword">by</span> <span class="string">'NewConnectionError('</span>&lt;pip.<span class="title">_vendor</span>.urllib3.connection.VerifiedHTTPSConnection object <span class="keyword">at</span> <span class="number">0x110067a58</span>&gt;: Failed <span class="built_in">to</span> establish <span class="keyword">a</span> <span class="built_in">new</span> connection: [Errno <span class="number">8</span>] nodename nor servname provided, <span class="keyword">or</span> <span class="keyword">not</span> known<span class="string">',)'</span>: /simple/tensorflow/</div><div class="line">  Retrying (Retry(total=<span class="number">2</span>, connect=None, <span class="built_in">read</span>=None, redirect=None, status=None)) <span class="keyword">after</span> connection broken <span class="keyword">by</span> <span class="string">'NewConnectionError('</span>&lt;pip.<span class="title">_vendor</span>.urllib3.connection.VerifiedHTTPSConnection object <span class="keyword">at</span> <span class="number">0x110067ac8</span>&gt;: Failed <span class="built_in">to</span> establish <span class="keyword">a</span> <span class="built_in">new</span> connection: [Errno <span class="number">65</span>] No route <span class="built_in">to</span> host<span class="string">',)'</span>: /simple/tensorflow/</div><div class="line">  Downloading <span class="keyword">https</span>://<span class="built_in">files</span>.pythonhosted.org/packages/<span class="number">70</span>/<span class="number">78</span>/cd74769027b6249e45807637c1aa3ef212b9492349cca4b87e5de1a10548/tensorflow<span class="number">-1.11</span><span class="number">.0</span>-cp36-cp36m-macosx_10_11_x86_64.whl (<span class="number">59.3</span>MB)</div><div class="line">    <span class="number">9</span>% |███                             | <span class="number">5.4</span>MB <span class="number">96</span>kB/s eta <span class="number">0</span>:<span class="number">09</span>:<span class="number">20</span></div></pre></td></tr></table></figure>
-<h2 id="安装Jupyter-Spyder"><a href="#安装Jupyter-Spyder" class="headerlink" title="安装Jupyter, Spyder"></a>安装Jupyter, Spyder</h2><p><img src="http://wx1.sinaimg.cn/mw690/6d184cefly1fvzuazc915j21jc0okgq7.jpg" alt="Jupyter,spyder"></p>
+<h2 id="安装Jupyter-Spyder"><a href="#安装Jupyter-Spyder" class="headerlink" title="安装Jupyter, Spyder"></a>安装Jupyter, Spyder</h2><p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18100402.jpg" alt="Jupyter,spyder"></p>
 <h2 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h2><p>下载测试文件<br>链接:<a href="https://pan.baidu.com/s/1U_P1VsJyJ3Zn8SAprz9Sxw" target="_blank" rel="external">https://pan.baidu.com/s/1U_P1VsJyJ3Zn8SAprz9Sxw</a> 提取码: vtaf</p>
 <p>安装测试文件的依赖库 pygame</p>
 <pre><code>$ ~/anaconda3/bin/pip install pygame
 </code></pre><p>运行Jupyter，点击面板的 Launch，</p>
-<p><img src="http://wx2.sinaimg.cn/mw690/6d184cefly1fvzub9u6vrj20ck0ew754.jpg" alt="Jupyter"></p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18100403.jpg" alt="Jupyter"></p>
 <p>或者输入命令</p>
 <pre><code>ipython notebook
 </code></pre><p>找到文件所在位置</p>
-<p><img src="http://wx3.sinaimg.cn/mw690/6d184cefly1fvzublo0fuj20hy0fgdgu.jpg" alt="Jupyter界面"></p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18100404.jpg" alt="Jupyter界面"></p>
 <p>进入<code>homework0.ipynb</code>，运行</p>
-<p><img src="http://wx3.sinaimg.cn/mw690/6d184cefly1fvzuc8mo3lj214a0q8q6t.jpg" alt="homework0.ipynb"></p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18100405.jpg" alt="homework0.ipynb"></p>
 <p>效果是两个特效的窗口</p>
-<p><img src="http://wx4.sinaimg.cn/mw690/6d184cefly1fvzudre5z8j21bs0fmhdt.jpg" alt="效果"></p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18100406.jpg" alt="效果"></p>
 <p>参考：<br><a href="https://www.jianshu.com/p/b9eac8419c8d" target="_blank" rel="external">Anaconda之Python环境配置</a><br><a href="http://docs.anaconda.com/anaconda/faq/#should-i-add-anaconda-to-the-macos-or-linux-path" target="_blank" rel="external">Add PATH</a></p>
 <blockquote>
 <p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
