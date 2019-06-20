@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2019-05-29T07:06:16.000Z</updated>
+  <updated>2019-06-20T13:49:48.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode 66 Plus One (Python)</title>
+    <link href="http://laker.me/blog/2019/06/20/19_0620_leetcode66/"/>
+    <id>http://laker.me/blog/2019/06/20/19_0620_leetcode66/</id>
+    <published>2019-06-20T00:24:00.000Z</published>
+    <updated>2019-06-20T13:49:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="https://leetcode.com/problems/count-and-say/" target="_blank" rel="external">https://leetcode.com/problems/count-and-say/</a></p>
+<p>Given a non-empty array of digits representing a non-negative integer, plus one to the integer.</p>
+<p>The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.</p>
+<p>You may assume the integer does not contain any leading zero, except the number 0 itself.</p>
+<a id="more"></a>
+<p>Example 1:</p>
+<pre><code>Input: [1,2,3]
+Output: [1,2,4]
+</code></pre><p>Explanation: The array represents the integer 123.</p>
+<p>Example 2:</p>
+<pre><code>Input: [4,3,2,1]
+Output: [4,3,2,2]
+</code></pre><p>Explanation: The array represents the integer 4321.</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1:"></a>Solution 1:</h2><figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">def plusOne(<span class="built_in">digits</span>):</div><div class="line">    carry = <span class="number">1</span></div><div class="line">    # <span class="built_in">range</span>(start, <span class="keyword">stop</span>, step)</div><div class="line">    for i <span class="keyword">in</span> <span class="built_in">range</span>(len(<span class="built_in">digits</span>) - <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</div><div class="line"></div><div class="line">        carry = <span class="built_in">int</span>( <span class="built_in">digits</span>[i] + carry / <span class="number">10</span> )</div><div class="line">        <span class="built_in">digits</span>[i] = <span class="built_in">int</span>( <span class="built_in">digits</span>[i] + carry % <span class="number">10</span> )</div><div class="line">        <span class="keyword">if</span> carry == <span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span> <span class="built_in">digits</span></div><div class="line"></div><div class="line">    result = []</div><div class="line">    result.append(<span class="number">1</span>)</div><div class="line">    for i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, len(<span class="built_in">digits</span>)+<span class="number">1</span> ):</div><div class="line">        result.append(<span class="built_in">digits</span>[i-<span class="number">1</span>])</div><div class="line"></div><div class="line">    <span class="keyword">return</span> result</div></pre></td></tr></table></figure>
+<p>In python, there are some functions to shorten the code.</p>
+<ul>
+<li>divmod()</li>
+</ul>
+<p>Change:<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">carry = <span class="built_in">int</span>( <span class="built_in">digits</span>[i] + carry / <span class="number">10</span> )</div><div class="line"><span class="built_in">digits</span>[i] = <span class="built_in">int</span>( <span class="built_in">digits</span>[i] + carry % <span class="number">10</span> )</div></pre></td></tr></table></figure></p>
+<p>to:<br><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">carry, digits<span class="string">[i]</span> = divmod(digits<span class="string">[i]</span> + carry, <span class="number">10</span>)</div></pre></td></tr></table></figure></p>
+<p>divmod(): takes two numbers and returns a pair of numbers consisting of their quotient and remainder, (x / y , x % y)</p>
+<ul>
+<li>join list</li>
+</ul>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">result</span> = []</div><div class="line"><span class="built_in">result</span>.append(<span class="number">1</span>)</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="built_in">len</span>(digits)+<span class="number">1</span> ):</div><div class="line">    <span class="built_in">result</span>.append(digits[i<span class="number">-1</span>])</div><div class="line"></div><div class="line"><span class="literal">return</span> <span class="built_in">result</span></div></pre></td></tr></table></figure>
+<p>to：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># <span class="keyword">or</span>: <span class="keyword">digits</span>.insert(<span class="number">0</span>,<span class="number">1</span>)</div><div class="line"><span class="keyword">return</span> [<span class="number">1</span>] + <span class="keyword">digits</span></div></pre></td></tr></table></figure>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2:"></a>Solution 2:</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">def plusOne2(<span class="keyword">digits</span>):</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="keyword">range</span>(len(<span class="keyword">digits</span>)-<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</div><div class="line">        # <span class="keyword">if</span> the sum <span class="keyword">is</span> less than <span class="number">10</span>,than there <span class="keyword">is</span> <span class="keyword">not</span> carry</div><div class="line">        <span class="keyword">if</span> <span class="keyword">digits</span>[i] &lt; <span class="number">9</span>:</div><div class="line">            <span class="keyword">digits</span>[i] += <span class="number">1</span></div><div class="line">            <span class="keyword">return</span> <span class="keyword">digits</span></div><div class="line">        # max: <span class="number">1</span>+<span class="number">9</span>=<span class="number">10</span>, only <span class="number">0</span></div><div class="line">        <span class="keyword">digits</span>[i] = <span class="number">0</span></div><div class="line">    <span class="keyword">return</span> [<span class="number">1</span>] + <span class="keyword">digits</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/count-and-say/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://leetcode.com/problems/count-and-say/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Given a non-empty array of digits representing a non-negative integer, plus one to the integer.&lt;/p&gt;
+&lt;p&gt;The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.&lt;/p&gt;
+&lt;p&gt;You may assume the integer does not contain any leading zero, except the number 0 itself.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Algorithm" scheme="http://laker.me/blog/categories/Algorithm/"/>
+    
+    
+      <category term="Algorithm" scheme="http://laker.me/blog/tags/Algorithm/"/>
+    
+      <category term="Python" scheme="http://laker.me/blog/tags/Python/"/>
+    
+      <category term="LeetCode" scheme="http://laker.me/blog/tags/LeetCode/"/>
+    
+  </entry>
   
   <entry>
     <title>Homebrew updating problem</title>
@@ -681,9 +741,9 @@ Output: &quot;1211&quot;
     
       <category term="Server" scheme="http://laker.me/blog/tags/Server/"/>
     
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
-    
       <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
+    
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
     
       <category term="Python" scheme="http://laker.me/blog/tags/Python/"/>
     
@@ -733,11 +793,11 @@ Output: &quot;1211&quot;
     
       <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
     
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
-    
       <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
     
       <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
+    
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
     
   </entry>
   
@@ -794,11 +854,11 @@ Output: &quot;1211&quot;
     
       <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
     
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
-    
       <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
     
       <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
+    
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
     
       <category term="Wechat" scheme="http://laker.me/blog/tags/Wechat/"/>
     
@@ -903,11 +963,11 @@ Output: &quot;1211&quot;
     
       <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
     
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
-    
       <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
     
       <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
+    
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
     
       <category term="Wechat" scheme="http://laker.me/blog/tags/Wechat/"/>
     
@@ -976,11 +1036,11 @@ Output: &quot;1211&quot;
     
       <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
     
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
-    
       <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
     
       <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
+    
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
     
   </entry>
   
@@ -1288,42 +1348,6 @@ show_channel_urls: true
       <category term="ML" scheme="http://laker.me/blog/tags/ML/"/>
     
       <category term="DL" scheme="http://laker.me/blog/tags/DL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法学习1：重新排序链表</title>
-    <link href="http://laker.me/blog/2018/09/29/18_0929_%20algorithm/"/>
-    <id>http://laker.me/blog/2018/09/29/18_0929_ algorithm/</id>
-    <published>2018-09-29T00:24:00.000Z</published>
-    <updated>2019-05-29T08:25:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- ![算法学习：重新排序链表][1] -->
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个单链表，将链表按头节点、尾节点、第二个节点、 倒数第二个节点…的规律重建。要求：原地操作，不改变节点的值。</p>
-<a id="more"></a>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>暴力法：先找头节点，再找尾节点，然后顺次第二个节点，倒数第二个节点，由于是单链表，不停的从表头遍历到表尾，时间复杂度O(n^2)</p>
-<p>看下有没有其他便捷方法。</p>
-<p>假设给一组数字<code>1,2,3,4,5,6</code>，重新排序后是<code>1,6,2,5,3,4</code>，会发现一个规律，<code>1, 2, 3</code>是顺序的，<code>6, 5, 4</code>是倒序插入的。</p>
-<p>所以可这样考虑：<br>先把链表一分为二，把后半部分数据倒序插入前半部分。<br>头插法制作倒序链表，时间复杂度 O(n)，将左右两链表合并，时间复杂度 O(n)。总时间复杂度为O(n)。</p>
-<h2 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h2><figure class="highlight xl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">void Revert (Link L1) &#123;</div><div class="line">	new Link L2; <span class="comment">//用于存放倒序的后半部链表</span></div><div class="line">	int half_len = L1.lenght() / <span class="number">2</span>; <span class="comment">//记录链表的一半</span></div><div class="line">	<span class="function"><span class="title">int</span> *p = L1-&gt;</span>head; <span class="comment">//p 指向 L1 头节点</span></div><div class="line">	<span class="function"><span class="title">int</span> *q = L2-&gt;</span>head; <span class="comment">//q 指向 L2 头指针</span></div><div class="line">	int *s, *t;</div><div class="line"></div><div class="line">	<span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; half_len; i++) &#123;</div><div class="line">		<span class="function"><span class="title">s</span> = s-&gt;</span>next; <span class="comment">// 找到链表中部</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="title">q</span> = s-&gt;</span>next; <span class="comment">//把后半段链表赋值给 L2</span></div><div class="line">	<span class="function"><span class="title">s</span>-&gt;</span>next = null; <span class="comment">// 此时 s 为 L1尾指针</span></div><div class="line"></div><div class="line">	<span class="function"><span class="title">t</span> = q-&gt;</span>next;</div><div class="line">	<span class="comment">// 这里我直接在表内操作，看起来有点乱，新建个 L3来存放会看得舒服点</span></div><div class="line">	<span class="function"><span class="title">while</span> ( t-&gt;</span>next != null ) &#123; <span class="comment">//倒置 L2</span></div><div class="line">		<span class="function"><span class="title">q</span>-&gt;</span><span class="function"><span class="title">next</span> = t-&gt;</span>next;</div><div class="line">		<span class="function"><span class="title">t</span>-&gt;</span>next = q;</div><div class="line">		L2-&gt;<span class="function"><span class="title">head</span>-&gt;</span>next = t;</div><div class="line">		<span class="function"><span class="title">t</span> = q-&gt;</span>next;</div><div class="line">		<span class="function"><span class="title">q</span> = L2-&gt;</span><span class="function"><span class="title">head</span>-&gt;</span>next;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">while</span> ( p != s ) &#123; <span class="comment">// p 没有走到表尾时插入L2节点</span></div><div class="line">		<span class="function"><span class="title">t</span> = L2-&gt;</span><span class="function"><span class="title">head</span>-&gt;</span>next; <span class="comment">//一开始，t 指向 L2第一个节点</span></div><div class="line">		L2-&gt;<span class="function"><span class="title">head</span>-&gt;</span><span class="function"><span class="title">next</span> = L2-&gt;</span><span class="function"><span class="title">head</span>-&gt;</span><span class="function"><span class="title">next</span>-&gt;</span>next; <span class="comment">//取出第一个节点，第二个节点变成第一个节点</span></div><div class="line">		<span class="function"><span class="title">t</span>-&gt;</span><span class="function"><span class="title">next</span> = p-&gt;</span>next; <span class="comment">//t 插入 p</span></div><div class="line">		<span class="function"><span class="title">p</span>-&gt;</span><span class="function"><span class="title">next</span> = t-&gt;</span>next;</div><div class="line">		<span class="function"><span class="title">p</span> = p-&gt;</span><span class="function"><span class="title">next</span>-&gt;</span>next; <span class="comment">//移动 p 到下一个待插入的节点</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>简单的图示：</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18092901.jpg" alt="图示"></p>
-<blockquote>
-<p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- ![算法学习：重新排序链表][1] --&gt;
-&lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;给定一个单链表，将链表按头节点、尾节点、第二个节点、 倒数第二个节点…的规律重建。要求：原地操作，不改变节点的值。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="算法" scheme="http://laker.me/blog/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="算法" scheme="http://laker.me/blog/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
