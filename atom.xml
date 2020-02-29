@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2019-06-20T13:49:48.000Z</updated>
+  <updated>2020-02-29T10:39:31.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,424 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Algorithm - The Office VI Sabbatical</title>
+    <link href="http://laker.me/blog/2020/01/10/20_0110_coderwars_The_Office_VI_Sabbatical/"/>
+    <id>http://laker.me/blog/2020/01/10/20_0110_coderwars_The_Office_VI_Sabbatical/</id>
+    <published>2020-01-10T00:24:00.000Z</published>
+    <updated>2020-02-29T10:39:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="https://www.codewars.com/kata/57fe50d000d05166720000b1/train/javascript" target="_blank" rel="external">https://www.codewars.com/kata/57fe50d000d05166720000b1/train/javascript</a></p>
+<p>val=your value to the organisation<br>happ=her happiness level at the time of asking and finally<br>The numbers of letters from ‘sabbatical’ that are present in string ‘x’.</p>
+<p>If the sum of the three parameters (as described above) is &gt; 22, return ‘Sabbatical! Boom!’, else return ‘Back to your desk, boy.’. memory?</p>
+<a id="more"></a>
+<p>Example :</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Test.assertEquals<span class="comment">(sabb('Can I have a sabbatical?', 5, 5)</span>, <span class="string">'Sabbatical! Boom!'</span>);</div><div class="line">Test.assertEquals<span class="comment">(sabb('Why are you shouting?', 7, 2)</span>, <span class="string">'Back to your desk, boy.'</span>);</div><div class="line">Test.assertEquals<span class="comment">(sabb('What do you mean I cant learn to code??', 8, 9)</span>, <span class="string">'Sabbatical! Boom!'</span>);</div><div class="line">Test.assertEquals<span class="comment">(sabb('Please calm down', 9, 1)</span>, <span class="string">'Back to your desk, boy.'</span>);</div></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h2><p><a href="https://github.com/younglaker/codewars" target="_blank" rel="external">https://github.com/younglaker/codewars</a></p>
+<h3 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h3><figure class="highlight scilab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sabb</span><span class="params">(x, val, happ)</span>&#123;</span></div><div class="line">  let <span class="built_in">sum</span> = (x.match(/[sabticl]/ig )|| []).<span class="built_in">length</span>;</div><div class="line"></div><div class="line">  <span class="keyword">if</span>(<span class="built_in">sum</span> + val + happ &gt; <span class="number">22</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">'Sabbatical! Boom!'</span></div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">'Back to your desk, boy.'</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>x.match(/[sabticl]/ig</code> to select all matched letters into a array. <code>|| []</code> is order to avoid error when there is no matched letter for <code>.length</code>.</p>
+<p>Shorten the code to below:</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="title">sabb</span>(x, val, happ)&#123;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="type">(x.match(/[sabticl]/ig</span> )|| []).length + val + happ &gt; <span class="number">22</span> ? <span class="symbol">'Sabbatical</span>! Boom!' : '<span class="type">Back</span> to your desk, boy.'</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.codewars.com/kata/57fe50d000d05166720000b1/train/javascript&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.codewars.com/kata/57fe50d000d05166720000b1/train/javascript&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;val=your value to the organisation&lt;br&gt;happ=her happiness level at the time of asking and finally&lt;br&gt;The numbers of letters from ‘sabbatical’ that are present in string ‘x’.&lt;/p&gt;
+&lt;p&gt;If the sum of the three parameters (as described above) is &amp;gt; 22, return ‘Sabbatical! Boom!’, else return ‘Back to your desk, boy.’. memory?&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Algorithm" scheme="http://laker.me/blog/categories/Algorithm/"/>
+    
+    
+      <category term="Algorithm" scheme="http://laker.me/blog/tags/Algorithm/"/>
+    
+      <category term="CodeWars" scheme="http://laker.me/blog/tags/CodeWars/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Algorithm - Vowel Count</title>
+    <link href="http://laker.me/blog/2020/01/08/20_0108_coderwars_Vowel_Count/"/>
+    <id>http://laker.me/blog/2020/01/08/20_0108_coderwars_Vowel_Count/</id>
+    <published>2020-01-08T00:24:00.000Z</published>
+    <updated>2020-02-29T10:39:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="https://www.codewars.com/kata/54ff3102c1bad923760001f3/javascript" target="_blank" rel="external">https://www.codewars.com/kata/54ff3102c1bad923760001f3/javascript</a></p>
+<p>Return the number (count) of vowels in the given string.</p>
+<p>We will consider a, e, i, o, and u as vowels for this Kata.</p>
+<p>The input string will only consist of lower case letters and/or spaces.</p>
+<a id="more"></a>
+<p>Example :</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Test</span>.assertEquals(getCount(<span class="string">"abracadabra"</span>), <span class="number">5</span>)</div></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h2><p><a href="https://github.com/younglaker/codewars" target="_blank" rel="external">https://github.com/younglaker/codewars</a></p>
+<h3 id="Approach-1"><a href="#Approach-1" class="headerlink" title="Approach 1"></a>Approach 1</h3><p>Split the sting into a array, the check each letter:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCount</span>(<span class="params">str</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> vowelsCount = <span class="number">0</span>;</div><div class="line"></div><div class="line">  <span class="keyword">let</span> arr = str.split(<span class="string">''</span>);</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++)&#123;</div><div class="line">    <span class="keyword">if</span> (arr[i] === <span class="string">'a'</span> || arr[i] === <span class="string">'e'</span> || arr[i] === <span class="string">'i'</span> || arr[i] === <span class="string">'o'</span> || arr[i] === <span class="string">'u'</span>) &#123;</div><div class="line">      vowelsCount+=<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> vowelsCount;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Approach-2"><a href="#Approach-2" class="headerlink" title="Approach 2"></a>Approach 2</h3><p><code>x.match(/[sabticl]/ig</code> to select all matched letters into a array. <code>|| []</code> is order to avoid error when there is no matched letter for <code>.length</code>.</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="title">getCount</span>(str) &#123;</div><div class="line">  <span class="keyword">return</span> <span class="type">(str.match(/[aeiou]/ig)</span> || []).length</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Approach-3"><a href="#Approach-3" class="headerlink" title="Approach 3"></a>Approach 3</h3><p>Delete the letter dosen’t match, then count the length:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCount</span>(<span class="params">str</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> str.replace(<span class="regexp">/[^aeiou]/gi</span>, <span class="string">''</span>).length;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.codewars.com/kata/54ff3102c1bad923760001f3/javascript&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.codewars.com/kata/54ff3102c1bad923760001f3/javascript&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Return the number (count) of vowels in the given string.&lt;/p&gt;
+&lt;p&gt;We will consider a, e, i, o, and u as vowels for this Kata.&lt;/p&gt;
+&lt;p&gt;The input string will only consist of lower case letters and/or spaces.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Algorithm" scheme="http://laker.me/blog/categories/Algorithm/"/>
+    
+    
+      <category term="Algorithm" scheme="http://laker.me/blog/tags/Algorithm/"/>
+    
+      <category term="CodeWars" scheme="http://laker.me/blog/tags/CodeWars/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React Learning Record</title>
+    <link href="http://laker.me/blog/2019/09/08/19_0908_react_learning/"/>
+    <id>http://laker.me/blog/2019/09/08/19_0908_react_learning/</id>
+    <published>2019-09-08T00:24:00.000Z</published>
+    <updated>2020-02-29T09:47:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h2><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">npm </span>i -g <span class="built_in">create-react-app@1.5.2</span></div><div class="line"><span class="built_in">create-react-app</span> <span class="string">react-app</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>Inside that directory, you can run several commands:</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">yarn <span class="built_in">start</span></div><div class="line">  Starts <span class="keyword">the</span> development server.</div><div class="line"></div><div class="line">yarn build</div><div class="line">  Bundles <span class="keyword">the</span> app <span class="keyword">into</span> static <span class="built_in">files</span> <span class="keyword">for</span> production.</div><div class="line"></div><div class="line">yarn test</div><div class="line">  Starts <span class="keyword">the</span> test runner.</div><div class="line"></div><div class="line">yarn eject</div><div class="line">  Removes this tool <span class="keyword">and</span> copies build dependencies, configuration <span class="built_in">files</span></div><div class="line">  <span class="keyword">and</span> scripts <span class="keyword">into</span> <span class="keyword">the</span> app <span class="built_in">directory</span>. If you <span class="built_in">do</span> this, you can’t go back!</div></pre></td></tr></table></figure>
+<h2 id="Bootstrap"><a href="#Bootstrap" class="headerlink" title="Bootstrap"></a>Bootstrap</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">npm</span> <span class="selector-tag">i</span> <span class="selector-tag">-s</span> <span class="selector-tag">bootstrap</span>@<span class="keyword">4</span>.<span class="keyword">1</span>.<span class="keyword">1</span></div></pre></td></tr></table></figure>
+<p><code>index.js</code></p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">import</span> 'bootstrap/dist/css/bootstrap.css';</span></div></pre></td></tr></table></figure>
+<h2 id="export"><a href="#export" class="headerlink" title="export"></a>export</h2><p>Add <code>Component/counter.jsx</code> to <code>src</code></p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line"></div><div class="line">  render() &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>equals:</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line"></div><div class="line">  render() &#123; &#125;</div><div class="line">&#125;</div><div class="line">export <span class="keyword">default</span> <span class="type">Counter</span>;</div></pre></td></tr></table></figure>
+<h2 id="ReactDOM-render"><a href="#ReactDOM-render" class="headerlink" title="ReactDOM.render"></a>ReactDOM.render</h2><p>In <code>index.js</code>, it render th <code>App.js</code></p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App'</span>;</div><div class="line"></div><div class="line">ReactDOM.render(&lt;App /&gt;, <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</div></pre></td></tr></table></figure>
+<p>can be repalced by this to render Counter.js :</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Counter <span class="keyword">from</span> <span class="string">'./components/counter'</span>;</div><div class="line"></div><div class="line">ReactDOM.render(&lt;Counter /&gt;, <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</div></pre></td></tr></table></figure>
+<h2 id="Use-component"><a href="#Use-component" class="headerlink" title="Use component"></a>Use component</h2><p>In <code>App.js</code>,add:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> (</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"App"</span>&gt;</span></span></div><div class="line">    ...</div><div class="line">    <span class="tag">&lt;<span class="name">Counter</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">);</div></pre></td></tr></table></figure>
+<h2 id="React-Fragment"><a href="#React-Fragment" class="headerlink" title="React.Fragment"></a>React.Fragment</h2><p>If use <div>, there is a useless element</div></p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090801.png" alt=""></p>
+<p>If delete <div><br><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090802.png" alt=""></div></p>
+<p>Use <code>&lt;React.Fragment&gt;</code> instead:</p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090803.png" alt=""></p>
+<h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  state = &#123;</div><div class="line">    count: <span class="number">0</span></div><div class="line">  &#125;;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">React</span>.<span class="type">Fragment</span>&gt;</div><div class="line">        &lt;span&gt;&#123;<span class="keyword">this</span>.state.count&#125;&lt;/span&gt;</div><div class="line">      &lt;/<span class="type">React</span>.<span class="type">Fragment</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Function-return-and-expression"><a href="#Function-return-and-expression" class="headerlink" title="Function return and expression"></a>Function return and expression</h2><figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">state</span> = &#123;</div><div class="line">  count: <span class="number">0</span></div><div class="line">&#125;;</div><div class="line">render() &#123;</div><div class="line">  return (</div><div class="line">    <span class="variable">&lt;React.Fragment&gt;</span></div><div class="line">      <span class="variable">&lt;div&gt;</span>&#123;this.formatCount()&#125;&lt;/div&gt;</div><div class="line">    &lt;/React.Fragment&gt;</div><div class="line">  );</div><div class="line">&#125;</div><div class="line"></div><div class="line">formatCount() &#123;</div><div class="line">  return this.<span class="keyword">state</span>.count === <span class="number">0</span> ? 'Zero' : this.<span class="keyword">state</span>.count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Eauqls to :</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">formatCount() &#123;</div><div class="line">  const &#123; <span class="keyword">count</span> &#125; = <span class="keyword">this</span>.state;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">count</span> === <span class="number">0</span> ? <span class="string">'Zero'</span> : <span class="keyword">count</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090804.png" alt=""></p>
+<p>We can also insert elements and variable:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">formatCount() &#123;</div><div class="line">  <span class="keyword">const</span> &#123; count &#125; = <span class="keyword">this</span>.state;</div><div class="line">   <span class="keyword">const</span> x = <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Zero<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></div><div class="line">  <span class="keyword">return</span> count === <span class="number">0</span> ? x : count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Image-src"><a href="#Image-src" class="headerlink" title="Image src"></a>Image src</h2><figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">state</span> = &#123;</div><div class="line">  imageUrl: 'https://picsum.photos/<span class="number">200</span>'</div><div class="line">&#125;;</div><div class="line">render() &#123;</div><div class="line">  return (</div><div class="line">    <span class="variable">&lt;React.Fragment&gt;</span></div><div class="line">      <span class="variable">&lt;img src=&#123;this.state.imageUrl&#125; alt="" /&gt;</span></div><div class="line">    &lt;/React.Fragment&gt;</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090805.png" alt=""></p>
+<h2 id="Use-Bootstrap-CSS"><a href="#Use-Bootstrap-CSS" class="headerlink" title="Use Bootstrap CSS"></a>Use Bootstrap CSS</h2><p>Be sure to use <code>className</code>, not <code>class</code></p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"badge badge-primary m-2"</span>&gt;</span></span><span class="template-variable">&#123;this.formatCount()&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">className</span>=<span class="string">"btn btn-secondary btn-sm"</span>&gt;</span>Increcement<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090806.png" alt=""></p>
+<h2 id="Inline-CSS"><a href="#Inline-CSS" class="headerlink" title="Inline CSS"></a>Inline CSS</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">fontSize:</span> <span class="attr">30</span> &#125;&#125; <span class="attr">className</span>=<span class="string">"badge badge-primary m-2"</span>&gt;</span>Zero<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Or:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">aaa = &#123; <span class="attr">fontSize</span>: <span class="number">30</span> &#125;;</div><div class="line">render() &#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">React.Fragment</span>&gt;</span></span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&#123;</span> <span class="attr">this.aaa</span> &#125; <span class="attr">className</span>=<span class="string">"badge badge-primary m-2"</span>&gt;</span>Zero<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">React.Fragment</span>&gt;</span></div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090807.png" alt=""></p>
+<h2 id="Dynamic-class-name"><a href="#Dynamic-class-name" class="headerlink" title="Dynamic class name"></a>Dynamic class name</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">render() &#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    &lt;React.Fragment&gt;</div><div class="line">      &lt;div className=&#123;<span class="keyword">this</span>.getBadgeClasses()&#125;&gt;</div><div class="line">        Zero</div><div class="line">      &lt;/div&gt;</div><div class="line">  );</div><div class="line">&#125;</div><div class="line">getBadgeClasses() &#123;</div><div class="line">  let classes = <span class="string">'badge m-2 badge-'</span>;</div><div class="line">  classes += <span class="keyword">this</span>.state.count === <span class="number">0</span> ? <span class="string">'warning'</span> : <span class="string">'primary'</span>;</div><div class="line">  <span class="keyword">return</span> classes;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090808.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090809.png" alt=""></p>
+<h2 id="For-loop"><a href="#For-loop" class="headerlink" title="For loop"></a>For loop</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">state</span> = &#123;</div><div class="line">  tags: [<span class="string">'tag1'</span>, <span class="string">'tag2'</span>, <span class="string">'tag3'</span>]</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="variable">&lt;ul&gt;</span></div><div class="line">      &#123;this.<span class="keyword">state</span>.tags.map(<span class="keyword">tag</span> =&gt; (</div><div class="line">        <span class="variable">&lt;li&gt;</span>&#123;<span class="keyword">tag</span>&#125;&lt;/li&gt;</div><div class="line">      ))&#125;</div><div class="line"> &lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090810.png" alt=""></p>
+<p>Add key:</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="variable">&lt;ul&gt;</span></div><div class="line">    &#123;this.<span class="keyword">state</span>.tags.map(<span class="keyword">tag</span> =&gt; (</div><div class="line">    <span class="variable">&lt;li key=&#123;tag&#125;&gt;</span>&#123;<span class="keyword">tag</span>&#125;&lt;/li&gt;</div><div class="line">    ))&#125;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>or</p>
+<blockquote>
+<p>It there is more than one parameter, add <code>( )</code></p>
+</blockquote>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="variable">&lt;ul&gt;</span></div><div class="line">    &#123;this.<span class="keyword">state</span>.tags.map((<span class="keyword">tag</span>, index) =&gt; (</div><div class="line">    <span class="variable">&lt;li key=&#123;index&#125;&gt;</span>&#123;<span class="keyword">tag</span>&#125;&lt;/li&gt;</div><div class="line">    ))&#125;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090811.png" alt=""></p>
+<h2 id="Render-after-if"><a href="#Render-after-if" class="headerlink" title="Render after if"></a>Render after if</h2><blockquote>
+<p>If return more one line, add <code>( )</code></p>
+</blockquote>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">render() &#123;</div><div class="line">  return (</div><div class="line">    <span class="variable">&lt;React.Fragment&gt;</span></div><div class="line">      &#123;this.renderTags()&#125;</div><div class="line">    &lt;/React.Fragment&gt;</div><div class="line">  );</div><div class="line">&#125;</div><div class="line"></div><div class="line">renderTags() &#123;</div><div class="line">  if (this.<span class="keyword">state</span>.tags.length === <span class="number">0</span>)</div><div class="line">    return <span class="variable">&lt;p&gt;</span>No tasgs&lt;/p&gt;;</div><div class="line"></div><div class="line">  return (</div><div class="line">    <span class="variable">&lt;ul&gt;</span></div><div class="line">      &#123;this.<span class="keyword">state</span>.tags.map((<span class="keyword">tag</span>, index) =&gt; (</div><div class="line">        <span class="variable">&lt;li key=&#123;index&#125;&gt;</span>&#123;<span class="keyword">tag</span>&#125;&lt;/li&gt;</div><div class="line">      ))&#125;</div><div class="line">    &lt;/ul&gt;</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Expression-amp-amp"><a href="#Expression-amp-amp" class="headerlink" title="Expression &amp;&amp;"></a>Expression <code>&amp;&amp;</code></h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">render() &#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    &lt;React.Fragment&gt;</div><div class="line">      &#123;<span class="keyword">this</span>.renderTags()&#125;</div><div class="line">      &#123;<span class="keyword">this</span>.state.tags.length !== <span class="number">0</span> &amp;&amp; <span class="string">'There are tags'</span>&#125;</div><div class="line">    &lt;/React.Fragment&gt;</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090812.png" alt=""></p>
+<h2 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h2><p><code>onClick</code>, not <code>onclick</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleIncrement&#125;</span>&gt;</span>Increcement<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line">handleIncrement(e) &#123;</div><div class="line">  console.log(e);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Event need to be sent function without parameter</p>
+</blockquote>
+<p><strong>Right:</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleIncrement&#125;</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><strong>Wrong:</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//this.handleIncrement ( 1 ) is not a functon</span></div><div class="line">&lt;<span class="selector-tag">button</span> onClick=&#123;this<span class="selector-class">.handleIncrement</span> ( <span class="number">1</span> ) &#125;&gt;</div></pre></td></tr></table></figure>
+<p><strong>Right:</strong></p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;button onClick=&#123;<span class="keyword">this</span>.doHandleIncrecement &#125;&gt;</div><div class="line"><span class="function"></span></div><div class="line">  <span class="title">doHandleIncrecement</span>=<span class="params">()</span>=&gt;&#123;</div><div class="line">    <span class="keyword">this</span>.handleIncrement(&#123;id: <span class="number">1</span>&#125;)</div><div class="line"></div><div class="line">  &#125;</div><div class="line"><span class="function">  <span class="title">handleIncrement</span> = <span class="params">(item)</span> =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(item.id);</div><div class="line">  &#125;;</div></pre></td></tr></table></figure>
+<p><strong>Right ( recommend ) :</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;button onClick=&#123;<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.handleIncrement(&#123; id: <span class="number">1</span> &#125;)&#125;&gt;</div><div class="line"></div><div class="line">handleIncrement = <span class="function"><span class="params">item</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(item.id);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="this-constructor"><a href="#this-constructor" class="headerlink" title="this, constructor()"></a>this, constructor()</h2><p>We can’t call <code>this</code> in function:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">handleIncrement() &#123;</div><div class="line">  console.<span class="built_in">log</span>(<span class="keyword">this</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090813.png" alt=""></p>
+<p>Use <code>constructor()</code> to bind this,</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">constructor</span><span class="params">()</span> <span class="comment">&#123;</span></span></div><div class="line">  super();</div><div class="line">  console.log(this);</div><div class="line">  this.handleIncrement = this.handleIncrement.bind(this);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="title">handleIncrement</span><span class="params">(e)</span> <span class="comment">&#123;</span></div><div class="line">  console.log(this);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Or use <code>Arrow Function</code></p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">handleIncrement</span> = <span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090814.png" alt=""></p>
+<h2 id="Updating-state"><a href="#Updating-state" class="headerlink" title="Updating state"></a>Updating state</h2><p><strong>State</strong>: starts with a default value when a Component mounts and then suffers from mutations in time. It is not advisable to store anything in a state that can be derived from props at any point in time</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">handleIncrement = () =&gt; &#123;</div><div class="line">  this.<span class="built_in">set</span>State(&#123; count: this.<span class="keyword">state</span>.count + <span class="number">1</span> &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><code>this.state.count++</code> dosen’t work</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090815.png" alt=""></p>
+<h2 id="Passing-data-to-components"><a href="#Passing-data-to-components" class="headerlink" title="Passing data to components"></a>Passing data to components</h2><p><strong>Props</strong>: (short for properties) are a Component’s configuration. They are received from above and immutable.</p>
+<p><code>src/components/counters.jsx</code></p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="type">Counter</span> from './counter';</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counters</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  state = &#123;</div><div class="line">    counInfo: [&#123; id: <span class="number">1</span>, <span class="keyword">val</span>: <span class="number">0</span> &#125;, &#123; id: <span class="number">2</span>, <span class="keyword">val</span>: <span class="number">5</span> &#125;, &#123; id: <span class="number">3</span>, <span class="keyword">val</span>: <span class="number">2</span> &#125;]</div><div class="line">  &#125;;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        &#123;<span class="keyword">this</span>.state.counInfo.map((item, index) =&gt; (</div><div class="line">          &lt;<span class="type">Counter</span> key=&#123;index&#125; id=&#123;item.id&#125; value=&#123;item.<span class="keyword">val</span>&#125; /&gt;</div><div class="line">        ))&#125;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">export <span class="keyword">default</span> <span class="type">Counters</span>;</div></pre></td></tr></table></figure>
+<p><code>src/components/counter.jsx</code></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">render() &#123;</div><div class="line">  console.log(<span class="string">'props'</span>, <span class="keyword">this</span>.props);</div><div class="line">  <span class="keyword">return</span> ();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090817.png" alt=""></p>
+<p>Use props data in <code>src/components/counter.jsx</code>:<br>Put <code>state</code> in <code>constructor()</code>:</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// passing in props</span></div><div class="line"><span class="function"><span class="keyword">constructor</span><span class="params">(props)</span> <span class="comment">&#123;</span></span></div><div class="line">  super();</div><div class="line"></div><div class="line">  // in constructor(), state need this，props dosen't need this</div><div class="line">  this.state = &#123;</div><div class="line">    count: props.value,</div><div class="line">    tags: ['tag1', 'tag2', 'tag3']</div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090817.png" alt=""></p>
+<h2 id="Passing-children"><a href="#Passing-children" class="headerlink" title="Passing children"></a>Passing children</h2><p><code>src/components/counters.jsx</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="keyword">this</span>.state.counInfo.map(<span class="function">(<span class="params">item, index</span>) =&gt;</span> (</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">Counter</span> <span class="attr">key</span>=<span class="string">&#123;index&#125;</span> <span class="attr">id</span>=<span class="string">&#123;item.id&#125;</span> <span class="attr">value</span>=<span class="string">&#123;item.val&#125;</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">h4</span>&gt;</span>title<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">Counter</span>&gt;</span></div><div class="line">))&#125;</div></pre></td></tr></table></figure>
+<p><code>src/components/counter.jsx</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">render() &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'props'</span>, <span class="keyword">this</span>.props);</div><div class="line"></div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">      ...</div><div class="line">      &#123;this.props.children&#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090818.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090819.png" alt=""></p>
+<h2 id="React-Developer-Tools"><a href="#React-Developer-Tools" class="headerlink" title="React Developer Tools"></a>React Developer Tools</h2><p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090820.png" alt=""></p>
+<p>Refresh after installation, you can change the order:</p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090829.png" alt=""></p>
+<h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090821.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090822.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090823.png" alt=""></p>
+<h2 id="Props-VS-State"><a href="#Props-VS-State" class="headerlink" title="Props VS  State"></a>Props VS  State</h2><ul>
+<li>props: passing data, can’t be modified</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090824.png" alt=""></p>
+<ul>
+<li>state: local, can’t be visited by other components</li>
+</ul>
+<h2 id="Passing-function"><a href="#Passing-function" class="headerlink" title="Passing function"></a>Passing function</h2><p><code>src/components/counters.jsx</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">render() &#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">      ..</div><div class="line">        <span class="tag">&lt;<span class="name">Counter</span></span></div><div class="line">          <span class="attr">...</span></div><div class="line">          <span class="attr">onDelete</span>=<span class="string">&#123;this.handleDelete&#125;</span></div><div class="line">        &gt;<span class="tag">&lt;/<span class="name">Counter</span>&gt;</span></div><div class="line">      ..</div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  );</div><div class="line">&#125;</div><div class="line"></div><div class="line">handleDelete = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Handle delete '</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p><code>src/components/counter.jsx</code></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">button</span> onClick=&#123;this<span class="selector-class">.props</span><span class="selector-class">.onDelete</span>&#125;&gt;Delete&lt;/button&gt;</div></pre></td></tr></table></figure>
+<h2 id="filter-（Delete-function）"><a href="#filter-（Delete-function）" class="headerlink" title="filter （Delete function）"></a>filter （Delete function）</h2><p><code>src/components/counter.jsx</code></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="comment">/*  delete btn */</span>&#125;</div><div class="line">&lt;<span class="selector-tag">button</span></div><div class="line">  onClick=&#123;() =&gt; this<span class="selector-class">.props</span><span class="selector-class">.onDelete</span>(this<span class="selector-class">.props</span><span class="selector-class">.id</span>)&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p><code>src/components/counters.jsx</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;Counter</div><div class="line">  ...</div><div class="line">  onDelete=&#123;<span class="keyword">this</span>.handleDelete&#125;</div><div class="line">  id=&#123;item.id&#125;</div><div class="line">&gt;</div><div class="line"></div><div class="line">handleDelete = <span class="function"><span class="params">countId</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">const</span> counInfo = <span class="keyword">this</span>.state.counInfo.filter(<span class="function"><span class="params">c</span> =&gt;</span> c.id !== countId);</div><div class="line"></div><div class="line">  <span class="comment">// this.setState(&#123; counInfo: countInfo &#125;);</span></div><div class="line">  <span class="comment">// we can omit the variable when the state parameter name is the same as the variable name</span></div><div class="line">  <span class="keyword">this</span>.setState(&#123; counInfo &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="Removing-local-state"><a href="#Removing-local-state" class="headerlink" title="Removing local state"></a>Removing local state</h2><p>The state init only once when the component created, so it can’t update when the props changes</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">this.<span class="keyword">state</span> = &#123;</div><div class="line">  count: props.value</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>So, if want use the updating props data, deal the props in original component:</p>
+<p><code>src/components/counter.jsx</code>, use props instead of state :</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="comment">/* 增加按钮 */</span>&#125;</div><div class="line">&lt;button</div><div class="line">  onClick=&#123;() =&gt; <span class="keyword">this</span>.props.onIncrece(<span class="keyword">this</span>.props.item)&#125;</div><div class="line">&gt;</div><div class="line">getBadgeClasses() &#123;</div><div class="line">  let classes = <span class="string">'badge m-2 badge-'</span>;</div><div class="line">  classes += <span class="keyword">this</span>.props.item.<span class="keyword">val</span> === <span class="number">0</span> ? <span class="string">'warning'</span> : <span class="string">'primary'</span>;</div><div class="line">  <span class="keyword">return</span> classes;</div><div class="line">&#125;</div><div class="line"></div><div class="line">formatCount() &#123;</div><div class="line">  const count = <span class="keyword">this</span>.props.item.<span class="keyword">val</span>;</div><div class="line">  <span class="keyword">return</span> count == <span class="number">0</span> ? <span class="string">'Zero'</span> : count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>src/components/counters.jsx</code>, do increment in counters.jsx</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="variable">&lt;Counter</span></div><div class="line">  ...</div><div class="line">  onIncrece=&#123;this.handleIncrement&#125;</div><div class="line">&gt;</div><div class="line"></div><div class="line">handleIncrement = item =&gt; &#123;</div><div class="line">  // 拷贝<span class="keyword">state</span>的<span class="keyword">counters</span></div><div class="line">  const countInfo = [...this.<span class="keyword">state</span>.countInfo];</div><div class="line">  const index = countInfo.indexOf(item);</div><div class="line">  countInfo[index] = &#123; ...item &#125;;</div><div class="line">  countInfo[index].val++;</div><div class="line"></div><div class="line">  this.<span class="built_in">set</span>State(&#123; countInfo &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>展开语法(Spread syntax),扩展运算符是三个点（…）。用于取出参数对象的所有可遍历属性，然后拷贝到当前对象之中<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_syntax" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_syntax</a> &gt; <a href="https://www.cnblogs.com/it-Ren/p/10637904.html" target="_blank" rel="external">https://www.cnblogs.com/it-Ren/p/10637904.html</a> &gt; <img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090825.png" alt=""></p>
+</blockquote>
+<h2 id="Life-cycle"><a href="#Life-cycle" class="headerlink" title="Life cycle"></a>Life cycle</h2><p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090826.png" alt=""></p>
+<p>order: constructor &gt; render &gt; componentDidMount</p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090827.png" alt=""></p>
+<ul>
+<li>componentDidMount: After render, often initial ajax</li>
+<li>componentDidUpdate: after component updated, such as state, new props,often write ajax to get new data</li>
+<li>componentWillMount: before component removed, such as delete a component</li>
+</ul>
+<p>Can check <code>prevProps</code> , <code>prevState</code> in <code>componentDidUpdate</code>:</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="selector-tag">componentDidUpdate</span>(prevProps, prevState) &#123;</div><div class="line">  <span class="selector-tag">console</span><span class="selector-class">.log</span>(<span class="string">'prevProps'</span>, prevProps);</div><div class="line">  <span class="selector-tag">console</span><span class="selector-class">.log</span>(<span class="string">'prevState'</span>, prevState);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090829.png" alt=""></p>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Start&quot;&gt;&lt;a href=&quot;#Start&quot; class=&quot;headerlink&quot; title=&quot;Start&quot;&gt;&lt;/a&gt;Start&lt;/h2&gt;&lt;figure class=&quot;highlight dsconfig&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;npm &lt;/span&gt;i -g &lt;span class=&quot;built_in&quot;&gt;create-react-app@1.5.2&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;create-react-app&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;react-app&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="React" scheme="http://laker.me/blog/categories/React/"/>
+    
+    
+      <category term="React" scheme="http://laker.me/blog/tags/React/"/>
+    
+      <category term="React Native" scheme="http://laker.me/blog/tags/React-Native/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React native 加 android安卓模拟器</title>
+    <link href="http://laker.me/blog/2019/09/03/19_0903_react_android/"/>
+    <id>http://laker.me/blog/2019/09/03/19_0903_react_android/</id>
+    <published>2019-09-03T00:24:00.000Z</published>
+    <updated>2020-02-29T09:47:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://expo.io/learn" target="_blank" rel="external">https://expo.io/learn</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> -g expo-cli</div><div class="line">expo init my-<span class="keyword">new</span>-<span class="keyword">project</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>下载网易 mumu 安卓模拟器<br><a href="https://mumu.163.com/" target="_blank" rel="external">https://mumu.163.com/</a></p>
+<p><a href="http://mumu.163.com/2017/12/19/25241_730476.html?type=notice" target="_blank" rel="external">http://mumu.163.com/2017/12/19/25241_730476.html?type=notice</a><br>添加 adb，执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> adb <span class="built_in">kill</span>-server &amp;&amp; adb server &amp;&amp; adb shell</span></div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090301.png" alt=""></p>
+<p>查看</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> adb devices</span></div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090302.png" alt=""></p>
+<p>开启模拟器 USB 调试模式</p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090303.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090304.png" alt=""></p>
+<p>开启项目</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> my-new-project</div><div class="line">expo <span class="built_in">start</span></div></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090305.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090306.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19090307.png" alt=""></p>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://expo.io/learn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://expo.io/learn&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; -g expo-cli&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;expo init my-&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt;-&lt;span class=&quot;keyword&quot;&gt;project&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="React" scheme="http://laker.me/blog/categories/React/"/>
+    
+    
+      <category term="React" scheme="http://laker.me/blog/tags/React/"/>
+    
+      <category term="React Native" scheme="http://laker.me/blog/tags/React-Native/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React native web browser</title>
+    <link href="http://laker.me/blog/2019/08/30/19_0830_react_native_web_browser/"/>
+    <id>http://laker.me/blog/2019/08/30/19_0830_react_native_web_browser/</id>
+    <published>2019-08-30T00:24:00.000Z</published>
+    <updated>2020-02-29T09:47:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Method-1-react-native-web"><a href="#Method-1-react-native-web" class="headerlink" title="Method 1: react-native-web"></a>Method 1: react-native-web</h2><p><a href="https://github.com/necolas/react-native-web" target="_blank" rel="external">https://github.com/necolas/react-native-web</a></p>
+<p>Android emulator lists:</p>
+<a id="more"></a>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">emulator -<span class="built_in">list</span>-avds</div></pre></td></tr></table></figure>
+<p>Run emulator</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">emulator -avd <span class="string">[name]</span></div></pre></td></tr></table></figure>
+<p>Installation:</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install react-web-<span class="keyword">cli</span> -g</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="Method-2-expo-recommanded"><a href="#Method-2-expo-recommanded" class="headerlink" title="Method 2: expo (recommanded)"></a>Method 2: expo (recommanded)</h2><p><a href="https://docs.expo.io/versions/latest/introduction/running-in-the-browser/" target="_blank" rel="external">https://docs.expo.io/versions/latest/introduction/running-in-the-browser/</a></p>
+<p>Ensure your project has at least expo@^33.0.0 installed.</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ npm i -g expo-cli</div><div class="line"></div><div class="line">//<span class="keyword">Add</span><span class="bash"> web dependencies:</span></div><div class="line">$ yarn <span class="keyword">add</span><span class="bash"> react-native-web react-dom</span></div><div class="line"></div><div class="line">$ expo start --web</div></pre></td></tr></table></figure>
+<p>Running the expo and copy the homepage url:</p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19093001.png" alt="expo"></p>
+<p>Or find the url in terminal:</p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19093003.png" alt="terminal"></p>
+<p>Visit the url :</p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/19093002.png" alt="Visit"></p>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Method-1-react-native-web&quot;&gt;&lt;a href=&quot;#Method-1-react-native-web&quot; class=&quot;headerlink&quot; title=&quot;Method 1: react-native-web&quot;&gt;&lt;/a&gt;Method 1: react-native-web&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/necolas/react-native-web&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/necolas/react-native-web&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Android emulator lists:&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="React" scheme="http://laker.me/blog/categories/React/"/>
+    
+    
+      <category term="React" scheme="http://laker.me/blog/tags/React/"/>
+    
+      <category term="React Native" scheme="http://laker.me/blog/tags/React-Native/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Angular Ionic News App Tutorial for Beginner</title>
+    <link href="http://laker.me/blog/2019/08/22/19_0822_ionic_news/"/>
+    <id>http://laker.me/blog/2019/08/22/19_0822_ionic_news/</id>
+    <published>2019-08-22T00:24:00.000Z</published>
+    <updated>2020-02-29T09:47:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Github repo: <a href="https://github.com/younglaker/CometLab/tree/ionic-news" target="_blank" rel="external">https://github.com/younglaker/CometLab/tree/ionic-news</a></p>
+<h2 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h2><p>Start serve</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">ionic serve</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="tabs"><a href="#tabs" class="headerlink" title="tabs"></a>tabs</h2><p>generate command：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ionic g [<span class="string">type:</span> page<span class="regexp">/component/</span>tabs<span class="regexp">/provider/</span>service/provider]  [names]</div></pre></td></tr></table></figure>
+<p>generate page：</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ionic g page  <span class="string">[names]</span></div></pre></td></tr></table></figure>
+<p>For example, after generating a <code>news</code> page, in <code>src/app/tabs/tabs.module.ts</code>, add:</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; NewsPageModule &#125; <span class="keyword">from</span> <span class="string">'../news/news.module'</span>;</div><div class="line"><span class="comment">// [page name] +PageModule</span></div><div class="line"></div><div class="line">@NgModule(&#123;</div><div class="line">  imports: [</div><div class="line">    ...</div><div class="line">    NewsPageModule</div><div class="line">  ],</div></pre></td></tr></table></figure>
+<p>In <code>src/app/tabs/tabs.page.html</code>, add:</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;ion-<span class="keyword">tab</span>-button <span class="keyword">tab</span>=<span class="string">"news"</span>&gt;</div><div class="line">  &lt;ion-icon name=<span class="string">"flash"</span>&gt;&lt;/ion-icon&gt;</div><div class="line">  &lt;ion-<span class="keyword">label</span>&gt;<span class="keyword">Tab</span> <span class="keyword">One</span>&lt;/ion-<span class="keyword">label</span>&gt;</div><div class="line">&lt;/ion-<span class="keyword">tab</span>-button&gt;</div></pre></td></tr></table></figure>
+<p>In <code>src/app/tabs/tabs.router.module.ts</code>, add:</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">const routes: Routes = [</div><div class="line">  &#123;</div><div class="line">    ...</div><div class="line"><span class="symbol">    children:</span> [</div><div class="line">      &#123;</div><div class="line"><span class="symbol">        path:</span> <span class="string">"news"</span>,</div><div class="line"><span class="symbol">        children:</span> [</div><div class="line">          &#123;</div><div class="line"><span class="symbol">            path:</span> <span class="string">""</span>,</div><div class="line"><span class="symbol">            loadChildren:</span> <span class="string">"../news/news.module#NewsPageModule"</span></div><div class="line">          &#125;</div><div class="line">        ]</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
+<h2 id="Get-news-list"><a href="#Get-news-list" class="headerlink" title="Get news list"></a>Get news list</h2><h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><p><a href="https://newsapi.org/" target="_blank" rel="external">https://newsapi.org/</a></p>
+<p><code>https://newsapi.org/v2/top-headlines?country=us&amp;category=business&amp;apiKey=</code></p>
+<p>Set environment arguments. In <code>src/environments/environment.ts</code>:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> environment = &#123;</div><div class="line">  ...</div><div class="line">  apiUrl: <span class="string">"https://newsapi.org/v2/"</span>,</div><div class="line">  apiKey: <span class="string">"c***********"</span></div></pre></td></tr></table></figure>
+<p>Create service:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> ionic g service news</span></div></pre></td></tr></table></figure>
+<p>In <code>/src/app/app.module.ts</code></p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; HttpClientModule &#125; <span class="keyword">from</span> <span class="string">'@angular/common/http'</span>;</div><div class="line"></div><div class="line">@NgModule(&#123;</div><div class="line">  ...</div><div class="line">  imports: [</div><div class="line">    ...</div><div class="line">    HttpClientModule</div></pre></td></tr></table></figure>
+<p>In <code>src/app/news.service.ts</code></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; HttpClient &#125; <span class="keyword">from</span> <span class="string">'@angular/common/http'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> API_URL = environment.apiUrl;</div><div class="line"><span class="keyword">const</span> API_KET = environment.apiKey;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> NewsService &#123;</div><div class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> http: HttpClient</span>) &#123;&#125;</div><div class="line"></div><div class="line">  getData(url) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.http.get(<span class="string">`<span class="subst">$&#123;API_URL&#125;</span>/<span class="subst">$&#123;url&#125;</span>?apiKey=?&#123; API_KEY &#125;`</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>In <code>src/app/news/news.page.ts</code></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; NewsService &#125; <span class="keyword">from</span> <span class="string">'../news.service'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> NewsPage <span class="keyword">implements</span> OnInit &#123;</div><div class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> newsService: NewsService</span>) &#123;&#125;</div><div class="line"></div><div class="line">  ngOnInit() &#123;</div><div class="line">     <span class="comment">// NewsService from news.service.ts</span></div><div class="line">    <span class="keyword">this</span>.newsService</div><div class="line">      .getData(<span class="string">'top-headlines?country=us&amp;category=business'</span>)</div><div class="line">      .subscribe(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</div><div class="line">        <span class="built_in">console</span>.log(data);</div><div class="line">      &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://github.com/aomine-sama/px/blob/master/2019/19082201.png?raw=true" alt="data"></p>
+<h3 id="Display-news"><a href="#Display-news" class="headerlink" title="Display news"></a>Display news</h3><p>In <code>src/app/news/news.page.ts</code> add</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; NewsService &#125; <span class="keyword">from</span> <span class="string">'../news.service'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> NewsPage <span class="keyword">implements</span> OnInit &#123;</div><div class="line">  <span class="comment">// res: store the data from API, type is any</span></div><div class="line">  res: <span class="built_in">any</span>;</div><div class="line"></div><div class="line">  ngOnInit() &#123;</div><div class="line">    <span class="keyword">this</span>.newsService</div><div class="line">      .getData(<span class="string">'top-headlines?country=us&amp;category=business'</span>)</div><div class="line">      .subscribe(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</div><div class="line">        <span class="comment">// console.log(data);</span></div><div class="line">        <span class="keyword">this</span>.res = data;</div><div class="line">      &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>In <code>src/app/news/news.page.html</code></p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="comment">&lt;!-- Here is a '?',  rendering after getting data--&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">ion-card</span> *<span class="attr">ngFor</span>=<span class="string">"let article of res?.articles"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ion-card-header</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-card-subtitle</span>&gt;</span>Card Subtitle<span class="tag">&lt;/<span class="name">ion-card-subtitle</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-card-title</span>&gt;</span> <span class="template-variable">&#123;&#123; article.title &#125;&#125;</span><span class="xml"> <span class="tag">&lt;/<span class="name">ion-card-title</span>&gt;</span></span></div><div class="line">  <span class="tag">&lt;/<span class="name">ion-card-header</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ion-img</span> [<span class="attr">src</span>]=<span class="string">"article.urlToImage"</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-img</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ion-card-content</span>&gt;</span><span class="template-variable">&#123;&#123; article.description &#125;&#125;</span><span class="xml"> <span class="tag">&lt;/<span class="name">ion-card-content</span>&gt;</span></span></div><div class="line"><span class="tag">&lt;/<span class="name">ion-card</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><img src="https://github.com/aomine-sama/px/blob/master/2019/19082202.png?raw=true" alt="news lists"></p>
+<h2 id="Link-to-details"><a href="#Link-to-details" class="headerlink" title="Link to details"></a>Link to details</h2><p><code>src/app/news/news.page.html</code>, bind click event</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;ion-card</div><div class="line">    *ngFor=<span class="string">"let article of res?.articles"</span></div><div class="line">    (<span class="name">click</span>)=<span class="string">"goToNewsSingle(article)"</span></div><div class="line">  &gt;</div></pre></td></tr></table></figure>
+<p><code>src/app/app-routing.module.ts</code>, it generate routes path when generate the news-single page, we can use it directly:</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const routes: <span class="type">Routes </span>= [</div><div class="line">  ...</div><div class="line">  &#123; path: <span class="type"></span>'<span class="keyword">new</span><span class="type">s</span>-single<span class="string">', loadChildren: '</span>./<span class="keyword">new</span><span class="type">s</span>-single/<span class="keyword">new</span><span class="type">s</span>-single.module<span class="meta">#NewsSinglePageModule' &#125;</span></div><div class="line">];</div></pre></td></tr></table></figure>
+<p><code>src/app/news/news.page.ts</code>, define goToNewsSingle() event</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">export <span class="class"><span class="keyword">class</span> <span class="title">NewsPage</span> <span class="keyword"><span class="keyword">implements</span> <span class="type">OnInit</span></span> </span>&#123;</div><div class="line">  ...</div><div class="line">  constructor(..., <span class="keyword">private</span> router: <span class="type">Router</span>) &#123;&#125;</div><div class="line"></div><div class="line">  goToNewsSingle(article) &#123;</div><div class="line">    <span class="built_in">this</span>.<span class="keyword">new</span><span class="type">sService</span>.currentArticle = article;</div><div class="line">    <span class="built_in">this</span>.router.navigate([<span class="string">'/news-single'</span>]);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p><code>src/app/news-single/news-single.page.ts</code></p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">..</div><div class="line"><span class="keyword">import</span> &#123; NewsService &#125; from <span class="string">'../news.service'</span>;</div><div class="line"></div><div class="line">export <span class="class"><span class="keyword">class</span> <span class="title">NewsSinglePage</span> <span class="keyword"><span class="keyword">implements</span> <span class="type">OnInit</span></span> </span>&#123;</div><div class="line">  article; <span class="comment">//store the content of current article</span></div><div class="line"></div><div class="line">  constructor(<span class="keyword">private</span> <span class="keyword">new</span><span class="type">sService</span>: NewsService) &#123;&#125;</div><div class="line"></div><div class="line">  ngOnInit() &#123;</div><div class="line">    <span class="built_in">this</span>.article = <span class="built_in">this</span>.<span class="keyword">new</span><span class="type">sService</span>.currentArticle;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>src/app/news-single/news-single.page.html</code> display the content of current article:</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">ion-card</span>&gt;</span></span></div><div class="line">  <span class="tag">&lt;<span class="name">ion-card-header</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-card-subtitle</span>&gt;</span>Card Subtitle<span class="tag">&lt;/<span class="name">ion-card-subtitle</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ion-card-title</span>&gt;</span> <span class="template-variable">&#123;&#123; article.title &#125;&#125;</span><span class="xml"> <span class="tag">&lt;/<span class="name">ion-card-title</span>&gt;</span></span></div><div class="line">  <span class="tag">&lt;/<span class="name">ion-card-header</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ion-img</span> [<span class="attr">src</span>]=<span class="string">"article.urlToImage"</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-img</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ion-card-content</span>&gt;</span><span class="template-variable">&#123;&#123; article.description &#125;&#125;</span><span class="xml"> <span class="tag">&lt;/<span class="name">ion-card-content</span>&gt;</span></span></div><div class="line"><span class="tag">&lt;/<span class="name">ion-card</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><img src="https://github.com/aomine-sama/px/blob/master/2019/19082203.png?raw=true" alt="news detail"></p>
+<h2 id="Back-button"><a href="#Back-button" class="headerlink" title="Back button"></a>Back button</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ion-buttons</span> <span class="attr">slot</span>=<span class="string">"start"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">ion-back-button</span> <span class="attr">text</span>=<span class="string">"...."</span> <span class="attr">icon</span>=<span class="string">"...."</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ion-buttons</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Github repo: &lt;a href=&quot;https://github.com/younglaker/CometLab/tree/ionic-news&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/younglaker/CometLab/tree/ionic-news&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Command&quot;&gt;&lt;a href=&quot;#Command&quot; class=&quot;headerlink&quot; title=&quot;Command&quot;&gt;&lt;/a&gt;Command&lt;/h2&gt;&lt;p&gt;Start serve&lt;/p&gt;
+&lt;figure class=&quot;highlight ebnf&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;ionic serve&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
+    
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode 66 Plus One (Python)</title>
@@ -741,9 +1159,9 @@ Output: &quot;1211&quot;
     
       <category term="Server" scheme="http://laker.me/blog/tags/Server/"/>
     
-      <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
-    
       <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
+    
+      <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
     
       <category term="Python" scheme="http://laker.me/blog/tags/Python/"/>
     
@@ -793,11 +1211,11 @@ Output: &quot;1211&quot;
     
       <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
     
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
+    
       <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
     
       <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
-    
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
     
   </entry>
   
@@ -854,500 +1272,13 @@ Output: &quot;1211&quot;
     
       <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
     
+      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
+    
       <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
     
       <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
-    
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
     
       <category term="Wechat" scheme="http://laker.me/blog/tags/Wechat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySql and Navicat in MacOS</title>
-    <link href="http://laker.me/blog/2018/11/28/18_1128_mysql_navicat/"/>
-    <id>http://laker.me/blog/2018/11/28/18_1128_mysql_navicat/</id>
-    <published>2018-11-28T00:24:00.000Z</published>
-    <updated>2019-05-29T07:41:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- ![MySql and Navicat in MacOS](http://wx3.sinaimg.cn/large/6d184cefly1fxnkwna76bj20oz0460tc.jpg) -->
-<h2 id="Install-MySql"><a href="#Install-MySql" class="headerlink" title="Install MySql"></a>Install MySql</h2><h3 id="Method-one"><a href="#Method-one" class="headerlink" title="Method one"></a>Method one</h3><p>Download the installation file, choose the dmg file:</p>
-<a id="more"></a>
-<p><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">https://dev.mysql.com/downloads/mysql/</a></p>
-<p>Then install the package step by step.</p>
-<h3 id="Method-two"><a href="#Method-two" class="headerlink" title="Method two"></a>Method two</h3><p>Install by command line:</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">brew </span><span class="keyword">install </span>mysql</div></pre></td></tr></table></figure>
-<h2 id="Start-MySql"><a href="#Start-MySql" class="headerlink" title="Start MySql"></a>Start MySql</h2><h3 id="Add-system-enviroment"><a href="#Add-system-enviroment" class="headerlink" title="Add system enviroment"></a>Add system enviroment</h3><p>Open terminal, I use zsh, so I edit zsh_profile, if you use bash, edit your bash_profile:</p>
-<pre><code>$ vim ~/.zsh_profile
-</code></pre><p>Add zsh_profile</p>
-<pre><code>$ source ~/.zsh_profile
-</code></pre><h3 id="Login-database"><a href="#Login-database" class="headerlink" title="Login database"></a>Login database</h3><p>Your can use GUI to start or stop sever in system preference :</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112801.jpg" alt="manage"></p>
-<p>Or use command line.</p>
-<h2 id="Connect-to-Navicat"><a href="#Connect-to-Navicat" class="headerlink" title="Connect to Navicat"></a>Connect to Navicat</h2><p>New MySQL connection:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112802.jpg" alt="connection"></p>
-<p>Set a name and add password:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112803.jpg" alt="config"></p>
-<p>Done:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112804.jpg" alt="success"></p>
-<h2 id="Import-sql-file"><a href="#Import-sql-file" class="headerlink" title="Import sql file:"></a>Import sql file:</h2><p>Import sql file:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112805.jpg" alt="Import"></p>
-<p>Done, I uesd about 30 minutes to import 2kw items, much faster than my classmates, most of them cost several hours :</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112806.jpg" alt="Done"></p>
-<blockquote>
-<p>Exchange blogroll： <a href="http://laker.me/blog">laker.me</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- ![MySql and Navicat in MacOS](http://wx3.sinaimg.cn/large/6d184cefly1fxnkwna76bj20oz0460tc.jpg) --&gt;
-&lt;h2 id=&quot;Install-MySql&quot;&gt;&lt;a href=&quot;#Install-MySql&quot; class=&quot;headerlink&quot; title=&quot;Install MySql&quot;&gt;&lt;/a&gt;Install MySql&lt;/h2&gt;&lt;h3 id=&quot;Method-one&quot;&gt;&lt;a href=&quot;#Method-one&quot; class=&quot;headerlink&quot; title=&quot;Method one&quot;&gt;&lt;/a&gt;Method one&lt;/h3&gt;&lt;p&gt;Download the installation file, choose the dmg file:&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="SQL" scheme="http://laker.me/blog/categories/SQL/"/>
-    
-    
-      <category term="Server" scheme="http://laker.me/blog/tags/Server/"/>
-    
-      <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
-    
-      <category term="Navicat" scheme="http://laker.me/blog/tags/Navicat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Develope WeChat Official Account&#39;s Hello Message</title>
-    <link href="http://laker.me/blog/2018/11/25/18_1125_wechat_hello/"/>
-    <id>http://laker.me/blog/2018/11/25/18_1125_wechat_hello/</id>
-    <published>2018-11-25T00:24:00.000Z</published>
-    <updated>2019-05-29T07:43:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- ![Develope WeChat Official Account's Hello Message](http://wx2.sinaimg.cn/large/6d184cefly1fxnkwi98vuj20p0046dg6.jpg) -->
-<h2 id="Apply-test-account"><a href="#Apply-test-account" class="headerlink" title="Apply test account"></a>Apply test account</h2><p>Apply for Wechat testing account:</p>
-<a id="more"></a>
-<p><a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421137524" target="_blank" rel="external">https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421137524</a></p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112501.jpg" alt="Application"></p>
-<h2 id="Connect-WeChat-server-with"><a href="#Connect-WeChat-server-with" class="headerlink" title="Connect WeChat server with"></a>Connect WeChat server with</h2><p>Enter your testing account, and set your server address and the director <code>wx</code> for WeChat server. Set a token name what ever you like:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112502.jpg" alt="token name"></p>
-<p>Enter your Baota Panel, new a file <code>wx</code> in <code>application/public/</code></p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112503.jpg" alt="Baota Panel"></p>
-<p>Add a new file  <code>index.php</code> in <code>wx</code></p>
-<p>Function:</p>
-<ul>
-<li>Connect to WeChat server</li>
-<li>When someone subscribes, reply a hello message</li>
-<li>When get user text messge, reply what he sent</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?php</span></span></div><div class="line">    <span class="comment">/*</span></div><div class="line">    * Connect to WeChat server</div><div class="line">    */</div><div class="line">    <span class="comment">// Get signature nonce token timestamp echostr</span></div><div class="line">    $nonce     = $_GET[<span class="string">'nonce'</span>];</div><div class="line">    $token     = <span class="string">'YOUR_TOKEN'</span>;</div><div class="line">    $timestamp = $_GET[<span class="string">'timestamp'</span>];</div><div class="line">    $echostr   = $_GET[<span class="string">'echostr'</span>];</div><div class="line">    $signature = $_GET[<span class="string">'signature'</span>];</div><div class="line">    <span class="comment">// Set it as array, and sort</span></div><div class="line">    $array = <span class="keyword">array</span>();</div><div class="line">    $array = <span class="keyword">array</span>($nonce, $timestamp, $token);</div><div class="line">    sort($array);</div><div class="line">    <span class="comment">// Join them as a string, use sha1 to encrypt, and check with signature</span></div><div class="line">    $str = sha1( implode( $array ) );</div><div class="line"></div><div class="line">    <span class="comment">//The first time weixin api</span></div><div class="line">    <span class="keyword">if</span>( $str == $signature &amp;&amp; $echostr )&#123;</div><div class="line">        <span class="keyword">echo</span>  $echostr;</div><div class="line">        <span class="keyword">exit</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">/*</span></div><div class="line">        * When someone subscribes, reply a hello message</div><div class="line">        */</div><div class="line">        <span class="comment">// 1. Get the posted xml data from Weixin</span></div><div class="line">        $postArr = $GLOBALS[<span class="string">'HTTP_RAW_POST_DATA'</span>];</div><div class="line">        <span class="comment">// 2. Deal with message type and set reply type and content</span></div><div class="line">        $postObj = simplexml_load_string( $postArr );</div><div class="line">        <span class="comment">// Check if the data is subscription event</span></div><div class="line">        <span class="keyword">if</span>( strtolower( $postObj-&gt;MsgType) == <span class="string">'event'</span>)&#123;</div><div class="line">            <span class="comment">// If it'is subscribe event</span></div><div class="line">            <span class="keyword">if</span>( strtolower($postObj-&gt;Event == <span class="string">'subscribe'</span>) )&#123;</div><div class="line">                <span class="comment">// Reply text message</span></div><div class="line">                $toUser   = $postObj-&gt;FromUserName;</div><div class="line">                $fromUser = $postObj-&gt;ToUserName;</div><div class="line">                $time     = time();</div><div class="line">                $msgType  =  <span class="string">'text'</span>;</div><div class="line">                $content  = <span class="string">'Hello, welcome~ '</span>.$postObj-&gt;FromUserName.<span class="string">'-'</span>.$postObj-&gt;ToUserName;;</div><div class="line">                $template = <span class="string">"&lt;xml&gt;</span></div><div class="line">                                &lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;</div><div class="line">                                &lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;</div><div class="line">                                &lt;CreateTime&gt;%s&lt;/CreateTime&gt;</div><div class="line">                                &lt;MsgType&gt;&lt;![CDATA[%s]]&gt;&lt;/MsgType&gt;</div><div class="line">                                &lt;Content&gt;&lt;![CDATA[%s]]&gt;&lt;/Content&gt;</div><div class="line">                                &lt;/xml&gt;";</div><div class="line">                $info     = sprintf($template, $toUser, $fromUser, $time, $msgType, $content);</div><div class="line">                <span class="keyword">echo</span> $info;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">/*</span></div><div class="line">        * When get user text messge, reply what he sent</div><div class="line">        */</div><div class="line">        <span class="comment">// Check if the data is text</span></div><div class="line">        <span class="keyword">if</span>( strtolower( $postObj-&gt;MsgType) == <span class="string">'text'</span>)&#123;</div><div class="line">             <span class="comment">// Get text message</span></div><div class="line">        $content = $postObj-&gt;Content;</div><div class="line">                <span class="comment">// Reply text message</span></div><div class="line">                $toUser   = $postObj-&gt;FromUserName;</div><div class="line">                $fromUser = $postObj-&gt;ToUserName;</div><div class="line">                $time     = time();</div><div class="line">                $msgType  =  <span class="string">'text'</span>;</div><div class="line">                $content  = <span class="string">'The content you sent is '</span>.$content;</div><div class="line">                $template = <span class="string">"&lt;xml&gt;</span></div><div class="line">                                &lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;</div><div class="line">                                &lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;</div><div class="line">                                &lt;CreateTime&gt;%s&lt;/CreateTime&gt;</div><div class="line">                                &lt;MsgType&gt;&lt;![CDATA[%s]]&gt;&lt;/MsgType&gt;</div><div class="line">                                &lt;Content&gt;&lt;![CDATA[%s]]&gt;&lt;/Content&gt;</div><div class="line">                                &lt;/xml&gt;";</div><div class="line">                $info     = sprintf($template, $toUser, $fromUser, $time, $msgType, $content);</div><div class="line">                <span class="keyword">echo</span> $info;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>In  Official Accounts，when you subscibe, it will say hello to you . When you send a text, it will send what you sent:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112504.jpg" alt="Done"></p>
-<blockquote>
-<p>Exchange blogroll： <a href="http://laker.me/blog">laker.me</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- ![Develope WeChat Official Account&#39;s Hello Message](http://wx2.sinaimg.cn/large/6d184cefly1fxnkwi98vuj20p0046dg6.jpg) --&gt;
-&lt;h2 id=&quot;Apply-test-account&quot;&gt;&lt;a href=&quot;#Apply-test-account&quot; class=&quot;headerlink&quot; title=&quot;Apply test account&quot;&gt;&lt;/a&gt;Apply test account&lt;/h2&gt;&lt;p&gt;Apply for Wechat testing account:&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Server" scheme="http://laker.me/blog/categories/Server/"/>
-    
-    
-      <category term="Server" scheme="http://laker.me/blog/tags/Server/"/>
-    
-      <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
-    
-      <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
-    
-      <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
-    
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
-    
-      <category term="Wechat" scheme="http://laker.me/blog/tags/Wechat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Install ThinkPHP in Tencent Cloud</title>
-    <link href="http://laker.me/blog/2018/11/20/18_1120_thinkphp_mysql/"/>
-    <id>http://laker.me/blog/2018/11/20/18_1120_thinkphp_mysql/</id>
-    <published>2018-11-20T00:24:00.000Z</published>
-    <updated>2019-05-29T07:48:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- ![Tencent Cloud and Baota Panel](http://wx4.sinaimg.cn/large/6d184cefly1fx7m4l3l8sj20p0046wf0.jpg) -->
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Install ThinkPHP 5 in Baota Panel:</p>
-<a id="more"></a>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112001.jpg" alt="ThinkPHP"></p>
-<p>Choose ThinkPHP</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112002.jpg" alt="ThinkPHP"></p>
-<p>Add your server infomation:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112003.jpg" alt="server infomation"></p>
-<p>Finish installation</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112004.jpg" alt="Finish"></p>
-<p>You can visit your website now:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112005.jpg" alt="visit"></p>
-<p>You can edit the welcome message:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112006.jpg" alt="edit"></p>
-<h2 id="Create-a-database-table"><a href="#Create-a-database-table" class="headerlink" title="Create a database table"></a>Create a database table</h2><p>Manage your database:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112007.jpg" alt="database"></p>
-<p>Enter phpMyadmin:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112008.jpg" alt="phpMyadmin"></p>
-<p>Create a user table:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112009.jpg" alt="user table"></p>
-<p>Insert  a data for admin user:</p>
-<ul>
-<li>name: admin</li>
-<li>pwd: 21232f297a57a5a743894a0e4a801c3 (admin)</li>
-</ul>
-<h2 id="Create-a-login-page"><a href="#Create-a-login-page" class="headerlink" title="Create a login page"></a>Create a login page</h2><p>Connect ThinkPHP to database:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112010.jpg" alt="Connect"></p>
-<p>Edit config file for debug pattern:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112011.jpg" alt="config"></p>
-<p>Add a view file:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112012.jpg" alt="view"></p>
-<p><code>application/index/view/login/index.html</code></p>
-<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="meta">&lt;!DOCTYPE html&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Login system<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"/static/bootstrap/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">"gray-bg"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-7"</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ibox float-e-margins"</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ibox-content"</span>&gt;</span></div><div class="line">                  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">                      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-6 b-r"</span>&gt;</span></div><div class="line">                          <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"m-t-none m-b"</span>&gt;</span>Login<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">                          <span class="tag">&lt;<span class="name">p</span>&gt;</span>Welcome (⊙o⊙)<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">                          <span class="tag">&lt;<span class="name">form</span> <span class="attr">role</span>=<span class="string">"form"</span> <span class="attr">action</span>=<span class="string">"</span></span><span class="template-variable">&#123;:url('login/dologin')&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span></div><div class="line">                              <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">                                  <span class="tag">&lt;<span class="name">label</span>&gt;</span>Useranme<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">                                  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"Input your name"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">name</span>=<span class="string">"user_name"</span>&gt;</span></div><div class="line">                              <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                              <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">                                  <span class="tag">&lt;<span class="name">label</span>&gt;</span>Password<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">                                  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">placeholder</span>=<span class="string">"Input your password"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">name</span>=<span class="string">"user_pwd"</span>&gt;</span></div><div class="line">                              <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                              <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">                                  <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-sm btn-primary pull-right m-t-n-xs"</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>Login<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></div><div class="line">                                  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">                              <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                          <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line">                      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">              <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/static/js/jquery.min.js?v=2.1.4"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/static/bootstrap/js/bootstrap.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Add controller Login:<br><code>application/index/controller/Login.php</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?php</span></span></div><div class="line"><span class="keyword">namespace</span> <span class="title">app</span>\<span class="title">index</span>\<span class="title">controller</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Controller</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Login</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">    <span class="comment">// Deal with login</span></div><div class="line">      <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;fetch();</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">doLogin</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">      $param = input(<span class="string">'post.'</span>);</div><div class="line">      <span class="keyword">if</span>(<span class="keyword">empty</span>($param[<span class="string">'user_name'</span>]))&#123;</div><div class="line"></div><div class="line">        <span class="keyword">$this</span>-&gt;error(<span class="string">'Username can'</span>t be <span class="keyword">null</span><span class="string">');</span></div><div class="line">      &#125;</div><div class="line"></div><div class="line">      if(empty($param['user_pwd<span class="string">']))&#123;</span></div><div class="line"></div><div class="line">        $this-&gt;error('Password can<span class="string">'t be null'</span>);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="comment">// Check username</span></div><div class="line">      $has = db(<span class="string">'users'</span>)-&gt;where(<span class="string">'user_name'</span>, $param[<span class="string">'user_name'</span>])-&gt;find();</div><div class="line">      <span class="keyword">if</span>(<span class="keyword">empty</span>($has))&#123;</div><div class="line"></div><div class="line">        <span class="keyword">$this</span>-&gt;error(<span class="string">'Usename or password is wrong'</span>);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="comment">// Check password</span></div><div class="line">      <span class="keyword">if</span>($has[<span class="string">'user_pwd'</span>] != md5($param[<span class="string">'user_pwd'</span>]))&#123;</div><div class="line"></div><div class="line">        <span class="keyword">$this</span>-&gt;error(<span class="string">'Usename or password is wrong'</span>);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="comment">// Remember the user infomation</span></div><div class="line">      cookie(<span class="string">'user_id'</span>, $has[<span class="string">'id'</span>], <span class="number">3600</span>);  <span class="comment">// One month's validity period</span></div><div class="line">      cookie(<span class="string">'user_name'</span>, $has[<span class="string">'user_name'</span>], <span class="number">3600</span>);</div><div class="line"></div><div class="line">      <span class="keyword">$this</span>-&gt;redirect(url(<span class="string">'index/index'</span>));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Visit：</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18112013.jpg" alt="Success"></p>
-<blockquote>
-<p>Exchange blogroll： <a href="http://laker.me/blog">laker.me</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- ![Tencent Cloud and Baota Panel](http://wx4.sinaimg.cn/large/6d184cefly1fx7m4l3l8sj20p0046wf0.jpg) --&gt;
-&lt;h2 id=&quot;Installation&quot;&gt;&lt;a href=&quot;#Installation&quot; class=&quot;headerlink&quot; title=&quot;Installation&quot;&gt;&lt;/a&gt;Installation&lt;/h2&gt;&lt;p&gt;Install ThinkPHP 5 in Baota Panel:&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Server" scheme="http://laker.me/blog/categories/Server/"/>
-    
-    
-      <category term="Server" scheme="http://laker.me/blog/tags/Server/"/>
-    
-      <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
-    
-      <category term="ThinkPHP" scheme="http://laker.me/blog/tags/ThinkPHP/"/>
-    
-      <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
-    
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>First step in Tencent Cloud and Baota Panel</title>
-    <link href="http://laker.me/blog/2018/11/13/18_1113_tencent_cloud/"/>
-    <id>http://laker.me/blog/2018/11/13/18_1113_tencent_cloud/</id>
-    <published>2018-11-13T00:24:00.000Z</published>
-    <updated>2019-05-29T08:04:41.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- ![Tencent Cloud and Baota Panel](http://wx4.sinaimg.cn/large/6d184cefly1fx7m4l3l8sj20p0046wf0.jpg) -->
-<h2 id="Install-Baota-Panel-in-Tencent-Cloud"><a href="#Install-Baota-Panel-in-Tencent-Cloud" class="headerlink" title="Install Baota Panel in Tencent Cloud"></a>Install Baota Panel in Tencent Cloud</h2><a id="more"></a>
-<p>Visit <a href="https://www.bt.cn/" target="_blank" rel="external">https://www.bt.cn/</a>:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18111301.jpg" alt="bt website"></p>
-<p>Find the installation command, now we use V5.9 for CentOS. Also you can use other systems you want.</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18111302.jpg" alt="installation command"><br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum <span class="keyword">install</span> -y wget &amp;&amp; wget -O <span class="keyword">install</span>.sh http://download.bt.cn/<span class="keyword">install</span>/<span class="keyword">install</span>.sh &amp;&amp; sh <span class="keyword">install</span>.sh</div></pre></td></tr></table></figure></p>
-<p>Open your sever in Tencent Cloud:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18111303.jpg" alt="Tencent Cloud"></p>
-<p>Install Baota Panel:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18111304.jpg" alt="Install Baota Panel"></p>
-<p>Then we get your Baota Panel accout for the server, and login your panel. Here is my serve address, yours is different.</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18111305.jpg" alt="Baota Panel accout"></p>
-<h2 id="New-a-website-in-Tencent-Cloud"><a href="#New-a-website-in-Tencent-Cloud" class="headerlink" title="New a website in Tencent Cloud"></a>New a website in Tencent Cloud</h2><p>After login your server panel, setup a new website in the server:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18111306.jpg" alt="New a website"></p>
-<p>Add your domain name:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18111307.jpg" alt="Add domain name"></p>
-<p>All done, you can visit it now:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18111308.jpg" alt="visit"></p>
-<p>You can edit files in Tencent Cloud, use cd into the file:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18111309.jpg" alt="edit files"></p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">vi</span> <span class="built_in">index</span>.html</div></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18111310.jpg" alt="vi index.html"></p>
-<p>Save and visit:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18111311.jpg" alt="visit"></p>
-<blockquote>
-<p>Exchange blogroll： <a href="http://laker.me/blog">laker.me</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- ![Tencent Cloud and Baota Panel](http://wx4.sinaimg.cn/large/6d184cefly1fx7m4l3l8sj20p0046wf0.jpg) --&gt;
-&lt;h2 id=&quot;Install-Baota-Panel-in-Tencent-Cloud&quot;&gt;&lt;a href=&quot;#Install-Baota-Panel-in-Tencent-Cloud&quot; class=&quot;headerlink&quot; title=&quot;Install Baota Panel in Tencent Cloud&quot;&gt;&lt;/a&gt;Install Baota Panel in Tencent Cloud&lt;/h2&gt;
-    
-    </summary>
-    
-      <category term="Server" scheme="http://laker.me/blog/categories/Server/"/>
-    
-    
-      <category term="Server" scheme="http://laker.me/blog/tags/Server/"/>
-    
-      <category term="PHP" scheme="http://laker.me/blog/tags/PHP/"/>
-    
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AI learning 2：SVM Algorithm</title>
-    <link href="http://laker.me/blog/2018/11/01/18_1101_ai_svm/"/>
-    <id>http://laker.me/blog/2018/11/01/18_1101_ai_svm/</id>
-    <published>2018-11-01T00:24:00.000Z</published>
-    <updated>2019-05-16T00:57:27.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- ![AI learning 2：SVM Algorithm](http://wx4.sinaimg.cn/large/6d184cefly1fwylhut942j20p00463yw.jpg) -->
-<h2 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h2><p>Environment:</p>
-<ul>
-<li>Anacoda Navigator</li>
-<li>python 3.6</li>
-</ul>
-<a id="more"></a>
-<p>Python packages(all in Anacoda, don’t have to install extractly):</p>
-<ul>
-<li><a href="http://www.numpy.org/" target="_blank" rel="external">numpy</a>: for scientific computing</li>
-<li><a href="https://pandas.pydata.org/" target="_blank" rel="external">pandas</a>: for data analysis</li>
-<li><a href="http://scikit-learn.org/stable/" target="_blank" rel="external">sklearn</a>: Simple and efficient tools for data mining and data analysis</li>
-</ul>
-<p>Code and datas <a href="https://pan.baidu.com/s/1wX3rXqWvjlnCFRk6yyXznQ" target="_blank" rel="external">https://pan.baidu.com/s/1wX3rXqWvjlnCFRk6yyXznQ</a></p>
-<h2 id="Coding"><a href="#Coding" class="headerlink" title="Coding"></a>Coding</h2><p>Import packages and set alias.</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"># <span class="keyword">import</span> SVC <span class="keyword">in</span> svm <span class="keyword">module</span></div><div class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</div><div class="line">#<span class="keyword">import</span> train_test_split <span class="keyword">in</span> model_selection <span class="keyword">module</span></div><div class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</div></pre></td></tr></table></figure>
-<p>Import training file <code>16.MNIST.train.csv</code>, it’s a matrix of a picture. The first column is type of then row.<br>The number means grayscale value of the picture pixel.<br>And we only use the last 5000 rows to train.</p>
-<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># inputData <span class="keyword">is</span> <span class="keyword">object</span> <span class="keyword">of</span> pandas, <span class="keyword">and</span> use pandas <span class="function"><span class="keyword">function</span>  <span class="title">iloc</span> <span class="title">to</span> <span class="title">select</span> <span class="title">the</span> <span class="title">last</span> 5000 <span class="title">rows</span>.</span></div><div class="line"></div><div class="line"><span class="title">inputData</span> = <span class="title">pd</span>.<span class="title">read_csv</span><span class="params">(<span class="string">'./16.MNIST.train.csv'</span>)</span></div><div class="line"><span class="title">inputData</span> = <span class="title">inputData</span>.<span class="title">iloc</span>[-5000:, :]</div></pre></td></tr></table></figure>
-<p>============== Usage of pandas function iloc ==============<br><a href="https://www.shanelynn.ie/select-pandas-dataframe-rows-and-columns-using-iloc-loc-and-ix/" target="_blank" rel="external">https://www.shanelynn.ie/select-pandas-dataframe-rows-and-columns-using-iloc-loc-and-ix/</a><br>There are two “arguments” to iloc – a row selector, and a column selector.</p>
-<p><code>data.iloc[rows, columns]</code></p>
-<p><code>data.iloc[a:b, c:d]</code> means from row a to row b, column c to column d.</p>
-<p><code>data.iloc[a:, :d]</code> means from row a to column end, column one to column d.</p>
-<p>Single selections using iloc and DataFrame</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># Rows:</span></div><div class="line"><span class="class"><span class="keyword">data</span>.iloc[0] # first row of <span class="keyword">data</span> frame - <span class="type">Note</span> a <span class="type">Series</span> <span class="keyword">data</span> <span class="keyword">type</span> output.</span></div><div class="line"><span class="class"><span class="keyword">data</span>.iloc[1] # second row of <span class="keyword">data</span> frame</span></div><div class="line"><span class="class"><span class="keyword">data</span>.iloc[-1] # last row of <span class="keyword">data</span> frame</span></div><div class="line"></div><div class="line"><span class="meta"># Columns:</span></div><div class="line"><span class="class"><span class="keyword">data</span>.iloc[:,0] # first column of <span class="keyword">data</span> frame</span></div><div class="line"><span class="class"><span class="keyword">data</span>.iloc[:,1] # second column of <span class="keyword">data</span> frame</span></div><div class="line"><span class="class"><span class="keyword">data</span>.iloc[:,-1] # last column of <span class="keyword">data</span> frame</span></div></pre></td></tr></table></figure>
-<p>Multiple columns and rows can be selected together using the .iloc indexer.</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">data.iloc[<span class="number">0</span>:<span class="number">5</span>] # <span class="keyword">first</span> five rows of dataframe</div><div class="line">data.iloc[:, <span class="number">0</span>:<span class="number">2</span>] # <span class="keyword">first</span> two columns of data frame with <span class="keyword">all</span> rows</div><div class="line">data.iloc[[<span class="number">0</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">24</span>], [<span class="number">0</span>,<span class="number">5</span>,<span class="number">6</span>]] # <span class="number">1</span><span class="keyword">st</span>, <span class="number">4</span><span class="keyword">th</span>, <span class="number">7</span><span class="keyword">th</span>, <span class="number">25</span><span class="keyword">th</span> row + <span class="number">1</span><span class="keyword">st</span> <span class="number">6</span><span class="keyword">th</span> <span class="number">7</span><span class="keyword">th</span> columns.</div><div class="line">data.iloc[<span class="number">0</span>:<span class="number">5</span>, <span class="number">5</span>:<span class="number">8</span>] # <span class="keyword">first</span> <span class="number">5</span> rows <span class="built_in">and</span> <span class="number">5</span><span class="keyword">th</span>, <span class="number">6</span><span class="keyword">th</span>, <span class="number">7</span><span class="keyword">th</span> columns of data frame</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Python list <a href="https://www.w3schools.com/python/python_lists.asp" target="_blank" rel="external">https://www.w3schools.com/python/python_lists.asp</a></p>
-</blockquote>
-<p>============== / End Usage of pandas function iloc ==============</p>
-<p>In the taining data, the first colums is lable, so we drop label column using <code>drop([&#39;label&#39;], 1)</code>, extract it to parameter ‘label’ using <code>inputData[&#39;label&#39;]</code>, and convert it to array using <code>np.array()</code>.<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">data = <span class="built_in">np</span>.<span class="built_in">array</span>(inputData.drop(['<span class="built_in">label</span>'], <span class="number">1</span>))</div><div class="line"><span class="built_in">label</span> = <span class="built_in">np</span>.<span class="built_in">array</span>(inputData['<span class="built_in">label</span>'])</div></pre></td></tr></table></figure></p>
-<p>============== Usage of pandas function drop ==============<br><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.drop.html" target="_blank" rel="external">https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.drop.html</a><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; df = pd.DataFrame(np.arange(<span class="number">12</span>).reshape(<span class="number">3</span>,<span class="number">4</span>),</div><div class="line">...                   columns=['A', 'B', 'C', 'D'])</div><div class="line">&gt;&gt;&gt; df</div><div class="line">   A  B   C   D</div><div class="line"><span class="number">0</span>  <span class="number">0</span>  <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span></div><div class="line"><span class="number">1</span>  <span class="number">4</span>  <span class="number">5</span>   <span class="number">6</span>   <span class="number">7</span></div><div class="line"><span class="number">2</span>  <span class="number">8</span>  <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span></div></pre></td></tr></table></figure></p>
-<p>Drop columns</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> axis : &#123;0 or ‘index’, 1 or ‘columns’&#125;, default 0</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; df.drop([<span class="string">'B'</span>, <span class="string">'C'</span>], axis=1)</span></div><div class="line">   A   D</div><div class="line">0  0   3</div><div class="line">1  4   7</div><div class="line">2  8  11</div></pre></td></tr></table></figure>
-<p>or:</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; df.drop(columns=['B', 'C'])</div><div class="line">   A   D</div><div class="line"><span class="number">0</span>  <span class="number">0</span>   <span class="number">3</span></div><div class="line"><span class="number">1</span>  <span class="number">4</span>   <span class="number">7</span></div><div class="line"><span class="number">2</span>  <span class="number">8</span>  <span class="number">11</span></div></pre></td></tr></table></figure>
-<p>Drop a row by index<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; df.drop([<span class="number">0</span>, <span class="number">1</span>])</div><div class="line">   A  B   C   D</div><div class="line"><span class="number">2</span>  <span class="number">8</span>  <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span></div></pre></td></tr></table></figure></p>
-<p>============== / End Usage of pandas function drop ==============</p>
-<p>============== Usage of numpy function array ==============<br><a href="https://docs.scipy.org/doc/numpy-1.15.1/reference/generated/numpy.array.html" target="_blank" rel="external">https://docs.scipy.org/doc/numpy-1.15.1/reference/generated/numpy.array.html</a></p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; np.array(<span class="string">[[1, 2], [3, 4]]</span>)</div><div class="line">array(<span class="string">[[1, 2],</span></div><div class="line">       [3, 4]])</div></pre></td></tr></table></figure>
-<p>============== / End Usage of numpy function array ==============</p>
-<p>Then deal with the data, it’s a little tricky. Set data which is smaller than 100 to 0, and which is bigger than 100 to 1.</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># Improve accuracy from 0.1 to 0.9</span></div><div class="line"><span class="class"><span class="keyword">data</span>[<span class="keyword">data</span>&lt;=100] = 0</span></div><div class="line"><span class="class"><span class="keyword">data</span>[<span class="keyword">data</span>&gt;100] = 1</span></div></pre></td></tr></table></figure>
-<p>Extract the first 5 rows.</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">inputData</span><span class="selector-class">.head</span>()</div></pre></td></tr></table></figure>
-<p>============== Usage of pandas function iloc ==============<br><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.head.html" target="_blank" rel="external">https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.head.html</a></p>
-<blockquote>
-<p>DataFrame.head(n)</p>
-</blockquote>
-<p>Return the first n rows, default n=5.</p>
-<p>This function returns the first n rows for the object based on position. It is useful for quickly testing if your object has the right type of data in it.</p>
-<p>See also</p>
-<blockquote>
-<p>DataFrame.tail(n)</p>
-</blockquote>
-<p>Returns the last n rows.</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;</span>&gt; df = pd.DataFrame(&#123;<span class="string">'animal'</span><span class="symbol">:</span>[<span class="string">'alligator'</span>, <span class="string">'bee'</span>, <span class="string">'falcon'</span>, <span class="string">'lion'</span>,</div><div class="line">...                    <span class="string">'monkey'</span>, <span class="string">'parrot'</span>, <span class="string">'shark'</span>, <span class="string">'whale'</span>, <span class="string">'zebra'</span>]&#125;)</div><div class="line"><span class="meta">&gt;&gt;</span>&gt; df</div><div class="line">      animal</div><div class="line"><span class="number">0</span>  alligator</div><div class="line"><span class="number">1</span>        bee</div><div class="line"><span class="number">2</span>     falcon</div><div class="line"><span class="number">3</span>       lion</div><div class="line"><span class="number">4</span>     monkey</div><div class="line"><span class="number">5</span>     parrot</div><div class="line"><span class="number">6</span>      shark</div><div class="line"><span class="number">7</span>      whale</div><div class="line"><span class="number">8</span>      zebra</div></pre></td></tr></table></figure>
-<p>Viewing the first n lines (three in this case)<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; df.head(<span class="number">3</span>)</div><div class="line">      animal</div><div class="line"><span class="number">0</span>  alligator</div><div class="line"><span class="number">1</span>        bee</div><div class="line"><span class="number">2</span>     falcon</div></pre></td></tr></table></figure></p>
-<p>============== /End Usage of pandas function iloc ==============</p>
-<p>Use 70% data to train and 30% to test the taining result using <code>test_size=0.3</code>. Here we don’t specify the train_size, and it will automatically set to the complement of the test size, which is 1-0.3=0.7.</p>
-<figure class="highlight nix"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data_train, data_test, label_train, <span class="attr">label_test</span> = train_test_split(data, label, <span class="attr">test_size=0.3,</span> <span class="attr">random_state=87)</span></div></pre></td></tr></table></figure>
-<p>======= Usage of sklearn.model_selection.train_test_split =======<br><a href="http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html" target="_blank" rel="external">http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html</a></p>
-<p><code>train_test_split(*arrays, **options)</code></p>
-<p>Split arrays or matrices into random train and test subsets</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</div></pre></td></tr></table></figure>
-<p><strong>Parameters:</strong></p>
-<ul>
-<li><p>*arrays : sequence of indexables with same length / shape[0]<br>Allowed inputs are lists, numpy arrays, scipy-sparse matrices or pandas dataframes.</p>
-</li>
-<li><p>test_size : float, int or None, optional (default=0.25)<br>If float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the test split. If int, represents the absolute number of test samples. If None, the value is set to the complement of the train size. By default, the value is set to 0.25.</p>
-</li>
-<li><p>train_size : float, int, or None, (default=None)<br>If float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the train split. If int, represents the absolute number of train samples. If None, the value is automatically set to the complement of the test size.</p>
-</li>
-<li><p>random_state : int, RandomState instance or None, optional (default=None)<br>If int, random_state is the seed used by the random number generator; If RandomState instance, random_state is the random number generator; If None, the random number generator is the RandomState instance used by np.random.</p>
-</li>
-<li><p>shuffle : boolean, optional (default=True)<br>Whether or not to shuffle the data before splitting. If shuffle=False then stratify must be None.</p>
-</li>
-<li><p>stratify : array-like or None (default=None)<br>If not None, data is split in a stratified fashion, using this as the class labels.</p>
-</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li>splitting : list, length=2 * len(arrays)<br>List containing train-test split of inputs.</li>
-</ul>
-<p>======= /End Usage of sklearn.model_selection.train_test_split =======</p>
-<p>Use SVC model and <code>fit()</code> to train, set more parameters in SVC() improve accuracy:</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SVM_model = SVC()</div><div class="line">SVM_model.fit(data_train, label_train)</div></pre></td></tr></table></figure>
-<p>======= Usage of sklearn.model_selection.train_test_split =======</p>
-<p><a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html" target="_blank" rel="external">http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html</a></p>
-<blockquote>
-<p>SVC(C=1.0, kernel=’rbf’, degree=3, gamma=’auto_deprecated’, coef0=0.0, shrinking=True, probability=False, tol=0.001, cache_size=200, class_weight=None, verbose=False, max_iter=-1, decision_function_shape=’ovr’, random_state=None)</p>
-</blockquote>
-<p><a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC.fit" target="_blank" rel="external">http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC.fit</a></p>
-<blockquote>
-<p>fit(X, y, sample_weight=None)</p>
-</blockquote>
-<p>Fit the SVM model according to the given training data.</p>
-<p>======= /End Usage of sklearn.model_selection.train_test_split =======</p>
-<p>Use the first 10 rows to test and get the predict result. Then compare the predict result and label to score a point.</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">SVM_model</span><span class="selector-class">.predict</span>(<span class="selector-tag">data_test</span><span class="selector-attr">[:10]</span>)</div><div class="line"></div><div class="line"><span class="selector-tag">label_test</span><span class="selector-attr">[:10]</span></div><div class="line"></div><div class="line"><span class="selector-tag">SVM_model</span><span class="selector-class">.score</span>(<span class="selector-tag">data_test</span>, <span class="selector-tag">label_test</span>)</div></pre></td></tr></table></figure>
-<p>We can write a <code>score()</code> fuction like this instead of using <code>score()</code>.</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">correct = 0</div><div class="line">prediction = SVM_model.<span class="keyword">predict</span>(data_test)</div><div class="line"><span class="keyword">for</span> i, <span class="keyword">lab</span> <span class="keyword">in</span> enumerate(label_test):</div><div class="line">    # <span class="keyword">if</span> prediction == <span class="keyword">label</span>, correct+1</div><div class="line">    <span class="keyword">if</span> prediction[i] == <span class="keyword">lab</span>:</div><div class="line">        correct += 1</div><div class="line"></div><div class="line"># accuracy = correct numbers / all <span class="keyword">test</span> numbers</div><div class="line">accuracy = correct / len(label_test)</div><div class="line"><span class="keyword">print</span>(<span class="string">"Accuracy is:"</span>, accuracy)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Exchange blogroll： <a href="http://laker.me/blog">laker.me</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- ![AI learning 2：SVM Algorithm](http://wx4.sinaimg.cn/large/6d184cefly1fwylhut942j20p00463yw.jpg) --&gt;
-&lt;h2 id=&quot;Preparation&quot;&gt;&lt;a href=&quot;#Preparation&quot; class=&quot;headerlink&quot; title=&quot;Preparation&quot;&gt;&lt;/a&gt;Preparation&lt;/h2&gt;&lt;p&gt;Environment:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Anacoda Navigator&lt;/li&gt;
-&lt;li&gt;python 3.6&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="AI" scheme="http://laker.me/blog/categories/AI/"/>
-    
-    
-      <category term="Algorithm" scheme="http://laker.me/blog/tags/Algorithm/"/>
-    
-      <category term="人工智能" scheme="http://laker.me/blog/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-      <category term="AI" scheme="http://laker.me/blog/tags/AI/"/>
-    
-      <category term="ML" scheme="http://laker.me/blog/tags/ML/"/>
-    
-      <category term="DL" scheme="http://laker.me/blog/tags/DL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AI 学习1	：Anaconda 配置</title>
-    <link href="http://laker.me/blog/2018/10/04/18_1004_anaconda/"/>
-    <id>http://laker.me/blog/2018/10/04/18_1004_anaconda/</id>
-    <published>2018-10-04T00:24:00.000Z</published>
-    <updated>2019-05-29T08:24:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- ![AI 学习：Anaconda 配置][1] -->
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>本文环境是 Mac OS。</p>
-<p>目前Anaconda 出了 Python3.7 版本，但 TensorFlow 只支持3.5、3.6、2.7。有两种解决方案。</p>
-<a id="more"></a>
-<ul>
-<li>方案一：</li>
-</ul>
-<p>安装3.7版，再根据官方推荐的方法安装3.5、3.6。</p>
-<p><a href="http://docs.anaconda.com/anaconda/faq/#how-do-i-get-anaconda-with-python-3-5-or-3-6" target="_blank" rel="external">http://docs.anaconda.com/anaconda/faq/#how-do-i-get-anaconda-with-python-3-5-or-3-6</a></p>
-<blockquote>
-<p>We recommend that you download the latest version of Anaconda and then <a href="https://conda.io/docs/py2or3.html" target="_blank" rel="external">make a Python 3.5 (or 3.6) environment</a>.<br>Or download the latest version of Anaconda and run the following command to install Python 3.5 (or 3.6) in the root environment: conda install python=3.5<br>or</p>
-<p><code>conda install python=3.6</code></p>
-<p>Or download the most recent Anaconda installer that included Python 3.5 (Anaconda 4.2.0) or Python 3.6 (Anaconda 5.2.0). You can download either of these from our <a href="https://repo.anaconda.com/archive/" target="_blank" rel="external">archive</a>. Scroll down the page until you find the version you need for your platform.</p>
-</blockquote>
-<p>命令行执行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> conda install python=3.6</span></div></pre></td></tr></table></figure>
-<p>命令：</p>
-<blockquote>
-<p>开启环境<br>$ source activate py36</p>
-<p>关闭环境<br>$ source deactivate</p>
-</blockquote>
-<p>开启环境</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> activate py36</span></div><div class="line">(py36)</div><div class="line"><span class="meta"></span></div><div class="line">$<span class="bash"> conda info --envs</span></div><div class="line"><span class="meta">#</span><span class="bash"> conda environments:</span></div><div class="line"><span class="meta">#</span><span class="bash"></span></div><div class="line">base                     /Users/laker/anaconda3</div><div class="line">Laker                    /Users/laker/anaconda3/envs/Laker</div><div class="line">py36                  *  /Users/laker/anaconda3/envs/py36</div><div class="line"></div><div class="line">(py36)</div></pre></td></tr></table></figure>
-<p>我尝试了这个方法，最后3.6是安装成功了，但是客户端打不开了，尝试了网上解决闪退的办法未果，貌似这是个通病。折腾了一上午也没搞好，折腾到崩溃，之后卸载采取第二种方案</p>
-<ul>
-<li>方案二：</li>
-</ul>
-<p>到清华镜像下载以往版本，官网也有，但是慢。</p>
-<p><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="external">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</a></p>
-<p>安装好后，Anaconda 自带 Python 环境，与 Mac 自身的不相干。</p>
-<h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><p>安装后尝试如下命令</p>
-<pre><code>conda --version
-</code></pre><p>如果出现</p>
-<pre><code>$ conda --version
-conda 4.3.30
-</code></pre><p>表示安装成功，如果没有，则需配置环境变量<br>修改<code>.bash_profile</code> 或 <code>zsh_profile</code>，我用的 zsh</p>
-<pre><code>vi ~/.zsh_profile
-</code></pre><p>添加以下命令</p>
-<pre><code>export PATH=&quot;/Users/nick(你自己的安装路径)/anaconda3/bin:$PATH&quot;
-</code></pre><p>vim使用<code>:wq</code>命令保存退出<br>保存文件后如要立即生效，输入以下命令，</p>
-<pre><code>source $HOME/.zsh_profile
-</code></pre><blockquote>
-<p>注意：重启机子后也可能要执行这个</p>
-</blockquote>
-<p>再次测试<code>conda --version</code>命令是否安装成功.</p>
-<p>如果成功，我们继续用以下命令修改conda的镜像源，这里用清华的源。输入以下两条命令来添加源：</p>
-<pre><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-conda config --set show_channel_urls yes
-</code></pre><p>此时~/下会生成.condarc文件。</p>
-<p>用<code>vi ~/.condarc</code>命令进入vim编辑器，删除其中的第三、第四行，即删除了默认的源，然后<code>:wq</code>保存：</p>
-<pre><code>channels:
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-  - defaults #删除
-ssl_verify: true #删除
-show_channel_urls: true
-</code></pre><p><code>conda info</code> 查看当前配置信息，channel URLs只剩下清华的源</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">channel URLs : https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/free/</span>osx-<span class="number">64</span></div><div class="line">    https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/free/</span>noarch</div></pre></td></tr></table></figure>
-<h2 id="安装-TensorFlow"><a href="#安装-TensorFlow" class="headerlink" title="安装 TensorFlow"></a>安装 TensorFlow</h2><p>注意，这里是用 Anaconda 的 pip，不是本机的 pip，所以 pip 前加上路径</p>
-<p>更新 pip<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>~<span class="regexp">/anaconda3/bin</span><span class="regexp">/pip install --upgrade pip</span></div></pre></td></tr></table></figure></p>
-<p>更新 TensorFlow</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ~<span class="string">/anaconda3/bin/pip</span> install <span class="params">--upgrade</span> <span class="params">--ignore-installed</span> tensorflow</div></pre></td></tr></table></figure>
-<p>可能会有一段黄色警告，再多等会，或者开代理</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># laker @ Laker in ~ [13:11:43]</span></div><div class="line">$ ~/anaconda3/bin/pip install <span class="comment">--upgrade --ignore-installed tensorflow</span></div><div class="line">Collecting tensorflow</div><div class="line">  Retrying (Retry(total=<span class="number">4</span>, connect=None, <span class="built_in">read</span>=None, redirect=None, status=None)) <span class="keyword">after</span> connection broken <span class="keyword">by</span> <span class="string">'NewConnectionError('</span>&lt;pip.<span class="title">_vendor</span>.urllib3.connection.VerifiedHTTPSConnection object <span class="keyword">at</span> <span class="number">0x11021c828</span>&gt;: Failed <span class="built_in">to</span> establish <span class="keyword">a</span> <span class="built_in">new</span> connection: [Errno <span class="number">8</span>] nodename nor servname provided, <span class="keyword">or</span> <span class="keyword">not</span> known<span class="string">',)'</span>: /simple/tensorflow/</div><div class="line">  Retrying (Retry(total=<span class="number">3</span>, connect=None, <span class="built_in">read</span>=None, redirect=None, status=None)) <span class="keyword">after</span> connection broken <span class="keyword">by</span> <span class="string">'NewConnectionError('</span>&lt;pip.<span class="title">_vendor</span>.urllib3.connection.VerifiedHTTPSConnection object <span class="keyword">at</span> <span class="number">0x110067a58</span>&gt;: Failed <span class="built_in">to</span> establish <span class="keyword">a</span> <span class="built_in">new</span> connection: [Errno <span class="number">8</span>] nodename nor servname provided, <span class="keyword">or</span> <span class="keyword">not</span> known<span class="string">',)'</span>: /simple/tensorflow/</div><div class="line">  Retrying (Retry(total=<span class="number">2</span>, connect=None, <span class="built_in">read</span>=None, redirect=None, status=None)) <span class="keyword">after</span> connection broken <span class="keyword">by</span> <span class="string">'NewConnectionError('</span>&lt;pip.<span class="title">_vendor</span>.urllib3.connection.VerifiedHTTPSConnection object <span class="keyword">at</span> <span class="number">0x110067ac8</span>&gt;: Failed <span class="built_in">to</span> establish <span class="keyword">a</span> <span class="built_in">new</span> connection: [Errno <span class="number">65</span>] No route <span class="built_in">to</span> host<span class="string">',)'</span>: /simple/tensorflow/</div><div class="line">  Downloading <span class="keyword">https</span>://<span class="built_in">files</span>.pythonhosted.org/packages/<span class="number">70</span>/<span class="number">78</span>/cd74769027b6249e45807637c1aa3ef212b9492349cca4b87e5de1a10548/tensorflow<span class="number">-1.11</span><span class="number">.0</span>-cp36-cp36m-macosx_10_11_x86_64.whl (<span class="number">59.3</span>MB)</div><div class="line">    <span class="number">9</span>% |███                             | <span class="number">5.4</span>MB <span class="number">96</span>kB/s eta <span class="number">0</span>:<span class="number">09</span>:<span class="number">20</span></div></pre></td></tr></table></figure>
-<h2 id="安装Jupyter-Spyder"><a href="#安装Jupyter-Spyder" class="headerlink" title="安装Jupyter, Spyder"></a>安装Jupyter, Spyder</h2><p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18100402.jpg" alt="Jupyter,spyder"></p>
-<h2 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h2><p>下载测试文件<br>链接:<a href="https://pan.baidu.com/s/1U_P1VsJyJ3Zn8SAprz9Sxw" target="_blank" rel="external">https://pan.baidu.com/s/1U_P1VsJyJ3Zn8SAprz9Sxw</a> 提取码: vtaf</p>
-<p>安装测试文件的依赖库 pygame</p>
-<pre><code>$ ~/anaconda3/bin/pip install pygame
-</code></pre><p>运行Jupyter，点击面板的 Launch，</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18100403.jpg" alt="Jupyter"></p>
-<p>或者输入命令</p>
-<pre><code>ipython notebook
-</code></pre><p>找到文件所在位置</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18100404.jpg" alt="Jupyter界面"></p>
-<p>进入<code>homework0.ipynb</code>，运行</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18100405.jpg" alt="homework0.ipynb"></p>
-<p>效果是两个特效的窗口</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18100406.jpg" alt="效果"></p>
-<p>参考：<br><a href="https://www.jianshu.com/p/b9eac8419c8d" target="_blank" rel="external">Anaconda之Python环境配置</a><br><a href="http://docs.anaconda.com/anaconda/faq/#should-i-add-anaconda-to-the-macos-or-linux-path" target="_blank" rel="external">Add PATH</a></p>
-<blockquote>
-<p>欢迎交换友链： <a href="http://laker.me/blog">laker.me–进击的程序媛</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a><br>V信: lakerHQ （请注明‘来自博客’）</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- ![AI 学习：Anaconda 配置][1] --&gt;
-&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;p&gt;本文环境是 Mac OS。&lt;/p&gt;
-&lt;p&gt;目前Anaconda 出了 Python3.7 版本，但 TensorFlow 只支持3.5、3.6、2.7。有两种解决方案。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="AI" scheme="http://laker.me/blog/categories/AI/"/>
-    
-    
-      <category term="Algorithm" scheme="http://laker.me/blog/tags/Algorithm/"/>
-    
-      <category term="人工智能" scheme="http://laker.me/blog/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-      <category term="AI" scheme="http://laker.me/blog/tags/AI/"/>
-    
-      <category term="ML" scheme="http://laker.me/blog/tags/ML/"/>
-    
-      <category term="DL" scheme="http://laker.me/blog/tags/DL/"/>
     
   </entry>
   
