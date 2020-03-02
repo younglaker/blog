@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2020-03-02T06:13:18.000Z</updated>
+  <updated>2020-03-02T06:37:33.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Algorithm - Find the next perfect squarev</title>
+    <title>Algorithm - Find the next perfect square</title>
     <link href="http://laker.me/blog/2020/01/15/20_0115_coderwars_Find_the_next_perfect_square/"/>
     <id>http://laker.me/blog/2020/01/15/20_0115_coderwars_Find_the_next_perfect_square/</id>
     <published>2020-01-15T00:24:00.000Z</published>
-    <updated>2020-03-02T06:13:18.000Z</updated>
+    <updated>2020-03-02T06:37:33.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="https://www.codewars.com/kata/56269eb78ad2e4ced1000013/javascript" target="_blank" rel="external">https://www.codewars.com/kata/56269eb78ad2e4ced1000013/javascript</a></p>
 <p>Complete the findNextSquare method that finds the next integral perfect square after the one passed as a parameter. Recall that an integral perfect square is an integer n such that sqrt(n) is also an integer.</p>
