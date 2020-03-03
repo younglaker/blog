@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2020-03-02T15:25:48.000Z</updated>
+  <updated>2020-03-03T14:51:30.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Algorithm - find_the_divisors</title>
+    <link href="http://laker.me/blog/2020/01/20/20_0120_codewars_find_the_divisors/"/>
+    <id>http://laker.me/blog/2020/01/20/20_0120_codewars_find_the_divisors/</id>
+    <published>2020-01-20T00:24:00.000Z</published>
+    <updated>2020-03-03T14:51:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="https://www.codewars.com/kata/544aed4c4a30184e960010f4/train/javascript" target="_blank" rel="external">https://www.codewars.com/kata/544aed4c4a30184e960010f4/train/javascript</a></p>
+<p>Create a function named divisors/Divisors that takes an integer n &gt; 1 and returns an array with all of the integer’s divisors(except for 1 and the number itself), from smallest to largest. If the number is prime return the string ‘(integer) is prime’</p>
+<a id="more"></a>
+<p>Example :</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">divisors<span class="comment">(12)</span>; <span class="comment">// should return [2,3,4,6]</span></div><div class="line">divisors<span class="comment">(25)</span>; <span class="comment">// should return [5]</span></div><div class="line">divisors<span class="comment">(13)</span>; <span class="comment">// should return "13 is prime"</span></div></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h2><p><a href="https://github.com/younglaker/codewars" target="_blank" rel="external">https://github.com/younglaker/codewars</a></p>
+<h2 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h2><h3 id="i-lt-integer-2"><a href="#i-lt-integer-2" class="headerlink" title="i &lt;= integer / 2"></a>i &lt;= integer / 2</h3><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function <span class="built_in">divisors</span>(<span class="built_in">integer</span>) &#123;</div><div class="line">  <span class="built_in">let</span> arr = []</div><div class="line">  <span class="keyword">for</span> (<span class="built_in">var</span> i = <span class="number">2</span>; i &lt;= <span class="built_in">integer</span> / <span class="number">2</span>; i++) &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">integer</span> / i <span class="symbol">%</span> <span class="number">1</span> === <span class="number">0</span>)</div><div class="line">      arr.<span class="built_in">push</span>(i)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="built_in">return</span> arr.<span class="built_in">length</span> ? arr : <span class="built_in">integer</span> +<span class="string">" is prime"</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="i-lt-Math-sqrt-integer"><a href="#i-lt-Math-sqrt-integer" class="headerlink" title="i &lt; Math.sqrt(integer)"></a>i &lt; Math.sqrt(integer)</h3><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function <span class="built_in">divisors</span>(<span class="built_in">integer</span>) &#123;</div><div class="line">  <span class="built_in">let</span> arr = []</div><div class="line">  <span class="keyword">for</span> (<span class="built_in">var</span> i = <span class="number">2</span>; i &lt; Math.<span class="built_in">sqrt</span>(<span class="built_in">integer</span>); i++) &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">integer</span> / i <span class="symbol">%</span> <span class="number">1</span> === <span class="number">0</span>)</div><div class="line">      arr.<span class="built_in">push</span>(i, <span class="built_in">integer</span> / i)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="built_in">return</span> arr.<span class="built_in">length</span> ? arr.<span class="built_in">sort</span>(sortNumber) : <span class="built_in">integer</span> +<span class="string">" is prime"</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">function sortNumber(a, b)&#123; // Ascending order</div><div class="line">    <span class="built_in">return</span> a - b</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>sort() will change the number into string to sort</p>
+</blockquote>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="number">12</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>,<span class="number">1</span>,<span class="number">110</span>].sort()</div></pre></td></tr></table></figure>
+<p>get:</p>
+<figure class="highlight ldif"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[1, 110, 12, 2, 3, 4, 6, 8]</div><div class="line"></div><div class="line"><span class="attribute">0</span>: 1</div><div class="line"><span class="attribute">1</span>: 110</div><div class="line"><span class="attribute">2</span>: 12</div><div class="line"><span class="attribute">3</span>: 2</div><div class="line"><span class="attribute">4</span>: 3</div><div class="line"><span class="attribute">5</span>: 4</div><div class="line"><span class="attribute">6</span>: 6</div><div class="line"><span class="attribute">7</span>: 8</div></pre></td></tr></table></figure>
+<p>.</p>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.codewars.com/kata/544aed4c4a30184e960010f4/train/javascript&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.codewars.com/kata/544aed4c4a30184e960010f4/train/javascript&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Create a function named divisors/Divisors that takes an integer n &amp;gt; 1 and returns an array with all of the integer’s divisors(except for 1 and the number itself), from smallest to largest. If the number is prime return the string ‘(integer) is prime’&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Algorithm" scheme="http://laker.me/blog/categories/Algorithm/"/>
+    
+    
+      <category term="Algorithm" scheme="http://laker.me/blog/tags/Algorithm/"/>
+    
+      <category term="CodeWars" scheme="http://laker.me/blog/tags/CodeWars/"/>
+    
+  </entry>
   
   <entry>
     <title>Algorithm - Build a pile of Cubes</title>
@@ -1179,86 +1222,6 @@ Output: &quot;1211&quot;
       <category term="Algorithm" scheme="http://laker.me/blog/tags/Algorithm/"/>
     
       <category term="Python" scheme="http://laker.me/blog/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Django Enviroment in Tencent Cloud Ubuntu</title>
-    <link href="http://laker.me/blog/2018/12/28/18_1228_django_deployment/"/>
-    <id>http://laker.me/blog/2018/12/28/18_1228_django_deployment/</id>
-    <published>2018-12-28T00:24:00.000Z</published>
-    <updated>2019-05-29T07:18:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- ![Django Enviroment in Tencent Cloud Ubuntu][1] -->
-<h2 id="Enviroment"><a href="#Enviroment" class="headerlink" title="Enviroment:"></a>Enviroment:</h2><ul>
-<li>MacOS</li>
-<li>Tencent Cloud Ubuntu 18.04</li>
-<li>Python 3.6</li>
-<li>Django 2.0</li>
-</ul>
-<a id="more"></a>
-<h2 id="Connect-to-server"><a href="#Connect-to-server" class="headerlink" title="Connect to server"></a>Connect to server</h2><p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18122801.jpg" alt="Connect via SSH"></p>
-<p>In MacOs, it’s very easy to connect to the server. In terminal :</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -<span class="selector-tag">q</span> -l ubuntu -<span class="selector-tag">p</span> [port] [ip]</div></pre></td></tr></table></figure>
-<p>Like <code>ssh -q -l ubuntu -p 20 188.131.***.***</code>.</p>
-<p>Login with password.</p>
-<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><p>In Ubuntu18.04, there are two versions of Pyhton: 2.7 and 3.6. The default version is 2.7, If you don’t want to change, then skip following steps.</p>
-<p>Alter to python3.6:</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo <span class="keyword">update</span>-alternatives --install /usr/bin/<span class="keyword">python</span> <span class="keyword">python</span> /usr/bin/python2 <span class="number">100</span></div><div class="line">$ sudo <span class="keyword">update</span>-alternatives --install /usr/bin/<span class="keyword">python</span> <span class="keyword">python</span> /usr/bin/<span class="keyword">python3</span> <span class="number">150</span></div></pre></td></tr></table></figure>
-<p>Check whether it successes:</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ python --version</div><div class="line">Python <span class="number">3.6</span><span class="number">.7</span></div></pre></td></tr></table></figure>
-<h2 id="Django"><a href="#Django" class="headerlink" title="Django"></a>Django</h2><p>Install pip:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo apt install python3-pip</span></div></pre></td></tr></table></figure>
-<p>Check whether it successes:</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ pip --version</div><div class="line">pip <span class="number">9.0</span>.<span class="number">1</span> from /usr/<span class="class"><span class="keyword">lib</span>/<span class="title">python3</span>/<span class="title">dist</span>-<span class="title">packages</span> (<span class="title">python</span> 3.6)</span></div></pre></td></tr></table></figure>
-<p>Install specific Django version :</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo pip install Django==<span class="number">2.1</span><span class="number">.2</span></div></pre></td></tr></table></figure>
-<p>Create a project</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="title">cd</span> /<span class="class"><span class="keyword">data</span></span></div><div class="line"><span class="title">sudo</span> django-admin startproject helloworld</div></pre></td></tr></table></figure>
-<p>Modify the write permission for everyone :</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod <span class="number">666</span> <span class="regexp">/data/</span>helloworld<span class="regexp">/helloworld/</span>settings.py</div></pre></td></tr></table></figure>
-<p>Edit the settings:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> helloworld/helloworld/</span></div><div class="line"><span class="meta">$</span><span class="bash"> vim settings.py</span></div></pre></td></tr></table></figure>
-<p>Add your IP in <code>ALLOWED_HOSTS = []</code> to  <code>ALLOWED_HOSTS = [&quot;188.131.***.***&quot;]</code></p>
-<p>Save and quit vim:<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">:wq</span></div></pre></td></tr></table></figure></p>
-<p>Open port 8080 in Baota Panel:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18122802.jpg" alt="Open port 808"></p>
-<p>Or set in Tencent Cloud:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18122803.jpg" alt="Open port 808"></p>
-<p>Run the project :</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ../</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo python manage.py runserver 0.0.0.0:8080</span></div></pre></td></tr></table></figure>
-<p>Visit the website:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2018/18122804.jpg" alt="website"></p>
-<p>Reference:<br><a href="https://www.bt.cn/bbs/thread-8889-1-3.html" target="_blank" rel="external">ubuntu + nginx + uwsgi + django(python3)</a><br><a href="https://www.cnblogs.com/dalanjing/p/8636338.html" target="_blank" rel="external">python3+Django</a></p>
-<blockquote>
-<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- ![Django Enviroment in Tencent Cloud Ubuntu][1] --&gt;
-&lt;h2 id=&quot;Enviroment&quot;&gt;&lt;a href=&quot;#Enviroment&quot; class=&quot;headerlink&quot; title=&quot;Enviroment:&quot;&gt;&lt;/a&gt;Enviroment:&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;MacOS&lt;/li&gt;
-&lt;li&gt;Tencent Cloud Ubuntu 18.04&lt;/li&gt;
-&lt;li&gt;Python 3.6&lt;/li&gt;
-&lt;li&gt;Django 2.0&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://laker.me/blog/categories/Python/"/>
-    
-    
-      <category term="Server" scheme="http://laker.me/blog/tags/Server/"/>
-    
-      <category term="Tencent Cloud" scheme="http://laker.me/blog/tags/Tencent-Cloud/"/>
-    
-      <category term="MySql" scheme="http://laker.me/blog/tags/MySql/"/>
-    
-      <category term="Python" scheme="http://laker.me/blog/tags/Python/"/>
-    
-      <category term="Django" scheme="http://laker.me/blog/tags/Django/"/>
     
   </entry>
   
