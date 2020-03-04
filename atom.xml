@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2020-03-03T14:51:30.000Z</updated>
+  <updated>2020-03-04T03:55:52.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,241 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>正则表达式总结</title>
+    <link href="http://laker.me/blog/2020/01/24/20_0124_reg/"/>
+    <id>http://laker.me/blog/2020/01/24/20_0124_reg/</id>
+    <published>2020-01-24T00:24:00.000Z</published>
+    <updated>2020-03-04T03:55:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。</p>
+<a id="more"></a>
+<h2 id="字符含义"><a href="#字符含义" class="headerlink" title="字符含义"></a>字符含义</h2><h3 id="非打印字符"><a href="#非打印字符" class="headerlink" title="非打印字符"></a>非打印字符</h3><table>
+<thead>
+<tr>
+<th>字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\f</td>
+<td>匹配一个换页符</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>匹配一个换行符</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>匹配一个回车符</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>匹配一个制表符</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>匹配一个垂直制表符</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配任何非空白字符。等价于 [^ \f\n\r\t\v]。</td>
+</tr>
+</tbody>
+</table>
+<p>#字符类</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[…]</td>
+<td>在括号内的任意字符。要匹配 [，使用 <code>\[</code></td>
+</tr>
+<tr>
+<td>[^…]</td>
+<td>不在括号内的任意字符</td>
+</tr>
+<tr>
+<td>.</td>
+<td>匹配除换行符 \n 之外的任何单字符。要匹配 . ，使用 <code>\.</code></td>
+</tr>
+<tr>
+<td>\d</td>
+<td>任意一个数字，0~9 中的任意一个，[0-9]</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>非数字，[^0-9]</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>任意一个字母、数字、下划线 ，[a-zA-Z0-9_]</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>非字母、数字、下划线 ，[^a-zA-Z0-9_]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="重复字符"><a href="#重复字符" class="headerlink" title="重复字符"></a>重复字符</h3><table>
+<thead>
+<tr>
+<th>字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{n,m}</td>
+<td>m 和 n 均为非负整数，其中n &lt;= m。最少匹配 n 次且最多匹配 m 次。例如，”o{1,3}” 将匹配 “fooooood” 中的前三个 o。’o{0,1}’ 等价于 ‘o?’。请注意在逗号和两个数之间不能有空格。</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>n 是一个非负整数。至少匹配n 次。例如，’o{2,}’ 不能匹配 “Bob” 中的 ‘o’，但能匹配 “foooood” 中的所有 o。</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>n 是一个非负整数。匹配确定的 n 次。例如，’o{2}’ 不能匹配 “Bob” 中的 ‘o’，但是能匹配 “food” 中的两个 o。</td>
+</tr>
+<tr>
+<td>?</td>
+<td>匹配前面的子表达式零次或一次。例如，”do(es)?” 可以匹配 “do” 、 “does” 中的 “does” 、 “doxy” 中的 “do”   。等价于 {0,1}</td>
+</tr>
+<tr>
+<td>+</td>
+<td>匹配前面的子表达式一次或多次。例如，’zo+’ 能匹配 “zo” 以及 “zoo”，但不能匹配 “z”。等价于 {1,}</td>
+</tr>
+<tr>
+<td>*</td>
+<td>匹配前面的子表达式零次或多次。例如，zo* 能匹配 “z” 以及 “zoo”。等价于{0,}</td>
+</tr>
+</tbody>
+</table>
+<h3 id="选择、分组、引用"><a href="#选择、分组、引用" class="headerlink" title="选择、分组、引用"></a>选择、分组、引用</h3><table>
+<thead>
+<tr>
+<th>字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>竖线（因转义问题无法显示）</td>
+<td>指明两项之间的一个选择。</td>
+</tr>
+<tr>
+<td>(…)</td>
+<td>组合。将几个项目组合为一个单元，并记忆这个组合匹配的字符以供引用</td>
+</tr>
+<tr>
+<td>(?…)</td>
+<td>只组合。将几个项目组合为一个单元，但不记忆这个组合匹配的字符</td>
+</tr>
+<tr>
+<td>\数字</td>
+<td>和第几个分组第一次匹配的字符相匹配</td>
+</tr>
+</tbody>
+</table>
+<h3 id="锚点字符"><a href="#锚点字符" class="headerlink" title="锚点字符"></a>锚点字符</h3><table>
+<thead>
+<tr>
+<th>字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^</td>
+<td>在方括号外匹配输入字符串的开始位置 ^[…]，在方括号内表示不接受该方括号表达式中的字符集合[^…]。</td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配输入字符串的结尾位置。</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>匹配单词边界，即位于\w和\W之间，或\w与字符串开头或结尾处。<code>注意[\b]是匹配退格符backspace</code></td>
+</tr>
+<tr>
+<td>\B</td>
+<td>匹配非单词边界，即左右两边都是 “\w” 范围或者左右两边都不是 “\w” 范围时的字符缝隙</td>
+</tr>
+<tr>
+<td>(?=p)</td>
+<td>正前向声明，要求接下来的字符都与模式p匹配，但是不包括匹配的那些字符</td>
+</tr>
+<tr>
+<td>(?!p)</td>
+<td>反前向声明，要求接下来的字符不与模式p匹配</td>
+</tr>
+</tbody>
+</table>
+<h3 id="锚点字符-1"><a href="#锚点字符-1" class="headerlink" title="锚点字符"></a>锚点字符</h3><table>
+<thead>
+<tr>
+<th>字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i</td>
+<td>不区分大小写</td>
+</tr>
+<tr>
+<td>g</td>
+<td>全局匹配，找到所有匹配结果，而不是找到第一个就停止</td>
+</tr>
+<tr>
+<td>m</td>
+<td>多行匹配</td>
+</tr>
+</tbody>
+</table>
+<h2 id="非贪婪模式"><a href="#非贪婪模式" class="headerlink" title="非贪婪模式"></a>非贪婪模式</h2><p>在修饰匹配次数的特殊符号后再加上一个 “?” 号，则可以使匹配次数不定的表达式尽可能少的匹配，使可匹配可不匹配的表达式，尽可能的 “不匹配”。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul>
+<li>/[0-9]{1,2}/  0~99 的两位数</li>
+<li>表达式 “bcd”，在匹配字符串 “abcde” 时，匹配结果是：成功；匹配到的内容是：”bcd”；匹配到的位置是：开始于1，结束于4</li>
+<li>表达式 “go{2,8}gle” 在匹配 “Ads by goooooogle” 时，匹配的结果是：成功；匹配到的内容是：”goooooogle”；匹配到的位置是：开始于7，结束于17。</li>
+<li>表达式 “(go\s*)+” 在匹配 “Let’s go go go!” 时，匹配结果是：成功；匹配到内容是：”go go go”；匹配到的位置是：开始于6，结束于14。</li>
+<li>表达式 “^aaa” 在匹配 “xxx aaa xxx” 时，匹配结果是：失败。因为 “^” 要求与字符串开始的地方匹配，因此，只有当 “aaa” 位于字符串的开头的时候，”^aaa” 才能匹配，点击测试 比如：”aaa xxx xxx”。</li>
+<li>表达式 “.\b.” 在匹配 “@@@abc” 时，匹配结果是：成功；匹配到的内容是：”@a”；匹配到的位置是：开始于2，结束于4。</li>
+</ul>
+<h2 id="JavaScript-方法"><a href="#JavaScript-方法" class="headerlink" title="JavaScript 方法"></a>JavaScript 方法</h2><h3 id="str-search-reg"><a href="#str-search-reg" class="headerlink" title="str.search (reg)"></a>str.search (reg)</h3><p>返回第一个匹配的子串的开始字符的位置，没匹配的就返回-1</p>
+<h3 id="str-replace-reg-str2"><a href="#str-replace-reg-str2" class="headerlink" title="str.replace (reg, str2)"></a>str.replace (reg, str2)</h3><p>把匹配reg的子串替换成str2</p>
+<h3 id="str-match-reg"><a href="#str-match-reg" class="headerlink" title="str.match (reg)"></a>str.match (reg)</h3><p>返回匹配的结果的数组</p>
+<h3 id="str-split-reg"><a href="#str-split-reg" class="headerlink" title="str.split(reg)"></a>str.split(reg)</h3><p>返回按正则要求切分字符串的数组</p>
+<h3 id="reg-exec-str"><a href="#reg-exec-str" class="headerlink" title="reg.exec(str)"></a>reg.exec(str)</h3><p>与 str.match (reg) 相似，只不过调用的对象和参数相反</p>
+<h2 id="reg-test-str"><a href="#reg-test-str" class="headerlink" title="reg.test (str)"></a>reg.test (str)</h2><p>字符串包含正则匹配则返回true</p>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://laker.me/blog/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://laker.me/blog/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>Algorithm - find_the_divisors</title>
@@ -1182,46 +1417,6 @@ Output: &quot;1211&quot;
       <category term="AI" scheme="http://laker.me/blog/tags/AI/"/>
     
       <category term="ML" scheme="http://laker.me/blog/tags/ML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Algorithm - Quick Sort by Python</title>
-    <link href="http://laker.me/blog/2019/01/22/19_0121_quick_sort/"/>
-    <id>http://laker.me/blog/2019/01/22/19_0121_quick_sort/</id>
-    <published>2019-01-22T00:24:00.000Z</published>
-    <updated>2019-05-29T07:07:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- ![Django Enviroment in Tencent Cloud Ubuntu](http://wx2.sinaimg.cn/large/6d184cefly1fvwi0uvwsmj20p0046gm8.jpg) -->
-<p>There are tow method to set pivot.The easy way is setting the first item as pivot, and the other way is setting the middle item as pivot.</p>
-<a id="more"></a>
-<p>The first way is more easy to understand and write code.<br>The second way is a little better than the first one when the list is mostly ordered, it can seperate the smaller and bigger items to two sides, but in first way , one side may has all items and the other side has no item.</p>
-<h2 id="Method-one"><a href="#Method-one" class="headerlink" title="Method one"></a>Method one</h2><p>Set the first item as pivot.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">def quick_sort(list, <span class="keyword">start</span>, <span class="keyword">end</span>):</div><div class="line">    # <span class="keyword">If</span> <span class="keyword">start</span> smaller <span class="keyword">than</span> <span class="keyword">end</span>, continue sorting</div><div class="line">    <span class="keyword">if</span> <span class="keyword">start</span> &lt; <span class="keyword">end</span>:</div><div class="line">        <span class="keyword">left</span> = <span class="keyword">start</span></div><div class="line">        <span class="keyword">right</span> = <span class="keyword">end</span></div><div class="line"></div><div class="line">        # <span class="keyword">Set</span> the <span class="keyword">first</span> item <span class="keyword">as</span> <span class="keyword">pivot</span></div><div class="line">        <span class="keyword">pivot</span> = <span class="keyword">list</span>[<span class="keyword">left</span>]</div><div class="line"></div><div class="line">        # <span class="keyword">Do</span> compare <span class="keyword">while</span> pointer <span class="keyword">left</span> smaller <span class="keyword">than</span> <span class="keyword">right</span></div><div class="line">        # <span class="keyword">Move</span> the smaller one <span class="keyword">to</span> <span class="keyword">left</span> part <span class="keyword">and</span> bigger one <span class="keyword">to</span> <span class="keyword">right</span> part</div><div class="line">        <span class="keyword">while</span> <span class="keyword">left</span> &lt; <span class="keyword">right</span>:</div><div class="line">            #<span class="keyword">if</span> the item <span class="keyword">of</span>  pointer <span class="keyword">right</span> item bigger <span class="keyword">than</span> <span class="keyword">move</span> the pointer <span class="keyword">right</span> back</div><div class="line">            <span class="keyword">while</span> (<span class="keyword">left</span> &lt; <span class="keyword">right</span>) <span class="keyword">and</span> (<span class="keyword">list</span>[<span class="keyword">right</span>] &gt;= <span class="keyword">pivot</span>):</div><div class="line">                <span class="keyword">right</span> -= <span class="number">1</span></div><div class="line"></div><div class="line">            # <span class="keyword">Now</span>, we find the a item smaller <span class="keyword">than</span> <span class="keyword">pivot</span>,so <span class="keyword">set</span> <span class="keyword">list</span>[<span class="keyword">left</span>] = <span class="keyword">list</span>[<span class="keyword">right</span>]</div><div class="line">            <span class="keyword">if</span> <span class="keyword">left</span> &lt; <span class="keyword">right</span>:</div><div class="line">                <span class="keyword">list</span>[<span class="keyword">left</span>] = <span class="keyword">list</span>[<span class="keyword">right</span>]</div><div class="line">                <span class="keyword">left</span> += <span class="number">1</span></div><div class="line"></div><div class="line">            # <span class="keyword">Than</span> we <span class="keyword">scan</span> <span class="keyword">left</span> part <span class="keyword">in</span> <span class="keyword">than</span> same way</div><div class="line">            <span class="keyword">while</span> (<span class="keyword">left</span> &lt; <span class="keyword">right</span>) <span class="keyword">and</span> (<span class="keyword">list</span>[<span class="keyword">left</span>] &lt;= <span class="keyword">pivot</span>):</div><div class="line">                <span class="keyword">left</span> += <span class="number">1</span></div><div class="line"></div><div class="line">            # <span class="keyword">Now</span>, we find the a item bigger <span class="keyword">than</span> <span class="keyword">pivot</span>,so <span class="keyword">set</span> <span class="keyword">list</span>[<span class="keyword">right</span>] = <span class="keyword">list</span>[<span class="keyword">left</span>]</div><div class="line">            <span class="keyword">if</span> <span class="keyword">left</span> &lt; <span class="keyword">right</span>:</div><div class="line">                <span class="keyword">list</span>[<span class="keyword">right</span>] = <span class="keyword">list</span>[<span class="keyword">left</span>]</div><div class="line">                <span class="keyword">right</span> -= <span class="number">1</span></div><div class="line"></div><div class="line"></div><div class="line">        # <span class="keyword">After</span> comparison, the <span class="keyword">list</span> <span class="keyword">is</span> separated <span class="keyword">to</span> two parts,</div><div class="line">        # <span class="keyword">and</span> pointer <span class="keyword">left</span> <span class="keyword">and</span> <span class="keyword">right</span> <span class="keyword">are</span> <span class="keyword">in</span> the same place</div><div class="line">        # So we <span class="keyword">set</span> <span class="keyword">pivot</span> <span class="keyword">in</span> this place</div><div class="line">        <span class="keyword">list</span>[<span class="keyword">left</span>] = <span class="keyword">pivot</span></div><div class="line">        print(<span class="keyword">list</span>)</div><div class="line"></div><div class="line">        #递归前后半区</div><div class="line">        # <span class="keyword">Now</span> recurse the quick_sort(）</div><div class="line">        # <span class="keyword">Left</span> part <span class="keyword">is</span> [<span class="keyword">start</span>, <span class="keyword">left</span> - <span class="number">1</span>]</div><div class="line">        # <span class="keyword">Right</span> part <span class="keyword">is</span> [<span class="keyword">right</span> + <span class="number">1</span>, <span class="keyword">end</span>]</div><div class="line">        quick_sort(<span class="keyword">list</span>, <span class="keyword">start</span>, <span class="keyword">left</span> - <span class="number">1</span>)</div><div class="line">        quick_sort(<span class="keyword">list</span>, <span class="keyword">right</span> + <span class="number">1</span>, <span class="keyword">end</span>)</div><div class="line">    <span class="keyword">return</span> <span class="keyword">list</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line"></div><div class="line">    <span class="keyword">before</span> = [<span class="number">5</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">12</span>, <span class="number">2</span>, <span class="number">8</span>]</div><div class="line"></div><div class="line">    print(<span class="string">"Result:"</span>)</div><div class="line">    <span class="keyword">after</span> = quick_sort(<span class="keyword">before</span>, <span class="number">0</span>, <span class="keyword">len</span>(<span class="keyword">before</span>)<span class="number">-1</span> )</div><div class="line">    print(<span class="keyword">after</span>)</div></pre></td></tr></table></figure>
-<p>Take a example:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/common/19012201.jpg" alt="example"></p>
-<h2 id="Method-two"><a href="#Method-two" class="headerlink" title="Method two"></a>Method two</h2><p>Set the middle item as pivot.</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">def quickSort(list, <span class="built_in">start</span>, <span class="keyword">end</span>):</div><div class="line"></div><div class="line">    <span class="keyword">if</span> <span class="built_in">start</span> &gt;= <span class="keyword">end</span>:</div><div class="line">        <span class="literal">return</span> False</div><div class="line"></div><div class="line">    <span class="comment"># Set new pointers</span></div><div class="line">    left, <span class="literal">right</span> = <span class="built_in">start</span>, <span class="function"><span class="keyword">end</span></span></div><div class="line"></div><div class="line">    <span class="title">mid</span> = (<span class="title">start</span> + <span class="title">end</span>) // <span class="title">2</span></div><div class="line"></div><div class="line">    <span class="comment"># Exchange pivot and the last item,</span></div><div class="line">    <span class="comment"># in order to make the last one not to be overwrite by next step</span></div><div class="line">    <span class="comment"># As the we have a new parameter 'pivot', so we don't be afaid of being overwrite</span></div><div class="line">    <span class="comment"># Actually, it can be any other value</span></div><div class="line">    pivot = list[<span class="keyword">mid</span>]</div><div class="line">    list[<span class="keyword">mid</span>] = list[<span class="keyword">end</span>]</div><div class="line">    list[<span class="keyword">end</span>] = pivot</div><div class="line"></div><div class="line">    <span class="comment"># The following code is the similar to method one</span></div><div class="line">    <span class="comment"># But pay attention, here we start from left part,</span></div><div class="line">    <span class="comment"># Because we set the useless value to the last item,</span></div><div class="line">    <span class="comment"># which will be overwrite by a lager number from left part</span></div><div class="line">    <span class="keyword">while</span> left != <span class="literal">right</span>:</div><div class="line">        <span class="keyword">while</span> left &lt; <span class="literal">right</span> <span class="keyword">and</span> list[left] &lt;= pivot:</div><div class="line">            left += <span class="number">1</span></div><div class="line"></div><div class="line">        <span class="keyword">if</span> left &lt; <span class="literal">right</span>:</div><div class="line">            list[<span class="literal">right</span>] = list[left]</div><div class="line">            <span class="literal">right</span> -= <span class="number">1</span></div><div class="line"></div><div class="line">        <span class="keyword">while</span> left &lt; <span class="literal">right</span> <span class="keyword">and</span> list[<span class="literal">right</span>] &gt;= pivot:</div><div class="line">            <span class="literal">right</span> -= <span class="number">1</span></div><div class="line"></div><div class="line">        <span class="keyword">if</span> left &lt; <span class="literal">right</span>:</div><div class="line">            list[left] = list[<span class="literal">right</span>]</div><div class="line">            left += <span class="number">1</span></div><div class="line"></div><div class="line">    list[<span class="literal">right</span>] = pivot</div><div class="line"></div><div class="line">    quickSort(list, <span class="built_in">start</span>, <span class="literal">right</span><span class="number">-1</span>)</div><div class="line">    quickSort(list, <span class="literal">right</span>+<span class="number">1</span>, <span class="keyword">end</span>)</div><div class="line">    <span class="literal">return</span> list</div><div class="line"></div><div class="line"><span class="keyword">a</span> = [<span class="number">5</span>, <span class="number">3</span>, <span class="number">10</span>, <span class="number">6</span>, <span class="number">12</span>, <span class="number">2</span>, <span class="number">8</span>]</div><div class="line"><span class="keyword">a</span> = quickSort(<span class="keyword">a</span>, <span class="number">0</span>, <span class="built_in">len</span>(<span class="keyword">a</span>)<span class="number">-1</span>)</div><div class="line">print(<span class="keyword">a</span>)</div></pre></td></tr></table></figure>
-<p>Take a example:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/common/19012202.jpg" alt="example"></p>
-<blockquote>
-<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- ![Django Enviroment in Tencent Cloud Ubuntu](http://wx2.sinaimg.cn/large/6d184cefly1fvwi0uvwsmj20p0046gm8.jpg) --&gt;
-&lt;p&gt;There are tow method to set pivot.The easy way is setting the first item as pivot, and the other way is setting the middle item as pivot.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Algorithm" scheme="http://laker.me/blog/categories/Algorithm/"/>
-    
-    
-      <category term="Algorithm" scheme="http://laker.me/blog/tags/Algorithm/"/>
-    
-      <category term="Python" scheme="http://laker.me/blog/tags/Python/"/>
     
   </entry>
   
