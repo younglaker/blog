@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2020-03-04T03:55:52.000Z</updated>
+  <updated>2020-03-08T08:12:02.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,67 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>简单理解 Restful API</title>
+    <link href="http://laker.me/blog/2020/02/10/20_0202_restful/"/>
+    <id>http://laker.me/blog/2020/02/10/20_0202_restful/</id>
+    <published>2020-02-10T00:24:00.000Z</published>
+    <updated>2020-03-08T08:12:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="主要包含内容"><a href="#主要包含内容" class="headerlink" title="主要包含内容"></a>主要包含内容</h2><a id="more"></a>
+<ul>
+<li>协议，一般使用HTTPS</li>
+<li>域名，<code>https://api.example.com</code></li>
+<li>版本（Versioning），<code>https://api.example.com/v1/</code></li>
+<li>终点（Endpoint），表示API的具体网址。<code>https://api.example.com/v1/zoos</code></li>
+<li>HTTP动词</li>
+<li>过滤信息（Filtering）</li>
+<li>状态码（Status Codes）</li>
+<li>错误处理（Error handling）</li>
+<li>返回结果，应该尽量使用JSON</li>
+<li>Hypermedia API</li>
+</ul>
+<h2 id="1-基本要求：面向资源，使用HTTP动词"><a href="#1-基本要求：面向资源，使用HTTP动词" class="headerlink" title="1. 基本要求：面向资源，使用HTTP动词"></a>1. 基本要求：面向资源，使用HTTP动词</h2><p>HTTP动词有下面五个（括号里是对应的SQL命令）</p>
+<ul>
+<li>GET（SELECT）：从服务器取出资源（一项或多项）。</li>
+<li>POST（CREATE）：在服务器新建一个资源。</li>
+<li>PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。</li>
+<li>PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）。</li>
+<li>DELETE（DELETE）：从服务器删除资源。</li>
+</ul>
+<p>还有两个不常用的HTTP动词。</p>
+<ul>
+<li>HEAD：获取资源的元数据。</li>
+<li>OPTIONS：获取信息，关于资源的哪些属性是客户端可以改变的。</li>
+</ul>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">GET <span class="string">/zoos</span>：列出所有动物园</div><div class="line">POST <span class="string">/zoos</span>：新建一个动物园</div><div class="line">GET <span class="string">/zoos/ID</span>：获取某个指定动物园的信息</div><div class="line">PUT <span class="string">/zoos/ID</span>：更新某个指定动物园的信息（提供该动物园的全部信息）</div><div class="line">PATCH <span class="string">/zoos/ID</span>：更新某个指定动物园的信息（提供该动物园的部分信息）</div><div class="line">DELETE <span class="string">/zoos/ID</span>：删除某个动物园</div><div class="line">GET <span class="string">/zoos/ID/animals</span>：列出某个指定动物园的所有动物</div><div class="line">DELETE <span class="string">/zoos/ID/animals/ID</span>：删除某个指定动物园的指定动物</div></pre></td></tr></table></figure>
+<h3 id="过滤信息"><a href="#过滤信息" class="headerlink" title="过滤信息"></a>过滤信息</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">?limit=<span class="number">10</span>：指定返回记录的数量</div><div class="line">?offset=<span class="number">10</span>：指定返回记录的开始位置。</div><div class="line">?page=<span class="number">2</span>&amp;per_page=<span class="number">100</span>：指定第几页，以及每页的记录数。</div><div class="line">?sortby=name&amp;order=asc：指定返回结果按照哪个属性排序，以及排序顺序。</div><div class="line">?animal_type_id=<span class="number">1</span>：指定筛选条件</div></pre></td></tr></table></figure>
+<h2 id="2-进阶：Hypermedia-API"><a href="#2-进阶：Hypermedia-API" class="headerlink" title="2.进阶：Hypermedia API"></a>2.进阶：Hypermedia API</h2><p>即返回结果中提供链接，连向其他API方法，使得用户不查文档，也知道下一步应该做什么。</p>
+<p>例子<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PUST <span class="string">/zoos</span></div></pre></td></tr></table></figure></p>
+<p>普通返回<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"zoos"</span>: <span class="string">"abc"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Hypermedia API 返回查找信息的接口：<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"zoos"</span>: <span class="string">"abc"</span>,</div><div class="line">  <span class="string">"link"</span>: &#123;</div><div class="line">    <span class="string">"rel"</span>: <span class="string">"infomation"</span>, //rel是relationship的意思</div><div class="line">    <span class="string">"url"</span>: <span class="string">"/zoos/info"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>即返回结果中提供链接，连向其他API方法</p>
+<p>参考<br><a href="https://zhuanlan.zhihu.com/p/30396391" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/30396391</a><br><a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2014/05/restful_api.html</a></p>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;主要包含内容&quot;&gt;&lt;a href=&quot;#主要包含内容&quot; class=&quot;headerlink&quot; title=&quot;主要包含内容&quot;&gt;&lt;/a&gt;主要包含内容&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="Server" scheme="http://laker.me/blog/categories/Server/"/>
+    
+    
+      <category term="Web" scheme="http://laker.me/blog/tags/Web/"/>
+    
+      <category term="Server" scheme="http://laker.me/blog/tags/Server/"/>
+    
+  </entry>
   
   <entry>
     <title>正则表达式总结</title>
@@ -809,7 +870,7 @@
     <link href="http://laker.me/blog/2019/06/20/19_0620_leetcode66/"/>
     <id>http://laker.me/blog/2019/06/20/19_0620_leetcode66/</id>
     <published>2019-06-20T00:24:00.000Z</published>
-    <updated>2019-06-20T13:49:48.000Z</updated>
+    <updated>2020-03-08T08:09:19.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="https://leetcode.com/problems/count-and-say/" target="_blank" rel="external">https://leetcode.com/problems/count-and-say/</a></p>
 <p>Given a non-empty array of digits representing a non-negative integer, plus one to the integer.</p>
@@ -1350,73 +1411,6 @@ Output: &quot;1211&quot;
       <category term="Python" scheme="http://laker.me/blog/tags/Python/"/>
     
       <category term="LeetCode" scheme="http://laker.me/blog/tags/LeetCode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Use labelme to annotate image for machine learning</title>
-    <link href="http://laker.me/blog/2019/01/31/19_0131_labelme/"/>
-    <id>http://laker.me/blog/2019/01/31/19_0131_labelme/</id>
-    <published>2019-01-31T00:24:00.000Z</published>
-    <updated>2019-05-29T07:11:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- ![labelme](https://wx4.sinaimg.cn/large/6d184cefgy1fzoyeywzqxj20p0046q3i.jpg) -->
-<p>Labelme is a graphical image annotation tool. It is written in Python and uses Qt for its graphical interface. It is open source in Github at <a href="https://github.com/wkentaro/labelme" target="_blank" rel="external">https://github.com/wkentaro/labelme</a></p>
-<a id="more"></a>
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>It can be used in both Python 2 and Python 3. Now, let’s use Python 3.</p>
-<p>I use Anaconda for machin learning. So in Anaconda :</p>
-<ol>
-<li>Install conda</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/common/19013101.jpg" alt="Install conda"></p>
-<p>If conda is not working in terminal, activate your terminal profile:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> ~/.zsh_profile</span></div></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/common/19013102.jpg" alt="image"></p>
-<ol>
-<li>Create a new environment</li>
-</ol>
-<p>Choose a Python version you want.</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">conda create -n labelme python</span>=3.6</div></pre></td></tr></table></figure>
-<p>Then we get a new clean environment for labelme:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/common/19013103.jpg" alt="a new clean environment"></p>
-<ol>
-<li>Install labelme</li>
-</ol>
-<p>Active the environment :</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">activate</span> labelme</div></pre></td></tr></table></figure>
-<p>If not worked and show <code>zsh: command not found: activate</code>, add <code>source</code> like this:</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source <span class="built_in">activate</span> labelme</div></pre></td></tr></table></figure>
-<p>We will in the labeme environment.</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/common/19013104.jpg" alt="environment">)</p>
-<p>Python will be the version we chosen:</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/common/19013105.jpg" alt="Python">)</p>
-<p>The pip also is the labelme version :</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/common/19013106.jpg" alt="pip">)</p>
-<p>Install labelme:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> pip install labelme</span></div></pre></td></tr></table></figure>
-<h2 id="Use-labelme"><a href="#Use-labelme" class="headerlink" title="Use labelme"></a>Use labelme</h2><p>Input:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> labelme</span></div></pre></td></tr></table></figure>
-<p>or:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> labelme <span class="comment"># Open GUI</span></span></div></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/common/19013107.jpg" alt="labelme">)</p>
-<blockquote>
-<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- ![labelme](https://wx4.sinaimg.cn/large/6d184cefgy1fzoyeywzqxj20p0046q3i.jpg) --&gt;
-&lt;p&gt;Labelme is a graphical image annotation tool. It is written in Python and uses Qt for its graphical interface. It is open source in Github at &lt;a href=&quot;https://github.com/wkentaro/labelme&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/wkentaro/labelme&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="AI" scheme="http://laker.me/blog/categories/AI/"/>
-    
-    
-      <category term="AI" scheme="http://laker.me/blog/tags/AI/"/>
-    
-      <category term="ML" scheme="http://laker.me/blog/tags/ML/"/>
     
   </entry>
   
