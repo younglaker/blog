@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2020-03-08T09:08:41.000Z</updated>
+  <updated>2020-03-09T12:28:02.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,61 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode 349 Intersection of Two Arrays</title>
+    <link href="http://laker.me/blog/2020/02/15/20_0215_leetcode349/"/>
+    <id>http://laker.me/blog/2020/02/15/20_0215_leetcode349/</id>
+    <published>2020-02-15T00:24:00.000Z</published>
+    <updated>2020-03-09T12:28:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="https://leetcode.com/problems/intersection-of-two-arrays/" target="_blank" rel="external">https://leetcode.com/problems/intersection-of-two-arrays/</a></p>
+<p>Given two arrays, write a function to compute their intersection.</p>
+<a id="more"></a>
+<p>Example 1:</p>
+<pre><code>Input: nums1 = [1,2,2,1], nums2 = [2,2]
+Output: [2]
+</code></pre><p>Example 2:</p>
+<pre><code>Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+Output: [9,4]
+</code></pre><p>Note:</p>
+<ul>
+<li>Each element in the result must be unique.</li>
+<li>The result can be in any order.</li>
+</ul>
+<h2 id="Solution-1-Hash-Dictionary"><a href="#Solution-1-Hash-Dictionary" class="headerlink" title="Solution 1: Hash(Dictionary)"></a>Solution 1: Hash(Dictionary)</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">self</span>, nums1, nums2)</span></span>:</div><div class="line">        dict1 = &#123;&#125;</div><div class="line">        dict2 = &#123;&#125;</div><div class="line">        result = []</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="symbol">nums1:</span></div><div class="line">            dict1[i] = <span class="number">0</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="symbol">nums2:</span></div><div class="line">            dict2[i] = <span class="number">0</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> key, value <span class="keyword">in</span> dict1.items():</div><div class="line"></div><div class="line">            <span class="comment"># has_key has been deprecated in Python 3.0</span></div><div class="line">            <span class="keyword">if</span> key <span class="keyword">in</span> <span class="symbol">dict2:</span></div><div class="line">                result.append(key)</div><div class="line"></div><div class="line">        <span class="keyword">return</span> result</div></pre></td></tr></table></figure>
+<ul>
+<li>Time: O(n)</li>
+<li>Space: O(n+m)</li>
+</ul>
+<h2 id="Solution-2-Set"><a href="#Solution-2-Set" class="headerlink" title="Solution 2: Set"></a>Solution 2: Set</h2><p>A little tricky in python, we can use <code>set</code>, but the idea is the same as hash table.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">class Solution:</div><div class="line">    def singleNumber2(self, nums1, nums2):</div><div class="line">        <span class="built_in">set</span>1 = <span class="built_in">set</span>(nums1)</div><div class="line">        <span class="built_in">set</span>2 = <span class="built_in">set</span>(nums2)</div><div class="line">        <span class="built_in">return</span> list(<span class="built_in">set</span>2 &amp; <span class="built_in">set</span>1)</div></pre></td></tr></table></figure>
+<ul>
+<li>Time complexity : O(n+m) in the average case and O(n×m) in the worst case when load factor is high enough.</li>
+<li>Space complexity : O(n+m) in the worst case when all elements in the arrays are different.</li>
+</ul>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/intersection-of-two-arrays/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://leetcode.com/problems/intersection-of-two-arrays/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Given two arrays, write a function to compute their intersection.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Algorithm" scheme="http://laker.me/blog/categories/Algorithm/"/>
+    
+    
+      <category term="Algorithm" scheme="http://laker.me/blog/tags/Algorithm/"/>
+    
+      <category term="Python" scheme="http://laker.me/blog/tags/Python/"/>
+    
+      <category term="LeetCode" scheme="http://laker.me/blog/tags/LeetCode/"/>
+    
+  </entry>
   
   <entry>
     <title>Vuejs style 计算属性 样式绑定 动态属性</title>
@@ -354,11 +409,11 @@
   </entry>
   
   <entry>
-    <title>Algorithm - find_the_divisors</title>
+    <title>Algorithm - Find the divisors</title>
     <link href="http://laker.me/blog/2020/01/20/20_0120_codewars_find_the_divisors/"/>
     <id>http://laker.me/blog/2020/01/20/20_0120_codewars_find_the_divisors/</id>
     <published>2020-01-20T00:24:00.000Z</published>
-    <updated>2020-03-03T14:51:30.000Z</updated>
+    <updated>2020-03-09T12:28:47.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="https://www.codewars.com/kata/544aed4c4a30184e960010f4/train/javascript" target="_blank" rel="external">https://www.codewars.com/kata/544aed4c4a30184e960010f4/train/javascript</a></p>
 <p>Create a function named divisors/Divisors that takes an integer n &gt; 1 and returns an array with all of the integer’s divisors(except for 1 and the number itself), from smallest to largest. If the number is prime return the string ‘(integer) is prime’</p>
@@ -901,9 +956,9 @@
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -1335,66 +1390,6 @@ rotate 2 steps to the right: [3,99,-1,-100]
       <category term="Wechat" scheme="http://laker.me/blog/tags/Wechat/"/>
     
       <category term="Front-end" scheme="http://laker.me/blog/tags/Front-end/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode 39 Combination Sum</title>
-    <link href="http://laker.me/blog/2019/02/23/19_0223_leetcode_39/"/>
-    <id>http://laker.me/blog/2019/02/23/19_0223_leetcode_39/</id>
-    <published>2019-02-23T00:24:00.000Z</published>
-    <updated>2019-05-27T13:15:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- ![LeetCode 39 Combination Sum ](https://wx4.sinaimg.cn/large/6d184cefgy1g008qty954j20p0046aaf.jpg) -->
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="https://leetcode.com/problems/combination-sum/" target="_blank" rel="external">https://leetcode.com/problems/combination-sum/</a></p>
-<p>Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.</p>
-<a id="more"></a>
-<p>The same repeated number may be chosen from candidates unlimited number of times.</p>
-<p>Note:</p>
-<p>All numbers (including target) will be positive integers.<br>The solution set must not contain duplicate combinations.</p>
-<p>Example 1:</p>
-<pre><code>Input: candidates = [2,3,6,7], target = 7,
-A solution set is:
-[
-  [7],
-  [2,2,3]
-]
-</code></pre><p>Example 2:</p>
-<pre><code>Input: candidates = [2,3,5], target = 8,
-A solution set is:
-[
-  [2,2,2,2],
-  [2,3,3],
-  [3,5]
-]
-</code></pre><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="Expalnation"><a href="#Expalnation" class="headerlink" title="Expalnation:"></a>Expalnation:</h3><ul>
-<li>Sort the list at first, so once the remain less than 0, it doesn’t have to add next numbers of the list.</li>
-<li>The process of addition likes deep first sort.</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/common/19022301.jpg" alt="Expalnation"></p>
-<h3 id="Full-Code-in-Github"><a href="#Full-Code-in-Github" class="headerlink" title="Full Code in Github :"></a>Full Code in Github :</h3><p><a href="https://github.com/younglaker/leetcode/blob/master/39_combination_sum.py" target="_blank" rel="external">https://github.com/younglaker/leetcode/blob/master/39_combination_sum.py</a></p>
-<h3 id="Code-explanation"><a href="#Code-explanation" class="headerlink" title="Code explanation"></a>Code explanation</h3><p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/common/19022302.jpg" alt="Code Expalnation"></p>
-<blockquote>
-<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- ![LeetCode 39 Combination Sum ](https://wx4.sinaimg.cn/large/6d184cefgy1g008qty954j20p0046aaf.jpg) --&gt;
-&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/combination-sum/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://leetcode.com/problems/combination-sum/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Algorithm" scheme="http://laker.me/blog/categories/Algorithm/"/>
-    
-    
-      <category term="Algorithm" scheme="http://laker.me/blog/tags/Algorithm/"/>
-    
-      <category term="Python" scheme="http://laker.me/blog/tags/Python/"/>
-    
-      <category term="LeetCode" scheme="http://laker.me/blog/tags/LeetCode/"/>
     
   </entry>
   
