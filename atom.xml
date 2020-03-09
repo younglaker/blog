@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2020-03-08T08:12:02.000Z</updated>
+  <updated>2020-03-08T09:08:41.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -16,11 +16,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Vuejs style 计算属性 样式绑定 动态属性</title>
+    <link href="http://laker.me/blog/2020/02/12/20_0212_vuejs_style/"/>
+    <id>http://laker.me/blog/2020/02/12/20_0212_vuejs_style/</id>
+    <published>2020-02-12T00:24:00.000Z</published>
+    <updated>2020-03-08T09:08:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>动态设置进度条宽度</p>
+<a id="more"></a>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/20021201.png" alt="进度条"></p>
+<p>文档<br> <a href="https://cn.vuejs.org/v2/guide/class-and-style.html#%E7%BB%91%E5%AE%9A%E5%86%85%E8%81%94%E6%A0%B7%E5%BC%8F" target="_blank" rel="external"><a href="https://cn.vuejs.org/v2/guide/class-and-style.html#%E7%BB%91%E5%AE%9A%E5%86%85%E8%81%94%E6%A0%B7%E5%BC%8F" target="_blank" rel="external">https://cn.vuejs.org/v2/guide/class-and-style.html#绑定内联样式</a>
+</a><br><a href="https://cn.vuejs.org/v2/guide/computed.html" target="_blank" rel="external">https://cn.vuejs.org/v2/guide/computed.html</a></p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>绑定样式<code>:style</code></p>
+<p>read_page、total_page是两个参数<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;view class=<span class="string">"filled"</span> <span class="symbol">:style=<span class="string">"&#123; width: read_page / total_page * 100 + '%'&#125;"</span>&gt;&lt;/view&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>注意</p>
+<ul>
+<li>:style= 的方法countWidth后不能加()</li>
+<li>使用 computed ，不是methods</li>
+<li>return ‘width: 20%; height: 30px’，不是return {width: 20%; height: 30px  }</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;view <span class="class"><span class="keyword">class</span></span>=<span class="string">"filled"</span> :style=<span class="string">"countWidth"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span></div><div class="line"></div><div class="line">  computed: &#123;</div><div class="line">    <span class="attr">countWidth</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="string">'width: 20%; height: 30px'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>参考<br><a href="https://juejin.im/post/5d5b87bc6fb9a06b1417e651" target="_blank" rel="external">https://juejin.im/post/5d5b87bc6fb9a06b1417e651</a><br><a href="https://blog.csdn.net/freedomVenly/article/details/80752215" target="_blank" rel="external">https://blog.csdn.net/freedomVenly/article/details/80752215</a><br><a href="https://segmentfault.com/q/1010000008835283" target="_blank" rel="external">https://segmentfault.com/q/1010000008835283</a></p>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;目标&quot;&gt;&lt;a href=&quot;#目标&quot; class=&quot;headerlink&quot; title=&quot;目标&quot;&gt;&lt;/a&gt;目标&lt;/h2&gt;&lt;p&gt;动态设置进度条宽度&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Vue.js" scheme="http://laker.me/blog/categories/Vue-js/"/>
+    
+    
+      <category term="Web" scheme="http://laker.me/blog/tags/Web/"/>
+    
+      <category term="Vue.js" scheme="http://laker.me/blog/tags/Vue-js/"/>
+    
+  </entry>
+  
+  <entry>
     <title>简单理解 Restful API</title>
-    <link href="http://laker.me/blog/2020/02/10/20_0202_restful/"/>
-    <id>http://laker.me/blog/2020/02/10/20_0202_restful/</id>
-    <published>2020-02-10T00:24:00.000Z</published>
-    <updated>2020-03-08T08:12:02.000Z</updated>
+    <link href="http://laker.me/blog/2020/02/02/20_0202_restful/"/>
+    <id>http://laker.me/blog/2020/02/02/20_0202_restful/</id>
+    <published>2020-02-02T00:24:00.000Z</published>
+    <updated>2020-03-08T08:29:09.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="主要包含内容"><a href="#主要包含内容" class="headerlink" title="主要包含内容"></a>主要包含内容</h2><a id="more"></a>
 <ul>
@@ -1342,64 +1384,6 @@ A solution set is:
       &lt;!-- ![LeetCode 39 Combination Sum ](https://wx4.sinaimg.cn/large/6d184cefgy1g008qty954j20p0046aaf.jpg) --&gt;
 &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/combination-sum/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://leetcode.com/problems/combination-sum/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Algorithm" scheme="http://laker.me/blog/categories/Algorithm/"/>
-    
-    
-      <category term="Algorithm" scheme="http://laker.me/blog/tags/Algorithm/"/>
-    
-      <category term="Python" scheme="http://laker.me/blog/tags/Python/"/>
-    
-      <category term="LeetCode" scheme="http://laker.me/blog/tags/LeetCode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode 38 Count and Say</title>
-    <link href="http://laker.me/blog/2019/02/18/19_0218_leetcode_39/"/>
-    <id>http://laker.me/blog/2019/02/18/19_0218_leetcode_39/</id>
-    <published>2019-02-18T00:24:00.000Z</published>
-    <updated>2019-05-29T06:54:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- ![LeetCode 38 Count and Say](https://wx4.sinaimg.cn/large/6d184cefgy1g008qty954j20p0046aaf.jpg) -->
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="https://leetcode.com/problems/count-and-say/" target="_blank" rel="external">https://leetcode.com/problems/count-and-say/</a></p>
-<p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p>
-<pre><code>1.     1
-2.     11
-3.     21
-4.     1211
-5.     111221
-</code></pre><a id="more"></a>
-<p>1 is read off as “one 1” or 11.<br>11 is read off as “two 1s” or 21.<br>21 is read off as “one 2, then one 1” or 1211.</p>
-<p>Given an integer n where 1 ≤ n ≤ 30, generate the nth term of the count-and-say sequence.</p>
-<p>Note: Each term of the sequence of integers will be represented as a string.</p>
-<p>Example 1:</p>
-<pre><code>Input: 1
-Output: &quot;1&quot;
-</code></pre><p>Example 2:</p>
-<pre><code>Input: 4
-Output: &quot;1211&quot;
-</code></pre><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="Expalnation"><a href="#Expalnation" class="headerlink" title="Expalnation:"></a>Expalnation:</h3><p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/common/19021801.jpg" alt="Expalnation"></p>
-<h3 id="Full-Code-in-Github"><a href="#Full-Code-in-Github" class="headerlink" title="Full Code in Github :"></a>Full Code in Github :</h3><p><a href="https://github.com/younglaker/leetcode/blob/master/38_Count_and_Say.py" target="_blank" rel="external">https://github.com/younglaker/leetcode/blob/master/38_Count_and_Say.py</a></p>
-<h3 id="Code-explanation"><a href="#Code-explanation" class="headerlink" title="Code explanation"></a>Code explanation</h3><p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/common/19021802.jpg" alt="Code explanation"></p>
-<blockquote>
-<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- ![LeetCode 38 Count and Say](https://wx4.sinaimg.cn/large/6d184cefgy1g008qty954j20p0046aaf.jpg) --&gt;
-&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/count-and-say/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://leetcode.com/problems/count-and-say/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;The count-and-say sequence is the sequence of integers with the first five terms as following:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1.     1
-2.     11
-3.     21
-4.     1211
-5.     111221
-&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
