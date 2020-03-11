@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2020-03-10T04:38:42.000Z</updated>
+  <updated>2020-03-11T03:11:03.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图解 Vuejs 父子组件通信</title>
+    <link href="http://laker.me/blog/2020/02/22/20_0224_vue_component/"/>
+    <id>http://laker.me/blog/2020/02/22/20_0224_vue_component/</id>
+    <published>2020-02-22T00:24:00.000Z</published>
+    <updated>2020-03-11T03:11:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>通过实例图解Vuejs父子组件通信过程</p>
+<a id="more"></a>
+<p>背景：父组件index.vue 调用 子组件 /components/popup-confirm.vue</p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/20022401.jpg" alt=""></p>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;通过实例图解Vuejs父子组件通信过程&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Vue.js" scheme="http://laker.me/blog/categories/Vue-js/"/>
+    
+    
+      <category term="Web" scheme="http://laker.me/blog/tags/Web/"/>
+    
+      <category term="HTML5" scheme="http://laker.me/blog/tags/HTML5/"/>
+    
+      <category term="JavaScript" scheme="http://laker.me/blog/tags/JavaScript/"/>
+    
+      <category term="CSS3" scheme="http://laker.me/blog/tags/CSS3/"/>
+    
+      <category term="Vue.js" scheme="http://laker.me/blog/tags/Vue-js/"/>
+    
+  </entry>
   
   <entry>
     <title>uniapp 构建小程序报错 initAutoImportComponents is not a function</title>
@@ -1295,60 +1332,6 @@ Output: 4
     
       &lt;!-- ![LeetCode 189 Rotate Array](https://wx4.sinaimg.cn/large/6d184cefgy1g008qty954j20p0046aaf.jpg) --&gt;
 &lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;Given a non-empty array of integers, every element appears twice except for one. Find that single one.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Algorithm" scheme="http://laker.me/blog/categories/Algorithm/"/>
-    
-    
-      <category term="Algorithm" scheme="http://laker.me/blog/tags/Algorithm/"/>
-    
-      <category term="Python" scheme="http://laker.me/blog/tags/Python/"/>
-    
-      <category term="LeetCode" scheme="http://laker.me/blog/tags/LeetCode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode 26 Remove Duplicates from Sorted Array</title>
-    <link href="http://laker.me/blog/2019/04/03/19_0403_leetcode26/"/>
-    <id>http://laker.me/blog/2019/04/03/19_0403_leetcode26/</id>
-    <published>2019-04-03T00:24:00.000Z</published>
-    <updated>2019-05-29T07:04:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- ![LeetCode 26 Rotate Array](https://wx4.sinaimg.cn/large/6d184cefgy1g008qty954j20p0046aaf.jpg) -->
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array/" target="_blank" rel="external">https://leetcode.com/problems/remove-duplicates-from-sorted-array/</a></p>
-<p>Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.</p>
-<a id="more"></a>
-<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
-<p>Example 1:</p>
-<pre><code>Given nums = [1,1,2],
-
-Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.
-</code></pre><p>It doesn’t matter what you leave beyond the returned length.</p>
-<p>Example 2:</p>
-<pre><code>Given nums = [0,0,1,1,1,2,2,3,3,4],
-
-Your function should return length = 5, with the first five elements of nums being modified to 0, 1, 2, 3, and 4 respectively.
-</code></pre><p>It doesn’t matter what values are set beyond the returned length.</p>
-<p>Clarification:</p>
-<p>Confused why the returned value is an integer but your answer is an array?</p>
-<p>Note that the input array is passed in by reference, which means modification to the input array will be known to the caller as well.</p>
-<p>Internally you can think of this:</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// nums is passed in by reference. (i.e., without making a copy)</span></div><div class="line"><span class="keyword">int</span> <span class="built_in">len</span> = removeDuplicates(nums);</div><div class="line"></div><div class="line"><span class="comment">// any modification to nums in your function would be known by the caller.</span></div><div class="line"><span class="comment">// using the length returned by your function, it prints the first len elements.</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">len</span>; i++) &#123;</div><div class="line">    <span class="built_in">print</span>(nums[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="Expalnation"><a href="#Expalnation" class="headerlink" title="Expalnation:"></a>Expalnation:</h3><p>Because the question require that ‘Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory’. We don’t have to delete the duplicates, we can overwrite the duplicates.</p>
-<h3 id="Full-Code-in-Github"><a href="#Full-Code-in-Github" class="headerlink" title="Full Code in Github :"></a>Full Code in Github :</h3><p><a href="https://github.com/younglaker/leetcode/blob/master/26_remove_duplicates_from_sorted_array.py" target="_blank" rel="external">https://github.com/younglaker/leetcode/blob/master/26_remove_duplicates_from_sorted_array.py</a></p>
-<h3 id="Example-explanation"><a href="#Example-explanation" class="headerlink" title="Example explanation"></a>Example explanation</h3><p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/common/19040301.jpg" alt="Example explanation"></p>
-<blockquote>
-<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- ![LeetCode 26 Rotate Array](https://wx4.sinaimg.cn/large/6d184cefgy1g008qty954j20p0046aaf.jpg) --&gt;
-&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/remove-duplicates-from-sorted-array/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://leetcode.com/problems/remove-duplicates-from-sorted-array/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.&lt;/p&gt;
     
     </summary>
     
