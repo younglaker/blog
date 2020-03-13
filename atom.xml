@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2020-03-13T11:13:23.000Z</updated>
+  <updated>2020-03-13T11:36:40.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -16,11 +16,72 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Restful API</title>
+    <link href="http://laker.me/blog/2020/03/01/20_0301_restful/"/>
+    <id>http://laker.me/blog/2020/03/01/20_0301_restful/</id>
+    <published>2020-03-01T00:24:00.000Z</published>
+    <updated>2020-03-13T11:36:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="主要包含内容"><a href="#主要包含内容" class="headerlink" title="主要包含内容"></a>主要包含内容</h2><a id="more"></a>
+<ul>
+<li>协议，一般使用HTTPS</li>
+<li>域名，<code>https://api.example.com</code></li>
+<li>版本（Versioning），<code>https://api.example.com/v1/</code></li>
+<li>终点（Endpoint），表示API的具体网址。<code>https://api.example.com/v1/zoos</code></li>
+<li>HTTP动词</li>
+<li>过滤信息（Filtering）</li>
+<li>状态码（Status Codes）</li>
+<li>错误处理（Error handling）</li>
+<li>返回结果，应该尽量使用JSON</li>
+<li>Hypermedia API</li>
+</ul>
+<h2 id="1-基本要求：面向资源，使用HTTP动词"><a href="#1-基本要求：面向资源，使用HTTP动词" class="headerlink" title="1. 基本要求：面向资源，使用HTTP动词"></a>1. 基本要求：面向资源，使用HTTP动词</h2><p>HTTP动词有下面五个（括号里是对应的SQL命令）</p>
+<ul>
+<li>GET（SELECT）：从服务器取出资源（一项或多项）。</li>
+<li>POST（CREATE）：在服务器新建一个资源。</li>
+<li>PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。</li>
+<li>PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）。</li>
+<li>DELETE（DELETE）：从服务器删除资源。</li>
+</ul>
+<p>还有两个不常用的HTTP动词。</p>
+<ul>
+<li>HEAD：获取资源的元数据。</li>
+<li>OPTIONS：获取信息，关于资源的哪些属性是客户端可以改变的。</li>
+</ul>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">GET <span class="string">/zoos</span>：列出所有动物园</div><div class="line">POST <span class="string">/zoos</span>：新建一个动物园</div><div class="line">GET <span class="string">/zoos/ID</span>：获取某个指定动物园的信息</div><div class="line">PUT <span class="string">/zoos/ID</span>：更新某个指定动物园的信息（提供该动物园的全部信息）</div><div class="line">PATCH <span class="string">/zoos/ID</span>：更新某个指定动物园的信息（提供该动物园的部分信息）</div><div class="line">DELETE <span class="string">/zoos/ID</span>：删除某个动物园</div><div class="line">GET <span class="string">/zoos/ID/animals</span>：列出某个指定动物园的所有动物</div><div class="line">DELETE <span class="string">/zoos/ID/animals/ID</span>：删除某个指定动物园的指定动物</div></pre></td></tr></table></figure>
+<h3 id="过滤信息"><a href="#过滤信息" class="headerlink" title="过滤信息"></a>过滤信息</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">?limit=<span class="number">10</span>：指定返回记录的数量</div><div class="line">?offset=<span class="number">10</span>：指定返回记录的开始位置。</div><div class="line">?page=<span class="number">2</span>&amp;per_page=<span class="number">100</span>：指定第几页，以及每页的记录数。</div><div class="line">?sortby=name&amp;order=asc：指定返回结果按照哪个属性排序，以及排序顺序。</div><div class="line">?animal_type_id=<span class="number">1</span>：指定筛选条件</div></pre></td></tr></table></figure>
+<h2 id="2-进阶：Hypermedia-API"><a href="#2-进阶：Hypermedia-API" class="headerlink" title="2.进阶：Hypermedia API"></a>2.进阶：Hypermedia API</h2><p>即返回结果中提供链接，连向其他API方法，使得用户不查文档，也知道下一步应该做什么。</p>
+<p>例子<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PUST <span class="string">/zoos</span></div></pre></td></tr></table></figure></p>
+<p>普通返回<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"zoos"</span>: <span class="string">"abc"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Hypermedia API 返回查找信息的接口：<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"zoos"</span>: <span class="string">"abc"</span>,</div><div class="line">  <span class="string">"link"</span>: &#123;</div><div class="line">    <span class="string">"rel"</span>: <span class="string">"infomation"</span>, //rel是relationship的意思</div><div class="line">    <span class="string">"url"</span>: <span class="string">"/zoos/info"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>即返回结果中提供链接，连向其他API方法</p>
+<p>参考<br><a href="https://zhuanlan.zhihu.com/p/30396391" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/30396391</a><br><a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2014/05/restful_api.html</a></p>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;主要包含内容&quot;&gt;&lt;a href=&quot;#主要包含内容&quot; class=&quot;headerlink&quot; title=&quot;主要包含内容&quot;&gt;&lt;/a&gt;主要包含内容&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://laker.me/blog/categories/JavaScript/"/>
+    
+    
+      <category term="Web" scheme="http://laker.me/blog/tags/Web/"/>
+    
+      <category term="JavaScript" scheme="http://laker.me/blog/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>用CSS Flex 布局绘制柱状图 Bar chart</title>
     <link href="http://laker.me/blog/2020/02/29/20_0229_flex_bar/"/>
     <id>http://laker.me/blog/2020/02/29/20_0229_flex_bar/</id>
     <published>2020-02-29T00:24:00.000Z</published>
-    <updated>2020-03-13T11:13:23.000Z</updated>
+    <updated>2020-03-13T11:32:59.000Z</updated>
     
     <content type="html"><![CDATA[<p>本文基于的框架：微信小程序、uniapp（Vue.js）、SCSS。<br>原理是一样的，我就不转换成原生的Vue.js和css了。</p>
 <a id="more"></a>
@@ -1152,9 +1213,9 @@ Output: [9,4]
       <category term="Angular" scheme="http://laker.me/blog/categories/Angular/"/>
     
     
-      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
-    
       <category term="Ionic" scheme="http://laker.me/blog/tags/Ionic/"/>
+    
+      <category term="Angular" scheme="http://laker.me/blog/tags/Angular/"/>
     
   </entry>
   
@@ -1250,80 +1311,6 @@ Output: [4,3,2,2]
     </summary>
     
       <category term="Mac" scheme="http://laker.me/blog/categories/Mac/"/>
-    
-    
-      <category term="Java" scheme="http://laker.me/blog/tags/Java/"/>
-    
-      <category term="MacOS" scheme="http://laker.me/blog/tags/MacOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java On MacOS</title>
-    <link href="http://laker.me/blog/2019/04/11/19_0411_java%20_on_mac/"/>
-    <id>http://laker.me/blog/2019/04/11/19_0411_java _on_mac/</id>
-    <published>2019-04-11T00:24:00.000Z</published>
-    <updated>2019-04-11T04:13:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><ul>
-<li>JDK: Java development toolkit, the library of Java, using to complie and run Java programs</li>
-<li>J2EE: Java 2 enterprise edition, for enterprise</li>
-<li>J2SE: Java 2 standard edition, standar version</li>
-<li>J2ME: Java 2 Micro Edition, usually for mobile developement</li>
-</ul>
-<a id="more"></a>
-<h2 id="Install-JDK"><a href="#Install-JDK" class="headerlink" title="Install JDK"></a>Install JDK</h2><p>If you use Eclipse, you don’t have to install Java development, it has one.</p>
-<h3 id="Download-JDK"><a href="#Download-JDK" class="headerlink" title="Download JDK"></a>Download JDK</h3><p>Download JDK from <a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html" target="_blank" rel="external">https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html</a></p>
-<p>I use <code>jdk-11.0.2_osx-x64_bin.dmg</code></p>
-<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>After install the dmg file, enter <code>java -version</code> in terminal to test whether it is successful:</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ java -version</div><div class="line">java version <span class="string">"11.0.2"</span> <span class="number">2019</span><span class="number">-01</span><span class="number">-15</span> LTS</div><div class="line">Java(TM) SE Runtime Environment <span class="number">18.9</span> (build <span class="number">11.0</span><span class="number">.2</span>+<span class="number">9</span>-LTS)</div><div class="line">Java HotSpot(TM) <span class="number">64</span>-Bit Server VM <span class="number">18.9</span> (build <span class="number">11.0</span><span class="number">.2</span>+<span class="number">9</span>-LTS, mixed mode)</div></pre></td></tr></table></figure>
-<h2 id="Enviroment"><a href="#Enviroment" class="headerlink" title="Enviroment"></a>Enviroment</h2><h3 id="Add-PATH-and-CALSSPATH"><a href="#Add-PATH-and-CALSSPATH" class="headerlink" title="Add PATH and CALSSPATH"></a>Add PATH and CALSSPATH</h3><p>Check the version:</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ls <span class="regexp">/Library/</span>Java<span class="regexp">/JavaVirtualMachines/</span></div><div class="line">jdk-<span class="number">11.0</span>.<span class="number">2</span>.jdk</div></pre></td></tr></table></figure>
-<p>Or open Finder, press “Command + Shift + G”, and enter <code>/Library/Java/JavaVirtualMachines/</code> to see it.</p>
-<p>Edit profile:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo vim /etc/profile</span></div></pre></td></tr></table></figure>
-<p>Add this at the last:</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">JAVA_HOME=<span class="string">"/Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home/"</span></div><div class="line"></div><div class="line">CLASS_PATH=<span class="string">"$JAVA_HOME/lib"</span></div><div class="line"></div><div class="line">PATH=<span class="string">".:$PATH:$JAVA_HOME/bin</span></div></pre></td></tr></table></figure>
-<p>The whole file should be like this:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># System-wide .profile for sh(1)</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> [ -x /usr/libexec/path_helper ]; <span class="keyword">then</span></div><div class="line">        <span class="built_in">eval</span> `/usr/libexec/path_helper <span class="_">-s</span>`</div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$&#123;BASH-no&#125;</span>"</span> != <span class="string">"no"</span> ]; <span class="keyword">then</span></div><div class="line">        [ -r /etc/bashrc ] &amp;&amp; . /etc/bashrc</div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line">JAVA_HOME=<span class="string">"/Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home/"</span></div><div class="line"></div><div class="line">CLASS_PATH=<span class="string">"<span class="variable">$JAVA_HOME</span>/lib"</span></div><div class="line"></div><div class="line">PATH=<span class="string">".:<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin"</span></div></pre></td></tr></table></figure>
-<p>Press <code>esc</code> and enter <code>:wq!</code> to sava and exit.</p>
-<p>Enter this to make it effective:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> /etc/profile</span></div></pre></td></tr></table></figure>
-<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><p>Write a <code>Hello.jav</code> file.</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> <span class="title">Hello</span> &#123;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>&#123;</div><div class="line">         System.<span class="keyword">out</span>.println(<span class="string">"Hello Laker"</span>);</div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Compile it :</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> laker @ Laker <span class="keyword">in</span> ~/Downloads [21:23:40] C:1</span></div><div class="line"><span class="meta">$</span><span class="bash"> javac Hello.java</span></div></pre></td></tr></table></figure>
-<p>Run it</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> laker @ Laker <span class="keyword">in</span> ~/Downloads [21:24:12]</span></div><div class="line"><span class="meta">$</span><span class="bash"> java Hello</span></div><div class="line">Hello Laker</div></pre></td></tr></table></figure>
-<h2 id="Uninstallation"><a href="#Uninstallation" class="headerlink" title="Uninstallation"></a>Uninstallation</h2><p>Futhermore, the uninstallation is following command:<br><a href="https://blog.csdn.net/qq_30889373/article/details/78863313" target="_blank" rel="external">https://blog.csdn.net/qq_30889373/article/details/78863313</a></p>
-<ul>
-<li>Fisrt</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo rm -fr /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo rm -fr /Library/PreferencesPanes/JavaControlPanel.prefpane</span></div></pre></td></tr></table></figure>
-<ul>
-<li>Second</li>
-</ul>
-<p>Check the version:</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ls <span class="regexp">/Library/</span>Java<span class="regexp">/JavaVirtualMachines/</span></div><div class="line">jdk-<span class="number">11.0</span>.<span class="number">2</span>.jdk</div></pre></td></tr></table></figure>
-<p>Remove</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo rm -rf <span class="regexp">/Library/</span>Java<span class="regexp">/JavaVirtualMachines/</span>jdk-<span class="number">9.0</span>.<span class="number">1</span>.jdk</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot; title=&quot;About&quot;&gt;&lt;/a&gt;About&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;JDK: Java development toolkit, the library of Java, using to complie and run Java programs&lt;/li&gt;
-&lt;li&gt;J2EE: Java 2 enterprise edition, for enterprise&lt;/li&gt;
-&lt;li&gt;J2SE: Java 2 standard edition, standar version&lt;/li&gt;
-&lt;li&gt;J2ME: Java 2 Micro Edition, usually for mobile developement&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="http://laker.me/blog/categories/Java/"/>
     
     
       <category term="Java" scheme="http://laker.me/blog/tags/Java/"/>
