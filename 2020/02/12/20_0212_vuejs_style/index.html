@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="进击的程序媛，Laker&#39;s blog">
 <meta property="og:description" content="目标动态设置进度条宽度">
 <meta property="og:image" content="https://raw.githubusercontent.com/aomine-sama/px/master/2019/20021201.png">
-<meta property="og:updated_time" content="2020-03-08T09:08:41.000Z">
+<meta property="og:updated_time" content="2020-03-11T07:34:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vuejs style 计算属性 样式绑定 动态属性">
 <meta name="twitter:description" content="目标动态设置进度条宽度">
@@ -136,6 +136,9 @@ var _hmt = _hmt || [];
 <li>return ‘width: 20%; height: 30px’，不是return {width: 20%; height: 30px  }</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;view <span class="class"><span class="keyword">class</span></span>=<span class="string">"filled"</span> :style=<span class="string">"countWidth"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span></div><div class="line"></div><div class="line">  computed: &#123;</div><div class="line">    <span class="attr">countWidth</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="string">'width: 20%; height: 30px'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：计算表达式不能用 80%（会报错），要用0.8<br>错：300 <em> 80%<br>对： 300 </em> 0.8</p>
+</blockquote>
 <p>参考<br><a href="https://juejin.im/post/5d5b87bc6fb9a06b1417e651" target="_blank" rel="external">https://juejin.im/post/5d5b87bc6fb9a06b1417e651</a><br><a href="https://blog.csdn.net/freedomVenly/article/details/80752215" target="_blank" rel="external">https://blog.csdn.net/freedomVenly/article/details/80752215</a><br><a href="https://segmentfault.com/q/1010000008835283" target="_blank" rel="external">https://segmentfault.com/q/1010000008835283</a></p>
 <blockquote>
 <p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>

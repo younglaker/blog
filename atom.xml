@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://laker.me/blog/"/>
-  <updated>2020-03-11T03:11:03.000Z</updated>
+  <updated>2020-03-13T11:13:23.000Z</updated>
   <id>http://laker.me/blog/</id>
   
   <author>
@@ -16,16 +16,26 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>图解 Vuejs 父子组件通信</title>
-    <link href="http://laker.me/blog/2020/02/22/20_0224_vue_component/"/>
-    <id>http://laker.me/blog/2020/02/22/20_0224_vue_component/</id>
-    <published>2020-02-22T00:24:00.000Z</published>
-    <updated>2020-03-11T03:11:03.000Z</updated>
+    <title>用CSS Flex 布局绘制柱状图 Bar chart</title>
+    <link href="http://laker.me/blog/2020/02/29/20_0229_flex_bar/"/>
+    <id>http://laker.me/blog/2020/02/29/20_0229_flex_bar/</id>
+    <published>2020-02-29T00:24:00.000Z</published>
+    <updated>2020-03-13T11:13:23.000Z</updated>
     
-    <content type="html"><![CDATA[<p>通过实例图解Vuejs父子组件通信过程</p>
+    <content type="html"><![CDATA[<p>本文基于的框架：微信小程序、uniapp（Vue.js）、SCSS。<br>原理是一样的，我就不转换成原生的Vue.js和css了。</p>
 <a id="more"></a>
-<p>背景：父组件index.vue 调用 子组件 /components/popup-confirm.vue</p>
-<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/20022401.jpg" alt=""></p>
+<p>关于flex布局，可以看我这篇 <a href="http://laker.me/blog/2020/02/18/20_0218_flex/">图解Flex布局</a></p>
+<h2 id="效果图："><a href="#效果图：" class="headerlink" title="效果图："></a>效果图：</h2><p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/20022901.png" alt=""></p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/20022902.jpeg" alt=""></p>
+<h2 id="模板："><a href="#模板：" class="headerlink" title="模板："></a>模板：</h2><p><code>v-for=&quot;i in 5&quot;</code> 循环显示5个bar</p>
+<p><code>:style=&quot;{ &#39;height&#39;: readingHoursHeight[i] + &#39;px&#39;</code> 根据readingHoursHeight的数据动态设置bar的高度</p>
+<p><code>{{ readingHours[i] }}</code> 显示数字标签</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span></div><div class="line">    <span class="comment">&lt;!-- 循环显示5个bar --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">v-for</span>=<span class="string">"i in 5"</span> <span class="attr">:key</span>=<span class="string">"i"</span> <span class="attr">class</span>=<span class="string">"bar-item-box"</span>&gt;</span></div><div class="line">    <span class="template-variable">&#123;&#123; readingHours[i] &#125;</span><span class="xml">&#125;</span></div><div class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"bar-item"</span> <span class="attr">:style</span>=<span class="string">"</span></span><span class="template-variable">&#123; 'height': readingHoursHeight[i] + 'px' &#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="JS："><a href="#JS：" class="headerlink" title="JS："></a>JS：</h2><p>模拟数据</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">data</span> () &#123;</div><div class="line">  <span class="selector-tag">return</span> &#123;</div><div class="line">    <span class="attribute">bookId</span>: <span class="string">''</span>,</div><div class="line"></div><div class="line">    <span class="comment">// 模拟每日读书时长</span></div><div class="line">    <span class="attribute">readingHours</span>: [<span class="number">10</span>, <span class="number">30</span>, <span class="number">20</span>, <span class="number">100</span>, <span class="number">49</span>],</div><div class="line"></div><div class="line">    <span class="comment">// 计算时长的高度</span></div><div class="line">    <span class="attribute">readingHoursHeight</span>: []</div><div class="line">  &#125;</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<p>计算每个时长对应的bar高度</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 计算bar的高度</span></div><div class="line">computeBarHeight: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// 先备份this，待会在uni的方法里会被覆盖</span></div><div class="line">  <span class="keyword">var</span> _this = <span class="keyword">this</span></div><div class="line"></div><div class="line">  <span class="comment">// box的高度</span></div><div class="line">  <span class="keyword">var</span> boxHeight = <span class="number">0</span></div><div class="line"></div><div class="line">  <span class="comment">// 获取最长的时长，作为最大的高度</span></div><div class="line">  <span class="keyword">var</span> max = <span class="keyword">this</span>.maxHours(<span class="keyword">this</span>.readingHours)</div><div class="line"></div><div class="line">  <span class="comment">// uniapp的方法，可以改为vuejs的方法</span></div><div class="line">  uni.getSystemInfo(&#123;</div><div class="line">    <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123; <span class="comment">// res - 各种参数</span></div><div class="line">      <span class="keyword">let</span> info = uni.createSelectorQuery().select(<span class="string">'.bar-chart-box'</span>)</div><div class="line"></div><div class="line">      info.boundingClientRect(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123; <span class="comment">// data - 各种参数</span></div><div class="line">        <span class="comment">// 获取box元素高度</span></div><div class="line">        boxHeight = data.height - <span class="number">20</span></div><div class="line"></div><div class="line">        <span class="comment">// 计算每个时长占最大高度的比例来设置高度</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; _this.readingHours.length; i++) &#123;</div><div class="line">          <span class="keyword">let</span> h = _this.readingHours[i] / _this.readingHours[max] * boxHeight</div><div class="line"></div><div class="line">          <span class="comment">// 把计算好的高度push到readingHoursHeight数组里</span></div><div class="line">          _this.readingHoursHeight.push(h)</div><div class="line">        &#125;</div><div class="line">      &#125;).exec()</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&#125;,</div><div class="line"></div><div class="line"><span class="comment">// 获取最大时长</span></div><div class="line">maxHours: <span class="function"><span class="keyword">function</span> (<span class="params">arr</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> max = <span class="number">0</span></div><div class="line"></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; arr.length; i++) &#123;</div><div class="line">    <span class="keyword">if</span> (arr[i] &gt; arr[max]) &#123;</div><div class="line">      max = i</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> max</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="SCSS："><a href="#SCSS：" class="headerlink" title="SCSS："></a>SCSS：</h2><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.bars</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">flex-grow</span>: <span class="number">1</span>;</div><div class="line">  <span class="attribute">justify-content</span>: space-around;</div><div class="line">  <span class="attribute">align-items</span>: flex-end;</div><div class="line">  <span class="attribute">border-bottom</span>: <span class="number">#efefef</span> <span class="number">2</span>rpx solid;</div><div class="line">  <span class="attribute">margin-bottom</span>: <span class="number">20</span>rpx;</div><div class="line"></div><div class="line">  <span class="selector-class">.bar-item-box</span> &#123;</div><div class="line">    <span class="attribute">flex</span>: <span class="number">0.1</span>;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#9b9b9b</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
 <p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
 </blockquote>
@@ -33,7 +43,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;通过实例图解Vuejs父子组件通信过程&lt;/p&gt;
+      &lt;p&gt;本文基于的框架：微信小程序、uniapp（Vue.js）、SCSS。&lt;br&gt;原理是一样的，我就不转换成原生的Vue.js和css了。&lt;/p&gt;
     
     </summary>
     
@@ -54,10 +64,10 @@
   
   <entry>
     <title>uniapp 构建小程序报错 initAutoImportComponents is not a function</title>
-    <link href="http://laker.me/blog/2020/02/22/20_0222_uniapp_error/"/>
-    <id>http://laker.me/blog/2020/02/22/20_0222_uniapp_error/</id>
-    <published>2020-02-22T00:24:00.000Z</published>
-    <updated>2020-03-10T04:38:42.000Z</updated>
+    <link href="http://laker.me/blog/2020/02/24/20_0222_uniapp_error/"/>
+    <id>http://laker.me/blog/2020/02/24/20_0222_uniapp_error/</id>
+    <published>2020-02-24T00:24:00.000Z</published>
+    <updated>2020-03-11T03:20:45.000Z</updated>
     
     <content type="html"><![CDATA[<p>在使用uniapp开发小程序的时候，经常会遇到 initAutoImportComponents is not a function，这个问题很奇怪，团队里不是每个人都会遇到。看网上蛮多开发者遇到了，但是还没有很好的解决方案。</p>
 <a id="more"></a>
@@ -106,11 +116,48 @@
   </entry>
   
   <entry>
-    <title>Flex layout</title>
+    <title>图解 Vuejs 父子组件通信</title>
+    <link href="http://laker.me/blog/2020/02/22/20_0224_vue_component/"/>
+    <id>http://laker.me/blog/2020/02/22/20_0224_vue_component/</id>
+    <published>2020-02-22T00:24:00.000Z</published>
+    <updated>2020-03-11T03:11:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>通过实例图解Vuejs父子组件通信过程</p>
+<a id="more"></a>
+<p>背景：父组件index.vue 调用 子组件 /components/popup-confirm.vue</p>
+<p><img src="https://raw.githubusercontent.com/aomine-sama/px/master/2019/20022401.jpg" alt=""></p>
+<blockquote>
+<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;通过实例图解Vuejs父子组件通信过程&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Vue.js" scheme="http://laker.me/blog/categories/Vue-js/"/>
+    
+    
+      <category term="Web" scheme="http://laker.me/blog/tags/Web/"/>
+    
+      <category term="HTML5" scheme="http://laker.me/blog/tags/HTML5/"/>
+    
+      <category term="JavaScript" scheme="http://laker.me/blog/tags/JavaScript/"/>
+    
+      <category term="CSS3" scheme="http://laker.me/blog/tags/CSS3/"/>
+    
+      <category term="Vue.js" scheme="http://laker.me/blog/tags/Vue-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图解 Flex layout</title>
     <link href="http://laker.me/blog/2020/02/18/20_0218_flex/"/>
     <id>http://laker.me/blog/2020/02/18/20_0218_flex/</id>
     <published>2020-02-18T00:24:00.000Z</published>
-    <updated>2020-03-09T13:32:14.000Z</updated>
+    <updated>2020-03-12T08:16:54.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://flexboxfroggy.com/" target="_blank" rel="external">一个练习flex的小游戏</a></p>
 <h2 id="父级元素属性"><a href="#父级元素属性" class="headerlink" title="父级元素属性"></a>父级元素属性</h2><ul>
@@ -221,7 +268,7 @@ Output: [9,4]
     <link href="http://laker.me/blog/2020/02/12/20_0212_vuejs_style/"/>
     <id>http://laker.me/blog/2020/02/12/20_0212_vuejs_style/</id>
     <published>2020-02-12T00:24:00.000Z</published>
-    <updated>2020-03-08T09:08:41.000Z</updated>
+    <updated>2020-03-11T07:34:20.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>动态设置进度条宽度</p>
 <a id="more"></a>
@@ -237,6 +284,9 @@ Output: [9,4]
 <li>return ‘width: 20%; height: 30px’，不是return {width: 20%; height: 30px  }</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;view <span class="class"><span class="keyword">class</span></span>=<span class="string">"filled"</span> :style=<span class="string">"countWidth"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span></div><div class="line"></div><div class="line">  computed: &#123;</div><div class="line">    <span class="attr">countWidth</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="string">'width: 20%; height: 30px'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：计算表达式不能用 80%（会报错），要用0.8<br>错：300 <em> 80%<br>对： 300 </em> 0.8</p>
+</blockquote>
 <p>参考<br><a href="https://juejin.im/post/5d5b87bc6fb9a06b1417e651" target="_blank" rel="external">https://juejin.im/post/5d5b87bc6fb9a06b1417e651</a><br><a href="https://blog.csdn.net/freedomVenly/article/details/80752215" target="_blank" rel="external">https://blog.csdn.net/freedomVenly/article/details/80752215</a><br><a href="https://segmentfault.com/q/1010000008835283" target="_blank" rel="external">https://segmentfault.com/q/1010000008835283</a></p>
 <blockquote>
 <p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
@@ -1279,70 +1329,6 @@ Output: [4,3,2,2]
       <category term="Java" scheme="http://laker.me/blog/tags/Java/"/>
     
       <category term="MacOS" scheme="http://laker.me/blog/tags/MacOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode 136 Single Number (Python)</title>
-    <link href="http://laker.me/blog/2019/04/10/19_0410_leetcode136/"/>
-    <id>http://laker.me/blog/2019/04/10/19_0410_leetcode136/</id>
-    <published>2019-04-10T00:24:00.000Z</published>
-    <updated>2019-05-16T00:53:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<!-- ![LeetCode 189 Rotate Array](https://wx4.sinaimg.cn/large/6d184cefgy1g008qty954j20p0046aaf.jpg) -->
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given a non-empty array of integers, every element appears twice except for one. Find that single one.</p>
-<a id="more"></a>
-<p>Note:</p>
-<p>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
-<p>Example 1:</p>
-<pre><code>Input: [2,2,1]
-Output: 1
-</code></pre><p>Example 2:</p>
-<pre><code>Input: [4,1,2,1,2]
-Output: 4
-</code></pre><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h2><p><a href="https://github.com/younglaker/leetcode/blob/master/38_Count_and_Say.py" target="_blank" rel="external">https://github.com/younglaker/leetcode/blob/master/38_Count_and_Say.py</a></p>
-<h3 id="Approach-1-Array"><a href="#Approach-1-Array" class="headerlink" title="Approach 1 - Array"></a>Approach 1 - Array</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">def singleNumber1(nums):</div><div class="line">    <span class="keyword">list</span> = []</div><div class="line">    <span class="keyword">for</span> i in num<span class="variable">s:</span></div><div class="line">        <span class="keyword">if</span> i in lis<span class="variable">t:</span></div><div class="line">            <span class="keyword">list</span>.<span class="built_in">remove</span>(i)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">list</span>.<span class="keyword">append</span>(i)</div><div class="line">    <span class="keyword">return</span> <span class="keyword">list</span>.<span class="keyword">pop</span>()</div></pre></td></tr></table></figure>
-<p>Use array(in Python called list) to store numbers in nums. If some number in <code>nums</code> is new to array, append it.If some number is already in the array, remove it</p>
-<ul>
-<li>Time complexity : O(n^2). <code>for i in nums</code> takes O(n) time, and <code>if i in list</code> is also a for-loop taking O(n) time.</li>
-<li>Space complexity : O(n). We need a list of size n to contain elements in nums.</li>
-</ul>
-<h3 id="Approach-2-Hash"><a href="#Approach-2-Hash" class="headerlink" title="Approach 2 - Hash"></a>Approach 2 - Hash</h3><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">def singleNumber2(nums):</div><div class="line">    dict = &#123;&#125;</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> nums:</div><div class="line">        <span class="keyword">if</span> dict.has_key(i):</div><div class="line">            dict.<span class="built_in">pop</span>(i)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            dict.update(&#123;i: <span class="number">0</span>&#125;)</div><div class="line">    <span class="built_in">print</span> dict</div><div class="line">    <span class="keyword">for</span> <span class="built_in">key</span>, val <span class="keyword">in</span> dict.items():</div><div class="line">        <span class="keyword">if</span> val == <span class="number">0</span>:</div><div class="line">            <span class="built_in">return</span> <span class="built_in">key</span></div></pre></td></tr></table></figure>
-<p>or:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">singleNumber5</span><span class="params">(nums)</span>:</span></div><div class="line">    hash_table = &#123;&#125;</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> nums:</div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            hash_table.pop(i)</div><div class="line">        <span class="keyword">except</span>:</div><div class="line">            hash_table[i] = <span class="number">1</span></div><div class="line">    <span class="comment"># popitem(): Remove the last item from the dictionary:</span></div><div class="line">    <span class="keyword">return</span> hash_table.popitem()[<span class="number">0</span>]</div></pre></td></tr></table></figure>
-<p>Use array(in Python called list) to store numbers in nums. If some number in <code>nums</code> is new to array, append it.If some number is already in the array, remove it</p>
-<ul>
-<li>Time complexity : O(n). <code>for i in nums</code> takes O(n) time, and <code>if dict.has_key(i)</code> takes O(1) time.</li>
-<li>Space complexity : O(n). We need a hash table of size n to contain elements in nums.</li>
-</ul>
-<h3 id="Approach-3-Math"><a href="#Approach-3-Math" class="headerlink" title="Approach 3: Math"></a>Approach 3: Math</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">singleNumber3</span><span class="params">(nums)</span></span>:</div><div class="line">    <span class="comment"># sum(a)</span></div><div class="line">    <span class="comment"># a is the list , it adds up all the numbers in the</span></div><div class="line">    <span class="comment"># list a and takes start to be 0, so returning</span></div><div class="line">    <span class="comment"># only the sum of the numbers in the list.</span></div><div class="line">    <span class="comment"># sum(a, start)</span></div><div class="line">    <span class="comment"># this returns the sum of the list + start</span></div><div class="line">    <span class="comment"># set(list): remove the duplicate</span></div><div class="line">    <span class="keyword">return</span> <span class="number">2</span> * sum(set(nums)) - sum(nums)</div></pre></td></tr></table></figure>
-<p>2∗(a+b+c)−(2a+2b+c)=c</p>
-<ul>
-<li>Time complexity : O(n + n) = O(2n)=O(n). <code>sum()</code> is a for-loop.</li>
-<li>Space complexity : O(n + n) = O(2n)=O(n). A set needs space for the elements in nums</li>
-</ul>
-<h3 id="Approach-4-XOR"><a href="#Approach-4-XOR" class="headerlink" title="Approach 4: XOR"></a>Approach 4: XOR</h3><p>Because <code>a⊕0=a</code> and <code>a⊕a=0</code><br>Then: <code>a⊕b⊕a=(a⊕a)⊕b=0⊕b=b</code><br>So we can XOR all bits together to find the unique number.</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">singleNumber4</span><span class="params">(nums)</span></span>:</div><div class="line">    a = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="symbol">nums:</span></div><div class="line">        a ^= i</div><div class="line">    <span class="keyword">return</span> a</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Exchange blogroll： <a href="http://laker.me/blog">http://laker.me/blog</a><br>Github：<a href="https://github.com/younglaker" target="_blank" rel="external">https://github.com/younglaker</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- ![LeetCode 189 Rotate Array](https://wx4.sinaimg.cn/large/6d184cefgy1g008qty954j20p0046aaf.jpg) --&gt;
-&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;Given a non-empty array of integers, every element appears twice except for one. Find that single one.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Algorithm" scheme="http://laker.me/blog/categories/Algorithm/"/>
-    
-    
-      <category term="Algorithm" scheme="http://laker.me/blog/tags/Algorithm/"/>
-    
-      <category term="Python" scheme="http://laker.me/blog/tags/Python/"/>
-    
-      <category term="LeetCode" scheme="http://laker.me/blog/tags/LeetCode/"/>
     
   </entry>
   
